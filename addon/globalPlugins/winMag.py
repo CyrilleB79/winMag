@@ -6,9 +6,9 @@
 #See the file COPYING.txt for more details.
 
 """TODO list:
+- Win 10: tester sur versions plus anciennes et voir si tester le build.
 - Test Py3 and 2018.3
 - Test Win7
-- Package as add-on: start with add-on template; remove zzz
 - Implement toggleTracking script (partially done)
 - Implement pane left/right/up/down when pressing ctrl+alt+arrow if not in table (cf. documentBase.py, winword.py, qt.py...)
 - See if possible to implement moveToCaret/Focus/Mouse scripts. See:
@@ -18,7 +18,6 @@
 - See if possibl to get programmatically coords of current view to route mouse to view. See:
 * https://docs.microsoft.com/fr-fr/windows/win32/api/magnification/nf-magnification-maggetfullscreentransform
 * https://social.msdn.microsoft.com/Forums/en-US/8484d886-93e0-4bd7-ac6d-0e019d1bdace/how-do-i-get-the-bounds-of-the-current-windows-magnifier-view-displayed-on-the-screen-and-the-screen?forum=windowsgeneraldevelopmentissues)
-- remove log.debug
 """
 
 from __future__ import unicode_literals
@@ -26,7 +25,6 @@ from __future__ import unicode_literals
 import globalPluginHandler
 from scriptHandler import script
 import ui
-from logHandler import log
 
 try:
 	import winreg
@@ -37,10 +35,9 @@ from functools import wraps
 
 import addonHandler
 
-#zzz addonHandler.initTranslation()
+addonHandler.initTranslation()
 
-#zzz ADDON_SUMMARY = addonHandler.getCodeAddon ().manifest["summary"]
-ADDON_SUMMARY = "zzz"
+ADDON_SUMMARY = addonHandler.getCodeAddon ().manifest["summary"]
 
 MAG_REGISTRY_KEY = r'Software\Microsoft\ScreenMagnifier'
 
@@ -116,7 +113,6 @@ def _WaitForValueChangeForAction(gesture, fetcher, timeout=0.2):
 	startTime=curTime=time.time()
 	curVal=fetcher()
 	while curVal==oldVal and (curTime-startTime)<timeout:
-		log.debug(curVal)
 		time.sleep(0.03)
 		curVal=fetcher()
 		curTime=time.time()
@@ -266,7 +262,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			# Translators: A message reporting mouse cursor tracking mode (cf. option in Magnifier settings)
 			ui.message(_('Mouse tracking mode applies only to full screen view.'))
 			return
-		# zzz Starting with Windows 10 build 17643, you can now choose to keep the mouse cursor centered on the screen or within the edges of the screen while using Magnifier in full screen view. 
+		# (Windows 10 version 1809) zzz Starting with Windows 10 build 17643, you can now choose to keep the mouse cursor centered on the screen or within the edges of the screen while using Magnifier in full screen view. 
 		val = toggleMagnifierKeyValue('FullScreenTrackingMode', default=MAG_DEFAULT_FULL_SCREEN_TRACKING_MODE)
 		if val:
 			# Translators: A message reporting mouse cursor tracking mode (cf. option in Magnifier settings)
