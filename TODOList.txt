@@ -1,0 +1,19 @@
+TODO list:
+
+Known bugs:
+- ctrl+alt+M quickly: may say nothing or wrong value.
+
+Test all features on Win7 and filter if required, including logon screen
+
+Possible code enhancement (to investigate):
+- use notify instead of polling registry value
+- Investigate: Add a way to open only once reg key
+- Try to move layered command framework in a separate dedicated class
+
+New features investigation:
+- See if possible to implement moveToCaret/Focus/Mouse scripts. See:
+* can we fire artificially caret/focus/mouse event
+* see https://docs.microsoft.com/en-us/windows/win32/api/magnification/nf-magnification-magsetfullscreentransform
+- See if possibl to get programmatically coords of current view to route mouse to view. See:
+* https://docs.microsoft.com/fr-fr/windows/win32/api/magnification/nf-magnification-maggetfullscreentransform
+* https://social.msdn.microsoft.com/Forums/en-US/8484d886-93e0-4bd7-ac6d-0e019d1bdace/how-do-i-get-the-bounds-of-the-current-windows-magnifier-view-displayed-on-the-screen-and-the-screen?forum=windowsgeneraldevelopmentissues)
