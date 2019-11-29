@@ -1,9 +1,17 @@
-# -*- coding: UTF-8 -*-
-#globalPlugins/winMag.py
-#NVDA add-on: Windows Magnifier
-#Copyright (C) 2019 Cyrille Bougot
-#This file is covered by the GNU General Public License.
-#See the file COPYING.txt for more details.
+TODO list:
+- Add a way to open only once reg key
+- Test Py3 and 2018.3
+- Test Win7
+- Try to move layered command framework in a separate dedicated class
+- Toggle tracking script: allows to restore only last tracked items.
+- Implement pane left/right/up/down when pressing ctrl+alt+arrow if not in table (cf. documentBase.py, winword.py, qt.py...)
+- See if possible to implement moveToCaret/Focus/Mouse scripts. See:
+* can we fire artificially caret/focus/mouse event
+* see https://docs.microsoft.com/en-us/windows/win32/api/magnification/nf-magnification-magsetfullscreentransform
+- See if possibl to get programmatically coords of current view to route mouse to view. See:
+* https://docs.microsoft.com/fr-fr/windows/win32/api/magnification/nf-magnification-maggetfullscreentransform
+* https://social.msdn.microsoft.com/Forums/en-US/8484d886-93e0-4bd7-ac6d-0e019d1bdace/how-do-i-get-the-bounds-of-the-current-windows-magnifier-view-displayed-on-the-screen-and-the-screen?forum=windowsgeneraldevelopmentissues)
+
 
 from __future__ import unicode_literals
 
@@ -145,8 +153,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		beep(120, 100)
 
 	@script(
-		# Translators: The description for the layered command script basis
-		description = _("Magnifier layer commands: C: Toggle caret tracking, F: Toggle focus tracking, M: Toggle mouse tracking, T: toggle tracking, S: Toggle smoothing, R: Toggle mouse tracking mode, H: Help on layered commands."),
+		description = _("Magnifier layer commands."),
 		gesture = "kb:NVDA+windows+M"
 	)
 	@onlyIfMagRunning
@@ -210,6 +217,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	@script(
 		# Translators: The description for the toggleCaretTracking script
 		description = _("Toggle caret tracking"),
+		gestures = ["kb:nvda+windows+C"]
 	)
 	@onlyIfMagRunning
 	def script_toggleCaretTracking(self, gesture):
@@ -224,6 +232,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	@script(
 		# Translators: The description for the toggleFocusTracking script
 		description = _("Toggle focus tracking"),
+		gestures = ["kb:nvda+windows+F"]
 	)
 	@onlyIfMagRunning
 	def script_toggleFocusTracking(self, gesture):
@@ -238,6 +247,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	@script(
 		# Translators: The description for the toggleMouseTracking script
 		description = _("Toggle mouse tracking"),
+		gestures = ["kb:nvda+windows+M"]
 	)
 	@onlyIfMagRunning
 	def script_toggleMouseTracking(self, gesture):
@@ -251,6 +261,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	@script(
 		# Translators: The description for the toggleTracking script
 		description = _("Toggle tracking"),
+		gestures = ["kb:nvda+windows+T"]
 	)
 	@onlyIfMagRunning
 	def script_toggleTracking(self, gesture):
@@ -273,6 +284,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	@script(
 		# Translators: The description for the toggleSmoothing script
 		description = _("Toggle smoothing"),
+			gestures = ["kb:nvda+windows+S"]
 	)
 	@onlyIfMagRunning
 	def script_toggleSmoothing(self, gesture):
@@ -287,6 +299,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	@script(
 		# Translators: The description for the toggleMouseCursorTrackingMode script
 		description = _("Toggle mouse tracking mode"),
+			gestures = ["kb:nvda+windows+R"]
 	)
 	@onlyIfMagRunning
 	def script_toggleMouseCursorTrackingMode(self, gesture):
@@ -353,16 +366,16 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			raise ValueError('Unexpected MagnificationMode value: {}'.format(val))
 
 	def script_displayHelp(self, gesture):
-		# Translators: The help message reported for the layered command help.
-		msg = _("Magnifier layer commands: C: Toggle caret tracking, F: Toggle focus tracking, M: Toggle mouse tracking, T: toggle tracking, S: Toggle smoothing, R: Toggle mouse tracking mode, H: Help on layered commands.")
-		ui.message(msg)
+		ui.message(_("C: Toggle caret tracking, H: displays this message."))
 		
 	__magLayerGestures = {
-		"kb:c": "toggleCaretTracking",
-		"kb:f": "toggleFocusTracking",
-		"kb:m": "toggleMouseTracking",
-		"kb:t": "toggleTracking",
-		"kb:s": "toggleSmoothing",
-		"kb:r": "toggleMouseCursorTrackingMode",
-		"kb:h": "displayHelp",
+		"kb:c":"toggleCaretTracking",
+		"kb:f":"toggleFocusTracking",
+		"kb:m":"toggleMouseTracking",
+		"kb:t":"toggleTracking",
+		"kb:s":"toggleSmoothing",
+		"kb:r":"toggleMouseCursorTrackingMode",
+		"kb:h":"displayHelp",
 	}
+		
+	
