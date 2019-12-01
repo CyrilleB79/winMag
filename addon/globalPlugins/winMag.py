@@ -127,6 +127,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def __init__(self):
 		super(GlobalPlugin, self).__init__()
 		self.toggling = False
+		self.lastTrackingConfig = None
 		
 	def getScript(self, gesture):
 		if not self.toggling:
@@ -248,6 +249,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		else:
 			# Translators: The message reported when the user turns off focus tracking
 			ui.message(_('Mouse tracking off'))
+			
 	@script(
 		# Translators: The description for the toggleTracking script
 		description = _("Toggle tracking"),
@@ -256,14 +258,15 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def script_toggleTracking(self, gesture):
 		names = ['FollowCaret', 'FollowFocus', 'FollowMouse']
 		defaults=[MAG_DEFAULT_FOLLOW_CARET, MAG_DEFAULT_FOLLOW_FOCUS, MAG_DEFAULT_FOLLOW_MOUSE]
-		vals = [getMagnifierKeyValue(n, d) for (n,d) in zip(names, defaults)]
-		if all(v == 0 for v in vals):
-			vals = [1 for v in vals]
+		dicVals = {n: getMagnifierKeyValue(n, d) for (n,d) in zip(names, defaults)}
+		if all(v == 0 for v in dicVals.values()):
+			dicVals = self.lastTrackingConfig if self.lastTrackingConfig is not None else {n:1 for (n,v) in dicVals.items()}
 		else:
-			vals = [0 for v in vals]
-		for (n,v) in zip(names, vals):
+			self.lastTrackingConfig = dicVals
+			dicVals = {n:0 for (n,v) in dicVals.items()}
+		for (n,v) in dicVals.items():
 			setMagnifierKeyValue(n, v)
-		if not all(v == 0 for v in vals):
+		if not all(v == 0 for v in dicVals.values()):
 			# Translators: The message reported when the user turns on tracking
 			ui.message(_('Tracking on'))
 		else:
