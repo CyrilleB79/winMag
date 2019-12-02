@@ -3,8 +3,8 @@ TODO list:
 - Test Py3 and 2018.3
 - Test Win7
 - Try to move layered command framework in a separate dedicated class
-- Toggle tracking script: allows to restore only last tracked items.
 - Implement pane left/right/up/down when pressing ctrl+alt+arrow if not in table (cf. documentBase.py, winword.py, qt.py...)
+- download link / doc
 - See if possible to implement moveToCaret/Focus/Mouse scripts. See:
 * can we fire artificially caret/focus/mouse event
 * see https://docs.microsoft.com/en-us/windows/win32/api/magnification/nf-magnification-magsetfullscreentransform

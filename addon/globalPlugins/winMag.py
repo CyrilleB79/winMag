@@ -120,6 +120,40 @@ def _WaitForValueChangeForAction(gesture, fetcher, timeout=0.2):
 	log.warning('No value change detected')
 	return curVal
 
+class TrackingConfig(object):
+	
+	EVENTS_TRACKING_DEFAULT_VALUES = {
+		'FollowCaret':  MAG_DEFAULT_FOLLOW_CARET,
+		'FollowFocus':  MAG_DEFAULT_FOLLOW_FOCUS,
+		'FollowMouse':  MAG_DEFAULT_FOLLOW_MOUSE,
+		}
+	lastTrackingConfig = None
+	
+	def __init__(self):
+		pass
+		
+	def toggle(self, eventType):
+		cfg = {n:getMagnifierKeyValue(n, d) for (n,d) in self.EVENTS_TRACKING_DEFAULT_VALUES.items()}
+		if any(cfg.values()):
+			self.__class__.lastTrackingConfig = dict(cfg)
+		if eventType == 'All':
+			if any(cfg.values()):
+				cfg = {n:0 for n in cfg.keys()}
+				val = 0
+			else:
+				cfg = self.__class__.lastTrackingConfig
+				val = 1
+			names = cfg.keys()
+		else:
+			val = 0 if cfg[eventType] else 1
+			cfg[eventType] = val
+			names = [eventType]
+		for n in names:
+			setMagnifierKeyValue(n, cfg[n])
+		if any(cfg.values()):
+			self.__class__.lastTrackingConfig = dict(cfg)
+		return val
+
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	scriptCategory = ADDON_SUMMARY
@@ -127,7 +161,6 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def __init__(self):
 		super(GlobalPlugin, self).__init__()
 		self.toggling = False
-		self.lastTrackingConfig = None
 		
 	def getScript(self, gesture):
 		if not self.toggling:
@@ -214,7 +247,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	)
 	@onlyIfMagRunning
 	def script_toggleCaretTracking(self, gesture):
-		val = toggleMagnifierKeyValue('FollowCARET', default=MAG_DEFAULT_FOLLOW_CARET)
+		cfg = TrackingConfig()
+		val = cfg.toggle('FollowCaret')
 		if val:
 			# Translators: The message reported when the user turns on caret tracking
 			ui.message(_('Caret tracking on'))
@@ -228,7 +262,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	)
 	@onlyIfMagRunning
 	def script_toggleFocusTracking(self, gesture):
-		val = toggleMagnifierKeyValue('FollowFocus', default=MAG_DEFAULT_FOLLOW_FOCUS)
+		cfg = TrackingConfig()
+		val = cfg.toggle('FollowFocus')
 		if val:
 			# Translators: The message reported when the user turns on focus tracking
 			ui.message(_('Focus tracking on'))
@@ -242,31 +277,23 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	)
 	@onlyIfMagRunning
 	def script_toggleMouseTracking(self, gesture):
-		val = toggleMagnifierKeyValue('FollowMouse', default=MAG_DEFAULT_FOLLOW_MOUSE)
+		cfg = TrackingConfig()
+		val = cfg.toggle('FollowMouse')
 		if val:
 			# Translators: The message reported when the user turns on mouse tracking
 			ui.message(_('Mouse tracking on'))
 		else:
 			# Translators: The message reported when the user turns off focus tracking
 			ui.message(_('Mouse tracking off'))
-			
 	@script(
 		# Translators: The description for the toggleTracking script
 		description = _("Toggle tracking"),
 	)
 	@onlyIfMagRunning
 	def script_toggleTracking(self, gesture):
-		names = ['FollowCaret', 'FollowFocus', 'FollowMouse']
-		defaults=[MAG_DEFAULT_FOLLOW_CARET, MAG_DEFAULT_FOLLOW_FOCUS, MAG_DEFAULT_FOLLOW_MOUSE]
-		dicVals = {n: getMagnifierKeyValue(n, d) for (n,d) in zip(names, defaults)}
-		if all(v == 0 for v in dicVals.values()):
-			dicVals = self.lastTrackingConfig if self.lastTrackingConfig is not None else {n:1 for (n,v) in dicVals.items()}
-		else:
-			self.lastTrackingConfig = dicVals
-			dicVals = {n:0 for (n,v) in dicVals.items()}
-		for (n,v) in dicVals.items():
-			setMagnifierKeyValue(n, v)
-		if not all(v == 0 for v in dicVals.values()):
+		cfg = TrackingConfig()
+		val = cfg.toggle('All')
+		if val:
 			# Translators: The message reported when the user turns on tracking
 			ui.message(_('Tracking on'))
 		else:
