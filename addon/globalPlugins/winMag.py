@@ -78,6 +78,9 @@ def isMagnifierRunning():
 def isFullScreenView():
 	return getMagnifierKeyValue('MagnificationMode', default=MAG_DEFAULT_MAGNIFICATION_MODE) == MAG_VIEW_FULLSCREEN
 
+def isDockedOrFullScreenView():
+	return getMagnifierKeyValue('MagnificationMode', default=MAG_DEFAULT_MAGNIFICATION_MODE) in [MAG_VIEW_DOCKED, MAG_VIEW_FULLSCREEN]
+
 def onlyIfMagRunning(s):
 	"""This script decorator allows the decorated script to execute only if the Magnifier is active.
 	If not a message informs the user that the Magnifier is not running.
@@ -90,7 +93,20 @@ def onlyIfMagRunning(s):
 			ui.message(_('The Magnifier is not active'))
 			return
 		s(self, gesture)
-	#script_wrapper.__name__ = f.__name__
+	return script_wrapper
+
+def onlyIfDockedOrFullScreenView(s):
+	"""This script decorator allows the decorated script to execute only if docked or full screen view is active.
+	If not a message informs the user that the feature is not available only in docked or full screen view.
+	"""
+	
+	@wraps(s)
+	def script_wrapper(self, gesture):
+		if not isDockedOrFullScreenView():
+			# Translators: The message reported when the user tries to toggle a tracking mode while docked or full screen view is not active.
+			ui.message(_('Tracking configuration only applicable to docked or full screen view.'))
+			return
+		s(self, gesture)
 	return script_wrapper
 
 # Below toggle code came from Tyler Spivey's code, with enhancements by Joseph Lee.
@@ -246,6 +262,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		description = _("Toggle caret tracking"),
 	)
 	@onlyIfMagRunning
+	@onlyIfDockedOrFullScreenView
 	def script_toggleCaretTracking(self, gesture):
 		cfg = TrackingConfig()
 		val = cfg.toggle('FollowCaret')
@@ -261,6 +278,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		description = _("Toggle focus tracking"),
 	)
 	@onlyIfMagRunning
+	@onlyIfDockedOrFullScreenView
 	def script_toggleFocusTracking(self, gesture):
 		cfg = TrackingConfig()
 		val = cfg.toggle('FollowFocus')
@@ -276,6 +294,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		description = _("Toggle mouse tracking"),
 	)
 	@onlyIfMagRunning
+	@onlyIfDockedOrFullScreenView
 	def script_toggleMouseTracking(self, gesture):
 		cfg = TrackingConfig()
 		val = cfg.toggle('FollowMouse')
@@ -290,6 +309,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		description = _("Toggle tracking"),
 	)
 	@onlyIfMagRunning
+	@onlyIfDockedOrFullScreenView
 	def script_toggleTracking(self, gesture):
 		cfg = TrackingConfig()
 		val = cfg.toggle('All')
@@ -323,10 +343,11 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		# Feature available on Windows 10 build 17643 or higher.
 		winVer = sys.getwindowsversion()
 		if  winVer.major < 10 or winVer.build < 17643:
+			# Translators: The message reported when the user tries to toggle mouse tracking mode whereas his OS version does not support it.
 			ui.message(_('Feature unavailable on this OS version.'))
 			return
 		if not isFullScreenView():
-			# Translators: A message reporting mouse cursor tracking mode (cf. option in Magnifier settings)
+			# Translators: The message reported when the user tries to toggle mouse tracking mode while full screen view is not active.
 			ui.message(_('Mouse tracking mode applies only to full screen view.'))
 			return
 		val = toggleMagnifierKeyValue('FullScreenTrackingMode', default=MAG_DEFAULT_FULL_SCREEN_TRACKING_MODE)

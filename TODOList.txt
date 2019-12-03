@@ -1,5 +1,9 @@
 TODO list:
-- Add a way to open only once reg key
+- Generate automatically help message from scripts descriptions.
+- @onlyIfMagRunning does not work if log off when Mag on and then log on again.
+- ctrl+alt+M quickly: may say nothing or wrong value.
+- use notify instead of polling registry value
+- Investigate: Add a way to open only once reg key
 - Test Py3 and 2018.3
 - Test Win7
 - Try to move layered command framework in a separate dedicated class
