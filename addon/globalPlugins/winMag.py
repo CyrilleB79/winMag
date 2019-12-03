@@ -45,26 +45,40 @@ MAG_DEFAULT_MAGNIFICATION_MODE = MAG_VIEW_FULLSCREEN
 MAG_DEFAULT_RUNNING_STATE = 0
 MAG_DEFAULT_USE_BITMAP_SMOOTHING = 1
 
+magKey = None
+
+def useMagKey(allowWriting=False):
+	"""Fonction to use as a script's decorator with parameter (decorator maker)
+	"""
+	def decoUseMagKey(s):
+		"""Function to use as a script's decorator to allow using the Magnifier registry key (via getMagnifierKeyValue or setMagnifierKeyValue functions).
+		"""
+		@wraps(s)
+		def script_wrapper(self, gesture):
+			global magKey
+			permissions = winreg.KEY_READ | winreg.KEY_WOW64_64KEY
+			if allowWriting:
+				permissions |= winreg.KEY_WRITE
+			magKey = winreg.OpenKey(
+				winreg.HKEY_CURRENT_USER,
+				r'Software\Microsoft\ScreenMagnifier',
+				0, permissions
+			)
+			s(self, gesture)
+			magKey = None
+		return script_wrapper
+	return decoUseMagKey
+
 def getMagnifierKeyValue(name, default=None):
-	k = winreg.OpenKey(
-		winreg.HKEY_CURRENT_USER,
-		MAG_REGISTRY_KEY,
-		0, winreg.KEY_READ | winreg.KEY_WOW64_64KEY
-	)
 	try:
-		return winreg.QueryValueEx(k, name)[0]
+		return winreg.QueryValueEx(magKey, name)[0]
 	except WindowsError as e:
 		if default is not None:
 			return default
 		raise e
 
 def setMagnifierKeyValue(name, val):
-	k = winreg.OpenKey(
-		winreg.HKEY_CURRENT_USER,
-		r'Software\Microsoft\ScreenMagnifier',
-		0, winreg.KEY_READ | winreg.KEY_WRITE | winreg.KEY_WOW64_64KEY
-	)
-	winreg.SetValueEx(k, name, 0, winreg.REG_DWORD, val)
+	winreg.SetValueEx(magKey, name, 0, winreg.REG_DWORD, val)
 	
 def toggleMagnifierKeyValue(name, default=None):
 	val = getMagnifierKeyValue(name, default)
@@ -122,7 +136,7 @@ def finally_(func, final):
 		return new
 	return wrap(final)
 
-#Code taken from NVDA's source code NVDAObjects/window/winword.py
+# Code taken from NVDA's source code NVDAObjects/window/winword.py
 def _WaitForValueChangeForAction(gesture, fetcher, timeout=0.2):
 	oldVal=fetcher()
 	gesture.send()
@@ -201,6 +215,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		description = _("Magnifier layer commands: C: Toggle caret tracking, F: Toggle focus tracking, M: Toggle mouse tracking, T: toggle tracking, S: Toggle smoothing, R: Toggle mouse tracking mode, H: Help on layered commands."),
 		gesture = "kb:NVDA+windows+M"
 	)
+	@useMagKey()
 	@onlyIfMagRunning
 	def script_magLayer(self, gesture):
 		# A run-time binding will occur from which we can perform various layered commands.
@@ -217,7 +232,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	
 	@script(
 		gestures = ["kb:windows+numpadPlus", "kb:windows+numLock+numpadPlus", "kb:windows+="]
-		)	
+	)	
+	@useMagKey()
 	def script_zoomIn(self, gesture):
 		if isMagnifierRunning():
 			self.modifyZoomLevel(gesture)
@@ -227,6 +243,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	@script(
 		gestures = ["kb:windows+-", "kb:windows+numpadMinus", "kb:windows+numLock+numpadMinu"]
 	)	
+	@useMagKey()
 	def script_zoomOut(self, gesture):
 		if isMagnifierRunning():
 			self.modifyZoomLevel(gesture)
@@ -236,6 +253,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	@script(
 		gesture = "kb:windows+escape"
 	)
+	@useMagKey()
 	def script_quitMagnifier(self, gesture):
 		if isMagnifierRunning():
 			self.modifyRunningState(gesture)
@@ -245,6 +263,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	@script(
 		gesture = "kb:control+alt+I"
 	)
+	@useMagKey()
 	def script_toggleColorInversion(self, gesture):
 		if isMagnifierRunning():
 			self.modifyColorInversion(gesture)
@@ -252,8 +271,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			gesture.send()
 	
 	@script(
-		gestures = ["kb:control+alt+M", "kb:control+alt+D", "kb:control+alt+F", "kb:control+alt+L"])
-	def script_changeMagnificationView(self, gesture):
+		gestures = ["kb:control+alt+M", "kb:control+alt+D", "kb:control+alt+F", "kb:control+alt+L"]
+	)
+	@useMagKey()
+	def scriptmm_changeMagnificationView(self, gesture):
 		if isMagnifierRunning():
 			self.modifyMagnificationView(gesture)
 		else:
@@ -263,6 +284,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		# Translators: The description for the toggleCaretTracking script
 		description = _("Toggle caret tracking"),
 	)
+	@useMagKey(allowWriting=True)
 	@onlyIfMagRunning
 	@onlyIfDockedOrFullScreenView
 	def script_toggleCaretTracking(self, gesture):
@@ -279,6 +301,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		# Translators: The description for the toggleFocusTracking script
 		description = _("Toggle focus tracking"),
 	)
+	@useMagKey(allowWriting=True)
 	@onlyIfMagRunning
 	@onlyIfDockedOrFullScreenView
 	def script_toggleFocusTracking(self, gesture):
@@ -295,6 +318,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		# Translators: The description for the toggleMouseTracking script
 		description = _("Toggle mouse tracking"),
 	)
+	@useMagKey(allowWriting=True)
 	@onlyIfMagRunning
 	@onlyIfDockedOrFullScreenView
 	def script_toggleMouseTracking(self, gesture):
@@ -310,6 +334,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		# Translators: The description for the toggleTracking script
 		description = _("Toggle tracking"),
 	)
+	@useMagKey(allowWriting=True)
 	@onlyIfMagRunning
 	@onlyIfDockedOrFullScreenView
 	def script_toggleTracking(self, gesture):
@@ -326,6 +351,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		# Translators: The description for the toggleSmoothing script
 		description = _("Toggle smoothing"),
 	)
+	@useMagKey(allowWriting=True)
 	@onlyIfMagRunning
 	def script_toggleSmoothing(self, gesture):
 		val = toggleMagnifierKeyValue('UseBitmapSmoothing', default=MAG_DEFAULT_USE_BITMAP_SMOOTHING)
@@ -340,6 +366,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		# Translators: The description for the toggleMouseCursorTrackingMode script
 		description = _("Toggle mouse tracking mode"),
 	)
+	@useMagKey(allowWriting=True)
 	@onlyIfMagRunning
 	def script_toggleMouseCursorTrackingMode(self, gesture):
 		# Feature available on Windows 10 build 17643 or higher.
