@@ -138,7 +138,7 @@ def _WaitForValueChangeForAction(gesture, fetcher, timeout=0.2):
 
 class TrackingConfig(object):
 	
-	EVENTS_TRACKING_DEFAULT_VALUES = {
+	DEFAULT_TRACKING_CONFIG = {
 		'FollowCaret':  MAG_DEFAULT_FOLLOW_CARET,
 		'FollowFocus':  MAG_DEFAULT_FOLLOW_FOCUS,
 		'FollowMouse':  MAG_DEFAULT_FOLLOW_MOUSE,
@@ -149,7 +149,7 @@ class TrackingConfig(object):
 		pass
 		
 	def toggle(self, eventType):
-		cfg = {n:getMagnifierKeyValue(n, d) for (n,d) in self.EVENTS_TRACKING_DEFAULT_VALUES.items()}
+		cfg = {n:getMagnifierKeyValue(n, d) for (n,d) in self.DEFAULT_TRACKING_CONFIG.items()}
 		if any(cfg.values()):
 			self.__class__.lastTrackingConfig = dict(cfg)
 		if eventType == 'All':
@@ -157,7 +157,9 @@ class TrackingConfig(object):
 				cfg = {n:0 for n in cfg.keys()}
 				val = 0
 			else:
-				cfg = self.__class__.lastTrackingConfig
+				cfg = self.__class__.lastTrackingConfig 
+				if cfg is None:
+					cfg = self.DEFAULT_TRACKING_CONFIG
 				val = 1
 			names = cfg.keys()
 		else:
