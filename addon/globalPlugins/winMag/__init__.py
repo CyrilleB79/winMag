@@ -33,6 +33,22 @@ addonHandler.initTranslation()
 
 ADDON_SUMMARY = addonHandler.getCodeAddon ().manifest["summary"]
 
+# Alpha-numeric keyboard Magnifier keys
+# Translators: The key used natively byt the Magnifier on the alpha-numeric (main) keyboard in conjunction with Win key to zoom in.
+KEY_ALPHA_PLUS = _("=")
+# Translators: The key used natively byt the Magnifier on the alpha-numeric (main) keyboard in conjunction with Win key to zoom out.
+KEY_ALPHA_MINUS = _("-")
+
+# Check of these translated keys:
+# Do not do it in GlobalPlugin.__init__ since these strings are used at class definition.
+if KEY_ALPHA_PLUS == "+":
+	KEY_ALPHA_PLUS == "plus"
+if (
+	(len(KEY_ALPHA_PLUS) != 1 and KEY_ALPHA_PLUS != 'plus')
+	or len(KEY_ALPHA_MINUS) != 1
+):
+	log.error("Error in Windows Magnifier shortcut key translation (Windows Magnifier add-on)")
+
 MAG_REGISTRY_KEY = r'Software\Microsoft\ScreenMagnifier'
 
 #Magnifier view types
@@ -81,12 +97,15 @@ def toggleMagnifierKeyValue(name, default=None):
 def isMagnifierRunning():
 	# We do not use the existing RunningState registry key because does not work in the following use case:
 	# User logs off while Mag is active, then user logs on again. Even if Mag is not yet started by the user, the registry still holds RunningState value to 1.
+	return getDesktopChildObj('MagUIClass') is not None
+	
+def getDesktopChildObj(windowClassName):
 	o = api.getDesktopObject().firstChild
 	while o:
-		if o.windowClassName == 'MagUIClass':
-			return True
+		if o.windowClassName == windowClassName:
+			return o
 		o = o.next
-	return False
+	return None
 
 def isFullScreenView():
 	return getMagnifierKeyValue('MagnificationMode', default=MAG_DEFAULT_MAGNIFICATION_MODE) == MAG_VIEW_FULLSCREEN
@@ -159,38 +178,52 @@ cached = {}
 def patched_findScript(gesture):
 	global cached
 	oldScript = orig_findScript(gesture)
-	if oldScript:
-		# We need a cache so that, for last script, checking wrapped script has always the same ref
-		# else, getLastScriptRepeatCount would always return 0
-		newScript = cached.get(oldScript, None)
-		if not newScript:
-			@wraps(oldScript)
-			def newScript(self, g):
-				global canRaiseNotInTableException
-				try:
-					canRaiseNotInTableException = True
-					oldScript(g)
-				except NotInTableException:
-					g.send()
-				finally:
-					canRaiseNotInTableException = False
-			try:
-				newScript = MethodType(newScript, oldScript.__self__)
-			except AttributeError:
-			# oldScript.__self__ is not defined if oldScript is a function and not a bound method
-			# This can happen in some addons' implementation of layered command
-			# as well as the following definition in gestures.ini:
-			# kb:a = kb:b
-			# No patch in this case
-				newScript = oldScript
-			except:
-			# If patching fails for any reason, log the error, but also return oldScript in order not to block NVDA.
-				newScript = oldScript
-				log.exception('Error patching script')
-			cached = {oldScript: newScript}
-	else:
-		newScript = oldScript
-	return newScript
+	if gesture.mainKeyName.endswith('Arrow'):
+		# Control+shift+arrows is caught by Magnifier when it is running to resize lens or docked windows.
+		# Else it may correspond to another shortcut such as in Word where these gesture are the one to increase/decrease title level
+		# or to move up/down a paragraph.
+		if (gesture.normalizedIdentifiers[0].split(':')[1] in ['alt+downarrow+shift', 'alt+leftarrow+shift', 'alt+rightarrow+shift', 'alt+shift+uparrow']
+		and isMagnifierRunning()):
+			winMagPlugin = [p for p in globalPluginHandler.runningPlugins if isinstance(p, GlobalPlugin)][0]
+			return winMagPlugin.script_changeMagnificationWindowSize
+		# For control+alt+arrow, create a compound script:
+		# that will call Magnifier move commands (control+alt+arrow) rather than saying "Not in a table" message.
+		if gesture.normalizedIdentifiers[0].split(':')[1] in ['alt+control+downarrow', 'alt+control+leftarrow', 'alt+control+rightarrow', 'alt+control+uparrow']:
+			if oldScript:
+				# We need a cache so that, for last script, checking wrapped script has always the same ref
+				# else, getLastScriptRepeatCount would always return 0
+				newScript = cached.get(oldScript, None)
+				if not newScript:
+					@wraps(oldScript)
+					def newScript(self, g):
+						global canRaiseNotInTableException
+						try:
+							canRaiseNotInTableException = True
+							oldScript(g)
+						except NotInTableException:
+							winMagPlugin = [p for p in globalPluginHandler.runningPlugins if isinstance(p, GlobalPlugin)][0]
+							winMagPlugin.script_moveView(g)
+						finally:
+							canRaiseNotInTableException = False
+					try:
+						newScript = MethodType(newScript, oldScript.__self__)
+					except AttributeError:
+					# oldScript.__self__ is not defined if oldScript is a function and not a bound method
+					# This can happen in some addons' implementation of layered command
+					# as well as the following definition in gestures.ini:
+					# kb:a = kb:b
+					# No patch in this case
+						newScript = oldScript
+					except:
+					# If patching fails for any reason, log the error, but also return oldScript in order not to block NVDA.
+						newScript = oldScript
+						log.exception('Error patching script')
+					cached = {oldScript: newScript}
+				return newScript
+			else:
+				winMagPlugin = [p for p in globalPluginHandler.runningPlugins if isinstance(p, GlobalPlugin)][0]
+				return winMagPlugin.script_moveView
+	return oldScript
 
 def patched_message(text, *args, **kwargs):
 	if canRaiseNotInTableException:
@@ -272,6 +305,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		self.toggling = False
 		ui.message = patched_message
 		scriptHandler.findScript = patched_findScript 
+		self.lastResize = None
 	
 	def getScript(self, gesture):
 		if not self.toggling:
@@ -291,8 +325,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	@script(
 		# Translators: Part of the description for the layered command script
-		description = _("Magnifier layer commands: {cmdList}").format(cmdList=", ".join(s[0] + ": " + s[2] for s in __magLayerScriptList)),
-		gesture = "kb:NVDA+windows+M"
+		description = _("Windows Magnifier layer commands entry point."),
+		gesture = "kb:NVDA+windows+O"
 	)
 	@onlyIfMagRunning
 	def script_magLayer(self, gesture):
@@ -311,7 +345,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		scriptHandler.findScript = orig_findScript 
 	
 	@script(
-		gestures = ["kb:windows+numpadPlus", "kb:windows+numLock+numpadPlus", "kb:windows+="]
+		gestures = ["kb:windows+numpadPlus", "kb:windows+numLock+numpadPlus", "kb:windows+" + KEY_ALPHA_PLUS, "kb:windows+plus"]
 		)	
 	def script_zoomIn(self, gesture):
 		if isMagnifierRunning():
@@ -320,7 +354,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			self.modifyRunningState(gesture)
 	
 	@script(
-		gestures = ["kb:windows+-", "kb:windows+numpadMinus", "kb:windows+numLock+numpadMinu"]
+		gestures = ["kb:windows+numpadMinus", "kb:windows+numLock+numpadMinu", "kb:windows+" + KEY_ALPHA_MINUS, "kb:windows+-"]
 	)	
 	def script_zoomOut(self, gesture):
 		if isMagnifierRunning():
@@ -347,13 +381,49 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			gesture.send()
 	
 	@script(
-		gestures = ["kb:control+alt+M", "kb:control+alt+D", "kb:control+alt+F", "kb:control+alt+L"])
+		gestures = ["kb:control+alt+M", "kb:control+alt+D", "kb:control+alt+F", "kb:control+alt+L"]
+	)
 	def script_changeMagnificationView(self, gesture):
 		if isMagnifierRunning():
 			self.modifyMagnificationView(gesture)
 		else:
 			gesture.send()
-
+	
+	dicArrowDir = {
+		'leftArrow': _('left'),
+		'rightArrow': _('right'),
+		'upArrow': _('up'),
+		'downArrow': _('down'),
+		}
+	def script_moveView(self, gesture):
+		ui.message(self.dicArrowDir[gesture.mainKeyName])
+		gesture.send()
+		
+	def script_changeMagnificationWindowSize(self, gesture):
+		if isMagnifierRunning():
+			gesture.send()
+			mode = getMagnifierKeyValue('MagnificationMode', default=MAG_DEFAULT_MAGNIFICATION_MODE)
+			if mode == MAG_VIEW_DOCKED:
+				oMag = getDesktopChildObj("Screen Magnifier Window")
+				curResize = 'width' if gesture.mainKeyName in ['leftArrow', 'rightArrow'] else 'height'
+				announceDim = curResize != self.lastResize or not scriptHandler.getLastScriptRepeatCount()
+				msg = '{dimension}: {val}' if announceDim else '{val}'
+				if curResize == 'width':
+					dim = _('Widht')
+					val = oMag.location.width
+					self.lastResize = 'width'
+				elif curResize == 'height':
+					dim = _('Heigh')
+					val = oMag.location.height
+					self.lastResize = 'height'
+				ui.message(msg.format(dimension=dim, val=val))
+			elif mode == MAG_VIEW_LENS:
+				ui.message(_('Resizing lens.'))
+			else:
+				ui.message(_('Resizing not available in full screen.'))
+		else:
+			raise RuntimeError('Unexpected case')
+		
 	@script(
 		description = DESC_TOGGLE_CARET_TRACKING
 	)
@@ -405,7 +475,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			# Translators: The message reported when the user turns off focus tracking
 			ui.message(_('Mouse tracking off'))
 	@script(
-		description = DESC_TOGGLE_TRACKING
+		description = DESC_TOGGLE_TRACKING,
 	)
 	@onlyIfMagRunning
 	@onlyIfDockedOrFullScreenView
@@ -469,7 +539,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	
 	def modifyRunningState(self, gesture):
 		fetcher = lambda: getMagnifierKeyValue('RunningState', default=MAG_DEFAULT_RUNNING_STATE)
-		val = _WaitForValueChangeForAction(gesture, fetcher, timeout=2)
+		val = _WaitForValueChangeForAction(gesture, fetcher, timeout=4)
 		if val == 1:
 			# Translators: The message reported when the user turns on the Magnifier
 			ui.message(_('Magnifier on'))
@@ -516,7 +586,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		description = DESC_DISPLAY_HELP
 	)
 	def script_displayHelp(self, gesture):
-		cmdList = ', '.join(s[0] + ': ' + s[2] for s in self.__magLayerScriptList)
+		# Translators: Title of the layered command help window.
+		title = _("Windows Magnifier layered commands")
+		cmdList = '\r'.join(s[0] + ': ' + s[2] for s in self.__magLayerScriptList)
 		# Translators: Part of the help message reported for the layered command help.
-		msg = _("Magnifier layer commands: {cmdList}").format(cmdList=cmdList)
-		ui.message(msg)
+		msg = _("Magnifier layer commands:\n{cmdList}").format(cmdList=cmdList)
+		ui.browseableMessage(msg, title)

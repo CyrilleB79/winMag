@@ -16,17 +16,17 @@ This addon improves the use of the Windows Magnifier with NVDA.
 
 ## Commands added by this add-on
 
-All the commands added to control Magnifier options are accessible through the Magnifier layer command NVDA+Windows+M:
+All the commands added to control Magnifier options are accessible through the Magnifier layer command NVDA+Windows+O:
 
-* NVDA+Windows+M then C: Toggles on or off caret tracking
-* NVDA+Windows+M then F: Toggles on or off focus tracking
-* NVDA+Windows+M then M: Toggles on or off mouse tracking
-* NVDA+Windows+M then T: Toggles on or off tracking globally
-* NVDA+Windows+M then S: Toggles on or off smoothing
-* NVDA+Windows+M then R: Switch between mouse tracking modes (within the edge of the screen or centered on the screen); this feature is only available on Windows 10 build 17643 or higher.
-* NVDA+Windows+M then H: Displays help on Magnifier layer commands
+* NVDA+Windows+O then C: Toggles on or off caret tracking
+* NVDA+Windows+O then F: Toggles on or off focus tracking
+* NVDA+Windows+O then M: Toggles on or off mouse tracking
+* NVDA+Windows+O then T: Toggles on or off tracking globally
+* NVDA+Windows+O then S: Toggles on or off smoothing
+* NVDA+Windows+O then R: Switch between mouse tracking modes (within the edge of the screen or centered on the screen); this feature is only available on Windows 10 build 17643 or higher.
+* NVDA+Windows+O then H: Displays help on Magnifier layer commands
 
-There is no default gesture for each command, but you can attribute one normally in the input gesture dialog if you wish. The same way, You can also modify or delete the Magnifier layer access gesture (NVDA+Windows+M). Yet, you cannot modify the shortcut key of the Magnifier layer sub-commands.
+There is no default gesture for each command, but you can attribute one normally in the input gesture dialog if you wish. The same way, You can also modify or delete the Magnifier layer access gesture (NVDA+Windows+O). Yet, you cannot modify the shortcut key of the Magnifier layer sub-commands.
 
 
 ## Magnifier's native commands
@@ -58,6 +58,11 @@ At last, here is a list of other Magnifier native commands, just for information
 * Control+Alt+Space: Quickly see the entire desktop when using full screen view
 
 None of the Magnifier native commands can be modified.
+
+
+## Note
+
+* For computers equiped with an Intel graphic card, control+alt+arrow (left/right/up/down) are also shortcut to modify the orientation of the screen. These shortcut are enabled by default and conflict with Windows Magnifiers shortcuts to move the view. You will need to disable them to be able to use them for the Magnifier. They can be disabled in the Intel control panel or in the Intel menu present in the systray.
 
 
 ## Change log

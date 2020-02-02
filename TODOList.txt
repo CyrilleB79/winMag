@@ -1,5 +1,38 @@
 TODO list:
 
+Review:
+DONE:
+1. Magnifier shortcut keys are now translatable to match localized keyboard layout.
+2. Note that ctrl+alt+arrow keys also turn the screen orientation if you have an Intel Grafic card. 
+> Why don't you turn off those shortkeys in the intel controlpanel?
+> https://ccm.net/faq/33684-disable-hot-keys-on-intel-graphics
+3. windows+alt+m is already used by the addon golden cursor.  -> windows+nvda+v for “vision”)?
+-> Put NVDA+Windows+O. I find more handy to type this combination specially on some keyboard that do not have windows key on the right. Since this is the layer access key, it should be easy to type.
+4. Browsible help message
+
+DONE with comments:
+1. In buildVars.py: could you please add an addon URL? Also an entry for the update channel is very welcome if you want to update this addon regularly
+- Github URL added. Is this OK
+- buildVars.py has no channel, what corresponds to stable. But building the add-on with "scons dev=True" makes a dev version and add-on channel is updated accordingly in the manifest. AppVeyor config file takes advantage of this possibility.
+2. control+alt+arrows vocal feedback
+- What is expected as a feedback
+- Implemented as a test, not sure to keep it.
+
+PARTIALLY DONE with comments:
+3. alt+shift+arrow keys and ctrl+alt+r do also not report anything. If it is not possible to add reportings for these, please add a sentence to the documentation accordingly
+alt+shift+arrow:
+- docked (dim) + fullscreen (ok)
+- lens: info but dim not available
+ctrl+alt+R: Not done. How does it work exactly? What is the info to give and when.
+
+BLOCKED
+1. Announce zoom when clicking on + or - in Magnifier UI (and when using control+alt+mouseWheel)
+Trying to define event_nameChange to announce a change of the zoom factor label. The event handler is not called.
+Trying to look at events with AccEvent, I get the following line:
+OBJ_NAMECHANGE	 idChild=0 [Error: getting object: hr=0x80004005 - Erreur non spécifiée]
+i.e. "Unspecified error"
+
+
 Known bugs:
 - ctrl+alt+M quickly: may say nothing or wrong value.
 
