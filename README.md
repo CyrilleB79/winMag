@@ -60,9 +60,14 @@ At last, here is a list of other Magnifier native commands, just for information
 None of the Magnifier native commands can be modified.
 
 
-## Note
+## Notes
 
 * For computers equiped with an Intel graphic card, control+alt+arrow (left/right/up/down) are also shortcut to modify the orientation of the screen. These shortcut are enabled by default and conflict with Windows Magnifiers shortcuts to move the view. You will need to disable them to be able to use them for the Magnifier. They can be disabled in the Intel control panel or in the Intel menu present in the systray.
+* Alt+Shift+Arrow are Windows Magnifier shortcuts to resize the magnified view (lens or docked). When Magnifier is active (even in fullscreen mode), these shortcuts are captured by Magnifier and cannot be passed to the application, even if you press NVDA+F2 before. To use these shortcuts in the current application, you need to quit the Magnifier (Windows+Escape) and re-open it after (Windows++). For example in MS word, to increase title level:
+
+    * Press Windows+Escape to quit Magnifier
+    * Press Alt+Shift+RightArrow to increase current title level
+    * Press Windows++ to re-open the Magnifier
 
 
 ## Change log
