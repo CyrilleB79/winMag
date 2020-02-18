@@ -82,4 +82,4 @@ None of the Magnifier native commands can be modified.
 
 * Initial release.
 
-[2]: https://github.com/CyrilleB79/winMag/releases/download/V1.0-dev-20200127/winMag-1.0-dev-20200127.nvda-addon
+[2]: https://addons.nvda-project.org/files/get.php?file=winmag-dev
