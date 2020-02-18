@@ -121,7 +121,7 @@ def onlyIfMagRunning(s):
 	@wraps(s)
 	def script_wrapper(self, gesture):
 		if not isMagnifierRunning():
-			# Translators: The message reported when the user tries to use a Magnifier dedicated command while the Magnifier is not running
+			# Translators: The message reported when the user tries to use a Magnifier dedicated command while the Magnifier is not running.
 			ui.message(_('The Magnifier is not active'))
 			return
 		s(self, gesture)
@@ -269,19 +269,19 @@ class TrackingConfig(object):
 			self.__class__.lastTrackingConfig = dict(cfg)
 		return val
 
-# Translators: The description for the toggleCaretTracking script
+# Translators: The description for the toggleCaretTracking script.
 DESC_TOGGLE_CARET_TRACKING = _("Toggles on or off caret tracking")
-# Translators: The description for the toggleFocusTracking script
+# Translators: The description for the toggleFocusTracking script.
 DESC_TOGGLE_FOCUS_TRACKING = _("Toggles on or off focus tracking")
-# Translators: The description for the toggleMouseTracking script
+# Translators: The description for the toggleMouseTracking script.
 DESC_TOGGLE_MOUSE_TRACKING = _("Toggles on or off mouse tracking")
-# Translators: The description for the toggleTracking script
+# Translators: The description for the toggleTracking script.
 DESC_TOGGLE_TRACKING = _("Toggles on or off tracking globally")
-# Translators: The description for the toggleSmoothing script
+# Translators: The description for the toggleSmoothing script.
 DESC_TOGGLE_SMOOTHING = _("Toggles on or off smoothing")
-# Translators: The description for the toggleMouseCursorTrackingMode script
+# Translators: The description for the toggleMouseCursorTrackingMode script.
 DESC_TOGGLE_MOUSE_CURSOR_TRACKING_MODE = _("Switch between mouse tracking modes (within the edge of the screen or centered on the screen)")
-# Translators: The description for the displayHelp script
+# Translators: The description for the displayHelp script.
 DESC_DISPLAY_HELP = _("Displays help on Magnifier layer commands")
 
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
@@ -324,7 +324,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		beep(120, 100)
 
 	@script(
-		# Translators: Part of the description for the layered command script
+		# Translators: Part of the description for the layered command script.
 		description = _("Windows Magnifier layer commands entry point."),
 		gesture = "kb:NVDA+windows+O"
 	)
@@ -354,7 +354,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			self.modifyRunningState(gesture)
 	
 	@script(
-		gestures = ["kb:windows+numpadMinus", "kb:windows+numLock+numpadMinu", "kb:windows+" + KEY_ALPHA_MINUS, "kb:windows+-"]
+		gestures = ["kb:windows+numpadMinus", "kb:windows+numLock+numpadMinus", "kb:windows+" + KEY_ALPHA_MINUS, "kb:windows+-"]
 	)	
 	def script_zoomOut(self, gesture):
 		if isMagnifierRunning():
@@ -390,9 +390,13 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			gesture.send()
 	
 	dicArrowDir = {
+		# Translators: A direction reported when the user moves the magnified view.
 		'leftArrow': _('left'),
+		# Translators: A direction reported when the user moves the magnified view.
 		'rightArrow': _('right'),
+		# Translators: A direction reported when the user moves the magnified view.
 		'upArrow': _('up'),
+		# Translators: A direction reported when the user moves the magnified view.
 		'downArrow': _('down'),
 		}
 	def script_moveView(self, gesture):
@@ -409,17 +413,21 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				announceDim = curResize != self.lastResize or not scriptHandler.getLastScriptRepeatCount()
 				msg = '{dimension}: {val}' if announceDim else '{val}'
 				if curResize == 'width':
+					# Translators: A dimension reported when the user resizes the docked view.
 					dim = _('Widht')
 					val = oMag.location.width
 					self.lastResize = 'width'
 				elif curResize == 'height':
-					dim = _('Heigh')
+					# Translators: A dimension reported when the user resizes the docked view.
+					dim = _('Height')
 					val = oMag.location.height
 					self.lastResize = 'height'
 				ui.message(msg.format(dimension=dim, val=val))
 			elif mode == MAG_VIEW_LENS:
+				# Translators: A message reported when the user resizes the lens with the keyboard.
 				ui.message(_('Resizing lens.'))
 			else:
+				# Translators: A message reported when the user uses resizing shortcuts (control+shift+arrow) in fullscreen view.
 				ui.message(_('Resizing not available in full screen.'))
 		else:
 			raise RuntimeError('Unexpected case')
@@ -435,10 +443,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		cfg = TrackingConfig()
 		val = cfg.toggle('FollowCaret')
 		if val:
-			# Translators: The message reported when the user turns on caret tracking
+			# Translators: The message reported when the user turns on caret tracking.
 			ui.message(_('Caret tracking on'))
 		else:
-			# Translators: The message reported when the user turns off caret tracking
+			# Translators: The message reported when the user turns off caret tracking.
 			ui.message(_('Caret tracking off'))
 	
 	@script(
@@ -452,10 +460,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		cfg = TrackingConfig()
 		val = cfg.toggle('FollowFocus')
 		if val:
-			# Translators: The message reported when the user turns on focus tracking
+			# Translators: The message reported when the user turns on focus tracking.
 			ui.message(_('Focus tracking on'))
 		else:
-			# Translators: The message reported when the user turns off focus tracking
+			# Translators: The message reported when the user turns off focus tracking.
 			ui.message(_('Focus tracking off'))
 
 	@script(
@@ -469,10 +477,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		cfg = TrackingConfig()
 		val = cfg.toggle('FollowMouse')
 		if val:
-			# Translators: The message reported when the user turns on mouse tracking
+			# Translators: The message reported when the user turns on mouse tracking.
 			ui.message(_('Mouse tracking on'))
 		else:
-			# Translators: The message reported when the user turns off focus tracking
+			# Translators: The message reported when the user turns off focus tracking.
 			ui.message(_('Mouse tracking off'))
 	@script(
 		description = DESC_TOGGLE_TRACKING,
@@ -485,10 +493,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		cfg = TrackingConfig()
 		val = cfg.toggle('All')
 		if val:
-			# Translators: The message reported when the user turns on tracking
+			# Translators: The message reported when the user turns on tracking.
 			ui.message(_('Tracking on'))
 		else:
-			# Translators: The message reported when the user turns off tracking
+			# Translators: The message reported when the user turns off tracking.
 			ui.message(_('Tracking off'))
 	
 	@script(
@@ -500,10 +508,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			return
 		val = toggleMagnifierKeyValue('UseBitmapSmoothing', default=MAG_DEFAULT_USE_BITMAP_SMOOTHING)
 		if val:
-			# Translators: The message reported when the user turns on smoothing
+			# Translators: The message reported when the user turns on smoothing.
 			ui.message(_('Smoothing on'))
 		else:
-			# Translators: The message reported when the user turns off smoothing
+			# Translators: The message reported when the user turns off smoothing.
 			ui.message(_('Smoothing off'))
 	
 	@script(
@@ -526,14 +534,15 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			return
 		val = toggleMagnifierKeyValue('FullScreenTrackingMode', default=MAG_DEFAULT_FULL_SCREEN_TRACKING_MODE)
 		if val:
-			# Translators: A message reporting mouse cursor tracking mode (cf. option in Magnifier settings)
+			# Translators: A message reporting mouse cursor tracking mode (cf. option in Magnifier settings).
 			ui.message(_('Centered on the screen'))
 		else:
-			# Translators: A message reporting mouse cursor tracking mode (cf. option in Magnifier settings)
+			# Translators: A message reporting mouse cursor tracking mode (cf. option in Magnifier settings).
 			ui.message(_('Within the edge of the screen'))
 
 	def checkSecureScreen(self):
 		if globalVars.appArgs.secure:
+			# Translators: A message reported in secure screen when the user attempts to modify magnifiers settings.
 			ui.message(_('Command unavailable on this screen.'))
 		return globalVars.appArgs.secure
 	
@@ -541,10 +550,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		fetcher = lambda: getMagnifierKeyValue('RunningState', default=MAG_DEFAULT_RUNNING_STATE)
 		val = _WaitForValueChangeForAction(gesture, fetcher, timeout=4)
 		if val == 1:
-			# Translators: The message reported when the user turns on the Magnifier
+			# Translators: The message reported when the user turns on the Magnifier.
 			ui.message(_('Magnifier on'))
 		elif val == 0:
-			# Translators: The message reported when the user turns off the Magnifier
+			# Translators: The message reported when the user turns off the Magnifier.
 			ui.message(_('Magnifier off'))
 		else:
 			raise ValueError('Unexpected RunningState value: {}'.format(val))
@@ -552,17 +561,17 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def modifyZoomLevel(self, gesture):
 		fetcher = lambda: getMagnifierKeyValue('Magnification', default=MAG_DEFAULT_MAGNIFICATION)
 		val = _WaitForValueChangeForAction(gesture, fetcher)
-		# Translators: A zoom level reported when the user changes the zoom level
+		# Translators: A zoom level reported when the user changes the zoom level.
 		ui.message(_('{zoomLevel}%'.format(zoomLevel=val)))
 		
 	def modifyColorInversion(self, gesture):
 		fetcher = lambda: getMagnifierKeyValue('Invert', default=MAG_DEFAULT_INVERT)
 		val = _WaitForValueChangeForAction(gesture, fetcher, timeout=0.5)
 		if val == 1:
-			# Translators: The message reported when the user turns on color inversion
+			# Translators: The message reported when the user turns on color inversion.
 			ui.message(_('Color inversion on'))
 		elif val == 0:
-			# Translators: The message reported when the user turns off color inversion
+			# Translators: The message reported when the user turns off color inversion.
 			ui.message(_('Color inversion off'))
 		else:
 			raise ValueError('Unexpected Invert value: {}'.format(val))
@@ -589,6 +598,6 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		# Translators: Title of the layered command help window.
 		title = _("Windows Magnifier layered commands")
 		cmdList = '\r'.join(s[0] + ': ' + s[2] for s in self.__magLayerScriptList)
-		# Translators: Part of the help message reported for the layered command help.
+		# Translators: Part of the help message displayed for the layered command help.
 		msg = _("Magnifier layer commands:\n{cmdList}").format(cmdList=cmdList)
 		ui.browseableMessage(msg, title)
