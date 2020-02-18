@@ -280,7 +280,7 @@ DESC_TOGGLE_TRACKING = _("Toggles on or off tracking globally")
 # Translators: The description for the toggleSmoothing script.
 DESC_TOGGLE_SMOOTHING = _("Toggles on or off smoothing")
 # Translators: The description for the toggleMouseCursorTrackingMode script.
-DESC_TOGGLE_MOUSE_CURSOR_TRACKING_MODE = _("Switch between mouse tracking modes (within the edge of the screen or centered on the screen)")
+DESC_TOGGLE_MOUSE_CURSOR_TRACKING_MODE = _("Switches between mouse tracking modes (within the edge of the screen or centered on the screen)")
 # Translators: The description for the displayHelp script.
 DESC_DISPLAY_HELP = _("Displays help on Magnifier layer commands")
 
@@ -427,7 +427,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				# Translators: A message reported when the user resizes the lens with the keyboard.
 				ui.message(_('Resizing lens.'))
 			else:
-				# Translators: A message reported when the user uses resizing shortcuts (control+shift+arrow) in fullscreen view.
+				# Translators: A message reported when the user uses resizing shortcuts (control+shift+arrow) in full screen view.
 				ui.message(_('Resizing not available in full screen.'))
 		else:
 			raise RuntimeError('Unexpected case')
