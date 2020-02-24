@@ -178,7 +178,12 @@ cached = {}
 def patched_findScript(gesture):
 	global cached
 	oldScript = orig_findScript(gesture)
-	if gesture.mainKeyName.endswith('Arrow'):
+	try:
+		mainKeyName = gesture.mainKeyName
+	except AttributeError:
+		#This gesture is not a KeyboardInputGesture, so mainKeyName attribut does not exist
+		mainKeyName = None
+	if mainKeyName and mainKeyName.endswith('Arrow'):
 		# Control+shift+arrows is caught by Magnifier when it is running to resize lens or docked windows.
 		# Else it may correspond to another shortcut such as in Word where these gesture are the one to increase/decrease title level
 		# or to move up/down a paragraph.
