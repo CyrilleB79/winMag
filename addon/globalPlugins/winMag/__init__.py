@@ -8,6 +8,7 @@
 from __future__ import unicode_literals
 
 from .msg import nvdaTranslation
+from .magnification import Magnification 
 
 import globalPluginHandler
 import ui
@@ -16,7 +17,11 @@ import api
 from tones import beep
 from scriptHandler import script
 from logHandler import log
+import mouseHandler
 import globalVars
+import winUser
+
+import wx
 
 import sys
 try:
@@ -97,15 +102,19 @@ def toggleMagnifierKeyValue(name, default=None):
 def isMagnifierRunning():
 	# We do not use the existing RunningState registry key because does not work in the following use case:
 	# User logs off while Mag is active, then user logs on again. Even if Mag is not yet started by the user, the registry still holds RunningState value to 1.
-	return getDesktopChildObj('MagUIClass') is not None
+	# Instead we use the Magnifier UI window that is always present, even if hidden.
+	return getDesktopChildObject('MagUIClass') is not None
 	
-def getDesktopChildObj(windowClassName):
+def getDesktopChildObject(windowClassName):
 	o = api.getDesktopObject().firstChild
 	while o:
 		if o.windowClassName == windowClassName:
 			return o
 		o = o.next
 	return None
+
+def getDockedWindowObject():
+	return getDesktopChildObject(windowClassName="Screen Magnifier Window")
 
 def isFullScreenView():
 	return getMagnifierKeyValue('MagnificationMode', default=MAG_DEFAULT_MAGNIFICATION_MODE) == MAG_VIEW_FULLSCREEN
@@ -286,6 +295,8 @@ DESC_TOGGLE_TRACKING = _("Toggles on or off tracking globally")
 DESC_TOGGLE_SMOOTHING = _("Toggles on or off smoothing")
 # Translators: The description for the toggleMouseCursorTrackingMode script.
 DESC_TOGGLE_MOUSE_CURSOR_TRACKING_MODE = _("Switches between mouse tracking modes (within the edge of the screen or centered on the screen)")
+# Translators: The description for the moveMouseToView script.
+DESC_MOVE_MOUSE_TO_VIEW = _("Moves the mouse cursor in the center of the zoomed view")
 # Translators: The description for the displayHelp script.
 DESC_DISPLAY_HELP = _("Displays help on Magnifier layer commands")
 
@@ -301,6 +312,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		("t", "toggleTracking", DESC_TOGGLE_TRACKING),
 		("s", "toggleSmoothing", DESC_TOGGLE_SMOOTHING),
 		("r", "toggleMouseCursorTrackingMode", DESC_TOGGLE_MOUSE_CURSOR_TRACKING_MODE),
+		("v", "moveMouseToView", DESC_MOVE_MOUSE_TO_VIEW),
 		("h", "displayHelp", DESC_DISPLAY_HELP),
 	]
 	
@@ -413,7 +425,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			gesture.send()
 			mode = getMagnifierKeyValue('MagnificationMode', default=MAG_DEFAULT_MAGNIFICATION_MODE)
 			if mode == MAG_VIEW_DOCKED:
-				oMag = getDesktopChildObj("Screen Magnifier Window")
+				oMag = getDockedWindowObject()
 				curResize = 'width' if gesture.mainKeyName in ['leftArrow', 'rightArrow'] else 'height'
 				announceDim = curResize != self.lastResize or not scriptHandler.getLastScriptRepeatCount()
 				msg = '{dimension}: {val}' if announceDim else '{val}'
@@ -526,9 +538,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def script_toggleMouseCursorTrackingMode(self, gesture):
 		if self.checkSecureScreen():
 			return
-		# Feature available on Windows 10 build 17643 or higher.
-		winVer = sys.getwindowsversion()
-		if  winVer.major < 10 or winVer.build < 17643:
+		if not self.isFullScreenTrackingModeAvailable():
 			# Translators: The message reported when the user tries to toggle mouse tracking mode whereas his Windows version does not support it.
 			ui.message(_('Feature unavailable in this version of Windows.'))
 			return
@@ -545,11 +555,51 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			# Translators: A message reporting mouse cursor tracking mode (cf. option in Magnifier settings).
 			ui.message(_('Within the edge of the screen'))
 
+	@script(
+		description = DESC_MOVE_MOUSE_TO_VIEW
+	)
+	@onlyIfMagRunning
+	def script_moveMouseToView(self, gesture):
+		mode = getMagnifierKeyValue('MagnificationMode', default=MAG_DEFAULT_MAGNIFICATION_MODE)
+		if mode == MAG_VIEW_LENS:
+			# Translators: A message reported when the user tries to execute script mouseToView
+			ui.message(_('Move mouse to view not applicable with lense view.'))
+			return
+		Magnification.MagInitialize()
+		try:
+			if mode == MAG_VIEW_FULLSCREEN:
+				zoomLevel, viewLeft, viewTop = Magnification.MagGetFullscreenTransform()
+			elif mode == MAG_VIEW_DOCKED:
+				# o = getDockedWindowObject()
+				# hwnd = o.windowHandle
+				# # Error on next line
+				# rect = Magnification.MagGetWindowSource(hwnd)
+				# Translators: A message reported when the user tries to execute script mouseToView
+				ui.message(_('Move mouse to view not implemented for docked view'))
+		finally:
+			Magnification.MagUninitialize()
+		if wx.Display.GetCount() != 1:
+			# Translators: A message reported when the user tries to execute script mouseToView
+			ui.message(_('This command is not yet available in multi-screen environment. Please contact the add-on author to have it implemented.'))
+			return
+		rect = wx.Display(0).GetGeometry()
+		viewHeight = rect.height / zoomLevel
+		viewWidth = rect.width / zoomLevel
+		x = viewLeft + int(viewWidth/2)
+		y = viewTop + int(viewHeight/2)
+		winUser.setCursorPos(x,y)
+		mouseHandler.executeMouseMoveEvent(x,y)
+	
 	def checkSecureScreen(self):
 		if globalVars.appArgs.secure:
 			# Translators: A message reported in secure screen when the user attempts to modify magnifiers settings.
 			ui.message(_('Command unavailable on this screen.'))
 		return globalVars.appArgs.secure
+	
+	def isFullScreenTrackingModeAvailable(self):
+		# Full screen tracking mode feature is available on Windows 10 build 17643 or higher.
+		winVer = sys.getwindowsversion()
+		return not (winVer.major < 10 or winVer.build < 17643)
 	
 	def modifyRunningState(self, gesture):
 		fetcher = lambda: getMagnifierKeyValue('RunningState', default=MAG_DEFAULT_RUNNING_STATE)

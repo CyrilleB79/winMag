@@ -1,37 +1,7 @@
 TODO list:
 
-Review:
-DONE:
-1. Magnifier shortcut keys are now translatable to match localized keyboard layout.
-2. Note that ctrl+alt+arrow keys also turn the screen orientation if you have an Intel Grafic card. 
-> Why don't you turn off those shortkeys in the intel controlpanel?
-> https://ccm.net/faq/33684-disable-hot-keys-on-intel-graphics
-3. windows+alt+m is already used by the addon golden cursor.  -> windows+nvda+v for “vision”)?
--> Put NVDA+Windows+O. I find more handy to type this combination specially on some keyboard that do not have windows key on the right. Since this is the layer access key, it should be easy to type.
-4. Browsible help message
-
-DONE with comments:
-1. In buildVars.py: could you please add an addon URL? Also an entry for the update channel is very welcome if you want to update this addon regularly
-- Github URL added. Is this OK
-- buildVars.py has no channel, what corresponds to stable. But building the add-on with "scons dev=True" makes a dev version and add-on channel is updated accordingly in the manifest. AppVeyor config file takes advantage of this possibility.
-2. control+alt+arrows vocal feedback
-- What is expected as a feedback
-- Implemented as a test, not sure to keep it.
-
-PARTIALLY DONE with comments:
-3. alt+shift+arrow keys and ctrl+alt+r do also not report anything. If it is not possible to add reportings for these, please add a sentence to the documentation accordingly
-alt+shift+arrow:
-- docked (dim) + fullscreen (ok)
-- lens: info but dim not available
-ctrl+alt+R: Not done. How does it work exactly? What is the info to give and when.
-
-BLOCKED
-1. Announce zoom when clicking on + or - in Magnifier UI (and when using control+alt+mouseWheel)
-Trying to define event_nameChange to announce a change of the zoom factor label. The event handler is not called.
-Trying to look at events with AccEvent, I get the following line:
-OBJ_NAMECHANGE	 idChild=0 [Error: getting object: hr=0x80004005 - Erreur non spécifiée]
-i.e. "Unspecified error"
-
+Before stable release:
+Delete vocal feedback for move commands unless good reason to keep it.
 
 Known bugs:
 - ctrl+alt+M quickly: may say nothing or wrong value.
@@ -44,9 +14,23 @@ Possible code enhancement (to investigate):
 - Try to move layered command framework in a separate dedicated class
 
 New features investigation:
-- See if possible to implement moveToCaret/Focus/Mouse scripts. See:
-* can we fire artificially caret/focus/mouse event
-* see https://docs.microsoft.com/en-us/windows/win32/api/magnification/nf-magnification-magsetfullscreentransform
-- See if possibl to get programmatically coords of current view to route mouse to view. See:
-* https://docs.microsoft.com/fr-fr/windows/win32/api/magnification/nf-magnification-maggetfullscreentransform
-* https://social.msdn.microsoft.com/Forums/en-US/8484d886-93e0-4bd7-ac6d-0e019d1bdace/how-do-i-get-the-bounds-of-the-current-windows-magnifier-view-displayed-on-the-screen-and-the-screen?forum=windowsgeneraldevelopmentissues)
+* Announce zoom when clicking on + or - in Magnifier UI (and when using control+alt+mouseWheel)
+  -> Tried to define event_nameChange to announce a change of the zoom factor label. The event handler is not called.
+  - Tried to look at events with AccEvent, I get the following line:
+  OBJ_NAMECHANGE	 idChild=0 [Error: getting object: hr=0x80004005 - Erreur non spécifiée]
+  i.e. "Unspecified error"
+* See if possible to implement moveToCaret/Focus/Mouse scripts. See:
+  - For mouse, tried to activate mouse tracking and mouseTrackingMode=inTheCenterOfTheScreen and to make slightly move the mouse cursor (via winUser.setCursorPos).
+  -> This works when the mouse cursor is in the magnified view or next to it, but not when it is too far from magnified view..
+  -> See if more success for caret or focus by fireing associated windows events.
+  - Try to compute the number of left/right/up/down pane required to get mouse/caret/focus next to the center of the view and send programmatically control+alt+arrow to move the view.
+  -> To do
+* mouseToView:
+  - full screen: already implemented
+  - docked: tried to get the source of magnified view via magnifier API, but unsuccessful.
+  - lens: not applicable: the zoomed view has always the mouse in center since this is the way the lens works.
+* Beep when paning the view if we reached bhe screen edge. Or configurable (nothing, beep, message).
+* Make paning commands feedback configurable (nothing, beep or direction); at least config without UI.
+
+
+
