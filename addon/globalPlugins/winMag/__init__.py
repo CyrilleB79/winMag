@@ -297,6 +297,10 @@ DESC_TOGGLE_SMOOTHING = _("Toggles on or off smoothing")
 DESC_TOGGLE_MOUSE_CURSOR_TRACKING_MODE = _("Switches between mouse tracking modes (within the edge of the screen or centered on the screen)")
 # Translators: The description for the moveMouseToView script.
 DESC_MOVE_MOUSE_TO_VIEW = _("Moves the mouse cursor in the center of the zoomed view")
+# Translators: The description for the moveViewToMouse script.
+DESC_MOVE_VIEW_TO_MOUSE = _("Move  the zoomed view center at the mouse position")
+# Translators: The description for the moveViewToFocus script.
+DESC_MOVE_VIEW_TO_FOCUS = _("Move  the center of the zoomed view to the focus")
 # Translators: The description for the displayHelp script.
 DESC_DISPLAY_HELP = _("Displays help on Magnifier layer commands")
 
@@ -313,6 +317,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		("s", "toggleSmoothing", DESC_TOGGLE_SMOOTHING),
 		("r", "toggleMouseCursorTrackingMode", DESC_TOGGLE_MOUSE_CURSOR_TRACKING_MODE),
 		("v", "moveMouseToView", DESC_MOVE_MOUSE_TO_VIEW),
+		("o", "moveViewToMouse", DESC_MOVE_VIEW_TO_MOUSE),
 		("h", "displayHelp", DESC_DISPLAY_HELP),
 	]
 	
@@ -538,6 +543,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def script_toggleMouseCursorTrackingMode(self, gesture):
 		if self.checkSecureScreen():
 			return
+		# Feature available on Windows 10 build 17643 or higher.
 		if not self.isFullScreenTrackingModeAvailable():
 			# Translators: The message reported when the user tries to toggle mouse tracking mode whereas his Windows version does not support it.
 			ui.message(_('Feature unavailable in this version of Windows.'))
@@ -570,12 +576,12 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			if mode == MAG_VIEW_FULLSCREEN:
 				zoomLevel, viewLeft, viewTop = Magnification.MagGetFullscreenTransform()
 			elif mode == MAG_VIEW_DOCKED:
-				# o = getDockedWindowObject()
-				# hwnd = o.windowHandle
-				# # Error on next line
-				# rect = Magnification.MagGetWindowSource(hwnd)
 				# Translators: A message reported when the user tries to execute script mouseToView
 				ui.message(_('Move mouse to view not implemented for docked view'))
+				o = getDockedWindowObject()
+				hwnd = o.windowHandle
+				# Error on next line
+				rect = Magnification.MagGetWindowSource(hwnd)
 		finally:
 			Magnification.MagUninitialize()
 		if wx.Display.GetCount() != 1:
@@ -589,6 +595,67 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		y = viewTop + int(viewHeight/2)
 		winUser.setCursorPos(x,y)
 		mouseHandler.executeMouseMoveEvent(x,y)
+		# Message commented out in order not to hear 2 messages when mouse tracking is activated.
+		# Translators: A message reporting the executed command
+		# ui.message(_("Mouse moved to view"))
+	
+	@script(
+		description = DESC_MOVE_VIEW_TO_MOUSE
+	)
+	@onlyIfMagRunning
+	def script_moveViewToMouse(self, gesture):
+		x,y = winUser.getCursorPos()
+		if x <= 5:
+			delta = 4
+		else:
+			delta = -4
+		try:
+			oldFollowMouse = getMagnifierKeyValue('FollowMouse', default=MAG_DEFAULT_FOLLOW_MOUSE)
+			oldFullScreenTrackingMode = getMagnifierKeyValue('FullScreenTrackingMode', default=MAG_DEFAULT_FULL_SCREEN_TRACKING_MODE)
+			followMouse = oldFollowMouse
+			fullScreenTrackingMode = oldFullScreenTrackingMode
+			if not globalVars.appArgs.secure:
+				followMouse = 1
+				if self.isFullScreenTrackingModeAvailable():
+					fullScreenTrackingMode = 1
+			
+			if oldFollowMouse != followMouse:
+				setMagnifierKeyValue('FollowMouse', followMouse)
+			if oldFullScreenTrackingMode != fullScreenTrackingMode:
+				setMagnifierKeyValue('FullScreenTrackingMode', fullScreenTrackingMode)
+			import time
+			time.sleep(0.1)
+			mouseHandler.executeMouseEvent(flags=winUser.MOUSEEVENTF_MOVE, x=-delta, y=0)
+			time.sleep(0.1)
+			mouseHandler.executeMouseEvent(flags=winUser.MOUSEEVENTF_MOVE, x=delta, y=0)
+		finally:
+			if oldFollowMouse != followMouse:
+				setMagnifierKeyValue('FollowMouse', oldFollowMouse)
+			if oldFullScreenTrackingMode != fullScreenTrackingMode:
+				setMagnifierKeyValue('FullScreenTrackingMode', oldFullScreenTrackingMode)
+		
+		
+	def script_moveViewToFocus(self, gesture):
+		mode = getMagnifierKeyValue('MagnificationMode', default=MAG_DEFAULT_MAGNIFICATION_MODE)
+		loc = api.getFocusObject().location
+		Magnification.MagInitialize()
+		try:
+			if mode == MAG_VIEW_FULLSCREEN:
+				zoomLevel, viewLeft, viewTop = Magnification.MagGetFullscreenTransform()
+				Magnification.MagSetFullscreenTransform(zoomLevel, loc.left, loc.top)
+			elif mode == MAG_VIEW_DOCKED:
+				# Translators: A message reported when the user tries to execute script viewToMouse
+				ui.message(_('Move view to mouse not implemented for docked view'))
+			else:
+				# Translators: A message reported when the user tries to execute script viewToMouse
+				ui.message(_('Move view to mouse not applicable with lense view.'))
+				return
+		finally:
+			Magnification.MagUninitialize()
+		# Message commented out in order not to hear 2 messages when mouse tracking is activated.
+		# Translators: A message reporting the executed command
+		ui.message(_("View moved to focus"))
+	
 	
 	def checkSecureScreen(self):
 		if globalVars.appArgs.secure:
@@ -597,7 +664,6 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		return globalVars.appArgs.secure
 	
 	def isFullScreenTrackingModeAvailable(self):
-		# Full screen tracking mode feature is available on Windows 10 build 17643 or higher.
 		winVer = sys.getwindowsversion()
 		return not (winVer.major < 10 or winVer.build < 17643)
 	
