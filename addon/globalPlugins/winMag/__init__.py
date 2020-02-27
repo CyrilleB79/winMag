@@ -20,6 +20,7 @@ from logHandler import log
 import mouseHandler
 import globalVars
 import winUser
+import config
 
 import wx
 
@@ -71,6 +72,21 @@ MAG_DEFAULT_MAGNIFICATION = 200
 MAG_DEFAULT_MAGNIFICATION_MODE = MAG_VIEW_FULLSCREEN
 MAG_DEFAULT_RUNNING_STATE = 0
 MAG_DEFAULT_USE_BITMAP_SMOOTHING = 1
+
+
+# Configuration:
+# Allows to set the feedback when moving the view with control+alt+arrows shortcuts.
+# To change the feedback type, open NVDA console with NVDA+control+Z and:
+# - to have beeps when moving the view, type:
+#   config.conf["winmag"]["feedbackOnMoveView"] = "beep"
+# - to have vocal and braille feedback when moving the view, type:
+#   config.conf["winmag"]["feedbackOnMoveView"] = "message"
+# - to have no feedback when moving the view, type:
+#   config.conf["winmag"]["feedbackOnMoveView"] = "none"
+confspec = {
+"feedbackOnMoveView": "string(default=message)",
+}
+config.conf.spec["winmag"] = confspec
 
 def getMagnifierKeyValue(name, default=None):
 	k = winreg.OpenKey(
@@ -417,7 +433,13 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		'downArrow': _('down'),
 		}
 	def script_moveView(self, gesture):
-		ui.message(self.dicArrowDir[gesture.mainKeyName])
+		feedback = config.conf["winmag"]["feedbackOnMoveView"]
+		if feedback == "message":
+			ui.message(self.dicArrowDir[gesture.mainKeyName])
+		elif feedback == "beep":
+			beep(110, 30)
+		else:  # "none" or anything else
+			pass  # No feedback
 		gesture.send()
 		
 	def script_changeMagnificationWindowSize(self, gesture):
