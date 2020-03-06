@@ -20,6 +20,7 @@ from logHandler import log
 import mouseHandler
 import globalVars
 import winUser
+from keyboardHandler import KeyboardInputGesture
 
 import wx
 
@@ -365,19 +366,28 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		gestures = ["kb:windows+numpadPlus", "kb:windows+numLock+numpadPlus", "kb:windows+" + KEY_ALPHA_PLUS, "kb:windows+plus"]
 		)	
 	def script_zoomIn(self, gesture):
+		numlockWasOn = 'numlock' in gesture.normalizedIdentifiers[0].split(':')[1]
 		if isMagnifierRunning():
 			self.modifyZoomLevel(gesture)
 		else:
 			self.modifyRunningState(gesture)
+		if numlockWasOn:
+			# A gesture.send() with numlock on will unwantedly toggle numlock (see NVDA issue #10827), so restore it.
+			KeyboardInputGesture.fromName('numlock').send()
+		
 	
 	@script(
 		gestures = ["kb:windows+numpadMinus", "kb:windows+numLock+numpadMinus", "kb:windows+" + KEY_ALPHA_MINUS, "kb:windows+-"]
 	)	
 	def script_zoomOut(self, gesture):
+		numlockWasOn = 'numlock' in gesture.normalizedIdentifiers[0].split(':')[1]
 		if isMagnifierRunning():
 			self.modifyZoomLevel(gesture)
 		else:
 			gesture.send()
+		if numlockWasOn:
+			# A gesture.send() with numlock on will unwantedly toggle numlock (see NVDA issue #10827), so restore it.
+			KeyboardInputGesture.fromName('numlock').send()
 		
 	@script(
 		gesture = "kb:windows+escape"
