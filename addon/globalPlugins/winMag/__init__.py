@@ -570,6 +570,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	)
 	@onlyIfMagRunning
 	def script_moveMouseToView(self, gesture):
+		if Magnification.MagGetFullscreenTransform is None:
+			# Translators: A message reported when the user tries to execute script mouseToView
+			ui.message(_('Move mouse to view command available only on Windows 8 and above.'))
+			return
 		mode = getMagnifierKeyValue('MagnificationMode', default=MAG_DEFAULT_MAGNIFICATION_MODE)
 		if mode == MAG_VIEW_LENS:
 			# Translators: A message reported when the user tries to execute script mouseToView
