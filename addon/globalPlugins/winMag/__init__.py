@@ -203,7 +203,8 @@ def patched_findScript(gesture):
 			return winMagPlugin.script_changeMagnificationWindowSize
 		# For control+alt+arrow, create a compound script:
 		# that will call Magnifier move commands (control+alt+arrow) rather than saying "Not in a table" message.
-		if gesture.normalizedIdentifiers[0].split(':')[1] in ['alt+control+downarrow', 'alt+control+leftarrow', 'alt+control+rightarrow', 'alt+control+uparrow']:
+		if (gesture.normalizedIdentifiers[0].split(':')[1] in ['alt+control+downarrow', 'alt+control+leftarrow', 'alt+control+rightarrow', 'alt+control+uparrow']
+		and isMagnifierRunning()):
 			if oldScript:
 				# We need a cache so that, for last script, checking wrapped script has always the same ref
 				# else, getLastScriptRepeatCount would always return 0
