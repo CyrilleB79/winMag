@@ -6,8 +6,14 @@
 import winVersion
 from ctypes import Structure, windll, c_float, POINTER, WINFUNCTYPE, WinError
 from ctypes.wintypes import BOOL
-from ctypes.wintypes import HWND, PRECT, PINT, PFLOAT, INT, FLOAT
-
+from ctypes.wintypes import HWND, INT, FLOAT
+try:
+	from ctypes.wintypes import PINT, PRECT, PFLOAT
+except ImportError:
+	from ctypes.wintypes import POINTER, RECT
+	PINT = POINTER(INT)
+	PRECT = POINTER(RECT)
+	PFLOAT = POINTER(FLOAT)
 
 class MAGCOLOREFFECT(Structure):
 	_fields_ = (("transform", c_float * 5 * 5),)
