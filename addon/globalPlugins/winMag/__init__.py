@@ -9,11 +9,14 @@ from __future__ import unicode_literals
 
 from .msg import nvdaTranslation
 from .magnification import Magnification 
+from .gui import WinMagSettingsPanel
 
 import globalPluginHandler
 import ui
+import gui
 import scriptHandler
 import api
+import config
 from tones import beep
 from scriptHandler import script
 from logHandler import log
@@ -38,6 +41,12 @@ import addonHandler
 addonHandler.initTranslation()
 
 ADDON_SUMMARY = addonHandler.getCodeAddon ().manifest["summary"]
+
+confspec = {
+	"reportViewResizing": "boolean(default=true)",
+	"reportViewMoves": "string(default=Vocal)",
+}
+config.conf.spec["winmag"] = confspec
 
 # Alpha-numeric keyboard Magnifier keys
 # Translators: The key used natively byt the Magnifier on the alpha-numeric (main) keyboard in conjunction with Win key to zoom in.
@@ -325,6 +334,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		ui.message = patched_message
 		scriptHandler.findScript = patched_findScript 
 		self.lastResize = None
+		#if globalVars.appArgs.secure:
+		#	return
+		gui.settingsDialogs.NVDASettingsDialog.categoryClasses.append(WinMagSettingsPanel)
 	
 	def getScript(self, gesture):
 		if not self.toggling:
