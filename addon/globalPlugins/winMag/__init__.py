@@ -7,9 +7,10 @@
 
 from __future__ import unicode_literals
 
+from . import wmconfig
+from .gui import WinMagSettingsPanel
 from .msg import nvdaTranslation
 from .magnification import Magnification 
-from .gui import WinMagSettingsPanel
 
 import globalPluginHandler
 import ui
@@ -18,7 +19,7 @@ import scriptHandler
 import api
 import config
 from tones import beep
-from scriptHandler import script
+from scriptHandler import script, isScriptWaiting
 from logHandler import log
 import mouseHandler
 import globalVars
@@ -41,12 +42,6 @@ import addonHandler
 addonHandler.initTranslation()
 
 ADDON_SUMMARY = addonHandler.getCodeAddon ().manifest["summary"]
-
-confspec = {
-	"reportViewResizing": "boolean(default=true)",
-	"reportViewMoves": "string(default=Vocal)",
-}
-config.conf.spec["winmag"] = confspec
 
 # Alpha-numeric keyboard Magnifier keys
 # Translators: The key used natively byt the Magnifier on the alpha-numeric (main) keyboard in conjunction with Win key to zoom in.
@@ -207,8 +202,9 @@ def patched_findScript(gesture):
 		# Else it may correspond to another shortcut such as in Word where these gesture are the one to increase/decrease title level
 		# or to move up/down a paragraph.
 		if (gesture.normalizedIdentifiers[0].split(':')[1] in ['alt+downarrow+shift', 'alt+leftarrow+shift', 'alt+rightarrow+shift', 'alt+shift+uparrow']
+		and config.conf["winmag"]["reportViewResizing"]
 		and isMagnifierRunning()):
-			winMagPlugin = [p for p in globalPluginHandler.runningPlugins if isinstance(p, GlobalPlugin)][0]
+			winMagPlugin = GlobalPlugin.instance
 			return winMagPlugin.script_changeMagnificationWindowSize
 		# For control+alt+arrow, create a compound script:
 		# that will call Magnifier move commands (control+alt+arrow) rather than saying "Not in a table" message.
@@ -226,7 +222,7 @@ def patched_findScript(gesture):
 							canRaiseNotInTableException = True
 							oldScript(g)
 						except NotInTableException:
-							winMagPlugin = [p for p in globalPluginHandler.runningPlugins if isinstance(p, GlobalPlugin)][0]
+							winMagPlugin = GlobalPlugin.instance
 							winMagPlugin.script_moveView(g)
 						finally:
 							canRaiseNotInTableException = False
@@ -334,9 +330,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		ui.message = patched_message
 		scriptHandler.findScript = patched_findScript 
 		self.lastResize = None
-		#if globalVars.appArgs.secure:
-		#	return
+		#zzz if globalVars.appArgs.secure:
+		#zzz	return
 		gui.settingsDialogs.NVDASettingsDialog.categoryClasses.append(WinMagSettingsPanel)
+		self.__class__.instance = self
 	
 	def getScript(self, gesture):
 		if not self.toggling:
@@ -440,8 +437,13 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		'downArrow': _('down'),
 		}
 	def script_moveView(self, gesture):
-		ui.message(self.dicArrowDir[gesture.mainKeyName])
 		gesture.send()
+		if isScriptWaiting():
+			return
+		if config.conf["winmag"]["reportViewMoves"] == wmconfig.REPORT_VIEW_MOVES_VOCAL:
+			ui.message(self.dicArrowDir[gesture.mainKeyName])
+		elif config.conf["winmag"]["reportViewMoves"] == wmconfig.REPORT_VIEW_MOVES_WITH_BEEPS:
+			beep(660, 80)
 		
 	def script_changeMagnificationWindowSize(self, gesture):
 		if isMagnifierRunning():

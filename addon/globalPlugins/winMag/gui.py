@@ -5,11 +5,14 @@
 #This file is covered by the GNU General Public License.
 #See the file COPYING.txt for more details.
 
-import wx
+from .wmconfig import moveViewReportOptions
+
 import gui
 import globalVars
 import config
 import addonHandler
+
+import wx
 
 addonHandler.initTranslation()
 
@@ -23,32 +26,23 @@ class WinMagSettingsPanel(gui.SettingsPanel):
 		# Translators: This is the label for a combobox in the
 		# Windows Magnifier settings panel.
 		viewMoveLabelText = _("Report view moves:")
-		self.viewMoveChoices = [
-			# Translators: This is a combobox option in the settings panel.
-			_("Off"),
-			# Translators: This is a combobox option in the settings panel.
-			_("With beeps"),
-			# Translators: This is a combobox option in the settings panel.
-			_("Vocal"),
-		]
-		self.viewMoveComboBox = sHelper.addLabeledControl(viewMoveLabelText, wx.Choice, choices=self.viewMoveChoices)
+		self.viewMoveValues = [x[0] for x in moveViewReportOptions]
+		viewMoveChoices = [x[1] for x in moveViewReportOptions]
+		self.viewMoveComboBox = sHelper.addLabeledControl(viewMoveLabelText, wx.Choice, choices=viewMoveChoices)
 		try:
-			index = self.viewMoveComboBox.index(config.conf["winmag"]["reportViewMoves"])
-		except:
+			index = self.viewMoveValues.index(config.conf["winmag"]["reportViewMoves"])
+		except ValueError:
 			index = 0
 		self.viewMoveComboBox.SetSelection(index)
 		
 		# Translators: This is the label for a checkbox in the
 		# Windows Magnifier settings panel.
 		viewResizingText = _("Report the resizing of the view (docked and lense only)")
-		#zzz self.viewResizingCheckBox = sHelper.addItem(wx.CheckBox, label=viewResizingText)
-		#zzz self.viewResizingCheckBox = sHelper.addLabeledControl(viewResizingText, wx.CheckBox)
-		#zzz self.viewResizingCheckBox.SetValue(config.conf["winmag"]["reportViewResizing"])
-		
 		self.viewResizingCheckBox = wx.CheckBox(self, label=viewResizingText)
 		self.viewResizingCheckBox.SetValue(config.conf["winmag"]["reportViewResizing"])
 		sHelper.addItem(self.viewResizingCheckBox)
 
 	def onSave(self):
-		config.conf["winmag"]["reportViewMoves"] = self.shapeCheckBox.IsChecked()
-		config.conf["winmag"]["reportViewMoves"] = self.textUnits[self.viewResizingCheckBox.GetSelection()]
+		config.conf["winmag"]["reportViewMoves"] = self.viewMoveValues[self.viewMoveComboBox.GetSelection()]
+		config.conf["winmag"]["reportViewResizing"] = self.viewResizingCheckBox.IsChecked()
+
