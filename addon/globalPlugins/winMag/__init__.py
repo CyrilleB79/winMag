@@ -7,11 +7,13 @@
 
 from __future__ import unicode_literals
 
+from .wmGui import WinMagSettingsPanel
 from .msg import nvdaTranslation
 from .magnification import Magnification 
 
 import globalPluginHandler
 import ui
+import gui.settingsDialogs
 import scriptHandler
 import api
 from tones import beep
@@ -21,6 +23,7 @@ import mouseHandler
 import globalVars
 import winUser
 from keyboardHandler import KeyboardInputGesture
+import config
 
 import wx
 
@@ -36,6 +39,15 @@ from types import MethodType
 import addonHandler
 
 addonHandler.initTranslation()
+
+confspec = {
+	"reportMove": 'string(default="beep")',
+	"reportZoom": "boolean(default=True)",
+	"reportLensResizing": "boolean(default=True)",
+	"reportOther": "boolean(default=True)",
+}
+config.conf.spec["winMag"] = confspec
+
 
 ADDON_SUMMARY = addonHandler.getCodeAddon ().manifest["summary"]
 
@@ -321,6 +333,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	
 	def __init__(self):
 		super(GlobalPlugin, self).__init__()
+		gui.settingsDialogs.NVDASettingsDialog.categoryClasses.append(WinMagSettingsPanel)
 		self.toggling = False
 		ui.message = patched_message
 		scriptHandler.findScript = patched_findScript 
