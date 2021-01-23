@@ -45,6 +45,7 @@ confspec = {
 	"reportZoom": "boolean(default=True)",
 	"reportLensResizing": "boolean(default=True)",
 	"reportOther": "boolean(default=True)",
+	"passCtrlAltArrow": 'string(default="never")',
 }
 config.conf.spec["winMag"] = confspec
 
@@ -375,6 +376,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def terminate(self):
 		ui.message = orig_message
 		scriptHandler.findScript = orig_findScript 
+		gui.settingsDialogs.NVDASettingsDialog.categoryClasses.remove(WinMagSettingsPanel)
+		super().terminate()
 	
 	@script(
 		gestures = ["kb:windows+numpadPlus", "kb:windows+numLock+numpadPlus", "kb:windows+" + KEY_ALPHA_PLUS, "kb:windows+plus"]
@@ -642,6 +645,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			raise ValueError('Unexpected RunningState value: {}'.format(val))
 			
 	def modifyZoomLevel(self, gesture):
+		if not config.conf['winMag']['reportZoom']:
+			gesture.send()
+			return---
 		fetcher = lambda: getMagnifierKeyValue('Magnification', default=MAG_DEFAULT_MAGNIFICATION)
 		val = _WaitForValueChangeForAction(gesture, fetcher)
 		# Translators: A zoom level reported when the user changes the zoom level.

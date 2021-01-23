@@ -30,13 +30,18 @@ class WinMagSettingsPanel(gui.SettingsPanel):
 		("speak", _("Speak")),
 		("beep", _("Beep")),
 	)
+	passCtrlAltArrowLabels = (
+		("never", _("Never")),
+		("whenNotInTable", _("Only when not in table")),
+		("always", _("Always")),
+	)
 
 	def makeSettings(self, settingsSizer):
 		sHelper = gui.guiHelper.BoxSizerHelper(self, sizer=settingsSizer)
 		
 		# Translators: This is the label for a combobox in the
 		# Windows Magnifier settings panel.
-		reportMoveLabelText = _("Feedback on view &move")
+		reportMoveLabelText = _("Report view &moves:")
 		reportMoveChoices = [name for setting, name in self.reportMoveLabels]
 		self.reportMoveList = sHelper.addLabeledControl(reportMoveLabelText, wx.Choice, choices=reportMoveChoices)
 		for index, (setting, name) in enumerate(self.reportMoveLabels):
@@ -44,7 +49,7 @@ class WinMagSettingsPanel(gui.SettingsPanel):
 				self.reportMoveList.SetSelection(index)
 				break
 		else:
-			log.debugWarning("Could not set report move list to current report view move updates setting")
+			log.debugWarning("Could not set report move list to current setting")
 		
 		# Off / Vocal / Beeps
 		#zzz self.reportEdges = 
@@ -63,7 +68,6 @@ class WinMagSettingsPanel(gui.SettingsPanel):
 		)
 		self.reportLensResizingCheckBox.SetValue(config.conf['winMag']['reportLensResizing'])
 		
-		# CB
 		# Report toggle color inversion, select view
 		self.reportOtherCheckBox = sHelper.addItem(
 			# Translators: This is the label for a checkbox in the
@@ -72,15 +76,22 @@ class WinMagSettingsPanel(gui.SettingsPanel):
 		)
 		self.reportOtherCheckBox.SetValue(config.conf['winMag']['reportOther'])
 		
-		# When in documents, pass control+alt+arrow shortcut to magnifier:
-		# Never, when not in table, always
-		#zzz self.passCtrlAltArrow = 
-
-	def terminate(self):
-		gui.NVDASettingsDialog.categoryClasses.remove(WinMagSettingsPanel)
-		zzz error removing panel
-		super().terminate()
+		# Translators: This is the label for a combobox in the
+		# Windows Magnifier settings panel.
+		passCtrlAltArrowLabelText = _("In &documents, pass control+alt+arrows shortcuts to Windows Magnifier:")
+		passCtrlAltArrowChoices = [name for setting, name in self.passCtrlAltArrowLabels]
+		self.passCtrlAltArrowList = sHelper.addLabeledControl(passCtrlAltArrowLabelText, wx.Choice, choices=passCtrlAltArrowChoices)
+		for index, (setting, name) in enumerate(self.passCtrlAltArrowLabels):
+			if setting == config.conf["winMag"]["passCtrlAltArrow"]:
+				self.passCtrlAltArrowList.SetSelection(index)
+				break
+		else:
+			log.debugWarning("Could not set pass control alt arrow list to current setting")
 	
 	def onSave(self):
-		zzz
+		config.conf["winMag"]["reportMove"] = self.reportMoveLabels[self.reportMoveList.GetSelection()][0]
+		config.conf['winMag']['reportZoom'] = self.reportZoomCheckBox.IsChecked()
+		config.conf['winMag']['reportLensResizing'] = self.reportLensResizingCheckBox.IsChecked()
+		config.conf['winMag']['reportOther'] = self.reportOtherCheckBox.IsChecked()
+		config.conf["winMag"]["passCtrlAltArrow"] = self.passCtrlAltArrowLabels[self.passCtrlAltArrowList.GetSelection()][0]
 		
