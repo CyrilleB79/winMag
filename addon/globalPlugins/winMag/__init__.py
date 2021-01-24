@@ -17,6 +17,8 @@ import gui.settingsDialogs
 import scriptHandler
 import api
 from tones import beep
+from speech import speak
+from speech.commands import BeepCommand
 from scriptHandler import script
 from logHandler import log
 import mouseHandler
@@ -41,7 +43,7 @@ import addonHandler
 addonHandler.initTranslation()
 
 confspec = {
-	"reportMove": 'string(default="beep")',
+	"reportMove": 'string(default="off")',
 	"reportZoom": "boolean(default=True)",
 	"reportLensResizing": "boolean(default=True)",
 	"reportOther": "boolean(default=True)",
@@ -216,8 +218,16 @@ def patched_findScript(gesture):
 			return winMagPlugin.script_changeMagnificationWindowSize
 		# For control+alt+arrow, create a compound script:
 		# that will call Magnifier move commands (control+alt+arrow) rather than saying "Not in a table" message.
-		if (gesture.normalizedIdentifiers[0].split(':')[1] in ['alt+control+downarrow', 'alt+control+leftarrow', 'alt+control+rightarrow', 'alt+control+uparrow']
-		and isMagnifierRunning()):
+		if (
+			config.conf['winMag']['reportMove'] != 'off'
+			and gesture.normalizedIdentifiers[0].split(':')[1] in [
+				'alt+control+downarrow',
+				'alt+control+leftarrow',
+				'alt+control+rightarrow',
+				'alt+control+uparrow'
+			]
+			and isMagnifierRunning()
+		):
 			if oldScript:
 				# We need a cache so that, for last script, checking wrapped script has always the same ref
 				# else, getLastScriptRepeatCount would always return 0
@@ -444,7 +454,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		'downArrow': _('down'),
 		}
 	def script_moveView(self, gesture):
-		ui.message(self.dicArrowDir[gesture.mainKeyName])
+		if config.conf['winMag']['reportMove'] == 'speak':
+			ui.message(self.dicArrowDir[gesture.mainKeyName])
+		elif config.conf['winMag']['reportMove'] == 'beep':
+			speak([BeepCommand(880, 30)])
 		gesture.send()
 		
 	def script_changeMagnificationWindowSize(self, gesture):
@@ -647,7 +660,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def modifyZoomLevel(self, gesture):
 		if not config.conf['winMag']['reportZoom']:
 			gesture.send()
-			return---
+			return
 		fetcher = lambda: getMagnifierKeyValue('Magnification', default=MAG_DEFAULT_MAGNIFICATION)
 		val = _WaitForValueChangeForAction(gesture, fetcher)
 		# Translators: A zoom level reported when the user changes the zoom level.
