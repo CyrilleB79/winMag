@@ -63,6 +63,7 @@ MAG_VIEW_FULLSCREEN = 2
 MAG_VIEW_LENS = 3
 
 #Default config when names are not present in the key
+MAG_DEFAULT_CENTER_TEXT_INSERTION_POINT = 1
 MAG_DEFAULT_FOLLOW_CARET = 0
 MAG_DEFAULT_FOLLOW_FOCUS = 0
 MAG_DEFAULT_FOLLOW_MOUSE = 1
@@ -297,6 +298,8 @@ DESC_TOGGLE_TRACKING = _("Toggles on or off tracking globally")
 DESC_TOGGLE_SMOOTHING = _("Toggles on or off smoothing")
 # Translators: The description for the toggleMouseCursorTrackingMode script.
 DESC_TOGGLE_MOUSE_CURSOR_TRACKING_MODE = _("Switches between mouse tracking modes (within the edge of the screen or centered on the screen)")
+# Translators: The description for the toggleTextCursorTrackingMode script.
+DESC_TOGGLE_TEXT_CURSOR_TRACKING_MODE = _("Switches between text tracking modes (within the edge of the screen or centered on the screen)")
 # Translators: The description for the moveMouseToView script.
 DESC_MOVE_MOUSE_TO_VIEW = _("Moves the mouse cursor in the center of the zoomed view")
 # Translators: The description for the displayHelp script.
@@ -314,6 +317,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		("t", "toggleTracking", DESC_TOGGLE_TRACKING),
 		("s", "toggleSmoothing", DESC_TOGGLE_SMOOTHING),
 		("r", "toggleMouseCursorTrackingMode", DESC_TOGGLE_MOUSE_CURSOR_TRACKING_MODE),
+		("x", "toggleTextCursorTrackingMode", DESC_TOGGLE_MOUSE_CURSOR_TRACKING_MODE),
 		("v", "moveMouseToView", DESC_MOVE_MOUSE_TO_VIEW),
 		("h", "displayHelp", DESC_DISPLAY_HELP),
 	]
@@ -549,7 +553,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def script_toggleMouseCursorTrackingMode(self, gesture):
 		if self.checkSecureScreen():
 			return
-		if not self.isFullScreenTrackingModeAvailable():
+		# Full screen tracking mode feature is available on Windows 10 build 17643 or higher.
+		if not self.checkWindowsVersion(major=10, build=17643):
 			# Translators: The message reported when the user tries to toggle mouse tracking mode whereas his Windows version does not support it.
 			ui.message(_('Feature unavailable in this version of Windows.'))
 			return
@@ -559,6 +564,31 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			ui.message(_('Mouse tracking mode applies only to full screen view.'))
 			return
 		val = toggleMagnifierKeyValue('FullScreenTrackingMode', default=MAG_DEFAULT_FULL_SCREEN_TRACKING_MODE)
+		if val:
+			# Translators: A message reporting mouse cursor tracking mode (cf. option in Magnifier settings).
+			ui.message(_('Centered on the screen'))
+		else:
+			# Translators: A message reporting mouse cursor tracking mode (cf. option in Magnifier settings).
+			ui.message(_('Within the edge of the screen'))
+
+	@script(
+		description = DESC_TOGGLE_TEXT_CURSOR_TRACKING_MODE
+	)
+	@onlyIfMagRunning
+	def script_toggleTextCursorTrackingMode(self, gesture):
+		if self.checkSecureScreen():
+			return
+		# Full screen tracking mode feature is available on Windows 10 build 18894 or higher.
+		if not self.checkWindowsVersion(major=10, build=18894):
+			# Translators: The message reported when the user tries to toggle mouse tracking mode whereas his Windows version does not support it.
+			ui.message(_('Feature unavailable in this version of Windows.'))
+			return
+		# Feature applicable only to full screen view
+		if not isFullScreenView():
+			# Translators: The message reported when the user tries to toggle mouse tracking mode while full screen view is not active.
+			ui.message(_('Mouse tracking mode applies only to full screen view.'))
+			return
+		val = toggleMagnifierKeyValue('CenterTextInsertionPoint', default=MAG_DEFAULT_CENTER_TEXT_INSERTION_POINT)
 		if val:
 			# Translators: A message reporting mouse cursor tracking mode (cf. option in Magnifier settings).
 			ui.message(_('Centered on the screen'))
@@ -611,10 +641,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			ui.message(_('Command unavailable on this screen.'))
 		return globalVars.appArgs.secure
 	
-	def isFullScreenTrackingModeAvailable(self):
-		# Full screen tracking mode feature is available on Windows 10 build 17643 or higher.
+	def checkWindowsVersion(self, major, build):
+		# Check current Windows version against a minimum required version passed as parameter.
 		winVer = sys.getwindowsversion()
-		return not (winVer.major < 10 or winVer.build < 17643)
+		return not (winVer.major < major or winVer.build < build)
 	
 	def modifyRunningState(self, gesture):
 		fetcher = lambda: getMagnifierKeyValue('RunningState', default=MAG_DEFAULT_RUNNING_STATE)
