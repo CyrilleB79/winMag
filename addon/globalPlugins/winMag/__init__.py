@@ -322,6 +322,8 @@ DESC_TOGGLE_SMOOTHING = _("Toggles on or off smoothing")
 DESC_TOGGLE_MOUSE_CURSOR_TRACKING_MODE = _("Switches between mouse tracking modes (within the edge of the screen or centered on the screen)")
 # Translators: The description for the moveMouseToView script.
 DESC_MOVE_MOUSE_TO_VIEW = _("Moves the mouse cursor in the center of the zoomed view")
+# Translators: The description for the openSettings script.
+DESC_OPEN_SETTINGS = _("Opens Windows Magnifier add-on settings")
 # Translators: The description for the displayHelp script.
 DESC_DISPLAY_HELP = _("Displays help on Magnifier layer commands")
 
@@ -338,6 +340,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		("s", "toggleSmoothing", DESC_TOGGLE_SMOOTHING),
 		("r", "toggleMouseCursorTrackingMode", DESC_TOGGLE_MOUSE_CURSOR_TRACKING_MODE),
 		("v", "moveMouseToView", DESC_MOVE_MOUSE_TO_VIEW),
+		("o", "openSettings", DESC_OPEN_SETTINGS),
 		("h", "displayHelp", DESC_DISPLAY_HELP),
 	]
 	
@@ -692,6 +695,12 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			ui.message(_('Lens'))
 		else:
 			raise ValueError('Unexpected MagnificationMode value: {}'.format(val))
+
+	@script(
+		description = DESC_OPEN_SETTINGS,
+	)
+	def script_openSettings(self, gesture):
+		wx.CallAfter(gui.mainFrame._popupSettingsDialog, gui.settingsDialogs.NVDASettingsDialog, WinMagSettingsPanel)
 
 	@script(
 		description = DESC_DISPLAY_HELP
