@@ -1,5 +1,5 @@
 # -*- coding: UTF-8 -*-
-#globalPlugins/winMag.py
+#globalPlugins/winMag/__init__.py
 #NVDA add-on: Windows Magnifier
 #Copyright (C) 2019-2020 Cyrille Bougot
 #This file is covered by the GNU General Public License.
@@ -463,9 +463,28 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def script_moveView(self, gesture):
 		if config.conf['winMag']['reportMove'] == 'speak':
 			ui.message(self.dicArrowDir[gesture.mainKeyName])
+			gesture.send()
 		elif config.conf['winMag']['reportMove'] == 'beep':
-			speak([BeepCommand(880, 30)])
-		gesture.send()
+			gesture.send()
+			
+			Magnification.MagInitialize()
+			try:
+				zoomLevel, viewLeft, viewTop = Magnification.MagGetFullscreenTransform()
+			finally:
+				Magnification.MagUninitialize()
+			if wx.Display.GetCount() != 1:
+				# Translators: A message reported when the user tries to execute script mouseToView
+				ui.message(_('This command is not yet available in multi-screen environment. Please contact the add-on author to have it implemented.'))
+				raise NotImplementedError('Multi-screen environment not yet implemented. Please contact add-on author.')
+			displays = [wx.Display(i).GetGeometry() for i in range(wx.Display.GetCount())]
+			screenWidth, screenHeight, minPos = mouseHandler.getTotalWidthAndHeightAndMinimumPosition(displays)
+			#rect = wx.Display(0).GetGeometry()
+			viewHeight = screenHeight / zoomLevel
+			viewWidth = screenWidth / zoomLevel
+			x = viewLeft + int(viewWidth/2)
+			y = viewTop + int(viewHeight/2)
+			
+			mouseHandler.playAudioCoordinates(x, y, screenWidth, screenHeight, minPos, detectBrightness=False)
 		
 	def script_changeMagnificationWindowSize(self, gesture):
 		if isMagnifierRunning():
@@ -677,7 +696,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		# Check current Windows version against a minimum required version passed as parameter.
 		winVer = sys.getwindowsversion()
 		return not (winVer.major < major or winVer.build < build)
-	
+
+	def getMagViewCenter(self):
+		zzz
+
 	def modifyRunningState(self, gesture):
 		fetcher = lambda: getMagnifierKeyValue('RunningState', default=MAG_DEFAULT_RUNNING_STATE)
 		val = _WaitForValueChangeForAction(gesture, fetcher, timeout=4)
