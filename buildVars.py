@@ -18,9 +18,9 @@ addon_info = {
 	# Add-on description
 	# Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 	"addon_description": _("""This addon improves the use of Windows Magnifier with NVDA with the following features:
-	- Adds some keyboard shortcuts to toggle various Magnifier options.
-	- Reports the result of some native Magnifier keyboard commands.
-	- Reduces the cases where table navigation command conflict with Magnifier's commands"""),
+	- Allows to report the result of some native Magnifier keyboard commands.
+	- Allows to reduces the cases where table navigation command conflict with Magnifier's commands.
+	- Adds some keyboard shortcuts to toggle various Magnifier options."""),
 	# version
 	"addon_version": "1.0",
 	# Author(s)

@@ -1,5 +1,5 @@
 # -*- coding: UTF-8 -*-
-#globalPlugins/winMag.py
+#globalPlugins/winMag/__init__.py
 #NVDA add-on: Windows Magnifier
 #Copyright (C) 2019-2020 Cyrille Bougot
 #This file is covered by the GNU General Public License.
@@ -7,20 +7,25 @@
 
 from __future__ import unicode_literals
 
+from .wmGui import WinMagSettingsPanel
 from .msg import nvdaTranslation
 from .magnification import Magnification 
 
 import globalPluginHandler
 import ui
+import gui.settingsDialogs
 import scriptHandler
 import api
 from tones import beep
+from speech import speak
 from scriptHandler import script
 from logHandler import log
 import mouseHandler
 import globalVars
 import winUser
 from keyboardHandler import KeyboardInputGesture
+import config
+import core
 
 import wx
 
@@ -37,7 +42,21 @@ import addonHandler
 
 addonHandler.initTranslation()
 
+confspec = {
+	"reportViewMove": 'option("off", "speech", "tones", default="off")',
+	"reportTurnOnOff": "boolean(default=True)",
+	"reportZoom": "boolean(default=True)",
+	"reportColorInversion": "boolean(default=True)",
+	"reportViewChange": "boolean(default=True)",
+	"reportLensResizing": "boolean(default=False)",
+	"passCtrlAltArrow": 'option("never", "whenNotInTable", "always", default="never")',
+}
+config.conf.spec["winMag"] = confspec
+
+
 ADDON_SUMMARY = addonHandler.getCodeAddon ().manifest["summary"]
+
+reportViewTimer = None
 
 # Alpha-numeric keyboard Magnifier keys
 # Translators: The key used natively byt the Magnifier on the alpha-numeric (main) keyboard in conjunction with Win key to zoom in.
@@ -166,7 +185,7 @@ def finally_(func, final):
 	return wrap(final)
 
 #Code taken from NVDA's source code NVDAObjects/window/winword.py
-def _WaitForValueChangeForAction(gesture, fetcher, timeout=0.2):
+def _WaitForValueChangeForAction(gesture, fetcher, timeout=0.2, sleepTime=0.03):
 	oldVal=fetcher()
 	gesture.send()
 	startTime=curTime=time.time()
@@ -174,7 +193,7 @@ def _WaitForValueChangeForAction(gesture, fetcher, timeout=0.2):
 		curVal=fetcher()
 		if curVal != oldVal:
 			return curVal
-		time.sleep(0.03)
+		time.sleep(sleepTime)
 		curTime=time.time()
 	log.warning('No value change detected')
 	return curVal
@@ -198,14 +217,25 @@ def patched_findScript(gesture):
 		# Control+shift+arrows is caught by Magnifier when it is running to resize lens or docked windows.
 		# Else it may correspond to another shortcut such as in Word where these gesture are the one to increase/decrease title level
 		# or to move up/down a paragraph.
-		if (gesture.normalizedIdentifiers[0].split(':')[1] in ['alt+downarrow+shift', 'alt+leftarrow+shift', 'alt+rightarrow+shift', 'alt+shift+uparrow']
-		and isMagnifierRunning()):
+		if (
+			config.conf['winMag']['reportLensResizing']
+			and gesture.normalizedIdentifiers[0].split(':')[1] in ['alt+downarrow+shift', 'alt+leftarrow+shift', 'alt+rightarrow+shift', 'alt+shift+uparrow']
+			and isMagnifierRunning()
+		):
 			winMagPlugin = [p for p in globalPluginHandler.runningPlugins if isinstance(p, GlobalPlugin)][0]
 			return winMagPlugin.script_changeMagnificationWindowSize
 		# For control+alt+arrow, create a compound script:
 		# that will call Magnifier move commands (control+alt+arrow) rather than saying "Not in a table" message.
-		if (gesture.normalizedIdentifiers[0].split(':')[1] in ['alt+control+downarrow', 'alt+control+leftarrow', 'alt+control+rightarrow', 'alt+control+uparrow']
-		and isMagnifierRunning()):
+		if (
+			config.conf['winMag']['passCtrlAltArrow'] != 'never'
+			and gesture.normalizedIdentifiers[0].split(':')[1] in [
+				'alt+control+downarrow',
+				'alt+control+leftarrow',
+				'alt+control+rightarrow',
+				'alt+control+uparrow'
+			]
+			and isMagnifierRunning()
+		):
 			if oldScript:
 				# We need a cache so that, for last script, checking wrapped script has always the same ref
 				# else, getLastScriptRepeatCount would always return 0
@@ -214,14 +244,20 @@ def patched_findScript(gesture):
 					@wraps(oldScript)
 					def newScript(self, g):
 						global canRaiseNotInTableException
-						try:
-							canRaiseNotInTableException = True
-							oldScript(g)
-						except NotInTableException:
+						if config.conf['winMag']['passCtrlAltArrow'] == 'always':
+							executeMoveScript = True
+						if config.conf['winMag']['passCtrlAltArrow'] == 'whenNotInTable':
+							try:
+								canRaiseNotInTableException = True
+								oldScript(g)
+								executeMoveScript = False
+							except NotInTableException:
+								executeMoveScript = True
+							finally:
+								canRaiseNotInTableException = False
+						if executeMoveScript:
 							winMagPlugin = [p for p in globalPluginHandler.runningPlugins if isinstance(p, GlobalPlugin)][0]
 							winMagPlugin.script_moveView(g)
-						finally:
-							canRaiseNotInTableException = False
 					try:
 						newScript = MethodType(newScript, oldScript.__self__)
 					except AttributeError:
@@ -302,6 +338,8 @@ DESC_TOGGLE_MOUSE_CURSOR_TRACKING_MODE = _("Switches between mouse tracking mode
 DESC_TOGGLE_TEXT_CURSOR_TRACKING_MODE = _("Switches between text tracking modes (within the edge of the screen or centered on the screen)")
 # Translators: The description for the moveMouseToView script.
 DESC_MOVE_MOUSE_TO_VIEW = _("Moves the mouse cursor in the center of the zoomed view")
+# Translators: The description for the openSettings script.
+DESC_OPEN_SETTINGS = _("Opens Windows Magnifier add-on settings")
 # Translators: The description for the displayHelp script.
 DESC_DISPLAY_HELP = _("Displays help on Magnifier layer commands")
 
@@ -319,16 +357,19 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		("r", "toggleMouseCursorTrackingMode", DESC_TOGGLE_MOUSE_CURSOR_TRACKING_MODE),
 		("x", "toggleTextCursorTrackingMode", DESC_TOGGLE_MOUSE_CURSOR_TRACKING_MODE),
 		("v", "moveMouseToView", DESC_MOVE_MOUSE_TO_VIEW),
+		("o", "openSettings", DESC_OPEN_SETTINGS),
 		("h", "displayHelp", DESC_DISPLAY_HELP),
 	]
 	
 	
 	def __init__(self):
 		super(GlobalPlugin, self).__init__()
+		gui.settingsDialogs.NVDASettingsDialog.categoryClasses.append(WinMagSettingsPanel)
 		self.toggling = False
 		ui.message = patched_message
 		scriptHandler.findScript = patched_findScript 
 		self.lastResize = None
+		self.lastMoveDirection = None
 	
 	def getScript(self, gesture):
 		if not self.toggling:
@@ -366,16 +407,20 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def terminate(self):
 		ui.message = orig_message
 		scriptHandler.findScript = orig_findScript 
+		gui.settingsDialogs.NVDASettingsDialog.categoryClasses.remove(WinMagSettingsPanel)
+		super().terminate()
 	
 	@script(
 		gestures = ["kb:windows+numpadPlus", "kb:windows+numLock+numpadPlus", "kb:windows+" + KEY_ALPHA_PLUS, "kb:windows+plus"]
 		)	
 	def script_zoomIn(self, gesture):
 		numlockWasOn = 'numlock' in gesture.normalizedIdentifiers[0].split(':')[1]
-		if isMagnifierRunning():
+		if config.conf['winMag']['reportZoom'] and isMagnifierRunning():
 			self.modifyZoomLevel(gesture)
-		else:
+		elif config.conf['winMag']['reportTurnOnOff'] and not isMagnifierRunning():
 			self.modifyRunningState(gesture)
+		else:
+			gesture.send()
 		if numlockWasOn:
 			# A gesture.send() with numlock on will unwantedly toggle numlock (see NVDA issue #10827), so restore it.
 			KeyboardInputGesture.fromName('numlock').send()
@@ -386,7 +431,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	)	
 	def script_zoomOut(self, gesture):
 		numlockWasOn = 'numlock' in gesture.normalizedIdentifiers[0].split(':')[1]
-		if isMagnifierRunning():
+		if config.conf['winMag']['reportZoom'] and isMagnifierRunning():
 			self.modifyZoomLevel(gesture)
 		else:
 			gesture.send()
@@ -398,7 +443,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		gesture = "kb:windows+escape"
 	)
 	def script_quitMagnifier(self, gesture):
-		if isMagnifierRunning():
+		if config.conf['winMag']['reportTurnOnOff'] and isMagnifierRunning():
 			self.modifyRunningState(gesture)
 		else:
 			gesture.send()
@@ -407,7 +452,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		gesture = "kb:control+alt+I"
 	)
 	def script_toggleColorInversion(self, gesture):
-		if isMagnifierRunning():
+		if config.conf['winMag']['reportColorInversion'] and isMagnifierRunning():
 			self.modifyColorInversion(gesture)
 		else:
 			gesture.send()
@@ -416,24 +461,76 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		gestures = ["kb:control+alt+M", "kb:control+alt+D", "kb:control+alt+F", "kb:control+alt+L"]
 	)
 	def script_changeMagnificationView(self, gesture):
-		if isMagnifierRunning():
+		if config.conf['winMag']['reportViewChange'] and isMagnifierRunning():
 			self.modifyMagnificationView(gesture)
 		else:
 			gesture.send()
 	
-	dicArrowDir = {
-		# Translators: A direction reported when the user moves the magnified view.
-		'leftArrow': _('left'),
-		# Translators: A direction reported when the user moves the magnified view.
-		'rightArrow': _('right'),
-		# Translators: A direction reported when the user moves the magnified view.
-		'upArrow': _('up'),
-		# Translators: A direction reported when the user moves the magnified view.
-		'downArrow': _('down'),
-		}
 	def script_moveView(self, gesture):
-		ui.message(self.dicArrowDir[gesture.mainKeyName])
+		global reportViewTimer
 		gesture.send()
+		if config.conf['winMag']['reportViewMove'] == 'off':
+			return
+		if gesture.mainKeyName in ['leftArrow', 'rightArrow']:
+			direction = 'horizontal'
+		else:
+			direction = 'vertical'
+		try:
+			reportViewTimer.Stop()
+			reportViewTimer = None
+			if scriptHandler.getLastScriptRepeatCount() > 0 and direction == self.lastMoveDirection:
+				self.report_viewPosition(direction)
+		except AttributeError:
+			pass
+		self.lastMoveDirection = direction
+		reportViewTimer = core.callLater(300, lambda: self.report_viewPosition(direction))
+		
+	def report_viewPosition(self, direction):
+		try:
+			Magnification.MagInitialize()
+			zoomLevel, viewLeft, viewTop = Magnification.MagGetFullscreenTransform()
+		finally:
+			Magnification.MagUninitialize()
+		
+		if zoomLevel == 1:
+			return
+		
+		if wx.Display.GetCount() != 1:
+			# Translators: A message reported when the user tries to execute script mouseToView
+			ui.message(_('This command is not yet available in multi-screen environment. Please contact the add-on author to have it implemented.'))
+			raise NotImplementedError('Multi-screen environment not yet implemented. Please contact add-on author.')
+		displays = [wx.Display(i).GetGeometry() for i in range(wx.Display.GetCount())]
+		screenWidth, screenHeight, minPos = mouseHandler.getTotalWidthAndHeightAndMinimumPosition(displays)
+		minX, minY = minPos
+		viewHeight = screenHeight / zoomLevel
+		viewWidth = screenWidth / zoomLevel
+		log.debug(f'minX={minX}; viewLeft={viewLeft}; screenWidth={screenWidth}; viewWidth={viewWidth}')
+		log.debug(f'minY={minY}; viewTop={viewTop}; screenHeight={screenHeight}; viewHeight={viewHeight}')
+		x = (viewLeft - minX) / (screenWidth - viewWidth)
+		y = (viewTop - minY) / (screenHeight - viewHeight)
+		
+		if direction == 'horizontal':
+			val = x
+		elif 	direction == 'vertical':
+			val = y
+		if config.conf['winMag']['reportViewMove'] == 'speech':
+			precision = 0 if zoomLevel < 4 else 1
+			if precision == 1:
+				msg = '{val:.1f}%'
+			else:
+				msg = '{val:.0f}%'
+			ui.message(msg.format(val=round(val * 100, precision)))
+		elif config.conf['winMag']['reportViewMove'] == 'tones':
+			if direction == 'vertical':
+				val = 1 - val
+			minPitch = config.conf['mouse']['audioCoordinates_minPitch']
+			maxPitch = config.conf['mouse']['audioCoordinates_maxPitch']
+			curPitch = minPitch + ((maxPitch - minPitch) * val)
+			# leftVolume=int((85*((screenWidth-float(x))/screenWidth))*brightness)
+			# rightVolume=int((85*(float(x)/screenWidth))*brightness)
+			# tones.beep(curPitch, 40, left=leftVolume, right=rightVolume)
+			beep(curPitch, 40)
+			
 		
 	def script_changeMagnificationWindowSize(self, gesture):
 		if isMagnifierRunning():
@@ -645,7 +742,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		# Check current Windows version against a minimum required version passed as parameter.
 		winVer = sys.getwindowsversion()
 		return not (winVer.major < major or winVer.build < build)
-	
+
+	def getMagViewCenter(self):
+		zzz
+
 	def modifyRunningState(self, gesture):
 		fetcher = lambda: getMagnifierKeyValue('RunningState', default=MAG_DEFAULT_RUNNING_STATE)
 		val = _WaitForValueChangeForAction(gesture, fetcher, timeout=4)
@@ -659,6 +759,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			raise ValueError('Unexpected RunningState value: {}'.format(val))
 			
 	def modifyZoomLevel(self, gesture):
+		if not config.conf['winMag']['reportZoom']:
+			gesture.send()
+			return
 		fetcher = lambda: getMagnifierKeyValue('Magnification', default=MAG_DEFAULT_MAGNIFICATION)
 		val = _WaitForValueChangeForAction(gesture, fetcher)
 		# Translators: A zoom level reported when the user changes the zoom level.
@@ -690,6 +793,12 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			ui.message(_('Lens'))
 		else:
 			raise ValueError('Unexpected MagnificationMode value: {}'.format(val))
+
+	@script(
+		description = DESC_OPEN_SETTINGS,
+	)
+	def script_openSettings(self, gesture):
+		wx.CallAfter(gui.mainFrame._popupSettingsDialog, gui.settingsDialogs.NVDASettingsDialog, WinMagSettingsPanel)
 
 	@script(
 		description = DESC_DISPLAY_HELP
