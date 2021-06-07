@@ -29,18 +29,20 @@ The panel contains the following options:
     * With speech: a speech message indicate the position of the zoomed view on the dimension the view is being moved.
     * With tones: a tone is played and its pitch indicates the position of the zoomed view on the dimension the view is being moved.
   
+  This option only affects full view mode.
 * Report turn on or off:
   If checked, the Magnifier's state is reported when you use Windows++ or Windows+Escape commands to turn it on or off.
 * Report zoom:
   If checked, the Magnifier's zoom level is reported when you use Windows++ or Windows+- zoom commands.
 * Report color inversion:
-  If checked, the color inversion state is reported when you use the control+shift+I toggle command.
+  If checked, the color inversion state is reported when you use the control+Alt+I toggle command.
 * Report view change:
   If checked, the view type is reported when you use a command that changes the view type (Control+Alt+M, Control+Alt+F, Control+Alt+D, Control+Alt+L)
 * Report lens or docked window resizing:
-  If checked, a message is reported when you use the resizing commands (Control+Shift+Arrows).
+  If checked, a message is reported when you use the resizing commands (Alt+Shift+Arrows).
   In docked window mode, the height or the width is reported.
   In lens mode, the new dimension cannot be reported for now.
+  These resizing command do not seem to be available on all versions of Windows; if your Windows version does not support them, you should keep this option unchecked.
 * In documents and list views, pass control+alt+arrows shortcuts to Windows Magnifier:
   There are three possible choices:  
   
@@ -90,8 +92,8 @@ The result of the following Magnifier native commands may be reported by this ad
 * Select the lens view: Control+Alt+L
 * Cycle through the three view types: Control+Alt+M
 * Resize the lens with the keyboard: Shift+Alt+Left/Right/Up/DownArrow.
-  Note: although this withdrawal does not seem to be documented, this shortcut seems to have been withdrawn in recent Windows versions such as Windows 2004.
-* Move the magnified view: Control+Alt+Arrows
+  Note: although this does not seem to be documented, this shortcut seems to have been withdrawn in recent Windows versions such as Windows 2004.
+* Move the magnified view: Control+Alt+Arrows (reporting only affects full screen mode)
 
 Here is also a list of other Magnifier native commands, just for information:
 
