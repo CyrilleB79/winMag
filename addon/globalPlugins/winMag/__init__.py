@@ -355,7 +355,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		("t", "toggleTracking", DESC_TOGGLE_TRACKING),
 		("s", "toggleSmoothing", DESC_TOGGLE_SMOOTHING),
 		("r", "toggleMouseCursorTrackingMode", DESC_TOGGLE_MOUSE_CURSOR_TRACKING_MODE),
-		("x", "toggleTextCursorTrackingMode", DESC_TOGGLE_MOUSE_CURSOR_TRACKING_MODE),
+		("x", "toggleTextCursorTrackingMode", DESC_TOGGLE_TEXT_CURSOR_TRACKING_MODE),
 		("v", "moveMouseToView", DESC_MOVE_MOUSE_TO_VIEW),
 		("o", "openSettings", DESC_OPEN_SETTINGS),
 		("h", "displayHelp", DESC_DISPLAY_HELP),
