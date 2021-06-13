@@ -504,8 +504,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		minX, minY = minPos
 		viewHeight = screenHeight / zoomLevel
 		viewWidth = screenWidth / zoomLevel
-		log.debug(f'minX={minX}; viewLeft={viewLeft}; screenWidth={screenWidth}; viewWidth={viewWidth}')
-		log.debug(f'minY={minY}; viewTop={viewTop}; screenHeight={screenHeight}; viewHeight={viewHeight}')
+		# log.debug(f'minX={minX}; viewLeft={viewLeft}; screenWidth={screenWidth}; viewWidth={viewWidth}')
+		# log.debug(f'minY={minY}; viewTop={viewTop}; screenHeight={screenHeight}; viewHeight={viewHeight}')
 		x = (viewLeft - minX) / (screenWidth - viewWidth)
 		y = (viewTop - minY) / (screenHeight - viewHeight)
 		
