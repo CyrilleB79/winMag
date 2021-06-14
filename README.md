@@ -2,6 +2,7 @@
 
 * Author: Cyrille Bougot
 * NVDA compatibility: 2018.3 and beyond
+* Download [stable version][1]
 * Download [development version][2]
 
 This add-on improves the use of Windows Magnifier with NVDA.
@@ -132,6 +133,8 @@ None of the Magnifier native commands can be modified.
 
 * Initial release.
 
+
+[1]: https://addons.nvda-project.org/files/get.php?file=winmag
 [2]: https://addons.nvda-project.org/files/get.php?file=winmag-dev
 [3]: https://support.microsoft.com/en-us/help/11542/windows-use-magnifier-to-make-things-easier-to-see
 [4]: https://support.microsoft.com/en-us/help/13810
