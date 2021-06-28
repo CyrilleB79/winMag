@@ -11,13 +11,13 @@ This add-on improves the use of Windows Magnifier with NVDA.
 ## Features
 
 * Allows to report the result of some native Magnifier keyboard commands.
-* Allows to reduces the cases where table navigation command conflict with Magnifier's commands.
+* Allows to reduce the cases where table navigation commands conflict with Magnifier's commands.
 * Adds some keyboard shortcuts to toggle various Magnifier options.
 
 
 ## Settings
 
-The setting panel of Windows Magnifier extension allows to configure how NVDA reacts to native Windows Magnifier commands.
+The setting panel of Windows Magnifier add-on allows to configure how NVDA reacts to native Windows Magnifier commands.
 You may want to have more or less commands reported according to what you are able to see.
 This panel may be opened choosing Preferences -> Settings in the NVDA menu and then selecting the Windows Magnifier category in the Settings window.
 The keyboard shortcut NVDA+Windows+O then O also allows to open this settings panel directly.
@@ -25,11 +25,11 @@ The keyboard shortcut NVDA+Windows+O then O also allows to open this settings pa
 The panel contains the following options:
 
 * Report view moves: controls what is reported when you move the view with Control+Alt+Arrows commands. The three options are:
-  
-    * Off: Nothing is reported
-    * With speech: a speech message indicate the position of the zoomed view on the dimension the view is being moved.
+    
+    * Off: Nothing is reported.
+    * With speech: a speech message indicates the position of the zoomed view on the dimension the view is being moved.
     * With tones: a tone is played and its pitch indicates the position of the zoomed view on the dimension the view is being moved.
-  
+    
   This option only affects full view mode.
 * Report turn on or off:
   If checked, the Magnifier's state is reported when you use Windows++ or Windows+Escape commands to turn it on or off.
@@ -46,9 +46,9 @@ The panel contains the following options:
   These resizing command do not seem to be available on all versions of Windows; if your Windows version does not support them, you should keep this option unchecked.
 * In documents and list views, pass control+alt+arrows shortcuts to Windows Magnifier:
   There are three possible choices:  
-  
+    
     * Never: The command is not passed to Windows Magnifier and standard NVDA table navigation can operate.
-      When used in documents out of a table, Control+Alt+Arrow commands report a "Not in a table" error message.
+      When used in documents out of a table, the Control+Alt+Arrow command reports a "Not in a table" error message.
       This is the standard behaviour of NVDA without this add-on.
     * Only when not in table: In table or in list views, Control+Alt+Arrow commands perform standard table navigation.
       When used in documents out of a table, Control+Alt+Arrow commands perform standard Magnifier view move commands.
@@ -135,8 +135,11 @@ None of the Magnifier native commands can be modified.
 
 
 [1]: https://addons.nvda-project.org/files/get.php?file=winmag
-[2]: https://addons.nvda-project.org/files/get.php?file=winmag-dev
-[3]: https://support.microsoft.com/en-us/help/11542/windows-use-magnifier-to-make-things-easier-to-see
-[4]: https://support.microsoft.com/en-us/help/13810
-[5]: https://addons.nvda-project.org/addons/easyTableNavigator.en.html
 
+[2]: https://addons.nvda-project.org/files/get.php?file=winmag-dev
+
+[3]: https://support.microsoft.com/en-us/help/11542/windows-use-magnifier-to-make-things-easier-to-see
+
+[4]: https://support.microsoft.com/en-us/help/13810
+
+[5]: https://addons.nvda-project.org/addons/easyTableNavigator.en.html
