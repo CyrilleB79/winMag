@@ -40,9 +40,7 @@ The panel contains the following options:
 * Report view change:
   If checked, the view type is reported when you use a command that changes the view type (Control+Alt+M, Control+Alt+F, Control+Alt+D, Control+Alt+L)
 * Report lens or docked window resizing:
-  If checked, a message is reported when you use the resizing commands (Alt+Shift+Arrows).
-  In docked window mode, the height or the width is reported.
-  In lens mode, the new dimension cannot be reported for now.
+  If checked, the height or the width of the window is reported when you use the resizing commands (Alt+Shift+Arrows).
   These resizing command do not seem to be available on all versions of Windows; if your Windows version does not support them, you should keep this option unchecked.
 * In documents and list views, pass control+alt+arrows shortcuts to Windows Magnifier:
   There are three possible choices:  
@@ -92,7 +90,7 @@ The result of the following Magnifier native commands may be reported by this ad
 * Select the full screen view: Control+Alt+F
 * Select the lens view: Control+Alt+L
 * Cycle through the three view types: Control+Alt+M
-* Resize the lens with the keyboard: Shift+Alt+Left/Right/Up/DownArrow.
+* Resize the Magnifier's window (lens or docked) with the keyboard: Shift+Alt+Left/Right/Up/DownArrow.
   Note: although this does not seem to be documented, this shortcut seems to have been withdrawn in recent Windows versions such as Windows 2004.
 * Move the magnified view: Control+Alt+Arrows (reporting only affects full screen mode)
 

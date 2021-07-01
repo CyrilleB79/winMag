@@ -134,9 +134,6 @@ def getDesktopChildObject(windowClassName):
 		o = o.next
 	return None
 
-def getDockedWindowObject():
-	return getDesktopChildObject(windowClassName="Screen Magnifier Window")
-
 def isFullScreenView():
 	return getMagnifierKeyValue('MagnificationMode', default=MAG_DEFAULT_MAGNIFICATION_MODE) == MAG_VIEW_FULLSCREEN
 
@@ -185,13 +182,22 @@ def finally_(func, final):
 	return wrap(final)
 
 #Code taken from NVDA's source code NVDAObjects/window/winword.py
-def _WaitForValueChangeForAction(gesture, fetcher, timeout=0.2, sleepTime=0.03):
+def _WaitForValueChangeForAction(
+		gesture,
+		fetcher,
+		timeout=0.2,
+		sleepTime=0.03,
+		canNewScriptInterrupt=False,
+	):
 	oldVal=fetcher()
 	gesture.send()
 	startTime=curTime=time.time()
 	while (curTime-startTime)<timeout:
 		curVal=fetcher()
-		if curVal != oldVal:
+		if (
+			curVal != oldVal
+			or (canNewScriptInterrupt and scriptHandler.isScriptWaiting())
+		):
 			return curVal
 		time.sleep(sleepTime)
 		curTime=time.time()
@@ -214,7 +220,7 @@ def patched_findScript(gesture):
 		#This gesture is not a KeyboardInputGesture, so mainKeyName attribut does not exist
 		mainKeyName = None
 	if mainKeyName and mainKeyName.endswith('Arrow'):
-		# Control+shift+arrows is caught by Magnifier when it is running to resize lens or docked windows.
+		# alt+shift+arrows is caught by Magnifier when it is running to resize lens or docked windows.
 		# Else it may correspond to another shortcut such as in Word where these gesture are the one to increase/decrease title level
 		# or to move up/down a paragraph.
 		if (
@@ -504,8 +510,6 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		minX, minY = minPos
 		viewHeight = screenHeight / zoomLevel
 		viewWidth = screenWidth / zoomLevel
-		# log.debug(f'minX={minX}; viewLeft={viewLeft}; screenWidth={screenWidth}; viewWidth={viewWidth}')
-		# log.debug(f'minY={minY}; viewTop={viewTop}; screenHeight={screenHeight}; viewHeight={viewHeight}')
 		x = (viewLeft - minX) / (screenWidth - viewWidth)
 		y = (viewTop - minY) / (screenHeight - viewHeight)
 		
@@ -531,36 +535,28 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			# tones.beep(curPitch, 40, left=leftVolume, right=rightVolume)
 			beep(curPitch, 40)
 			
-		
 	def script_changeMagnificationWindowSize(self, gesture):
-		if isMagnifierRunning():
-			gesture.send()
-			mode = getMagnifierKeyValue('MagnificationMode', default=MAG_DEFAULT_MAGNIFICATION_MODE)
-			if mode == MAG_VIEW_DOCKED:
-				oMag = getDockedWindowObject()
-				curResize = 'width' if gesture.mainKeyName in ['leftArrow', 'rightArrow'] else 'height'
-				announceDim = curResize != self.lastResize or not scriptHandler.getLastScriptRepeatCount()
-				msg = '{dimension}: {val}' if announceDim else '{val}'
-				if curResize == 'width':
-					# Translators: A dimension reported when the user resizes the docked view.
-					dim = _('Widht')
-					val = oMag.location.width
-					self.lastResize = 'width'
-				elif curResize == 'height':
-					# Translators: A dimension reported when the user resizes the docked view.
-					dim = _('Height')
-					val = oMag.location.height
-					self.lastResize = 'height'
-				ui.message(msg.format(dimension=dim, val=val))
-			elif mode == MAG_VIEW_LENS:
-				# Translators: A message reported when the user resizes the lens with the keyboard.
-				ui.message(_('Resizing lens.'))
-			else:
-				# Translators: A message reported when the user uses resizing shortcuts (control+shift+arrow) in full screen view.
-				ui.message(_('Resizing not available in full screen.'))
-		else:
+		if not isMagnifierRunning():
 			raise RuntimeError('Unexpected case')
-		
+		mode = getMagnifierKeyValue('MagnificationMode', default=MAG_DEFAULT_MAGNIFICATION_MODE)
+		if mode == MAG_VIEW_FULLSCREEN:
+			gesture.send()
+			# Translators: A message reported when the user uses resizing shortcuts (control+shift+arrow) in full screen view.
+			ui.message(_('Resizing not available in full screen.'))
+			return
+		curResize = 'width' if gesture.mainKeyName in ['leftArrow', 'rightArrow'] else 'height'
+		announceDim = curResize != self.lastResize or not scriptHandler.getLastScriptRepeatCount()
+		val = self.getUpdatedMagWindowDimension(gesture, mode, curResize)
+		msg = '{dimension}: {val}' if announceDim else '{val}'
+		if curResize == 'width':
+			# Translators: A dimension reported when the user resizes the docked or lens view.
+			dim = _('Widht')
+		elif curResize == 'height':
+			# Translators: A dimension reported when the user resizes the docked or lens view.
+			dim = _('Height')
+		self.lastResize = curResize
+		ui.message(msg.format(dimension=dim, val=val))
+	
 	@script(
 		description = DESC_TOGGLE_CARET_TRACKING
 	)
@@ -745,7 +741,27 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	def getMagViewCenter(self):
 		zzz
-
+	
+	def getUpdatedMagWindowDimension(self, gesture, mode, dim):
+		if mode == MAG_VIEW_DOCKED:
+			oMag = getDesktopChildObject(windowClassName="Screen Magnifier Window")
+			gesture.send()
+			return getattr(oMag.location, dim)
+		elif mode == MAG_VIEW_LENS:
+			oMag = getDesktopChildObject(windowClassName="Screen Magnifier Lens Window")
+			from locationHelper import RectLTWH
+			def fetcher(): 
+				try:
+					return getattr(RectLTWH(*oMag.IAccessibleObject.accLocation(oMag.IAccessibleChildID)), dim)
+				except COMError:
+					return None
+			return _WaitForValueChangeForAction(
+				gesture,
+				fetcher=fetcher,
+				canNewScriptInterrupt=True,
+			)
+		raise RuntimeError('Unexpected parameters: mode={mode}; dim={dim}'.format(mode=mode, dim=dim))
+	
 	def modifyRunningState(self, gesture):
 		fetcher = lambda: getMagnifierKeyValue('RunningState', default=MAG_DEFAULT_RUNNING_STATE)
 		val = _WaitForValueChangeForAction(gesture, fetcher, timeout=4)
