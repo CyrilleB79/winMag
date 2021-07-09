@@ -32,12 +32,13 @@ Le panneau contient les options suivantes :
   options sont :
   
     * Désactivé : rien n'est annoncé.
-    * Parole : un message parlé indique la position de la vue agrandie le
-      long de la dimension dans laquelle la vue est déplacée.
-    * Sons : des sons sont émis et leur hauteur indique la position de la
-      vue agrandie sur la dimension le long de laquelle la vue est déplacée.
+    * Avec la parole : un message parlé indique la position de la vue
+      agrandie le long de la dimension dans laquelle la vue est déplacée.
+    * Avec des sons : des sons sont émis et leur hauteur indique la position
+      de la vue agrandie sur la dimension le long de laquelle la vue est
+      déplacée.
   
-  Cette option concerne seulement le mode plein écran.
+  Cette option concerne seulement l'affichage plein écran.
   
 * Annoncer l'activation ou la désactivation : si cette option est cochée,
   l'état de la Loupe est signalé lorsque vous utilisez les commandes
@@ -52,10 +53,10 @@ Le panneau contient les options suivantes :
   d'affichage est annoncé lorsque vous utilisez une commande qui modifie le
   type d'affichage (Contrôle+Alt+M, Contrôle+Alt+F, Contrôle+Alt+D,
   Contrôle+Alt+L)
-* Annoncer le redimensionnement de la loupe ou de la fenêtre ancrée : Si
+* Annoncer le redimensionnement de l'objectif ou de la fenêtre ancrée : Si
   cette option est cochée, un message est annoncé lorsque vous utilisez les
   commandes de redimensionnement (Alt+Maj+Flèches). En mode fenêtre ancrée,
-  la hauteur ou la largeur est annoncée. En mode loupe, la nouvelle
+  la hauteur ou la largeur est annoncée. En mode objectif, la nouvelle
   dimension ne peut pas être annoncée pour l'instant. Ces commandes de
   redimensionnement ne semblent pas être disponibles sur toutes les versions
   de Windows ; si votre version de Windows ne les prend pas en charge, vous
@@ -65,13 +66,13 @@ Le panneau contient les options suivantes :
   
     * Jamais : la commande n'est pas transmise à la Loupe Windows et la
       navigation standard de NVDA dans les tableaux peut agir. Utilisée dans
-      des documents hors d'un tableau, la commande Ctrl+Alt+Flèche annoncent
+      les documents hors des tableaux, la commande Ctrl+Alt+Flèche annoncent
       un message d'erreur « Pas dans un tableau ». C'est le comportement
       habituel de NVDA sans cette extension.
     * Seulement en dehors des tableaux : Dans les tableaux ou les vues de
       liste, les commandes Ctrl+Alt+Flèche effectuent la navigation
-      habituelle dans les tableaux. Utilisées dans des documents en dehors
-      d'un tableau, les commandes Ctrl+Alt+Flèche exécutent les commandes
+      habituelle dans les tableaux. Utilisées dans les documents en dehors
+      des tableaux, les commandes Ctrl+Alt+Flèche exécutent les commandes
       habituelles de déplacement de la vue de la Loupe. Si vous souhaitez
       malgré tout déplacer la vue de la Loupe Windows alors que vous êtes
       dans un tableau ou une vue de liste, , vous devrez appuyer sur NVDA+F2
@@ -91,8 +92,8 @@ Le panneau contient les options suivantes :
 En plus des commandes natives de la Loupe, cette extension fournit des
 commandes supplémentaires qui permettent de contrôler les options de la
 Loupe sans ouvrir sa page de configuration. Toutes les commandes ajoutées
-pour contrôler les options de la Loupe sont accessibles via la commande en
-couche de la Loupe NVDA+Windows+O :
+pour contrôler les options de la Loupe sont accessibles via la commande
+séquentielle de la Loupe NVDA+Windows+O :
 
 * NVDA+Windows+O puis C: active ou désactive le suivi du curseur.
 * NVDA+Windows+O puis F: active ou désactive le suivi du focus.
@@ -109,15 +110,15 @@ couche de la Loupe NVDA+Windows+O :
 * NVDA+Windows+O puis V : Déplace le curseur de la souris au centre de la
   vue agrandie (commande disponible uniquement en affichage plein écran).
 * NVDA+Windows+O puis O : Ouvre les paramètres de l'extension Loupe Windows.
-* NVDA+Windows+O puis H: affiche l'aide sur les commandes en couche de la
-  Loupe.
+* NVDA+Windows+O puis H: affiche l'aide sur les commandes séquentielles de
+  la Loupe.
 
 Il n'y a pas de geste direct par défaut pour chacune des commande, mais vous
 pouvez en attribuer un normalement dans la boîte de dialogue des gestes de
 commande si vous le souhaitez. De la même manière, vous pouvez également
-modifier ou supprimer le raccourci clavier d'accès aux commandes en couche
-de la Loupe (NVDA+Windows+O). Cependant, vous ne pouvez pas modifier les
-touches de raccourci des sous-commandes de la Loupe.
+modifier ou supprimer le raccourci clavier d'accès aux commandes
+séquentielles de la Loupe (NVDA+Windows+O). Cependant, vous ne pouvez pas
+modifier les touches de raccourci des sous-commandes de la Loupe.
 
 
 ## Commandes natives de la Loupe
@@ -133,7 +134,8 @@ extension, selon sa configuration :
 * Activer ou désactiver l'inversion des couleurs: Ctrl+Alt+I
 * Sélectionnez l'affichage ancré: Ctrl+Alt+D
 * Sélectionnez l'affichage plein écran: Ctrl+Alt+F
-* Sélectionnez l'affichage loupe: Ctrl+Alt+L
+* Sélectionnez l'affichage objectif (anciennement affichage loupe):
+  Ctrl+Alt+L
 * Parcourir les trois types d'affichage: Ctrl+Alt+M
 * Redimensionnez la loupe avec le clavier :
   Maj+Alt+Gauche/Droite/Haut/Bas. Remarque : bien que cela ne semble pas
@@ -166,7 +168,7 @@ Aucune des commandes natives de la Loupe ne peut être modifiée.
   configuration Intel ou dans le menu Intel présent dans la zone de
   notification.
 * Selon votre version de Windows, Alt+Maj+Flèche sont des raccourcis de la
-  Loupe Windows pour redimensionner la loupe (affichage loupe ou
+  Loupe Windows pour redimensionner la loupe (affichage objectif ou
   ancré). Lorsque la Loupe est active (même en mode plein écran), ces
   raccourcis sont capturés par la Loupe et ne peuvent pas être transmis à
   l'application, même si vous appuyez sur NVDA+F2 auparavant. Pour utiliser
