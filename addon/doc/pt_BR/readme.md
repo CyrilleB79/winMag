@@ -1,84 +1,90 @@
-# Lupa do Windows #
+# Lupa do Windows (Windows Magnifier) #
 
 * Autor: Cyrille Bougot
-* NVDA compatibility: 2018.3 and beyond
-* Download [stable version][1]
-* Baixe a [versão de desenvolvimento][2]
+* Compatibilidade com NVDA: 2018.3 e além
+* Baixe a [versão estável][1]
+* Baixe a [versão em desenvolvimento][2]
 
-This add-on improves the use of Windows Magnifier with NVDA.
+Este complemento melhora o uso da Lupa do Windows com NVDA.
 
 
 ## Recursos
 
-* Allows to report the result of some native Magnifier keyboard commands.
-* Allows to reduce the cases where table navigation commands conflict with
-  Magnifier's commands.
+* Permite informar o resultado de alguns comandos de teclado nativo da Lupa.
+* Permite reduzir os casos em que os comandos de navegação em tabelas entram
+  em conflito com os comandos da Lupa.
 * Adiciona alguns atalhos de teclado para alternar várias opções da Lupa.
 
 
-## Settings
+## Configurações
 
-The setting panel of Windows Magnifier add-on allows to configure how NVDA reacts to native Windows Magnifier commands.
-You may want to have more or less commands reported according to what you are able to see.
-This panel may be opened choosing Preferences -> Settings in the NVDA menu and then selecting the Windows Magnifier category in the Settings window.
-The keyboard shortcut NVDA+Windows+O then O also allows to open this settings panel directly.
+O painel de configuração do complemento Lupa do Windows permite configurar como o NVDA reage aos comandos nativos da Lupa do Windows.
+Você pode querer ter mais ou menos comandos informados de acordo com o que você consegue ver.
+Este painel pode ser aberto escolhendo Preferências -> Configurações no menu NVDA e então selecionando a categoria Lupa do Windows na janela de Configurações.
+O atalho de teclado NVDA+Windows+O depois O também permite abrir este painel de configurações diretamente.
 
-The panel contains the following options:
+O painel contém as seguintes opções:
 
-* Report view moves: controls what is reported when you move the view with
-  Control+Alt+Arrows commands. The three options are:
+* Relatar movimentos da visualização: controla o que é informado quando você
+  move a visualização com os comandos Control+Alt+Setas. As três opções são:
   
-    * Off: Nothing is reported.
-    * With speech: a speech message indicates the position of the zoomed
-      view on the dimension the view is being moved.
-    * With tones: a tone is played and its pitch indicates the position of
-      the zoomed view on the dimension the view is being moved.
+    * Desativado: Nada é relatado.
+    * Com voz: uma mensagem de voz indica a posição da visualização ampliada
+      na dimensão em que a visualização está sendo movida.
+    * Com tons: um tom é reproduzido e sua altura indica a posição da
+      visualização ampliada na dimensão em que a visualização está sendo
+      movida.
   
-  This option only affects full view mode.
+  Essa opção afeta apenas o modo de visualização cheia.
   
-* Report turn on or off: If checked, the Magnifier's state is reported when
-  you use Windows++ or Windows+Escape commands to turn it on or off.
-* Report zoom: If checked, the Magnifier's zoom level is reported when you
-  use Windows++ or Windows+- zoom commands.
-* Report color inversion: If checked, the color inversion state is reported
-  when you use the control+Alt+I toggle command.
-* Report view change: If checked, the view type is reported when you use a
-  command that changes the view type (Control+Alt+M, Control+Alt+F,
-  Control+Alt+D, Control+Alt+L)
-* Report lens or docked window resizing: If checked, a message is reported
-  when you use the resizing commands (Alt+Shift+Arrows).  In docked window
-  mode, the height or the width is reported.  In lens mode, the new
-  dimension cannot be reported for now.  These resizing command do not seem
-  to be available on all versions of Windows; if your Windows version does
-  not support them, you should keep this option unchecked.
-* In documents and list views, pass control+alt+arrows shortcuts to Windows
-  Magnifier: There are three possible choices:
+* Relatar ativação ou desativação: Se marcada, o estado da lupa é informado
+  quando você usa os comandos Windows++ ou Windows+Esc para ativá-la ou
+  desativá-la.
+* Relatar ampliação: Se marcada, o nível de ampliação da Lupa é informado
+  quando você usa os comandos de zoom Windows++ ou Windows+-.
+* Relatar inversão de cores: Se marcada, o estado de inversão de cores é
+  rinformado quando você usa o comando de alternância control+Alt+I.
+* Relatar mudança da visualização: Se marcada, o tipo de visualização é
+  informado quando você usa um comando que altera o tipo da visualização
+  (Control+Alt+M, Control+Alt+F, Control+Alt+D, Control+Alt+L)
+* Relatar redimensionamento de lente ou janela acoplada: Se marcada, uma
+  mensagem é relatada quando você usa os comandos de redimensionamento
+  (Alt+Shift+Setas). No modo de janela acoplada, a altura ou largura é
+  informada. No modo de lente, a nova dimensão não pode ser informada por
+  enquanto. Estes comandos de redimensionamento não parecem estar
+  disponíveis em todas as versões do Windows; se a sua versão do Windows não
+  os suportar, você deve manter esta opção desmarcada.
+* Em documentos e visualizações de listas, passar atalhos control+alt+setas
+  para a Lupa do Windows: Há três opções possíveis:
   
-    * Never: The command is not passed to Windows Magnifier and standard
-      NVDA table navigation can operate.  When used in documents out of a
-      table, the Control+Alt+Arrow command reports a "Not in a table" error
-      message.  This is the standard behaviour of NVDA without this add-on.
-    * Only when not in table: In table or in list views, Control+Alt+Arrow
-      commands perform standard table navigation.  When used in documents
-      out of a table, Control+Alt+Arrow commands perform standard Magnifier
-      view move commands.  If you still want to move Windows Magnifier view
-      while in table or in list view, you will need to press NVDA+F2 before
-      using Control+Alt+Arrow commands.  This option is the best compromise
-      if you want to use Control+Alt+Arrow for both Magnifier and table
-      navigation.
-    * Always: Control+Alt+Arrow commands moves the Magnifier's view in any
-      case.  This option may be useful if you do not use Control+Alt+Arrow
-      to navigate in table, e.g. because you have changed table navigation
-      shortcuts in NVDA or because you exclusively use [Easy table
-      navigator][5] add-on for table navigation.
+    * Nunca: O comando não é passado para a Lupa do Windows e a navegação
+      padrão de tabela do NVDA pode operar. Quando usado em documentos fora
+      de uma tabela, o comando Control+Alt+Seta relata uma mensagem de erro
+      "Não está numa tabela". Esse é o comportamento padrão do NVDA sem este
+      complemento.
+    * Somente quando não estiver em tabela: Em tabela ou em visualizações de
+      lista, os comandos Control+Alt+Seta executam a navegação padrão de
+      tabela. Quando usados em documentos fora duma tabela, os comandos
+      Control+Alt+Seta executam comandos padrões de movimento da
+      visualização da Lupa. Se você ainda deseja mover a visualização da
+      Lupa do Windows enquanto está na tabela ou na visualização de lista,
+      você precisará pressionar NVDA+F2 antes de usar os comandos
+      Control+Alt+Seta. Essa opção é o melhor meio-termo se você deseja usar
+      Control+Alt+Seta para ampliação e navegação de tabela.
+    * Sempre: Os comandos Control+Alt+Seta movem a visualização da Lupa em
+      qualquer caso. Esta opção pode ser útil se você não usar
+      Control+Alt+Seta para navegar em tabela, por exemplo, porque alterou
+      os atalhos de navegação em tabelas no NVDA ou porque utiliza
+      exclusivamente o complemento [Navegação fácil em tabelas (Easy table
+      navigator)][5] para navegação nas tabelas.
 
 
 ## Comandos adicionados por este complemento
 
-In addition to native Magnifier commands, this add-on provide additional
-commands that allow to control Magnifier's options without opening its
-configuration page.  All the commands added to control Magnifier options are
-accessible through the Magnifier layer command NVDA+Windows+O:
+Além dos comandos nativos da Lupa, este complemento fornece comandos
+adicionais que permitem controlar as opções da Lupa sem abrir sua página de
+configuração. Todos os comandos adicionados para controlar as opções da Lupa
+são acessíveis através do comando de camada Lupa NVDA+Windows+O:
 
 * NVDA+Windows+O depois C: Ativa ou desativa o rastreamento do cursor.
 * NVDA+Windows+O depois F: Ativa ou desativa o rastreamento do foco.
@@ -86,52 +92,55 @@ accessible through the Magnifier layer command NVDA+Windows+O:
 * NVDA+Windows+O depois T: Ativa ou desativa o rastreamento totalmente.
 * NVDA+Windows+O depois S: Ativa ou desativa a suavização.
 * NVDA+Windows+O depois R: Alterna entre os modos de rastreamento do mouse
-  (dentro da borda da tela ou centralizado na tela); esse recurso está
-  disponível apenas no Windows 10 compilação 17643 ou superior.
-* NVDA+Windows+O then X: Switches between text cursor tracking modes (within
-  the edge of the screen or centered on the screen); this feature is only
-  available on Windows 10 build 18894 or higher.
-* NVDA+Windows+O then V: Moves the mouse cursor in the center of the
-  magnified view (command available in full screen view only).
-* NVDA+Windows+O then O: Opens Windows Magnifier add-on settings.
-* NVDA+Windows+O depois H: Mostra a ajuda sobre os comandos de camada da
-  Lupa.
+  (no limite da tela ou centralizado na tela); esse recurso está disponível
+  apenas no Windows 10 compilação 17643 ou superior.
+* NVDA+Windows+O depois X: Alterna entre os modos de rastreamento do cursor
+  de texto (no limite da tela ou centralizado na tela); esse recurso está
+  disponível apenas no Windows 10 compilação 18894 ou superior.
+* NVDA+Windows+O depois V: Coloca o cursor do mouse no centro da
+  visualização ampliada (comando disponível apenas na visualização em tela
+  cheia).
+* NVDA+Windows+O depois O: Abre as configurações do complemento Lupa do
+  Windows.
+* NVDA+Windows+O depois H: Exibe a ajuda sobre os comandos de camada Lupa.
 
-There is no default direct gesture for each command, but you can attribute
-one normally in the input gesture dialog if you wish.  The same way, You can
-also modify or delete the Magnifier layer access gesture (NVDA+Windows+O).
-Yet, you cannot modify the shortcut key of the Magnifier layer sub-commands.
+Não há comando (gesto) direto padrão para cada comando, mas você pode
+atribuir um normalmente no diálogo definir comandos (gesto de entrada), se
+desejar. Da mesma forma, você também pode modificar ou excluir o gesto de
+acesso à camada Lupa (NVDA+Windows+O). Ainda assim, você não pode modificar
+a tecla de atalho dos subcomandos da camada Lupa.
 
 
 ## Comandos nativos da Lupa
 
-The result of the following Magnifier native commands may be reported by
-this add-on, according to its configuration:
+O resultado dos seguintes comandos nativos da Lupa pode ser relatado por
+este complemento, de acordo com sua configuração:
 
 * Iniciar Lupa: Windows++ (no teclado alfanumérico ou no teclado numérico)
 * Sair da Lupa: Windows+Esc
 * Ampliar: Windows++ (no teclado alfanumérico ou no teclado numérico)
 * Diminuir ampliação: Windows+- (no teclado alfanumérico ou no teclado
   numérico)
-* Alternar inversão de cor: Control+Alt+I
-* Selecione visualização acoplada: Control+Alt+D
-* Selecione visualização em tela cheia: Control+Alt+F
-* Selecione visualização de lente: Control+Alt+L
-* Alterne pelos três tipos de visualização: Control+Alt+M
-* Resize the lens with the keyboard: Shift+Alt+Left/Right/Up/DownArrow.
-  Note: although this does not seem to be documented, this shortcut seems to
-  have been withdrawn in recent Windows versions such as Windows 2004.
-* Move the magnified view: Control+Alt+Arrows (reporting only affects full
-  screen mode)
+* Alternar inversão de cores: Control+Alt+I
+* Selecionar visualização acoplada: Control+Alt+D
+* Selecionar visualização em tela cheia: Control+Alt+F
+* Selecionar visualização de lente: Control+Alt+L
+* Circuitar através dos três tipos de visualização: Control+Alt+M
+* Redimensionar a lente com o teclado: Shift+Alt+seta para
+  Esquerda/Direita/Cima/Baixo. Nota: embora isso não pareça estar
+  documentado, este atalho parece ter sido retirado em versões recentes do
+  Windows, como o Windows 2004.
+* Mover a visualização ampliada: Control+Alt+Setas (a informação afeta
+  apenas o modo de tela cheia)
 
-Here is also a list of other Magnifier native commands, just for
-information:
+Aqui está também uma lista de outros comandos nativos da Lupa, apenas para
+informação:
 
-* Control+Alt+rodinhaDeRolagemDoMouse: aumenta e diminui a ampliação usando
+* Control+Alt+rodinhaDeRolagemDoMouse: Aumenta e diminui a ampliação usando
   a rodinha de rolagem do mouse.
 * Control+Windows+M: Abre a janela de configurações da Lupa.
-* Control+Alt+R: redimensiona a lente com o mouse.
-* Control+Alt+Espaço: mostra rapidamente toda a área de trabalho ao usar a
+* Control+Alt+R: Redimensiona a lente com o mouse.
+* Control+Alt+Espaço: Mostra rapidamente toda a área de trabalho ao usar a
   visualização em tela cheia.
 
 Nenhum dos comandos nativos da Lupa podem ser modificados.
@@ -139,31 +148,33 @@ Nenhum dos comandos nativos da Lupa podem ser modificados.
 
 ## Notas
 
-* For computers equipped with an Intel graphic card, control+alt+arrow
-  (left/right/up/down) are also shortcuts to modify the orientation of the
-  screen.  These shortcut are enabled by default and conflict with Windows
-  Magnifiers shortcuts to move the view.  You will need to disable them to
-  be able to use them for the Magnifier.  They can be disabled in the Intel
-  control panel or in the Intel menu present in the system tray.
-* Depending on your Windows version, Alt+Shift+Arrow are Windows Magnifier
-  shortcuts to resize the magnified view (lens or docked).  When Magnifier
-  is active (even in full screen mode), these shortcuts are captured by
-  Magnifier and cannot be passed to the application, even if you press
-  NVDA+F2 before.  To use these shortcuts in the current application, you
-  need to quit the Magnifier (Windows+Escape) and re-open it after
-  (Windows++).  For example in MS word, to decrease title level:
+* Para computadores equipados com uma placa de vídeo Intel, control+alt+seta
+  (esquerda/direita/cima/baixo) também são atalhos para modificar a
+  orientação da tela. Esses atalhos são habilitados por padrão e entram em
+  conflito com os atalhos da Lupa do Windows para mover a visualização. Você
+  precisará desabilitá-los para poder usá-los na Lupa. Eles podem ser
+  desabilitados no painel de controle Intel ou no menu Intel presente na
+  bandeja do sistema (área de notificação).
+* Dependendo da sua versão do Windows, Alt+Shift+Seta são atalhos da Lupa do
+  Windows para redimensionar a visualização ampliada (lente ou
+  acoplada). Quando a Lupa está ativa (mesmo no modo de tela cheia), esses
+  atalhos são capturados pela Lupa e não podem ser passados para o
+  aplicativo, mesmo se antes você pressionar NVDA+F2. Para usar esses
+  atalhos no aplicativo atual, você precisa sair da Lupa (Windows+Esc) e
+  reabri-la depois (Windows++). Por exemplo, no Ms Word, para diminuir o
+  nível do título:
   
     * Pressione Windows+Esc para sair da Lupa.
     * Pressione Alt+Shift+SetaParaDireita para diminuir o nível do título
       atual.
     * Pressione Windows++ para reabrir a Lupa.
 
-* Para mais informações sobre os recursos e atalhos da Lupa do Windows,
-  consulte as seguintes páginas:
+* Para mais informações sobre os recursos e atalhos da Lupa do Windows, pode
+  consultar as seguintes páginas:
 
-    * [Use Magnifier to make things on the screen easier to
-      see](https://support.microsoft.com/en-us/help/11542/windows-use-magnifier-to-make-things-easier-to-see)
-    * [Windows keyboard shortcuts for accessibility][4]
+    * [Usar a Lupa para facilitar a visualização dos itens na
+      tela](https://support.microsoft.com/pt-br/windows/usar-a-lupa-para-facilitar-a-visualiza%C3%A7%C3%A3o-dos-itens-na-tela-414948ba-8b1c-d3bd-8615-0e5e32204198)
+    * [Atalhos de teclado de acessibilidade do Windows][4]
 
 
 ## Registro de alterações (Change log)
@@ -178,6 +189,6 @@ Nenhum dos comandos nativos da Lupa podem ser modificados.
 
 [2]: https://addons.nvda-project.org/files/get.php?file=winmag-dev
 
-[4]: https://support.microsoft.com/en-us/help/13810
+[4]: https://support.microsoft.com/pt-br/help/13810
 
-[5]: https://addons.nvda-project.org/addons/easyTableNavigator.en.html
+[5]: https://addons.nvda-project.org/addons/easyTableNavigator.pt_BR.html
