@@ -20,83 +20,87 @@ Ovaj dodatak poboljšava upotrebu Windows povećala s NVDA čitačem.
 
 ## Postavke
 
-The setting panel of Windows Magnifier add-on allows to configure how NVDA reacts to native Windows Magnifier commands.
-You may want to have more or less commands reported according to what you are able to see.
-This panel may be opened choosing Preferences -> Settings in the NVDA menu and then selecting the Windows Magnifier category in the Settings window.
-The keyboard shortcut NVDA+Windows+O then O also allows to open this settings panel directly.
+Ploča za postavljanje dodatka Windows povećala omogućuje konfiguriranje načina na koji NVDA reagira na izvorne naredbe Windows povećala.
+Možda želiš da se javlja više ili manje naredbi u skladu s onim što možeš vidjeti.
+Ova se ploča može otvoriti odabirom Postavke -> Postavke u NVDA izborniku, a zatim odabirom kategorije Windows Povećalo u prozoru Postavke.
+Tipkovni prečac NVDA+Windows+O, zatim O, također omogućuje izravno otvaranje ove ploče s postavkama.
 
-The panel contains the following options:
+Ploča sadrži sljedeće opcije:
 
-* Report view moves: controls what is reported when you move the view with
-  Control+Alt+Arrows commands. The three options are:
+* Javi pomicanja prikaza: određuje što se javlja pri premještanju prikaza
+  pomoću naredbi Kontrol+Alt+Strelice. Postoje tri opcije:
   
-    * Off: Nothing is reported.
-    * With speech: a speech message indicates the position of the zoomed
-      view on the dimension the view is being moved.
-    * With tones: a tone is played and its pitch indicates the position of
-      the zoomed view on the dimension the view is being moved.
+    * Isključeno: ništa se ne javlja.
+    * S govorom: govorna poruka označava položaj uvećanog prikaza na
+      dimenziji na kojoj se prikaz pomiče.
+    * Sa zvučnim signalima: svira se ton i njegova visina označava položaj
+      uvećanog prikaza na dimenziji na kojoj se prikaz pomiče.
   
-  This option only affects full view mode.
+  Ova opcija vrijedi samo za cjloekranski prikaz.
   
-* Report turn on or off: If checked, the Magnifier's state is reported when
-  you use Windows++ or Windows+Escape commands to turn it on or off.
-* Report zoom: If checked, the Magnifier's zoom level is reported when you
-  use Windows++ or Windows+- zoom commands.
-* Report color inversion: If checked, the color inversion state is reported
-  when you use the control+Alt+I toggle command.
-* Report view change: If checked, the view type is reported when you use a
-  command that changes the view type (Control+Alt+M, Control+Alt+F,
-  Control+Alt+D, Control+Alt+L)
-* Report lens or docked window resizing: If checked, a message is reported
-  when you use the resizing commands (Alt+Shift+Arrows).  In docked window
-  mode, the height or the width is reported.  In lens mode, the new
-  dimension cannot be reported for now.  These resizing command do not seem
-  to be available on all versions of Windows; if your Windows version does
-  not support them, you should keep this option unchecked.
-* In documents and list views, pass control+alt+arrows shortcuts to Windows
-  Magnifier: There are three possible choices:
+* Uključi ili isključi javljanje: Ako je označeno, javlja se stanje povećala
+  kad za uključivanje ili isključivanje koristiš naredbe Windows++ ili
+  Windows+Escape.
+* Javi uvećanje: Ako je označeno, javlja se razina uvećanja povećala kad
+  koristiš naredbe za uvećanje Windows++ ili Windows+-.
+* Javi inverziju boje: Ako je označeno, javlja se stanje inverzije boje kad
+  koristiš naredbu za uključivanje/isključivanje kontrol+Alt+I.
+* Javi promjenu prikaza: Ako je označeno, javlja se vrsta prikaza kad
+  koristiš naredbu koja mijenja vrstu prikaza (Kontrol+Alt+M, Kontrol+Alt+F,
+  Kontrol+Alt+D, Kontrol+Alt+L)
+* Javi mijenjanje veličine leće ili fiksiranog prozora: Ako je označeno,
+  javlja se poruka kad koristiš naredbe za mijenjanje veličine
+  (Alt+šift+strelice). U načinu fiksiranog prozora javlja se visina ili
+  širina. U modusu leće, nova se dimenzija za sada ne može javiti. Čini se
+  da ove naredbe za mijenjanje veličine nisu dostupne u svim verzijama
+  WIndows sustava; ako ih tvoja verzija Windows sustava ne podržava, nemoj
+  označiti ovu opciju.
+* U prikazima dokumenata i popisa, proslijedi prečace kontrol+alt+strelice
+  Windows povećalu: Postoje tri mogućnosti:
   
-    * Never: The command is not passed to Windows Magnifier and standard
-      NVDA table navigation can operate.  When used in documents out of a
-      table, the Control+Alt+Arrow command reports a "Not in a table" error
-      message.  This is the standard behaviour of NVDA without this add-on.
-    * Only when not in table: In table or in list views, Control+Alt+Arrow
-      commands perform standard table navigation.  When used in documents
-      out of a table, Control+Alt+Arrow commands perform standard Magnifier
-      view move commands.  If you still want to move Windows Magnifier view
-      while in table or in list view, you will need to press NVDA+F2 before
-      using Control+Alt+Arrow commands.  This option is the best compromise
-      if you want to use Control+Alt+Arrow for both Magnifier and table
-      navigation.
-    * Always: Control+Alt+Arrow commands moves the Magnifier's view in any
-      case.  This option may be useful if you do not use Control+Alt+Arrow
-      to navigate in table, e.g. because you have changed table navigation
-      shortcuts in NVDA or because you exclusively use [Easy table
-      navigator][5] add-on for table navigation.
+    * Nikada: Naredba se ne prosljeđuje Windows povećalu i standardno NVDA
+      kretanje tablicom može raditi. Kad se koristi u dokumentima izvan
+      tablice, naredba Kontrol+Alt+Strelica javlja poruku o grešci „Nije u
+      tablici”. To je standardno ponašanje NVDA čitača bez ovog dodatka.
+    * Samo izvan tablice: U prikazima tablice ili popisa, naredbe
+      Kontrol+Alt+Strelica izvode standardno kretanje po tablici. Kad se
+      koriste u dokumentima izvan tablice, naredbe Kontrol+Alt+Strelica
+      izvode standardne naredbe za pomicanje prikaza povećala. Ako i dalje
+      želiš pomaknuti prikaz Windows povećala dok se nalaziš u prikazu
+      tablice ili popisa, morat ćeš pritisnuti NVDA+F2 prije korištenja
+      naredbi Kontrol+Alt+Strelica. Ova je opcija najbolji kompromis, ako
+      želiš koristiti Kontrol+Alt+Strelica za povećalo i za kretanje po
+      tablici.
+    * Uvijek: Naredbe Kontrol+Alt+Strelica u svakom slučaju pomiču prikaz
+      povećala. Ova opcija može biti korisna, ako ne koristiš
+      Kontrol+Alt+Strelica za kretanje po tablici, npr. jer si promijenio/la
+      prečace za kretanje po tablici u NVDA čitaču ili jer za kretanje po
+      tablicama isključivo koristiš dodatak [Jednostavno kretanje po
+      tablici][5].
 
 
 ## Dodatak dodaje sljedeće naredbe
 
-In addition to native Magnifier commands, this add-on provide additional
-commands that allow to control Magnifier's options without opening its
-configuration page.  All the commands added to control Magnifier options are
-accessible through the Magnifier layer command NVDA+Windows+O:
+Osim izvornih naredbi povećala, ovaj dodatak nudi dodatne naredbe koje
+omogućuju upravljanje opcijama povećala bez otvaranja njegove stranice
+konfiguracije. Sve naredbe koje su dodane za upravljanje opcijama povećala
+dostupne su putem naredbe povećala NVDA+Windows+O:
 
-* NVDA+Windows+O zatim C: Uključuje ili isključuje praćenje kursora.
-* NVDA+Windows+O zatim F: Uključuje ili isključuje praćenje fokusa.
-* NVDA+Windows+O zatim M: Uključuje ili isključuje praćenje miša.
-* NVDA+Windows+O zatim T: Uključuje ili isključuje praćenje globalno.
-* NVDA+Windows+O zatim S: Uključuje ili isključuje zaglađivanje.
+* NVDA+Windows+O, zatim C: Uključuje ili isključuje praćenje kursora.
+* NVDA+Windows+O, zatim F: Uključuje ili isključuje praćenje fokusa.
+* NVDA+Windows+O, zatim M: Uključuje ili isključuje praćenje miša.
+* NVDA+Windows+O, zatim T: Uključuje ili isključuje praćenje globalno.
+* NVDA+Windows+O, zatim S: Uključuje ili isključuje zaglađivanje rubova.
 * NVDA+Windows+O, zatim R: Prebacuje se između modusa praćenja miša (unutar
   ruba ekrana ili centrirano na ekranu); ova je funkcija dostupna samo u
   Windows 10 gradnja 17643 ili novijoj verziji.
 * NVDA+Windows+O, zatim X: Prebacuje se između modusa praćenja miša (unutar
   ruba ekrana ili centrirano na ekranu); ova je funkcija dostupna samo u
   Windows 10 gradnja 18894 ili novijoj verziji.
-* NVDA+Windows+O then V: Moves the mouse cursor in the center of the
-  magnified view (command available in full screen view only).
-* NVDA+Windows+O zatim O: Otvara postavke dodatka Windows povećala.
-* NVDA+Windows+O zatim H: Prikazuje pomoć za naredbe povećala.
+* NVDA+Windows+O, zatim V: Pomiče kursor miša u središte uvećanog prikaza
+  (naredba je dostupna samo u cjeloekranskom prikazu).
+* NVDA+Windows+O, zatim O: Otvara postavke dodatka Windows povećala.
+* NVDA+Windows+O, zatim H: Prikazuje pomoć za naredbe povećala.
 
 Ne postoji standardna gesta za svaku naredbu, ali ako treba, može je se
 normalno dodijeliti u dijaloškom okviru unosa gesta. Na isti je način moguće
@@ -117,20 +121,21 @@ ovisno o konfiguraciji:
   tipkovnici)
 * Umanji prikaz: Windows+- (na alfanumeričkoj tipkovnici ili na numeričkoj
   tipkovnici)
-* Uključi i isključi inverziju boje: Kontrol+Alt+I
-* Odaberi usidreni prikaz: Kontrol+Alt+D
+* Uključi ili isključi inverziju boje: Kontrol+Alt+I
+* Odaberi fiksirani prikaz: Kontrol+Alt+D
 * Odaberi cjeloekranski prikaz: Kontrol+Alt+F
 * Odaberi prikaz lećom: Kontrol+Alt+L
-* Prolazi kroz vrste prikaza stabla: Kontrol+Alt+M
-* Resize the lens with the keyboard: Shift+Alt+Left/Right/Up/DownArrow.
-  Note: although this does not seem to be documented, this shortcut seems to
-  have been withdrawn in recent Windows versions such as Windows 2004.
-* Move the magnified view: Control+Alt+Arrows (reporting only affects full
-  screen mode)
+* Mijenjaj između tri vrste prikaza: Kontrol+Alt+M
+* Promijeni veličinu leće tipkovnicom: Šift+Alt+strelica
+  Lijevo/Desno/Gore/Dolje. Napomena: iako se čini da ovo nije dokumentirano,
+  čini se da je ovaj prečac povučen u novijim verzijama Windowsa, kao što je
+  Windows 2004.
+* Pomakni uvećani prikaz: Kontrol+Alt+strelice (izvještavanje utječe samo na
+  cjeloekranski modus)
 
 Za kraj, evo popis ostalih izvornih naredbi povećala, čisto informativno:
 
-* Kontrol+Alt+kotiačić miša: Uvećava i smanjuje prikaz pomoću kotačića miša.
+* Kontrol+Alt+kotačić miša: Uvećava i smanjuje prikaz pomoću kotačića miša.
 * Kontrol+Windows+M: Otvara prozor s postavkama povećala.
 * Kontrol+Alt+R: Mijenja veličinu leće pomoću miša.
 * Kontrol+Alt+razmaknica: Brzo prikazuje cijelu radnu površinu pomoću
@@ -148,11 +153,11 @@ Nije moguće promijeniti niti jednu izvornu naredbu povećala.
   prečaci moraju deaktivirati. Deaktiviraju se na Intelovoj upravljačkoj
   ploči ili u Intelovom izborniku u programskoj traci.
 * Tipke Alt+šift+strelica prečaci su Windows povećala za mijenjanje veličine
-  uvećanog prikaza (leća ili usidreno). Kad je povećalo aktivno (čak i u
+  uvećanog prikaza (leća ili fiksirano). Kad je povećalo aktivno (čak i u
   cjeloekranskom prikazu), povećalo nadvladava ove prečace i ne mogu se
   proslijediti programu, čak i ako se prethodno pritisne NVDA+F2. Za
   upotrebu ovih prečaca u trenutačnom programu, mora se izaći iz povećala
-  (Windows+Escape) i nakon toga ponovo ga otvoriti (Windows ++). Na primjer,
+  (Windows+Escape) i nakon toga ponovo ga otvoriti (Windows++). Na primjer,
   u MS wordu, za smanjivanje razine naslova:
   
     * Pritisni Windows+Escape za zatvaranje povećala.
