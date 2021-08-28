@@ -25,12 +25,13 @@ The keyboard shortcut NVDA+Windows+O then O also allows to open this settings pa
 The panel contains the following options:
 
 * Report view moves: controls what is reported when you move the view with Control+Alt+Arrows commands. The three options are:
-    
+  
     * Off: Nothing is reported.
     * With speech: a speech message indicates the position of the zoomed view on the dimension the view is being moved.
     * With tones: a tone is played and its pitch indicates the position of the zoomed view on the dimension the view is being moved.
-    
+  
   This option only affects full view mode.
+  
 * Report turn on or off:
   If checked, the Magnifier's state is reported when you use Windows++ or Windows+Escape commands to turn it on or off.
 * Report zoom:
@@ -46,7 +47,7 @@ The panel contains the following options:
   These resizing command do not seem to be available on all versions of Windows; if your Windows version does not support them, you should keep this option unchecked.
 * In documents and list views, pass control+alt+arrows shortcuts to Windows Magnifier:
   There are three possible choices:  
-    
+  
     * Never: The command is not passed to Windows Magnifier and standard NVDA table navigation can operate.
       When used in documents out of a table, the Control+Alt+Arrow command reports a "Not in a table" error message.
       This is the standard behaviour of NVDA without this add-on.
@@ -123,7 +124,7 @@ None of the Magnifier native commands can be modified.
 
 * For more information about Windows Magnifier's features and shortcuts, you may want to consult the following pages:
 
-    * [Use Magnifier to make things on the screen easier to see][3]
+    * [Use Magnifier to make things on the screen easier to see](https://support.microsoft.com/en-us/help/11542/windows-use-magnifier-to-make-things-easier-to-see)
     * [Windows keyboard shortcuts for accessibility][4]
 
 
@@ -133,12 +134,9 @@ None of the Magnifier native commands can be modified.
 
 * Initial release.
 
-
 [1]: https://addons.nvda-project.org/files/get.php?file=winmag
 
 [2]: https://addons.nvda-project.org/files/get.php?file=winmag-dev
-
-[3]: https://support.microsoft.com/en-us/help/11542/windows-use-magnifier-to-make-things-easier-to-see
 
 [4]: https://support.microsoft.com/en-us/help/13810
 
