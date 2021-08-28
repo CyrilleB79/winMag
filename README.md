@@ -130,6 +130,10 @@ None of the Magnifier native commands can be modified.
 
 ## Change log
 
+### Version 1.1
+
+* Added localizations.
+
 ### Version 1.0
 
 * Initial release.
