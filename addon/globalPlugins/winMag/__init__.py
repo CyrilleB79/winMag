@@ -24,6 +24,7 @@ import mouseHandler
 import globalVars
 import winUser
 from keyboardHandler import KeyboardInputGesture
+from keyLabels import localizedKeyLabels
 import config
 import core
 
@@ -336,6 +337,8 @@ DESC_TOGGLE_SMOOTHING = _("Toggles on or off smoothing")
 DESC_TOGGLE_MOUSE_CURSOR_TRACKING_MODE = _("Switches between mouse tracking modes (within the edge of the screen or centered on the screen)")
 # Translators: The description for the toggleTextCursorTrackingMode script.
 DESC_TOGGLE_TEXT_CURSOR_TRACKING_MODE = _("Switches between text tracking modes (within the edge of the screen or centered on the screen)")
+# Translators: The description for the moveView script.
+DESC_MOVE_VIEW = _("Moves the magnified view")
 # Translators: The description for the moveMouseToView script.
 DESC_MOVE_MOUSE_TO_VIEW = _("Moves the mouse cursor in the center of the zoomed view")
 # Translators: The description for the openSettings script.
@@ -347,18 +350,18 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	scriptCategory = ADDON_SUMMARY
 	
-	#magLayerGestureMapping = {
 	__magLayerScriptList = [
-		("c", "toggleCaretTracking",DESC_TOGGLE_CARET_TRACKING),
-		("f", "toggleFocusTracking",DESC_TOGGLE_FOCUS_TRACKING),
-		("m", "toggleMouseTracking",DESC_TOGGLE_MOUSE_TRACKING),
-		("t", "toggleTracking", DESC_TOGGLE_TRACKING),
-		("s", "toggleSmoothing", DESC_TOGGLE_SMOOTHING),
-		("r", "toggleMouseCursorTrackingMode", DESC_TOGGLE_MOUSE_CURSOR_TRACKING_MODE),
-		("x", "toggleTextCursorTrackingMode", DESC_TOGGLE_TEXT_CURSOR_TRACKING_MODE),
-		("v", "moveMouseToView", DESC_MOVE_MOUSE_TO_VIEW),
-		("o", "openSettings", DESC_OPEN_SETTINGS),
-		("h", "displayHelp", DESC_DISPLAY_HELP),
+		(["c"], "toggleCaretTracking",DESC_TOGGLE_CARET_TRACKING),
+		(["f"], "toggleFocusTracking",DESC_TOGGLE_FOCUS_TRACKING),
+		(["m"], "toggleMouseTracking",DESC_TOGGLE_MOUSE_TRACKING),
+		(["t"], "toggleTracking", DESC_TOGGLE_TRACKING),
+		(["s"], "toggleSmoothing", DESC_TOGGLE_SMOOTHING),
+		(["r"], "toggleMouseCursorTrackingMode", DESC_TOGGLE_MOUSE_CURSOR_TRACKING_MODE),
+		(["x"], "toggleTextCursorTrackingMode", DESC_TOGGLE_TEXT_CURSOR_TRACKING_MODE),
+		(["upArrow", "downArrow", "leftArrow", "rightArrow"], "moveViewLayeredCommand", DESC_MOVE_VIEW),
+		(["v"], "moveMouseToView", DESC_MOVE_MOUSE_TO_VIEW),
+		(["o"], "openSettings", DESC_OPEN_SETTINGS),
+		(["h"], "displayHelp", DESC_DISPLAY_HELP),
 	]
 	
 	
@@ -377,7 +380,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		script = globalPluginHandler.GlobalPlugin.getScript(self, gesture)
 		if not script:
 			script = finally_(self.script_error, self.finish)
-		return finally_(script, self.finish)
+		if getattr(script, 'allowMultipleLayeredCommands', None):
+			return script
+		else:
+			return finally_(script, self.finish)
 
 	def finish(self):
 		self.toggling = False
@@ -399,7 +405,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		if self.toggling:
 			self.script_error(gesture)
 			return
-		layerGestures = {"kb:"+s[0]: s[1] for s in self.__magLayerScriptList}
+		layerGestures = {}
+		for (keys, script, desc) in self.__magLayerScriptList:
+			for key in keys:
+				layerGestures["kb:" + key] = script
 		self.bindGestures(layerGestures)
 		self.toggling = True
 		beep(100, 10)
@@ -467,6 +476,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			gesture.send()
 	
 	def script_moveView(self, gesture):
+		self.report_viewMove(gesture)
+		
+	def report_viewMove(self, gesture):
 		global reportViewTimer
 		gesture.send()
 		if config.conf['winMag']['reportViewMove'] == 'off':
@@ -479,6 +491,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			reportViewTimer.Stop()
 			reportViewTimer = None
 			if scriptHandler.getLastScriptRepeatCount() > 0 and direction == self.lastMoveDirection:
+			#zzz if self.isMoving and direction == self.lastMoveDirection:
 				self.report_viewPosition(direction)
 		except AttributeError:
 			pass
@@ -694,6 +707,23 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			ui.message(_('Within the edge of the screen'))
 
 	@script(
+		description = DESC_MOVE_VIEW,
+	)
+	@onlyIfMagRunning
+	def script_moveViewLayeredCommand(self, gesture):
+		try:
+			mainKeyName = gesture.mainKeyName
+		except AttributeError:
+			# This gesture is not a KeyboardInputGesture, so mainKeyName attribut does not exist
+			mainKeyName = None
+		if mainKeyName and 'arrow' in mainKeyName.lower():
+			self.report_viewMove(KeyboardInputGesture.fromName('control+alt+' + mainKeyName))
+		else:
+			# Translators: A message reported when the user tries to execute script moveView.
+			ui.message(_("Only gestures containing arrow key may be mapped to this script."))
+	script_moveViewLayeredCommand.allowMultipleLayeredCommands = True
+	
+	@script(
 		description = DESC_MOVE_MOUSE_TO_VIEW
 	)
 	@onlyIfMagRunning
@@ -806,7 +836,14 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def script_displayHelp(self, gesture):
 		# Translators: Title of the layered command help window.
 		title = _("Windows Magnifier layered commands")
-		cmdList = '\r'.join(s[0] + ': ' + s[2] for s in self.__magLayerScriptList)
+		cmdList = []
+		for (keys, script, desc) in self.__magLayerScriptList:
+			cmdList.append(
+				# Translators: Separator between key names in the layered command help window.
+				_(', ').join(localizedKeyLabels.get(k.lower(), k) for k in keys)
+				+ ': ' + desc
+			)
+		cmdList = '\r'.join(cmdList)
 		# Translators: Part of the help message displayed for the layered command help.
 		msg = _("Magnifier layer commands:\n{cmdList}").format(cmdList=cmdList)
 		ui.browseableMessage(msg, title)

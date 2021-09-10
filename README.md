@@ -71,6 +71,7 @@ All the commands added to control Magnifier options are accessible through the M
 * NVDA+Windows+O then S: Toggles on or off smoothing.
 * NVDA+Windows+O then R: Switches between mouse tracking modes (within the edge of the screen or centered on the screen); this feature is only available on Windows 10 build 17643 or higher.
 * NVDA+Windows+O then X: Switches between text cursor tracking modes (within the edge of the screen or centered on the screen); this feature is only available on Windows 10 build 18894 or higher.
+* NVDA+Windows+O then Arrows: Move the magnified view.
 * NVDA+Windows+O then V: Moves the mouse cursor in the center of the magnified view (command available in full screen view only).
 * NVDA+Windows+O then O: Opens Windows Magnifier add-on settings.
 * NVDA+Windows+O then H: Displays help on Magnifier layer commands.
