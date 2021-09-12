@@ -46,6 +46,7 @@ addonHandler.initTranslation()
 
 confspec = {
 	"reportViewMove": 'option("off", "speech", "tones", default="off")',
+	"reportMoveToScreenEdges": 'option("off", "speech", "tones", default="off")',
 	"reportTurnOnOff": "boolean(default=True)",
 	"reportZoom": "boolean(default=True)",
 	"reportColorInversion": "boolean(default=True)",
@@ -57,8 +58,6 @@ config.conf.spec["winMag"] = confspec
 
 
 ADDON_SUMMARY = addonHandler.getCodeAddon ().manifest["summary"]
-
-reportViewTimer = None
 
 # Alpha-numeric keyboard Magnifier keys
 # Translators: The key used natively byt the Magnifier on the alpha-numeric (main) keyboard in conjunction with Win key to zoom in.
@@ -352,6 +351,74 @@ DESC_OPEN_SETTINGS = _("Opens Windows Magnifier add-on settings")
 # Translators: The description for the displayHelp script.
 DESC_DISPLAY_HELP = _("Displays help on Magnifier layer commands")
 
+
+class Screen:
+	def __init__(self, width, height, minPos):
+		self.width = width
+		self.height = height
+		self.minPos = minPos
+		
+	@classmethod
+	def getCurrentScreen(cls):
+		"""Create an instance from the current screen.
+		"""
+		if wx.Display.GetCount() != 1:
+			# Translators: A message reported when the user tries to execute a script in multi-screen setup.
+			ui.message(_('Multi-screen setup not yet supported. Please contact the add-on author to have it implemented.'))
+			raise NotImplementedError('Multi-screen environment not yet implemented. Please contact add-on author.')
+		displays = [wx.Display(i).GetGeometry() for i in range(wx.Display.GetCount())]
+		width, height, minPos = mouseHandler.getTotalWidthAndHeightAndMinimumPosition(displays)
+		return cls(width, height, minPos)
+		
+
+class View():
+	def __init__(self, screen, zoomLevel, left, top):
+		self.screen = screen
+		self.zoomLevel = zoomLevel
+		self.left = left
+		self.top = top
+
+	@property
+	def width(self):
+		return self.screen.width / self.zoomLevel
+	
+	@property
+	def height(self):
+		return self.screen.height / self.zoomLevel
+		
+	@property
+	def center(self):
+		minX, minY = self.screen.minPos
+		# log.debug(f'minX={minX}; viewLeft={self.left}; screenWidth={self.screen.width}; viewWidth={self.width}')
+		# log.debug(f'minY={minY}; viewTop={self.top}; screenHeight={self.screen.height}; viewHeight={self.height}')
+		x = (self.left - minX) / (self.screen.width - self.width)
+		y = (self.top - minY) / (self.screen.height - self.height)
+		return x, y				
+
+	@classmethod
+	def getCurrentView(cls):
+		screen = Screen.getCurrentScreen()
+		try:
+			Magnification.MagInitialize()
+			zoomLevel, left, top = Magnification.MagGetFullscreenTransform()
+		finally:
+			Magnification.MagUninitialize()
+		return cls(screen, zoomLevel, left, top)
+
+	def isAtEdge(self, orientation):
+		isAtTopEdge = orientation == 'up' and self.top == 0
+		isAtLeftEdge = orientation == 'left' and self.left == 0
+		isAtBottomEdge = orientation == 'down' and self.top + 1 >= self.screen.height * (1 - 1 / self.zoomLevel)
+		isAtRightEdge = orientation == 'right' and self.left + 1 >= self.screen.width * (1 - 1 / self.zoomLevel)
+		return (
+			self.zoomLevel == 1
+			or isAtTopEdge
+			or isAtLeftEdge
+			or isAtBottomEdge
+			or isAtRightEdge
+		)
+
+	
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	scriptCategory = ADDON_SUMMARY
@@ -380,6 +447,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		scriptHandler.findScript = patched_findScript 
 		self.lastResize = None
 		self.lastMoveDirection = None
+		self.reportViewTimer = None
 	
 	def getScript(self, gesture):
 		if not self.toggling:
@@ -487,55 +555,73 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		self.report_viewMove(gesture)
 		
 	def report_viewMove(self, gesture):
-		global reportViewTimer
 		gesture.send()
-		if config.conf['winMag']['reportViewMove'] == 'off':
+		reportMoves = config.conf['winMag']['reportViewMove'] != 'off'
+		reportEdges = config.conf['winMag']['reportMoveToScreenEdges'] != 'off'
+		if not (reportMoves or reportEdges) and not isFullScreenView():
 			return
-		if gesture.mainKeyName in ['leftArrow', 'rightArrow']:
-			direction = 'horizontal'
-		else:
-			direction = 'vertical'
+		
+		# Cancel previously scheduled position reporting.
 		try:
-			reportViewTimer.Stop()
-			reportViewTimer = None
-			if scriptHandler.getLastScriptRepeatCount() > 0 and direction == self.lastMoveDirection:
-			#zzz if self.isMoving and direction == self.lastMoveDirection:
-				self.report_viewPosition(direction)
+			self.reportViewTimer.Stop()
+			self.reportViewTimer = None
 		except AttributeError:
 			pass
-		self.lastMoveDirection = direction
-		reportViewTimer = core.callLater(300, lambda: self.report_viewPosition(direction))
 		
-	def report_viewPosition(self, direction):
-		try:
-			Magnification.MagInitialize()
-			zoomLevel, viewLeft, viewTop = Magnification.MagGetFullscreenTransform()
-		finally:
-			Magnification.MagUninitialize()
+		if gesture.mainKeyName in ['leftArrow', 'rightArrow']:
+			direction = 'horizontal'
+		elif gesture.mainKeyName in ['upArrow', 'downArrow']:
+			direction = 'vertical'
+		else:
+			raise RuntimeError('Unexpected key name {key}'.format(key=gesture.mainKeyName))
+		orientation = gesture.mainKeyName[:-len('Arrow')]
 		
-		if zoomLevel == 1:
+		view = View.getCurrentView()
+		isAtEdge = view.isAtEdge(orientation)
+		if isAtEdge:
+			if reportEdges:
+				self.reportScreenEdge()
+			elif reportMoves:
+				self.report_viewPosition(direction, view)
 			return
 		
-		if wx.Display.GetCount() != 1:
-			# Translators: A message reported when the user tries to execute script mouseToView
-			ui.message(_('This command is not yet available in multi-screen environment. Please contact the add-on author to have it implemented.'))
-			raise NotImplementedError('Multi-screen environment not yet implemented. Please contact add-on author.')
-		displays = [wx.Display(i).GetGeometry() for i in range(wx.Display.GetCount())]
-		screenWidth, screenHeight, minPos = mouseHandler.getTotalWidthAndHeightAndMinimumPosition(displays)
-		minX, minY = minPos
-		viewHeight = screenHeight / zoomLevel
-		viewWidth = screenWidth / zoomLevel
-		# log.debug(f'minX={minX}; viewLeft={viewLeft}; screenWidth={screenWidth}; viewWidth={viewWidth}')
-		# log.debug(f'minY={minY}; viewTop={viewTop}; screenHeight={screenHeight}; viewHeight={viewHeight}')
-		x = (viewLeft - minX) / (screenWidth - viewWidth)
-		y = (viewTop - minY) / (screenHeight - viewHeight)
+		if reportMoves:
+			# Report view move immediately only if it is the second keypress in the same direction.
+			if scriptHandler.getLastScriptRepeatCount() > 0 and direction == self.lastMoveDirection:
+				self.report_viewPosition(direction, view)
+			
+			# Schedule position reporting when the view has finished moving.
+			# wx.CallLater is used rather than core.callLater to avoid having tones reporting position
+			# after tones reporting screen edge in some cases.
+			self.lastMoveDirection = direction
+			self.reportViewTimer = wx.CallLater(300, lambda: self.report_viewPosition(direction))
 		
+	def reportScreenEdge(self):
+		if config.conf['winMag']['reportMoveToScreenEdges'] == 'speech':
+			# Translators: A message reported when the user reaches the edge of the screen while moving the view.
+			ui.message(_('Edge of the screen.'))
+		elif config.conf['winMag']['reportMoveToScreenEdges'] == 'tones':
+			# Compute the pitch for the note 2 tones above max coordinate pitch.
+			edgePitch = config.conf['mouse']['audioCoordinates_maxPitch']*2**(4/12)
+			beep(edgePitch, 30)
+			time.sleep(0.06)
+			beep(edgePitch, 30)
+		else:
+			raise RuntimeError('Unexpected config {config}'.format(config=config.conf['winMag']['reportViewMove']))
+	
+	def report_viewPosition(self, direction, view=None):
+		if view is None:
+			view = View.getCurrentView()
+		
+		if view.zoomLevel == 1:
+			return
+		x, y = view.center
 		if direction == 'horizontal':
 			val = x
 		elif 	direction == 'vertical':
 			val = y
 		if config.conf['winMag']['reportViewMove'] == 'speech':
-			precision = 0 if zoomLevel < 4 else 1
+			precision = 0 if view.zoomLevel < 4 else 1
 			if precision == 1:
 				msg = '{val:.1f}%'
 			else:
@@ -547,12 +633,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			minPitch = config.conf['mouse']['audioCoordinates_minPitch']
 			maxPitch = config.conf['mouse']['audioCoordinates_maxPitch']
 			curPitch = minPitch + ((maxPitch - minPitch) * val)
-			# leftVolume=int((85*((screenWidth-float(x))/screenWidth))*brightness)
-			# rightVolume=int((85*(float(x)/screenWidth))*brightness)
-			# tones.beep(curPitch, 40, left=leftVolume, right=rightVolume)
 			beep(curPitch, 40)
-			
-		
+	
 	def script_changeMagnificationWindowSize(self, gesture):
 		if isMagnifierRunning():
 			gesture.send()

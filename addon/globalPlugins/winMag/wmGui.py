@@ -25,7 +25,7 @@ class WinMagSettingsPanel(gui.SettingsPanel):
 	# Translators: This is the label for the Windows Magnifier settings panel.
 	title = _("Windows Magnifier")
 	
-	reportViewMoveLabels = (
+	reportViewMoveAndScreenEdgesLabels = (
 		# Translators: An option in the combobox "Report view moves" in winMag setting panel.
 		("off", _("Off")),
 		# Translators: An option in the combobox "Report view moves" in winMag setting panel.
@@ -47,16 +47,25 @@ class WinMagSettingsPanel(gui.SettingsPanel):
 		
 		# Translators: This is the label for a combobox in the Windows Magnifier settings panel.
 		reportViewMoveLabelText = _("Report view &moves:")
-		reportViewMoveChoices = [name for setting, name in self.reportViewMoveLabels]
+		reportViewMoveChoices = [name for setting, name in self.reportViewMoveAndScreenEdgesLabels]
 		self.reportViewMoveList = sHelper.addLabeledControl(reportViewMoveLabelText, wx.Choice, choices=reportViewMoveChoices)
-		for index, (setting, name) in enumerate(self.reportViewMoveLabels):
+		for index, (setting, name) in enumerate(self.reportViewMoveAndScreenEdgesLabels):
 			if setting == config.conf["winMag"]["reportViewMove"]:
 				self.reportViewMoveList.SetSelection(index)
 				break
 		else:
 			log.debugWarning("Could not set report move list to current setting")
 		
-		#zzz self.reportEdges = 
+		# Translators: This is the label for a combobox in the Windows Magnifier settings panel.
+		reportScreenEdgesLabelText = _("Report screen edges:")
+		reportScreenEdgesChoices = [name for setting, name in self.reportViewMoveAndScreenEdgesLabels]
+		self.reportScreenEdgesList = sHelper.addLabeledControl(reportScreenEdgesLabelText, wx.Choice, choices=reportScreenEdgesChoices)
+		for index, (setting, name) in enumerate(self.reportViewMoveAndScreenEdgesLabels):
+			if setting == config.conf["winMag"]["reportMoveToScreenEdges"]:
+				self.reportScreenEdgesList.SetSelection(index)
+				break
+		else:
+			log.debugWarning("Could not set report edges list to current setting")
 
 		self.reportTurnOnOffCheckBox = sHelper.addItem(
 			# Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
@@ -100,7 +109,8 @@ class WinMagSettingsPanel(gui.SettingsPanel):
 			log.debugWarning("Could not set pass control alt arrow list to current setting")
 	
 	def onSave(self):
-		config.conf["winMag"]["reportViewMove"] = self.reportViewMoveLabels[self.reportViewMoveList.GetSelection()][0]
+		config.conf["winMag"]["reportViewMove"] = self.reportViewMoveAndScreenEdgesLabels[self.reportViewMoveList.GetSelection()][0]
+		config.conf["winMag"]["reportMoveToScreenEdges"] = self.reportViewMoveAndScreenEdgesLabels[self.reportScreenEdgesList.GetSelection()][0]
 		config.conf['winMag']['reportTurnOnOff'] = self.reportTurnOnOffCheckBox.IsChecked()
 		config.conf['winMag']['reportZoom'] = self.reportZoomCheckBox.IsChecked()
 		config.conf['winMag']['reportColorInversion'] = self.reportColorInversionCheckBox.IsChecked()

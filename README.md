@@ -31,7 +31,10 @@ The panel contains the following options:
     * With tones: a tone is played and its pitch indicates the position of the zoomed view on the dimension the view is being moved.
   
   This option only affects full view mode.
-  
+
+* Report screen edges: controls what is reported when you reach the edges of the screen while moving the view with Control+Alt+Arrows commands.
+  The three options are: Off, With speech and With tones.
+  This option only affects full view mode.    
 * Report turn on or off:
   If checked, the Magnifier's state is reported when you use Windows++ or Windows+Escape commands to turn it on or off.
 * Report zoom:
