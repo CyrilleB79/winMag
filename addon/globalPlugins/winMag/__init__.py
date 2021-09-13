@@ -10,6 +10,7 @@ from __future__ import unicode_literals
 from .wmGui import WinMagSettingsPanel
 from .msg import nvdaTranslation
 from .magnification import Magnification 
+from . import winUser2
 
 import globalPluginHandler
 import ui
@@ -125,8 +126,8 @@ def isMagnifierRunning():
 	# We do not use the existing RunningState registry key because does not work in the following use case:
 	# User logs off while Mag is active, then user logs on again. Even if Mag is not yet started by the user, the registry still holds RunningState value to 1.
 	# Instead we use the Magnifier UI window that is always present, even if hidden.
-	return getDesktopChildObject('MagUIClass') is not None
-	
+	return getMagnifierUIObject() is not None
+
 def getDesktopChildObject(windowClassName):
 	o = api.getDesktopObject().firstChild
 	while o:
@@ -134,6 +135,9 @@ def getDesktopChildObject(windowClassName):
 			return o
 		o = o.next
 	return None
+
+def getMagnifierUIObject():
+	return getDesktopChildObject('MagUIClass') 
 
 def getDockedWindowObject():
 	return getDesktopChildObject(windowClassName="Screen Magnifier Window")
@@ -341,6 +345,8 @@ DESC_TOGGLE_TEXT_CURSOR_TRACKING_MODE = _("Switches between text tracking modes 
 DESC_MOVE_VIEW = _("Moves the magnified view")
 # Translators: The description for the moveMouseToView script.
 DESC_MOVE_MOUSE_TO_VIEW = _("Moves the mouse cursor in the center of the zoomed view")
+# Translators: The description for the keepMagWindowOnTop script.
+DESC_KEEP_MAG_WINDOW_ON_TOP = _("Switches on or off the mode keeping Windows Magnifier's window always on top of the other ones.")
 # Translators: The description for the openSettings script.
 DESC_OPEN_SETTINGS = _("Opens Windows Magnifier add-on settings")
 # Translators: The description for the displayHelp script.
@@ -360,6 +366,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		(["x"], "toggleTextCursorTrackingMode", DESC_TOGGLE_TEXT_CURSOR_TRACKING_MODE),
 		(["upArrow", "downArrow", "leftArrow", "rightArrow"], "moveViewLayeredCommand", DESC_MOVE_VIEW),
 		(["v"], "moveMouseToView", DESC_MOVE_MOUSE_TO_VIEW),
+		(["w"], "keepMagWindowOnTop", DESC_KEEP_MAG_WINDOW_ON_TOP),
 		(["o"], "openSettings", DESC_OPEN_SETTINGS),
 		(["h"], "displayHelp", DESC_DISPLAY_HELP),
 	]
@@ -416,6 +423,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def terminate(self):
 		ui.message = orig_message
 		scriptHandler.findScript = orig_findScript 
+		self.toggleKeepMagWindowOnTop(keepOnTop=True, reportMessage=False)  # Restore to default behaviour.
 		gui.settingsDialogs.NVDASettingsDialog.categoryClasses.remove(WinMagSettingsPanel)
 		super().terminate()
 	
@@ -762,6 +770,42 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		winUser.setCursorPos(x,y)
 		mouseHandler.executeMouseMoveEvent(x,y)
 	
+	@script(
+		description = DESC_KEEP_MAG_WINDOW_ON_TOP,
+	)
+	@onlyIfMagRunning
+	def script_keepMagWindowOnTop(self, gesture):
+		self.toggleKeepMagWindowOnTop()
+	
+	def toggleKeepMagWindowOnTop(self, keepOnTop=None, reportMessage=True):
+	
+		magHwnd = getMagnifierUIObject().windowHandle
+		
+		if keepOnTop is None:
+			# Toggle current value.
+			keepOnTop = not bool(winUser.user32.GetWindowLongW(magHwnd, winUser.GWL_EXSTYLE) & winUser.WS_EX_TOPMOST)
+		
+		if keepOnTop:
+			hWndInsertAfter = winUser2.HWND_TOPMOST
+			# Translators: A message reported when toggling "always on top" mode for Windows Magnifier's window
+			msg = _("Window always on top.")
+		else:
+			hWndInsertAfter = winUser2.HWND_BOTTOM
+			# Translators: A message reported when toggling "always on top" mode for Windows Magnifier's window
+			msg = _("Window not on top.")
+		
+		winUser2.setWindowPos(
+			hWnd=magHwnd, 
+			hWndInsertAfter=hWndInsertAfter,
+			X=0,
+			Y=0,
+			cx=0,
+			cy=0,
+			uFlags=winUser2.SWP_NOSIZE | winUser2.SWP_NOMOVE | winUser2.SWP_NOACTIVATE | winUser2.SWP_ASYNCWINDOWPOS,
+		)
+		if reportMessage:
+			ui.message(msg)	
+
 	def checkSecureScreen(self):
 		if globalVars.appArgs.secure:
 			# Translators: A message reported in secure screen when the user attempts to modify magnifiers settings.

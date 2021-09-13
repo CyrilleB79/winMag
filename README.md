@@ -61,8 +61,12 @@ The panel contains the following options:
 
 ## Commands added by this add-on
 
-In addition to native Magnifier commands, this add-on provide additional commands that allow to control Magnifier's options without opening its configuration page.
-All the commands added to control Magnifier options are accessible through the Magnifier layer command NVDA+Windows+O:
+In addition to native Magnifier commands, this add-on provide additional commands:
+
+* Commands that allow to control Magnifier's options without opening its configuration page.
+* Extra commands specific to this add-on.
+
+All these additional commands are accessible through the Magnifier layer command NVDA+Windows+O:
 
 * NVDA+Windows+O then C: Toggles on or off caret tracking.
 * NVDA+Windows+O then F: Toggles on or off focus tracking.
@@ -73,6 +77,7 @@ All the commands added to control Magnifier options are accessible through the M
 * NVDA+Windows+O then X: Switches between text cursor tracking modes (within the edge of the screen or centered on the screen); this feature is only available on Windows 10 build 18894 or higher.
 * NVDA+Windows+O then Arrows: Move the magnified view.
 * NVDA+Windows+O then V: Moves the mouse cursor in the center of the magnified view (command available in full screen view only).
+* NVDA+Windows+O then W: Switches on or off the mode keeping Windows Magnifier's window always on top of the other ones.
 * NVDA+Windows+O then O: Opens Windows Magnifier add-on settings.
 * NVDA+Windows+O then H: Displays help on Magnifier layer commands.
 
