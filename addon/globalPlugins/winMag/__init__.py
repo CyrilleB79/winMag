@@ -796,9 +796,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			# Translators: A message reporting mouse cursor tracking mode (cf. option in Magnifier settings).
 			ui.message(_('Within the edge of the screen'))
 
-	@script(
-		description = DESC_MOVE_VIEW,
-	)
+	# This script has no description so that it cannot be mapped by the user to any gesture.
+	# Indeed mapping a gesture to this script could cause it not to work if the mapped gesture
+	# contains modifiers other than control and alt.
 	@onlyIfMagRunning
 	def script_moveViewLayeredCommand(self, gesture):
 		try:
