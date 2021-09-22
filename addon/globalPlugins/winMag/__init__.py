@@ -28,6 +28,8 @@ from keyboardHandler import KeyboardInputGesture
 from keyLabels import localizedKeyLabels
 import config
 import core
+import NVDAObjects.IAccessible
+import controlTypes
 
 import wx
 
@@ -47,6 +49,7 @@ addonHandler.initTranslation()
 confspec = {
 	"reportViewMove": 'option("off", "speech", "tones", default="off")',
 	"reportMoveToScreenEdges": 'option("off", "speech", "tones", default="off")',
+	"toneVolume": 'integer(default=50,min=1,max=100)',
 	"reportTurnOnOff": "boolean(default=True)",
 	"reportZoom": "boolean(default=True)",
 	"reportColorInversion": "boolean(default=True)",
@@ -418,7 +421,11 @@ class View():
 			or isAtRightEdge
 		)
 
-	
+
+class VolumeSlider(NVDAObjects.IAccessible.IAccessible):
+	def event_valueChange(self,):
+		pass
+
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	scriptCategory = ADDON_SUMMARY
@@ -449,6 +456,19 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		self.lastMoveDirection = None
 		self.reportViewTimer = None
 	
+	def chooseNVDAObjectOverlayClasses(self, obj, clsList):
+		if (
+			obj.windowClassName == 'msctls_trackbar32'
+			and obj.role == controlTypes.Role.SLIDER
+			and NVDAObjects.IAccessible.IAccessible in clsList
+		):
+			try:
+				panel = obj.parent.parent
+			except AttributeError:
+				return
+			if panel.name == ADDON_SUMMARY:
+				clsList.insert(0, VolumeSlider)
+
 	def getScript(self, gesture):
 		if not self.toggling:
 			return globalPluginHandler.GlobalPlugin.getScript(self, gesture)
@@ -603,9 +623,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		elif config.conf['winMag']['reportMoveToScreenEdges'] == 'tones':
 			# Compute the pitch for the note 2 tones above max coordinate pitch.
 			edgePitch = config.conf['mouse']['audioCoordinates_maxPitch']*2**(4/12)
-			beep(edgePitch, 30)
+			vol = config.conf['winMag']['toneVolume']
+			beep(edgePitch, 30, vol, vol)
 			time.sleep(0.06)
-			beep(edgePitch, 30)
+			beep(edgePitch, 30, vol, vol)
 		else:
 			raise RuntimeError('Unexpected config {config}'.format(config=config.conf['winMag']['reportViewMove']))
 	
@@ -633,7 +654,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			minPitch = config.conf['mouse']['audioCoordinates_minPitch']
 			maxPitch = config.conf['mouse']['audioCoordinates_maxPitch']
 			curPitch = minPitch + ((maxPitch - minPitch) * val)
-			beep(curPitch, 40)
+			vol = config.conf['winMag']['toneVolume']
+			beep(curPitch, 40, vol, vol)
 	
 	def script_changeMagnificationWindowSize(self, gesture):
 		if isMagnifierRunning():

@@ -10,9 +10,11 @@ from __future__ import unicode_literals
 from .msg import nvdaTranslation
 
 import gui
-import gui.guiHelper
+from gui import guiHelper, nvdaControls
 import config
 from logHandler import log
+from tones import beep
+import math
 
 import wx
 
@@ -43,7 +45,7 @@ class WinMagSettingsPanel(gui.SettingsPanel):
 	)
 
 	def makeSettings(self, settingsSizer):
-		sHelper = gui.guiHelper.BoxSizerHelper(self, sizer=settingsSizer)
+		sHelper = guiHelper.BoxSizerHelper(self, sizer=settingsSizer)
 		
 		# Translators: This is the label for a combobox in the Windows Magnifier settings panel.
 		reportViewMoveLabelText = _("Report view &moves:")
@@ -55,6 +57,7 @@ class WinMagSettingsPanel(gui.SettingsPanel):
 				break
 		else:
 			log.debugWarning("Could not set report move list to current setting")
+		self.reportViewMoveList.Bind(wx.EVT_CHOICE, self.onReportViewMoveChange)
 		
 		# Translators: This is the label for a combobox in the Windows Magnifier settings panel.
 		reportScreenEdgesLabelText = _("Report screen edges:")
@@ -66,7 +69,21 @@ class WinMagSettingsPanel(gui.SettingsPanel):
 				break
 		else:
 			log.debugWarning("Could not set report edges list to current setting")
+		self.reportScreenEdgesList.Bind(wx.EVT_CHOICE, self.onReportScreenEdgesChange)
 
+		# Translators: This is the label for a slider in the Windows Magnifier settings panel.
+		toneVolumeLabelText = _('Volume of the tones reporting the view position:')
+		self.toneVolumeSlider = sHelper.addLabeledControl(
+			toneVolumeLabelText,
+			nvdaControls.EnhancedInputSlider,
+			minValue=int(config.conf.getConfigValidation(("winMag", "toneVolume")).kwargs["min"]),
+			maxValue=int(config.conf.getConfigValidation(("winMag", "toneVolume")).kwargs["max"]),
+		)
+		self.toneVolumeSlider.SetLineSize(1)
+		self.toneVolumeSlider.SetPageSize(10)
+		self.toneVolumeSlider.SetValue(config.conf["winMag"]["toneVolume"])
+		self.updateToneVolumeSliderEnableState()
+				
 		self.reportTurnOnOffCheckBox = sHelper.addItem(
 			# Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
 			wx.CheckBox(self, label=_("Report &turn on or off"))
@@ -108,9 +125,35 @@ class WinMagSettingsPanel(gui.SettingsPanel):
 		else:
 			log.debugWarning("Could not set pass control alt arrow list to current setting")
 	
+	def onReportViewMoveChange(self, evt):
+		self.updateToneVolumeSliderEnableState()
+		
+	def onReportScreenEdgesChange(self, evt):
+		self.updateToneVolumeSliderEnableState()
+	
+	def updateToneVolumeSliderEnableState(self):
+		isTonesUsed = (
+			self.reportViewMoveAndScreenEdgesLabels[self.reportViewMoveList.GetSelection()][0] == "tones"
+			or self.reportViewMoveAndScreenEdgesLabels[self.reportScreenEdgesList.GetSelection()][0] == "tones"
+		)
+		self.toneVolumeSlider.Enable(isTonesUsed)
+
+	def onPanelActivated(self):
+		self.toneVolumeSlider.Bind(wx.EVT_SLIDER, self._onToneVolumeChange)
+		self.updateToneVolumeSliderEnableState()
+		super().onPanelActivated()
+		
+	def _onToneVolumeChange(self, evt):
+		vol = evt.Int
+		minPitch = config.conf['mouse']['audioCoordinates_minPitch']
+		maxPitch = config.conf['mouse']['audioCoordinates_maxPitch']
+		midPitch = minPitch * (2 ** (math.log(maxPitch / minPitch, 2)/2))
+		beep(midPitch, 30, vol, vol)	
+		
 	def onSave(self):
 		config.conf["winMag"]["reportViewMove"] = self.reportViewMoveAndScreenEdgesLabels[self.reportViewMoveList.GetSelection()][0]
 		config.conf["winMag"]["reportMoveToScreenEdges"] = self.reportViewMoveAndScreenEdgesLabels[self.reportScreenEdgesList.GetSelection()][0]
+		config.conf["winMag"]["toneVolume"] = self.toneVolumeSlider.Value
 		config.conf['winMag']['reportTurnOnOff'] = self.reportTurnOnOffCheckBox.IsChecked()
 		config.conf['winMag']['reportZoom'] = self.reportZoomCheckBox.IsChecked()
 		config.conf['winMag']['reportColorInversion'] = self.reportColorInversionCheckBox.IsChecked()
