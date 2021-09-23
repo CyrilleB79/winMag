@@ -82,6 +82,7 @@ All these additional commands are accessible through the Magnifier layer command
 * NVDA+Windows+O then Arrows: Move the magnified view.
 * NVDA+Windows+O then V: Moves the mouse cursor in the center of the magnified view (command available in full screen view only).
 * NVDA+Windows+O then W: Switches on or off the mode keeping Windows Magnifier's window always on top of the other ones.
+  This feature is only available for installed versions of NVDA.
 * NVDA+Windows+O then O: Opens Windows Magnifier add-on settings.
 * NVDA+Windows+O then H: Displays help on Magnifier layer commands.
 

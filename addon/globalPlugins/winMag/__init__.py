@@ -885,9 +885,15 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	
 		magHwnd = getMagnifierUIObject().windowHandle
 		
+		isOnTop = bool(winUser.user32.GetWindowLongW(magHwnd, winUser.GWL_EXSTYLE) & winUser.WS_EX_TOPMOST)
+		
+		if keepOnTop == True and isOnTop == True:
+			# Nothing to do, the window is already topmost.
+			return
+		
 		if keepOnTop is None:
 			# Toggle current value.
-			keepOnTop = not bool(winUser.user32.GetWindowLongW(magHwnd, winUser.GWL_EXSTYLE) & winUser.WS_EX_TOPMOST)
+			keepOnTop = not isOnTop
 		
 		if keepOnTop:
 			hWndInsertAfter = winUser2.HWND_TOPMOST
@@ -898,15 +904,28 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			# Translators: A message reported when toggling "always on top" mode for Windows Magnifier's window
 			msg = _("Window not on top.")
 		
-		winUser2.setWindowPos(
-			hWnd=magHwnd, 
-			hWndInsertAfter=hWndInsertAfter,
-			X=0,
-			Y=0,
-			cx=0,
-			cy=0,
-			uFlags=winUser2.SWP_NOSIZE | winUser2.SWP_NOMOVE | winUser2.SWP_NOACTIVATE | winUser2.SWP_ASYNCWINDOWPOS,
-		)
+		try:
+			winUser2.setWindowPos(
+				hWnd=magHwnd, 
+				hWndInsertAfter=hWndInsertAfter,
+				X=0,
+				Y=0,
+				cx=0,
+				cy=0,
+				uFlags=winUser2.SWP_NOSIZE | winUser2.SWP_NOMOVE | winUser2.SWP_NOACTIVATE | winUser2.SWP_ASYNCWINDOWPOS,
+			)
+		except PermissionError as e:
+		# from errno import EACCES  # 13
+		# if e.errno = EACCES and e.winerror = 5:  # [WinError 5] Access is denied
+			if e.winerror == 5:  # [WinError 5] Access is denied
+				if config.isInstalledCopy():
+					log.error('Unable to set window on topmost / not on top.')
+				elif reportMessage:
+					# Translators: A message reported when trying toggling "always on top" mode for Windows Magnifier's window
+					# while running a portable NVDA.
+					ui.message(_('Command only supported in installed versions of NVDA.'))
+				return
+			raise(e)
 		if reportMessage:
 			ui.message(msg)	
 
