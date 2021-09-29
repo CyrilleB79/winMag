@@ -144,11 +144,11 @@ def getMagnifierUIObject():
 def getDockedWindowObject():
 	return getDesktopChildObject(windowClassName="Screen Magnifier Window")
 
-def isFullScreenView():
-	return getMagnifierKeyValue('MagnificationMode', default=MAG_DEFAULT_MAGNIFICATION_MODE) == MAG_VIEW_FULLSCREEN
+def getLensWindowObject():
+	return getDesktopChildObject(windowClassName="Screen Magnifier Lens Window")
 
-def isDockedOrFullScreenView():
-	return getMagnifierKeyValue('MagnificationMode', default=MAG_DEFAULT_MAGNIFICATION_MODE) in [MAG_VIEW_DOCKED, MAG_VIEW_FULLSCREEN]
+def getMagViewMode():
+	return getMagnifierKeyValue('MagnificationMode', default=MAG_DEFAULT_MAGNIFICATION_MODE)
 
 def onlyIfMagRunning(s):
 	"""This script decorator allows the decorated script to execute only if the Magnifier is active.
@@ -171,7 +171,8 @@ def onlyIfDockedOrFullScreenView(s):
 	
 	@wraps(s)
 	def script_wrapper(self, gesture):
-		if not isDockedOrFullScreenView():
+		mode = getMagViewMode()
+		if mode not in [MAG_VIEW_FULLSCREEN, MAG_VIEW_DOCKED]:
 			# Translators: The message reported when the user tries to toggle a tracking mode while docked or full screen view is not active.
 			ui.message(_('Tracking configuration only applicable with docked or full screen view.'))
 			return
@@ -220,6 +221,8 @@ def patched_findScript(gesture):
 	except AttributeError:
 		#This gesture is not a KeyboardInputGesture, so mainKeyName attribut does not exist
 		mainKeyName = None
+	
+	winMagPlugin = [p for p in globalPluginHandler.runningPlugins if isinstance(p, GlobalPlugin)][0]
 	if mainKeyName and mainKeyName.endswith('Arrow'):
 		# Control+shift+arrows is caught by Magnifier when it is running to resize lens or docked windows.
 		# Else it may correspond to another shortcut such as in Word where these gesture are the one to increase/decrease title level
@@ -229,7 +232,6 @@ def patched_findScript(gesture):
 			and gesture.normalizedIdentifiers[0].split(':')[1] in ['alt+downarrow+shift', 'alt+leftarrow+shift', 'alt+rightarrow+shift', 'alt+shift+uparrow']
 			and isMagnifierRunning()
 		):
-			winMagPlugin = [p for p in globalPluginHandler.runningPlugins if isinstance(p, GlobalPlugin)][0]
 			return winMagPlugin.script_changeMagnificationWindowSize
 		# For control+alt+arrow, create a compound script:
 		# that will call Magnifier move commands (control+alt+arrow) rather than saying "Not in a table" message.
@@ -263,7 +265,6 @@ def patched_findScript(gesture):
 							finally:
 								canRaiseNotInTableException = False
 						if executeMoveScript:
-							winMagPlugin = [p for p in globalPluginHandler.runningPlugins if isinstance(p, GlobalPlugin)][0]
 							winMagPlugin.script_moveView(g)
 					try:
 						newScript = MethodType(newScript, oldScript.__self__)
@@ -281,7 +282,6 @@ def patched_findScript(gesture):
 					cached = {oldScript: newScript}
 				return newScript
 			else:
-				winMagPlugin = [p for p in globalPluginHandler.runningPlugins if isinstance(p, GlobalPlugin)][0]
 				return winMagPlugin.script_moveView
 	return oldScript
 
@@ -355,7 +355,7 @@ DESC_OPEN_SETTINGS = _("Opens Windows Magnifier add-on settings")
 DESC_DISPLAY_HELP = _("Displays help on Magnifier layer commands")
 
 
-class Screen:
+class Screen(object):
 	def __init__(self, width, height, minPos):
 		self.width = width
 		self.height = height
@@ -372,11 +372,54 @@ class Screen:
 		displays = [wx.Display(i).GetGeometry() for i in range(wx.Display.GetCount())]
 		width, height, minPos = mouseHandler.getTotalWidthAndHeightAndMinimumPosition(displays)
 		return cls(width, height, minPos)
-		
 
-class View():
-	def __init__(self, screen, zoomLevel, left, top):
+
+class View(object):
+	def __init__(self, screen, mode):
 		self.screen = screen
+		self.mode = mode
+
+	@property
+	def width(self):
+		raise NotImplementedError
+	
+	@property
+	def height(self):
+		raise NotImplementedError
+		
+	def positionInScreen(self):
+		"""Position of the view with respect to the possibility to move it in the screen.
+		"""
+		raise NotImplementedError
+		
+	def centerPositionInScreen(self):
+		""" Position of the center of the view in the screen.
+		"""
+		raise NotImplementedError
+
+	@staticmethod
+	def getCurrentView(mode):
+		screen = Screen.getCurrentScreen()
+		if mode == MAG_VIEW_FULLSCREEN:
+			try:
+				Magnification.MagInitialize()
+				zoomLevel, left, top = Magnification.MagGetFullscreenTransform()
+			finally:
+				Magnification.MagUninitialize()
+			return FullscreenView(screen, zoomLevel=zoomLevel, left=left, top=top)
+		elif mode == MAG_VIEW_LENS:
+			window = getLensWindowObject()
+			return LensView(screen, window=window)
+		else:
+			raise NotImplementedError
+
+	def isAtEdge(self, orientation):
+		raise NotImplementedError
+
+
+class FullscreenView(View):
+	def __init__(self, screen, zoomLevel, left, top):
+		super(FullscreenView, self).__init__(screen, MAG_VIEW_FULLSCREEN)
 		self.zoomLevel = zoomLevel
 		self.left = left
 		self.top = top
@@ -389,8 +432,9 @@ class View():
 	def height(self):
 		return self.screen.height / self.zoomLevel
 		
-	@property
-	def center(self):
+	def positionInScreen(self):
+		if self.zoomLevel == 1:
+			return 0.5, 0.5
 		minX, minY = self.screen.minPos
 		# log.debug(f'minX={minX}; viewLeft={self.left}; screenWidth={self.screen.width}; viewWidth={self.width}')
 		# log.debug(f'minY={minY}; viewTop={self.top}; screenHeight={self.screen.height}; viewHeight={self.height}')
@@ -398,21 +442,16 @@ class View():
 		y = (self.top - minY) / (self.screen.height - self.height)
 		return x, y				
 
-	@classmethod
-	def getCurrentView(cls):
-		screen = Screen.getCurrentScreen()
-		try:
-			Magnification.MagInitialize()
-			zoomLevel, left, top = Magnification.MagGetFullscreenTransform()
-		finally:
-			Magnification.MagUninitialize()
-		return cls(screen, zoomLevel, left, top)
-
+	def centerPositionInScreen(self):
+		x = self.left + int(self.width / 2)
+		y = self.top + int(self.height / 2)
+		return x, y 
+	
 	def isAtEdge(self, orientation):
 		isAtTopEdge = orientation == 'up' and self.top == 0
 		isAtLeftEdge = orientation == 'left' and self.left == 0
 		isAtBottomEdge = orientation == 'down' and self.top + 1 >= self.screen.height * (1 - 1 / self.zoomLevel)
-		isAtRightEdge = orientation == 'right' and self.left + 1 >= self.screen.width * (1 - 1 / self.zoomLevel)
+		isAtRightEdge = orientation == 'right' and self.left + 1 >= self.screen.width * (1 - 1 / self.zoomLevel) 
 		return (
 			self.zoomLevel == 1
 			or isAtTopEdge
@@ -422,7 +461,40 @@ class View():
 		)
 
 
+class LensView(View):
+	def __init__(self, screen, window):
+		super(LensView, self).__init__(screen, MAG_VIEW_LENS)
+		self.window = window
+
+	def positionInScreen(self):
+		x, y = self.window.location.center
+		xPc = (x - 1) / (self.screen.width - 2)
+		yPc = (y - 1) / (self.screen.height - 2)
+		return xPc, yPc
+
+	def centerPositionInScreen(self):
+		x, y = self.window.location.center
+		return x, y
+	
+	def isAtEdge(self, orientation):
+		x, y = self.window.location.center
+		isAtTopEdge = orientation == 'up' and y <= 1
+		isAtLeftEdge = orientation == 'left'and x <= 1
+		isAtBottomEdge = orientation == 'down' and y >= self.screen.height - 1
+		isAtRightEdge = orientation == 'right' and x >= self.screen.width - 1
+		return (
+			isAtTopEdge
+			or isAtLeftEdge
+			or isAtBottomEdge
+			or isAtRightEdge
+		)
+
+
 class VolumeSlider(NVDAObjects.IAccessible.IAccessible):
+	"""A class that discard value reporting on value change.
+	This class is meant to be used with a volume slider that produces a beep on value change.
+	"""
+	
 	def event_valueChange(self,):
 		pass
 
@@ -513,7 +585,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		scriptHandler.findScript = orig_findScript 
 		self.toggleKeepMagWindowOnTop(keepOnTop=True, reportMessage=False)  # Restore to default behaviour.
 		gui.settingsDialogs.NVDASettingsDialog.categoryClasses.remove(WinMagSettingsPanel)
-		super().terminate()
+		super(GlobalPlugin, self).terminate()
 	
 	@script(
 		gestures = ["kb:windows+numpadPlus", "kb:windows+numLock+numpadPlus", "kb:windows+" + KEY_ALPHA_PLUS, "kb:windows+plus"]
@@ -578,7 +650,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		gesture.send()
 		reportMoves = config.conf['winMag']['reportViewMove'] != 'off'
 		reportEdges = config.conf['winMag']['reportMoveToScreenEdges'] != 'off'
-		if not (reportMoves or reportEdges) and not isFullScreenView():
+		if not (reportMoves or reportEdges):
+			return
+		mode = getMagViewMode()
+		if mode == MAG_VIEW_DOCKED:
 			return
 		
 		# Cancel previously scheduled position reporting.
@@ -596,7 +671,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			raise RuntimeError('Unexpected key name {key}'.format(key=gesture.mainKeyName))
 		orientation = gesture.mainKeyName[:-len('Arrow')]
 		
-		view = View.getCurrentView()
+		view = View.getCurrentView(mode)
 		isAtEdge = view.isAtEdge(orientation)
 		if isAtEdge:
 			if reportEdges:
@@ -614,7 +689,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			# wx.CallLater is used rather than core.callLater to avoid having tones reporting position
 			# after tones reporting screen edge in some cases.
 			self.lastMoveDirection = direction
-			self.reportViewTimer = wx.CallLater(300, lambda: self.report_viewPosition(direction))
+			def reportViewPositionHelper():
+				view = View.getCurrentView(mode)
+				self.report_viewPosition(direction, view)
+			self.reportViewTimer = wx.CallLater(300, reportViewPositionHelper)
 		
 	def reportScreenEdge(self):
 		if config.conf['winMag']['reportMoveToScreenEdges'] == 'speech':
@@ -630,19 +708,17 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		else:
 			raise RuntimeError('Unexpected config {config}'.format(config=config.conf['winMag']['reportViewMove']))
 	
-	def report_viewPosition(self, direction, view=None):
-		if view is None:
-			view = View.getCurrentView()
-		
-		if view.zoomLevel == 1:
-			return
-		x, y = view.center
+	def report_viewPosition(self, direction, view):
+		x, y = view.positionInScreen()
 		if direction == 'horizontal':
 			val = x
 		elif 	direction == 'vertical':
 			val = y
 		if config.conf['winMag']['reportViewMove'] == 'speech':
-			precision = 0 if view.zoomLevel < 4 else 1
+			if view.mode == MAG_VIEW_FULLSCREEN and view.zoomLevel < 4:
+				precision = 0
+			else:
+				precision = 1
 			if precision == 1:
 				msg = '{val:.1f}%'
 			else:
@@ -660,7 +736,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def script_changeMagnificationWindowSize(self, gesture):
 		if isMagnifierRunning():
 			gesture.send()
-			mode = getMagnifierKeyValue('MagnificationMode', default=MAG_DEFAULT_MAGNIFICATION_MODE)
+			mode = getMagViewMode()
 			if mode == MAG_VIEW_DOCKED:
 				oMag = getDockedWindowObject()
 				curResize = 'width' if gesture.mainKeyName in ['leftArrow', 'rightArrow'] else 'height'
@@ -781,7 +857,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			ui.message(_('Feature unavailable in this version of Windows.'))
 			return
 		# Feature applicable only to full screen view
-		if not isFullScreenView():
+		mode = getMagViewMode()
+		if mode != MAG_VIEW_FULLSCREEN:
 			# Translators: The message reported when the user tries to toggle mouse tracking mode while full screen view is not active.
 			ui.message(_('Mouse tracking mode applies only to full screen view.'))
 			return
@@ -806,7 +883,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			ui.message(_('Feature unavailable in this version of Windows.'))
 			return
 		# Feature applicable only to full screen view
-		if not isFullScreenView():
+		mode = getMagViewMode()
+		if mode != MAG_VIEW_FULLSCREEN:
 			# Translators: The message reported when the user tries to toggle mouse tracking mode while full screen view is not active.
 			ui.message(_('Mouse tracking mode applies only to full screen view.'))
 			return
@@ -840,37 +918,20 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	)
 	@onlyIfMagRunning
 	def script_moveMouseToView(self, gesture):
-		if Magnification.MagGetFullscreenTransform is None:
+		mode = getMagViewMode()
+		if mode == MAG_VIEW_FULLSCREEN and Magnification.MagGetFullscreenTransform is None:
 			# Translators: A message reported when the user tries to execute script mouseToView
-			ui.message(_('Move mouse to view command available only on Windows 8 and above.'))
+			ui.message(_('Move mouse to view command available only on Windows 8 and above in full screen mode.'))
 			return
-		mode = getMagnifierKeyValue('MagnificationMode', default=MAG_DEFAULT_MAGNIFICATION_MODE)
-		if mode == MAG_VIEW_LENS:
+		if mode == MAG_VIEW_DOCKED:
+			# o = getDockedWindowObject()
+			# hwnd = o.windowHandle
+			# # Error on next line
+			# rect = Magnification.MagGetWindowSource(hwnd)
 			# Translators: A message reported when the user tries to execute script mouseToView
-			ui.message(_('Move mouse to view not applicable with lense view.'))
-			return
-		Magnification.MagInitialize()
-		try:
-			if mode == MAG_VIEW_FULLSCREEN:
-				zoomLevel, viewLeft, viewTop = Magnification.MagGetFullscreenTransform()
-			elif mode == MAG_VIEW_DOCKED:
-				# o = getDockedWindowObject()
-				# hwnd = o.windowHandle
-				# # Error on next line
-				# rect = Magnification.MagGetWindowSource(hwnd)
-				# Translators: A message reported when the user tries to execute script mouseToView
-				ui.message(_('Move mouse to view not implemented for docked view'))
-		finally:
-			Magnification.MagUninitialize()
-		if wx.Display.GetCount() != 1:
-			# Translators: A message reported when the user tries to execute script mouseToView
-			ui.message(_('This command is not yet available in multi-screen environment. Please contact the add-on author to have it implemented.'))
-			return
-		rect = wx.Display(0).GetGeometry()
-		viewHeight = rect.height / zoomLevel
-		viewWidth = rect.width / zoomLevel
-		x = viewLeft + int(viewWidth/2)
-		y = viewTop + int(viewHeight/2)
+			ui.message(_('Move mouse to view not implemented for docked view'))
+		view = View.getCurrentView(mode)
+		x, y = view.centerPositionInScreen()
 		winUser.setCursorPos(x,y)
 		mouseHandler.executeMouseMoveEvent(x,y)
 	
@@ -977,7 +1038,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			raise ValueError('Unexpected Invert value: {}'.format(val))
 			
 	def modifyMagnificationView(self, gesture):
-		fetcher = lambda: getMagnifierKeyValue('MagnificationMode', default=MAG_DEFAULT_MAGNIFICATION_MODE)
+		fetcher = getMagViewMode
 		val = _WaitForValueChangeForAction(gesture, fetcher)
 		if val == MAG_VIEW_DOCKED:
 			# Translators: A view type reported when the user changes the Magnifier view. See the view menu items in the Magnifier's toolbar.
