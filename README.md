@@ -12,8 +12,8 @@ This add-on improves the use of Windows Magnifier with NVDA.
 
 * Allows to report the result of some native Magnifier keyboard commands.
 * Allows to reduce the cases where table navigation commands conflict with Magnifier's commands.
-* Adds some keyboard shortcuts to toggle various Magnifier options.
-
+* Adds some keyboard shortcuts to toggle various native options of the Magnifier.
+* Adds some extra features that are not provided by Windows Magnifier (mouse to view, Magnifier window not on top)
 
 ## Settings
 
@@ -30,11 +30,11 @@ The panel contains the following options:
     * With speech: a speech message indicates the position of the zoomed view on the dimension the view is being moved.
     * With tones: a tone is played and its pitch indicates the position of the zoomed view on the dimension the view is being moved.
   
-  This option only affects full view mode.
+  This option does not affect docked view mode.
 
 * Report screen edges: controls what is reported when you reach the edges of the screen while moving the view with Control+Alt+Arrows commands.
   The three options are: Off, With speech and With tones.
-  This option only affects full view mode.    
+  This option does not affect docked view mode.
 * Volume of the tones reporting the view position: allows to define the volume of the tones if you have selected to report view moves or screen edges with tones.
 * Report turn on or off:
   If checked, the Magnifier's state is reported when you use Windows++ or Windows+Escape commands to turn it on or off.
@@ -55,9 +55,10 @@ The panel contains the following options:
     * Never: The command is not passed to Windows Magnifier and standard NVDA table navigation can operate.
       When used in documents out of a table, the Control+Alt+Arrow command reports a "Not in a table" error message.
       This is the standard behaviour of NVDA without this add-on.
+      You can still use NVDA+Windows+O then arrows to move the magnified view.
     * Only when not in table: In table or in list views, Control+Alt+Arrow commands perform standard table navigation.
       When used in documents out of a table, Control+Alt+Arrow commands perform standard Magnifier view move commands.
-      If you still want to move Windows Magnifier view while in table or in list view, you will need to press NVDA+F2 before using Control+Alt+Arrow commands.
+      If you still want to move Windows Magnifier view while in table or in list view, you will need to press NVDA+F2 before using Control+Alt+Arrow commands or alternately use NVDA+Windows+O then arrows.
       This option is the best compromise if you want to use Control+Alt+Arrow for both Magnifier and table navigation.
     * Always: Control+Alt+Arrow commands moves the Magnifier's view in any case.
       This option may be useful if you do not use Control+Alt+Arrow to navigate in table, e.g. because you have changed table navigation shortcuts in NVDA or because you exclusively use [Easy table navigator][5] add-on for table navigation.
@@ -80,7 +81,7 @@ All these additional commands are accessible through the Magnifier layer command
 * NVDA+Windows+O then R: Switches between mouse tracking modes (within the edge of the screen or centered on the screen); this feature is only available on Windows 10 build 17643 or higher.
 * NVDA+Windows+O then X: Switches between text cursor tracking modes (within the edge of the screen or centered on the screen); this feature is only available on Windows 10 build 18894 or higher.
 * NVDA+Windows+O then Arrows: Move the magnified view.
-* NVDA+Windows+O then V: Moves the mouse cursor in the center of the magnified view (command available in full screen view only).
+* NVDA+Windows+O then V: Moves the mouse cursor in the center of the magnified view (command not available in docked view mode).
 * NVDA+Windows+O then W: Switches on or off the mode keeping Windows Magnifier's window always on top of the other ones.
   This feature is only available for installed versions of NVDA.
 * NVDA+Windows+O then O: Opens Windows Magnifier add-on settings.
@@ -106,7 +107,7 @@ The result of the following Magnifier native commands may be reported by this ad
 * Cycle through the three view types: Control+Alt+M
 * Resize the lens with the keyboard: Shift+Alt+Left/Right/Up/DownArrow.
   Note: although this does not seem to be documented, this shortcut seems to have been withdrawn in recent Windows versions such as Windows 2004.
-* Move the magnified view: Control+Alt+Arrows (reporting only affects full screen mode)
+* Move the magnified view: Control+Alt+Arrows
 
 Here is also a list of other Magnifier native commands, just for information:
 
@@ -138,6 +139,10 @@ None of the Magnifier native commands can be modified.
     * [Use Magnifier to make things on the screen easier to see](https://support.microsoft.com/en-us/help/11542/windows-use-magnifier-to-make-things-easier-to-see)
     * [Windows keyboard shortcuts for accessibility][4]
 
+* This add-on has not been tested in multi-screen environment and there are chances that some feature are not working in this environment.
+  If you are using multi-screen environment and want it to be supported, please contact me to have it implemented.
+* More generally, do not hesitate to contact me on the [GitHub page][3] of this add-on or directly by e-mail.
+
 
 ## Change log
 
@@ -152,6 +157,8 @@ None of the Magnifier native commands can be modified.
 [1]: https://addons.nvda-project.org/files/get.php?file=winmag
 
 [2]: https://addons.nvda-project.org/files/get.php?file=winmag-dev
+
+[3]: https://github.com/CyrilleB79/winMag
 
 [4]: https://support.microsoft.com/en-us/help/13810
 
