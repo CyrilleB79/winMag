@@ -30,6 +30,8 @@ import config
 import core
 import NVDAObjects.IAccessible
 import controlTypes
+import winInputHook
+import queueHandler
 
 import wx
 
@@ -77,6 +79,8 @@ if (
 	or len(KEY_ALPHA_MINUS) != 1
 ):
 	log.error("Error in Windows Magnifier shortcut key translation (Windows Magnifier add-on)")
+
+WM_MOUSEWHEEL = 0x020A
 
 MAG_REGISTRY_KEY = r'Software\Microsoft\ScreenMagnifier'
 
@@ -212,7 +216,10 @@ class NotInTableException(Exception):
 canRaiseNotInTableException = False
 orig_findScript = scriptHandler.findScript
 orig_message = ui.message
+orig_mouseCallback = mouseHandler.internal_mouseEvent
+log.debug(f'orig_mouseCallback = {mouseHandler.internal_mouseEvent}')  # zzz
 cached = {}
+
 def patched_findScript(gesture):
 	global cached
 	oldScript = orig_findScript(gesture)
@@ -293,6 +300,21 @@ def patched_message(text, *args, **kwargs):
 		):
 			raise NotInTableException
 	orig_message(text, *args, **kwargs)
+
+def patched_mouseCallback(msg, x, y, injected):
+	if injected and (mouseHandler.ignoreInjected or config.conf['mouse']['ignoreInjectedMouseInput']):
+		return True
+	if msg == WM_MOUSEWHEEL:
+		#queueHandler.queueFunction(queueHandler.eventQueue, lambda: beep(10000, 30))
+		#queueHandler.queueFunction(queueHandler.eventQueue, lambda: ui.message(f'{x}, {y}, {injected}'))
+		def zzz():
+			val = getMagnifierKeyValue('Magnification', default=MAG_DEFAULT_MAGNIFICATION)
+			# Translators: A zoom level reported when the user changes the zoom level.
+			ui.message(_('{zoomLevel}%'.format(zoomLevel=val)))
+		#queueHandler.queueFunction(queueHandler.eventQueue, zzz)
+		core.callLater(0, zzz)
+	return orig_mouseCallback(msg, x, y, injected)
+	
 
 class TrackingConfig(object):
 	
@@ -522,11 +544,13 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		super(GlobalPlugin, self).__init__()
 		gui.settingsDialogs.NVDASettingsDialog.categoryClasses.append(WinMagSettingsPanel)
 		self.toggling = False
-		ui.message = patched_message
-		scriptHandler.findScript = patched_findScript 
 		self.lastResize = None
 		self.lastMoveDirection = None
 		self.reportViewTimer = None
+		# Patching
+		ui.message = patched_message
+		scriptHandler.findScript = patched_findScript 
+		#zzz winInputHook.mouseCallback = patched_mouseCallback
 	
 	def chooseNVDAObjectOverlayClasses(self, obj, clsList):
 		if (
@@ -581,6 +605,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		beep(100, 10)
 
 	def terminate(self):
+		#zzz winInputHook.mouseCallback = orig_mouseCallback
 		ui.message = orig_message
 		scriptHandler.findScript = orig_findScript 
 		self.toggleKeepMagWindowOnTop(keepOnTop=True, reportMessage=False)  # Restore to default behaviour.
