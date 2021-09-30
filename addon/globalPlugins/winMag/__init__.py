@@ -347,6 +347,8 @@ DESC_TOGGLE_TEXT_CURSOR_TRACKING_MODE = _("Switches between text tracking modes 
 DESC_MOVE_VIEW = _("Moves the magnified view")
 # Translators: The description for the moveMouseToView script.
 DESC_MOVE_MOUSE_TO_VIEW = _("Moves the mouse cursor in the center of the zoomed view")
+# Translators: The description for the moveViewToMouse script.
+DESC_MOVE_VIEW_TO_MOUSE = _("Moves the center of the zoomed view at the mouse cursor's position")
 # Translators: The description for the keepMagWindowOnTop script.
 DESC_KEEP_MAG_WINDOW_ON_TOP = _("Switches on or off the mode keeping Windows Magnifier's window always on top of the other ones.")
 # Translators: The description for the openSettings script.
@@ -512,6 +514,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		(["x"], "toggleTextCursorTrackingMode", DESC_TOGGLE_TEXT_CURSOR_TRACKING_MODE),
 		(["upArrow", "downArrow", "leftArrow", "rightArrow"], "moveViewLayeredCommand", DESC_MOVE_VIEW),
 		(["v"], "moveMouseToView", DESC_MOVE_MOUSE_TO_VIEW),
+		(["shift+m"], "moveViewToMouse", DESC_MOVE_VIEW_TO_MOUSE),
 		(["w"], "keepMagWindowOnTop", DESC_KEEP_MAG_WINDOW_ON_TOP),
 		(["o"], "openSettings", DESC_OPEN_SETTINGS),
 		(["h"], "displayHelp", DESC_DISPLAY_HELP),
@@ -934,6 +937,44 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		x, y = view.centerPositionInScreen()
 		winUser.setCursorPos(x,y)
 		mouseHandler.executeMouseMoveEvent(x,y)
+	
+	@script(
+		description = DESC_MOVE_VIEW_TO_MOUSE
+	)
+	@onlyIfMagRunning
+	def script_moveViewToMouse(self, gesture):
+		mode = getMagViewMode()
+		if mode != MAG_VIEW_LENS:
+			# Translators: A message reported when the user tries to execute script viewToMouse
+			ui.message(_('Move view to mouse implemented only for lens view.'))
+			return
+		view = View.getCurrentView(mode)
+		location = view.window.location
+		x, y = winUser.getCursorPos()
+		try:
+			winUser2.setWindowPos(
+				hWnd=view.window.windowHandle,
+				hWndInsertAfter=0,
+				X=x - (location.width // 2),
+				Y=y - (location.height // 2),
+				cx=0,
+				cy=0,
+				uFlags=winUser2.SWP_NOSIZE | winUser2.SWP_NOOWNERZORDER | winUser2.SWP_NOACTIVATE | winUser2.SWP_ASYNCWINDOWPOS,
+			)
+			# And SWP_NOACTIVATE?
+		except PermissionError as e:
+		# from errno import EACCES  # 13
+		# if e.errno = EACCES and e.winerror = 5:  # [WinError 5] Access is denied
+			if e.winerror == 5:  # [WinError 5] Access is denied
+				if config.isInstalledCopy():
+					log.error('Unable to set window on topmost / not on top.')
+				elif reportMessage:
+					# Translators: A message reported when trying toggling "always on top" mode for Windows Magnifier's window
+					# while running a portable NVDA.
+					ui.message(_('Command only supported in installed versions of NVDA.'))
+				return
+			raise(e)
+
 	
 	@script(
 		description = DESC_KEEP_MAG_WINDOW_ON_TOP,
