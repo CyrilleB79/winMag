@@ -1,13 +1,14 @@
 # -*- coding: UTF-8 -*-
 # globalPlugins/winMag/__init__.py
 # NVDA add-on: Windows Magnifier
-# Copyright (C) 2019-2022 Cyrille Bougot
+# Copyright (C) 2019-2023 Cyrille Bougot
 # This file is covered by the GNU General Public License.
 # See the file COPYING.txt for more details.
 
 from __future__ import unicode_literals
 
 from .wmGui import WinMagSettingsPanel
+from .utils import getMagnifierKeyValue, setMagnifierKeyValue, toggleMagnifierKeyValue, isMagnifierRunning, getMagnifierUIWindow
 from .msg import nvdaTranslation
 from .magnification import Magnification 
 from . import winUser2
@@ -18,7 +19,6 @@ import gui.settingsDialogs
 import scriptHandler
 import api
 from tones import beep
-from speech import speak
 from scriptHandler import script
 from logHandler import log
 import mouseHandler
@@ -35,10 +35,7 @@ from NVDAObjects.IAccessible import getNVDAObjectFromEvent
 import wx
 
 import sys
-try:
-	import winreg
-except ImportError:
-	import _winreg as winreg
+
 import time
 from functools import wraps
 from types import MethodType
@@ -57,6 +54,7 @@ confspec = {
 	"reportViewChange": "boolean(default=True)",
 	"reportLensResizing": "boolean(default=False)",
 	"passCtrlAltArrow": 'option("never", "whenNotInTable", "always", default="never")',
+	"keepWindowAlwaysOnTop": "boolean(default=True)",
 }
 config.conf.spec["winMag"] = confspec
 
@@ -79,8 +77,6 @@ if (
 ):
 	log.error("Error in Windows Magnifier shortcut key translation (Windows Magnifier add-on)")
 
-MAG_REGISTRY_KEY = r'Software\Microsoft\ScreenMagnifier'
-
 #Magnifier view types
 MAG_VIEW_DOCKED = 1
 MAG_VIEW_FULLSCREEN = 2
@@ -97,53 +93,6 @@ MAG_DEFAULT_MAGNIFICATION = 200
 MAG_DEFAULT_MAGNIFICATION_MODE = MAG_VIEW_FULLSCREEN
 MAG_DEFAULT_RUNNING_STATE = 0
 MAG_DEFAULT_USE_BITMAP_SMOOTHING = 1
-
-def getMagnifierKeyValue(name, default=None):
-	k = winreg.OpenKey(
-		winreg.HKEY_CURRENT_USER,
-		MAG_REGISTRY_KEY,
-		0, winreg.KEY_READ | winreg.KEY_WOW64_64KEY
-	)
-	try:
-		return winreg.QueryValueEx(k, name)[0]
-	except WindowsError as e:
-		if default is not None:
-			return default
-		raise e
-
-def setMagnifierKeyValue(name, val):
-	k = winreg.OpenKey(
-		winreg.HKEY_CURRENT_USER,
-		r'Software\Microsoft\ScreenMagnifier',
-		0, winreg.KEY_READ | winreg.KEY_WRITE | winreg.KEY_WOW64_64KEY
-	)
-	winreg.SetValueEx(k, name, 0, winreg.REG_DWORD, val)
-	
-def toggleMagnifierKeyValue(name, default=None):
-	val = getMagnifierKeyValue(name, default)
-	val = 0 if val == 1 else 1
-	setMagnifierKeyValue(name, val)
-	return val
-	
-def isMagnifierRunning():
-	# We do not use the existing RunningState registry key because does not work in the following use case:
-	# User logs off while Mag is active, then user logs on again. Even if Mag is not yet started by the user, the registry still holds RunningState value to 1.
-	# Instead we use the Magnifier UI window that is always present, even if hidden.
-	return getMagnifierUIWindow() != 0
-
-def getDesktopChildObject(windowClassName):
-	hWnd = winUser.user32.FindWindowW(windowClassName, 0)
-	obj = getNVDAObjectFromEvent(hWnd, winUser.OBJID_CLIENT, 0)
-	return obj if obj else None
-
-def getMagnifierUIWindow():
-	return winUser.user32.FindWindowW('MagUIClass', 0)
-
-def getDockedWindowObject():
-	return getDesktopChildObject(windowClassName="Screen Magnifier Window")
-
-def getLensWindowObject():
-	return getDesktopChildObject(windowClassName="Screen Magnifier Lens Window")
 
 def getMagViewMode():
 	return getMagnifierKeyValue('MagnificationMode', default=MAG_DEFAULT_MAGNIFICATION_MODE)
@@ -515,16 +464,30 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		(["h"], "displayHelp", DESC_DISPLAY_HELP),
 	]
 	
+	isWinMagPlugin = True
+	
 	
 	def __init__(self):
 		super(GlobalPlugin, self).__init__()
-		gui.settingsDialogs.NVDASettingsDialog.categoryClasses.append(WinMagSettingsPanel)
+		
+		# Variable initializations
 		self.toggling = False
-		ui.message = patched_message
-		scriptHandler.findScript = patched_findScript 
 		self.lastResize = None
 		self.lastMoveDirection = None
 		self.reportViewTimer = None
+		
+		# Gui initialization
+		gui.settingsDialogs.NVDASettingsDialog.categoryClasses.append(WinMagSettingsPanel)
+		
+		self.updateKeepMagWindowOnTop(config.conf['winMag']['keepWindowAlwaysOnTop'])
+		
+		# Patched functions
+		ui.message = patched_message
+		scriptHandler.findScript = patched_findScript 
+		
+		# Extension points configuration
+		config.post_configProfileSwitch.register(self.handleConfigProfileSwitch)
+		config.post_configReset.register(self.handleConfigReload)
 	
 	def chooseNVDAObjectOverlayClasses(self, obj, clsList):
 		if (
@@ -581,9 +544,20 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def terminate(self):
 		ui.message = orig_message
 		scriptHandler.findScript = orig_findScript 
-		self.toggleKeepMagWindowOnTop(keepOnTop=True, reportMessage=False)  # Restore to default behaviour.
+		try:
+			self.updateKeepMagWindowOnTop(True)  # Restore to default behaviour.
+		except Exception as e:
+			log.error('Error restoring Magnifier window on top.', exc_info=True)
 		gui.settingsDialogs.NVDASettingsDialog.categoryClasses.remove(WinMagSettingsPanel)
+		config.post_configProfileSwitch.unregister(self.handleConfigProfileSwitch)
+		config.post_configReset.unregister(self.handleConfigReload)
 		super(GlobalPlugin, self).terminate()
+	
+	def handleConfigProfileSwitch(self):
+		self.updateKeepMagWindowOnTop(config.conf['winMag']['keepWindowAlwaysOnTop'])
+	
+	def handleConfigReload(self, factoryDefaults=False):
+		self.updateKeepMagWindowOnTop(config.conf['winMag']['keepWindowAlwaysOnTop'])
 	
 	@script(
 		gestures = ["kb:windows+numpadPlus", "kb:windows+numLock+numpadPlus", "kb:windows+" + KEY_ALPHA_PLUS, "kb:windows+plus"]
@@ -592,8 +566,12 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		numlockWasOn = 'numlock' in gesture.normalizedIdentifiers[0].split(':')[1]
 		if config.conf['winMag']['reportZoom'] and isMagnifierRunning():
 			self.modifyZoomLevel(gesture)
-		elif config.conf['winMag']['reportTurnOnOff'] and not isMagnifierRunning():
-			self.modifyRunningState(gesture)
+		elif not isMagnifierRunning():
+			if config.conf['winMag']['reportTurnOnOff']:
+				self.modifyRunningState(gesture)
+			else:
+				gesture.send()
+			core.callLater(200, lambda: self.updateKeepMagWindowOnTop(config.conf['winMag']['keepWindowAlwaysOnTop']))
 		else:
 			gesture.send()
 		if numlockWasOn:
@@ -938,30 +916,48 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	)
 	@onlyIfMagRunning
 	def script_keepMagWindowOnTop(self, gesture):
-		self.toggleKeepMagWindowOnTop()
-	
-	def toggleKeepMagWindowOnTop(self, keepOnTop=None, reportMessage=True):
-	
-		magHwnd = getMagnifierUIWindow()
-		
-		isOnTop = bool(winUser.user32.GetWindowLongW(magHwnd, winUser.GWL_EXSTYLE) & winUser.WS_EX_TOPMOST)
-		
-		if keepOnTop == True and isOnTop == True:
-			# Nothing to do, the window is already topmost.
+		if not config.isInstalledCopy():
+			# Translators: A message reported when trying toggling "always on top" mode for Windows Magnifier's window
+			# while running a portable NVDA.
+			ui.message(_('Command only supported in installed versions of NVDA.'))
 			return
-		
-		if keepOnTop is None:
-			# Toggle current value.
-			keepOnTop = not isOnTop
-		
+		magHwnd = getMagnifierUIWindow()
+		isOnTop = bool(winUser.user32.GetWindowLongW(magHwnd, winUser.GWL_EXSTYLE) & winUser.WS_EX_TOPMOST)
+		if isOnTop != config.conf['winMag']['keepWindowAlwaysOnTop']:
+			log.error(
+				"Config synchronization error: "
+				"isOnTop ({isOnTop}) != config.conf['winMag']['keepWindowAlwaysOnTop'] ({cfg})".format(
+					isOnTop=isOnTop,
+					cfg=config.conf['winMag']['keepWindowAlwaysOnTop'],
+				)
+			)
+		onTop = not isOnTop
+		if self.updateKeepMagWindowOnTop(onTop):
+			config.conf['winMag']['keepWindowAlwaysOnTop'] = onTop
+			if onTop:
+				# Translators: A message reported when toggling "always on top" mode for Windows Magnifier's control window
+				msg = _("Magnifier controls always on top.")
+			else:
+				# Translators: A message reported when toggling "always on top" mode for Windows Magnifier's window
+				msg = _("Magnifier controls not on top.")
+			ui.message(msg)	
+	
+	def updateKeepMagWindowOnTop(self, keepOnTop):
+		if not config.isInstalledCopy():
+			log.debug('This copy of NVDA is not installed; Update keep on top not processed.')
+			return
+		if not isMagnifierRunning():
+			log.debug('Magnifier is not running; Update keep on top not processed.')
+			return
+		magHwnd = getMagnifierUIWindow()
+		isOnTop = bool(winUser.user32.GetWindowLongW(magHwnd, winUser.GWL_EXSTYLE) & winUser.WS_EX_TOPMOST)
+		if keepOnTop == isOnTop:
+			# Nothing to do, the window state is already correct.
+			return
 		if keepOnTop:
 			hWndInsertAfter = winUser2.HWND_TOPMOST
-			# Translators: A message reported when toggling "always on top" mode for Windows Magnifier's control window
-			msg = _("Magnifier controls always on top.")
 		else:
 			hWndInsertAfter = winUser2.HWND_BOTTOM
-			# Translators: A message reported when toggling "always on top" mode for Windows Magnifier's window
-			msg = _("Magnifier controls not on top.")
 		
 		try:
 			winUser2.setWindowPos(
@@ -973,20 +969,16 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				cy=0,
 				uFlags=winUser2.SWP_NOSIZE | winUser2.SWP_NOMOVE | winUser2.SWP_NOACTIVATE | winUser2.SWP_ASYNCWINDOWPOS,
 			)
+			return True
 		except WindowsError as e:
 		# Python 3 raises PermissionError which is a subclass of OSError alias WindowsError.
 		# Python 2 raises WindowsError
 			if e.winerror == 5:  # [WinError 5] Access is denied
 				if config.isInstalledCopy():
 					log.error('Unable to set window on topmost / not on top.')
-				elif reportMessage:
-					# Translators: A message reported when trying toggling "always on top" mode for Windows Magnifier's window
-					# while running a portable NVDA.
-					ui.message(_('Command only supported in installed versions of NVDA.'))
-				return
+				return False
 			raise(e)
-		if reportMessage:
-			ui.message(msg)	
+			
 
 	def checkSecureScreen(self):
 		if globalVars.appArgs.secure:

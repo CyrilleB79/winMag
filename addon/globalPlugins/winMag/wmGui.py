@@ -1,18 +1,20 @@
 # -*- coding: UTF-8 -*-
 # globalPlugins/winMag/gui.py
 # NVDA add-on: Windows Magnifier
-# Copyright (C) 2019-2021 Cyrille Bougot
-#This file is covered by the GNU General Public License.
-#See the file COPYING.txt for more details.
+# Copyright (C) 2019-2023 Cyrille Bougot
+# This file is covered by the GNU General Public License.
+# See the file COPYING.txt for more details.
 
 from __future__ import unicode_literals
 
-from .msg import nvdaTranslation
+from .utils import isMagnifierRunning
 
 import gui
 from gui import guiHelper, nvdaControls
 import config
 from logHandler import log
+import globalPluginHandler
+import core
 from tones import beep
 import math
 
@@ -43,7 +45,7 @@ class WinMagSettingsPanel(gui.SettingsPanel):
 		# Translators: An option in the combobox that configures passing control+alt+arrow in winMag setting panel.
 		("always", _("Always")),
 	)
-
+	
 	def makeSettings(self, settingsSizer):
 		sHelper = guiHelper.BoxSizerHelper(self, sizer=settingsSizer)
 		
@@ -124,6 +126,17 @@ class WinMagSettingsPanel(gui.SettingsPanel):
 				break
 		else:
 			log.debugWarning("Could not set pass control alt arrow list to current setting")
+		
+		self.keepWindowOnTopCheckBox = sHelper.addItem(
+			# Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
+			wx.CheckBox(self, label=_("&Keep Windows Magnifier command window always on top"))
+		)
+		self.keepOnTopAvailable = config.isInstalledCopy() and isMagnifierRunning()
+		if self.keepOnTopAvailable:
+			self.keepWindowOnTopCheckBox.SetValue(config.conf['winMag']['keepWindowAlwaysOnTop'])
+		else:
+			self.keepWindowOnTopCheckBox.SetValue(True)
+			self.keepWindowOnTopCheckBox.Disable()
 	
 	def onReportViewMoveChange(self, evt):
 		self.updateToneVolumeSliderEnableState()
@@ -160,4 +173,14 @@ class WinMagSettingsPanel(gui.SettingsPanel):
 		config.conf['winMag']['reportViewChange'] = self.reportViewChangeCheckBox.IsChecked()
 		config.conf['winMag']['reportLensResizing'] = self.reportLensResizingCheckBox.IsChecked()
 		config.conf["winMag"]["passCtrlAltArrow"] = self.passCtrlAltArrowLabels[self.passCtrlAltArrowList.GetSelection()][0]
+		if self.keepOnTopAvailable:
+			if isMagnifierRunning():
+			# Re-test if magnifier is running at validation time
+				winMagPlugin = [p for p in globalPluginHandler.runningPlugins if getattr(p, 'isWinMagPlugin', False)][0]
+				core.callLater(
+					0,
+					lambda: winMagPlugin.updateKeepMagWindowOnTop(self.keepWindowOnTopCheckBox.IsChecked()),
+				)
+			else:
+				log.debugWarning('Keep on top checkbox info not saved: magnifier is not running anymore.')
 		
