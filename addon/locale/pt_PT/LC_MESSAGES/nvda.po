@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: winMag 1.0\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2021-06-21 09:38+0000\n"
-"PO-Revision-Date: 2021-07-07 01:39+0100\n"
-"Last-Translator: Rui Fontes  <rui.fontes@tiflotecnia.com>\n"
+"PO-Revision-Date: 2021-10-30 23:08+0100\n"
+"Last-Translator: Ângelo Abrantes <ampa4374@gmail.com>\n"
 "Language-Team: Equipa Portuguesa do NVDA: Ângelo Abrantes e Rui Fontes\n"
 "Language: pt_PT\n"
 "MIME-Version: 1.0\n"
@@ -84,7 +84,7 @@ msgstr "Abre as configurações do extra Lupa do Windows"
 
 #. Translators: The description for the displayHelp script.
 msgid "Displays help on Magnifier layer commands"
-msgstr "mostra a ajuda dos comandos em camada da lupa"
+msgstr "Mostra a ajuda dos comandos em camada da lupa"
 
 #. Translators: Part of the description for the layered command script.
 msgid "Windows Magnifier layer commands entry point."
@@ -108,7 +108,7 @@ msgstr "Altura"
 
 #. Translators: A message reported when the user resizes the lens with the keyboard.
 msgid "Resizing lens."
-msgstr "Redimensionamento da Lente"
+msgstr "Redimensionamento da Lente."
 
 #. Translators: A message reported when the user uses resizing shortcuts (control+shift+arrow) in full screen view.
 msgid "Resizing not available in full screen."
@@ -156,11 +156,12 @@ msgstr "Suavização desligada"
 
 #. Translators: The message reported when the user tries to toggle mouse tracking mode whereas his Windows version does not support it.
 msgid "Feature unavailable in this version of Windows."
-msgstr "Funcionalidade indisponível nesta versão do windows"
+msgstr "Funcionalidade indisponível nesta versão do windows."
 
 #. Translators: The message reported when the user tries to toggle mouse tracking mode while full screen view is not active.
 msgid "Mouse tracking mode applies only to full screen view."
-msgstr "O modo de seguimento do rato aplica-se apenas na vista de ecrã inteiro"
+msgstr ""
+"O modo de seguimento do rato aplica-se apenas na vista de ecrã inteiro."
 
 #. Translators: A message reporting mouse cursor tracking mode (cf. option in Magnifier settings).
 msgid "Centered on the screen"
@@ -190,7 +191,7 @@ msgstr "Mover o rato para a vista não implementado para a vista ancorada"
 
 #. Translators: A message reported in secure screen when the user attempts to modify magnifiers settings.
 msgid "Command unavailable on this screen."
-msgstr "Comando indisponível neste ecrã"
+msgstr "Comando indisponível neste ecrã."
 
 #. Translators: The message reported when the user turns on the Magnifier.
 msgid "Magnifier on"
@@ -198,7 +199,7 @@ msgstr "Lupa activada"
 
 #. Translators: The message reported when the user turns off the Magnifier.
 msgid "Magnifier off"
-msgstr "lupa desactivada"
+msgstr "Lupa desactivada"
 
 #. Translators: A zoom level reported when the user changes the zoom level.
 #, python-brace-format
@@ -215,7 +216,7 @@ msgstr "Inversão de cor desligada"
 
 #. Translators: A view type reported when the user changes the Magnifier view. See the view menu items in the Magnifier's toolbar.
 msgid "Docked"
-msgstr "ancorada"
+msgstr "Ancorada"
 
 #. Translators: A view type reported when the user changes the Magnifier view. See the view menu items in the Magnifier's toolbar.
 msgid "Full screen"
