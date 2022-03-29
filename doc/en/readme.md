@@ -82,7 +82,7 @@ All these additional commands are accessible through the Magnifier layer command
 * NVDA+Windows+O then X: Switches between text cursor tracking modes (within the edge of the screen or centered on the screen); this feature is only available on Windows 10 build 18894 or higher.
 * NVDA+Windows+O then Arrows: Move the magnified view.
 * NVDA+Windows+O then V: Moves the mouse cursor in the center of the magnified view (command not available in docked view mode).
-* NVDA+Windows+O then W: Switches on or off the mode keeping Windows Magnifier's control window always on top of the other ones.
+* NVDA+Windows+O then W: Switches on or off the mode keeping Windows Magnifier's window always on top of the other ones.
   This feature is only available for installed versions of NVDA.
 * NVDA+Windows+O then O: Opens Windows Magnifier add-on settings.
 * NVDA+Windows+O then H: Displays help on Magnifier layer commands.
@@ -105,8 +105,8 @@ The result of the following Magnifier native commands may be reported by this ad
 * Select the full screen view: Control+Alt+F
 * Select the lens view: Control+Alt+L
 * Cycle through the three view types: Control+Alt+M
-* Resize the lens with the keyboard: Shift+Alt+Left/Right/Up/DownArrow.
-  Note: although this does not seem to be documented, this shortcut seems to have been withdrawn in recent Windows versions such as Windows 2004.
+* Resize the lens with the keyboard: Shift+Alt+Left/Right/Up/DownArrow
+  Note: although this does not seem to be documented, this shortcut seems to have been withdrawn in recent Windows versions such as Windows 10 2004.
 * Move the magnified view: Control+Alt+Arrows
 
 Here is also a list of other Magnifier native commands, just for information:
@@ -145,6 +145,15 @@ None of the Magnifier native commands can be modified.
 
 
 ## Change log
+
+### Version 2.0
+
+* The view can be moved with arrows while in Windows Magnifier layer.
+* Capability to keep the Magnifier commands Window always on top or not.
+* Added "Report screen edges" feature.
+* Volume setting of tones when using move view commands.
+* Reporting view moves and mouse to view commands are now supported in Lens mode.
+* Compatibility with NVDA 2022.1.
 
 ### Version 1.1
 
