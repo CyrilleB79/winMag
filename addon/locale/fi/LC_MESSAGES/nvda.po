@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: winMag 1.0\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2021-06-21 09:38+0000\n"
-"PO-Revision-Date: 2021-11-08 21:43+0200\n"
+"PO-Revision-Date: 2022-04-01 19:08+0200\n"
 "Last-Translator: Jani Kinnunen <janikinnunen340@gmail.com>\n"
 "Language-Team: fi_FI <janikinnunen340@gmail.com>\n"
 "Language: fi\n"
@@ -34,6 +34,7 @@ msgstr "Suurennuslasi ei ole aktiivinen"
 #. Translators: The message reported when the user tries to toggle a tracking mode while docked or full screen view is not active.
 msgid "Tracking configuration only applicable with docked or full screen view."
 msgstr ""
+"Seurannan asetukset koskevat vain kiinnitettyä tai koko näytön näkymää."
 
 #. Translators: The description for the toggleCaretTracking script.
 msgid "Toggles on or off caret tracking"
@@ -59,13 +60,13 @@ msgstr "Ottaa käyttöön pehmennyksen tai poistaa sen käytöstä"
 msgid ""
 "Switches between mouse tracking modes (within the edge of the screen or "
 "centered on the screen)"
-msgstr ""
+msgstr "Vaihtaa hiiren seurannan tilaa (näytön reunassa tai näytön keskellä)"
 
 #. Translators: The description for the toggleTextCursorTrackingMode script.
 msgid ""
 "Switches between text tracking modes (within the edge of the screen or "
 "centered on the screen)"
-msgstr ""
+msgstr "Vaihtaa tekstin seurannan tilaa (näytön reunassa tai näytön keskellä)"
 
 #. Translators: The description for the moveMouseToView script.
 msgid "Moves the mouse cursor in the center of the zoomed view"
@@ -157,7 +158,7 @@ msgstr "Hiiren seurantatila käytettävissä vain koko näytön näkymässä."
 
 #. Translators: A message reporting mouse cursor tracking mode (cf. option in Magnifier settings).
 msgid "Centered on the screen"
-msgstr "Keskitetty näytölle"
+msgstr "Näytön keskellä"
 
 #. Translators: A message reporting mouse cursor tracking mode (cf. option in Magnifier settings).
 msgid "Within the edge of the screen"
@@ -179,7 +180,7 @@ msgstr "Siirrä hiiri näkymään -komento ei käytettävissä linssinäkymäss�
 #. rect = Magnification.MagGetWindowSource(hwnd)
 #. Translators: A message reported when the user tries to execute script mouseToView
 msgid "Move mouse to view not implemented for docked view"
-msgstr ""
+msgstr "Siirrä hiiri näkymään -komentoa ei toteutettu kiinnitetylle näkymälle"
 
 #. Translators: A message reported in secure screen when the user attempts to modify magnifiers settings.
 msgid "Command unavailable on this screen."
@@ -208,7 +209,7 @@ msgstr "Värin inversio pois"
 
 #. Translators: A view type reported when the user changes the Magnifier view. See the view menu items in the Magnifier's toolbar.
 msgid "Docked"
-msgstr ""
+msgstr "Kiinnitetty"
 
 #. Translators: A view type reported when the user changes the Magnifier view. See the view menu items in the Magnifier's toolbar.
 msgid "Full screen"
@@ -283,14 +284,14 @@ msgstr "Ilmoita &näkymän muuttumisesta"
 
 #. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
 msgid "Report &lens or docked window resizing"
-msgstr ""
+msgstr "Ilmaise &linssi- tai kiinnitetyn ikkunan koon muuttaminen"
 
 #. Translators: This is the label for a combobox in the Windows Magnifier settings panel.
 msgid ""
 "In &documents and list views, pass control+alt+arrows shortcuts to Windows "
 "Magnifier:"
 msgstr ""
-"Välitä Ctrl+Alt+nuolet-pikanäppäimet &asiakirjoissa ja luettelonäkymissä "
+"Välitä Ctrl+Alt+Nuolet-pikanäppäimet &asiakirjoissa ja luettelonäkymissä "
 "Windows suurennuslasille:"
 
 #. Add-on description

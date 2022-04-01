@@ -39,21 +39,22 @@ Tämä asetus vaikuttaa vain koko näkymän tilaan.
 * Ilmoita käyttöön ottaminen tai käytöstä poistaminen: Jos tämä on
   valittuna, suurennuslasin tila ilmoitetaan käyttäessäsi Win++- tai
   Win+Esc-komentoja sen käyttöön ottamiseksi tai käytöstä poistamiseksi.
-* Report zoom: If checked, the Magnifier's zoom level is reported when you
-  use Windows++ or Windows+- zoom commands.
-* Report color inversion: If checked, the color inversion state is reported
-  when you use the control+Alt+I toggle command.
-* Report view change: If checked, the view type is reported when you use a
-  command that changes the view type (Control+Alt+M, Control+Alt+F,
-  Control+Alt+D, Control+Alt+L)
-* Report lens or docked window resizing: If checked, a message is reported
-  when you use the resizing commands (Alt+Shift+Arrows).  In docked window
-  mode, the height or the width is reported.  In lens mode, the new
-  dimension cannot be reported for now.  These resizing command do not seem
-  to be available on all versions of Windows; if your Windows version does
-  not support them, you should keep this option unchecked.
-* In documents and list views, pass control+alt+arrows shortcuts to Windows
-  Magnifier: There are three possible choices:
+* Ilmoita zoomauksen taso: Jos tämä on valittuna, suurennuslasin zoomauksen
+  taso ilmoitetaan käyttäessäsi zoomauskomentoja Win++ tai Win+-.
+* Ilmoita värin inversio: Jos tämä on valittuna, värin inversion tila
+  ilmoitetaan käyttäessäsi tilanvaihtokomentoa Ctrl+Alt+I.
+* Ilmoita näkymän muuttumisesta: Jos tämä on valittuna, näkymän tyyppi
+  ilmoitetaan käyttäessäsi sitä muuttavaa komentoa (Ctrl+Alt+M, Ctrl+Alt+F,
+  Ctrl+Alt+D ja Ctrl+Alt+L).
+* Ilmaise linssi- tai kiinnitetyn ikkunan koon muuttaminen: Jos tämä on
+  valittuna, NVDA antaa ilmoituksen käyttäessäsi koonmuuttamiskomentoja
+  (Alt+Vaihto+Nuolinäppäimet). Kiinnitetyn ikkunan tilassa ilmoitetaan
+  korkeus tai leveys. Linssitilassa uutta mittaa ei toistaiseksi voida
+  ilmoittaa. Nämä koonmuutoskomennot eivät näytä olevan käytettävissä
+  kaikissa Windows-versioissa; mikäli Windows-versiosi ei tue niitä, älä
+  valitse tätä asetusta.
+* Välitä Ctrl+Alt+Nuolet-pikanäppäimet asiakirjoissa ja luettelonäkymissä
+  Windows suurennuslasille: Mahdollisia vaihtoehtoja on kolme:
   
     * Never: The command is not passed to Windows Magnifier and standard
       NVDA table navigation can operate.  When used in documents out of a
