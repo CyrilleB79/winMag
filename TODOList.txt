@@ -1,8 +1,5 @@
 TODO list:
 
-Before stable release:
-Delete vocal feedback for move commands unless good reason to keep it.
-
 Known bugs:
 - ctrl+alt+M quickly: may say nothing or wrong value.
 
@@ -26,11 +23,5 @@ New features investigation:
   - Try to compute the number of left/right/up/down pane required to get mouse/caret/focus next to the center of the view and send programmatically control+alt+arrow to move the view.
   -> To do
 * mouseToView:
-  - full screen: already implemented
+  - full screen and lens: already implemented
   - docked: tried to get the source of magnified view via magnifier API, but unsuccessful.
-  - lens: not applicable: the zoomed view has always the mouse in center since this is the way the lens works.
-* Beep when paning the view if we reached bhe screen edge. Or configurable (nothing, beep, message).
-* Make paning commands feedback configurable (nothing, beep or direction); at least config without UI.
-
-
-

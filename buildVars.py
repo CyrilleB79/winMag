@@ -22,7 +22,7 @@ addon_info = {
 	- Allows to reduces the cases where table navigation command conflict with Magnifier's commands.
 	- Adds some keyboard shortcuts to toggle various Magnifier options."""),
 	# version
-	"addon_version": "1.1",
+	"addon_version": "2.0",
 	# Author(s)
 	"addon_author": u"Cyrille Bougot <cyrille.bougot2@laposte.net>",
 	# URL for the add-on documentation support

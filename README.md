@@ -105,8 +105,8 @@ The result of the following Magnifier native commands may be reported by this ad
 * Select the full screen view: Control+Alt+F
 * Select the lens view: Control+Alt+L
 * Cycle through the three view types: Control+Alt+M
-* Resize the lens with the keyboard: Shift+Alt+Left/Right/Up/DownArrow.
-  Note: although this does not seem to be documented, this shortcut seems to have been withdrawn in recent Windows versions such as Windows 2004.
+* Resize the lens with the keyboard: Shift+Alt+Left/Right/Up/DownArrow
+  Note: although this does not seem to be documented, this shortcut seems to have been withdrawn in recent Windows versions such as Windows 10 2004.
 * Move the magnified view: Control+Alt+Arrows
 
 Here is also a list of other Magnifier native commands, just for information:
@@ -145,6 +145,18 @@ None of the Magnifier native commands can be modified.
 
 
 ## Change log
+
+### Version 2.0
+
+* The view can be moved with arrows while in Windows Magnifier layer.
+* Capability to keep the Magnifier commands Window always on top or not.
+* Added "Report screen edges" feature.
+* Volume setting of tones when using move view commands.
+* Reporting view moves and mouse to view commands are now supported in Lens mode.
+* Compatibility with NVDA 2022.1.
+* Fixed a bug that sometimes incorrectly reported that the Magnifier was not working upon script call.
+* The release is now performed thanks to a GitHub action instead of appVeyor.
+* Updated localizations.
 
 ### Version 1.1
 
