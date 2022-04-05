@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: winMag 1.0\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2021-06-21 09:38+0000\n"
-"PO-Revision-Date: 2022-04-01 19:08+0200\n"
+"PO-Revision-Date: 2022-04-03 12:08+0200\n"
 "Last-Translator: Jani Kinnunen <janikinnunen340@gmail.com>\n"
 "Language-Team: fi_FI <janikinnunen340@gmail.com>\n"
 "Language: fi\n"
@@ -29,7 +29,7 @@ msgstr "-"
 
 #. Translators: The message reported when the user tries to use a Magnifier dedicated command while the Magnifier is not running.
 msgid "The Magnifier is not active"
-msgstr "Suurennuslasi ei ole aktiivinen"
+msgstr "Suurennuslasi ei ole käytössä"
 
 #. Translators: The message reported when the user tries to toggle a tracking mode while docked or full screen view is not active.
 msgid "Tracking configuration only applicable with docked or full screen view."
@@ -264,7 +264,7 @@ msgstr "Aina"
 
 #. Translators: This is the label for a combobox in the Windows Magnifier settings panel.
 msgid "Report view &moves:"
-msgstr "Ilmoita näkymän &liikkeet:"
+msgstr "Ilmoita näkymän &siirtäminen:"
 
 #. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
 msgid "Report &turn on or off"
