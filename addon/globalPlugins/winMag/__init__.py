@@ -1,9 +1,9 @@
 # -*- coding: UTF-8 -*-
-#globalPlugins/winMag/__init__.py
-#NVDA add-on: Windows Magnifier
-#Copyright (C) 2019-2020 Cyrille Bougot
-#This file is covered by the GNU General Public License.
-#See the file COPYING.txt for more details.
+# globalPlugins/winMag/__init__.py
+# NVDA add-on: Windows Magnifier
+# Copyright (C) 2019-2022 Cyrille Bougot
+# This file is covered by the GNU General Public License.
+# See the file COPYING.txt for more details.
 
 from __future__ import unicode_literals
 
@@ -30,6 +30,7 @@ import config
 import core
 import NVDAObjects.IAccessible
 import controlTypes
+from NVDAObjects.IAccessible import getNVDAObjectFromEvent
 
 import wx
 
@@ -128,18 +129,15 @@ def isMagnifierRunning():
 	# We do not use the existing RunningState registry key because does not work in the following use case:
 	# User logs off while Mag is active, then user logs on again. Even if Mag is not yet started by the user, the registry still holds RunningState value to 1.
 	# Instead we use the Magnifier UI window that is always present, even if hidden.
-	return getMagnifierUIObject() is not None
+	return getMagnifierUIWindow() != 0
 
 def getDesktopChildObject(windowClassName):
-	o = api.getDesktopObject().firstChild
-	while o:
-		if o.windowClassName == windowClassName:
-			return o
-		o = o.next
-	return None
+	hWnd = winUser.user32.FindWindowW(windowClassName, 0)
+	obj = getNVDAObjectFromEvent(hWnd, winUser.OBJID_CLIENT, 0)
+	return obj if obj else None
 
-def getMagnifierUIObject():
-	return getDesktopChildObject('MagUIClass') 
+def getMagnifierUIWindow():
+	return winUser.user32.FindWindowW('MagUIClass', 0)
 
 def getDockedWindowObject():
 	return getDesktopChildObject(windowClassName="Screen Magnifier Window")
@@ -944,7 +942,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	
 	def toggleKeepMagWindowOnTop(self, keepOnTop=None, reportMessage=True):
 	
-		magHwnd = getMagnifierUIObject().windowHandle
+		magHwnd = getMagnifierUIWindow()
 		
 		isOnTop = bool(winUser.user32.GetWindowLongW(magHwnd, winUser.GWL_EXSTYLE) & winUser.WS_EX_TOPMOST)
 		
