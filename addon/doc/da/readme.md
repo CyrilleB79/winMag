@@ -184,7 +184,6 @@ Ingen af de indbyggede kommandoer til Forstørrelsesglas kan ændres.
 
 [2]: https://addons.nvda-project.org/files/get.php?file=winmag-dev
 
-[4]:
-https://support.microsoft.com/da-dk/windows/windows-tastaturgenveje-som-hjaelp-til-handicappede-021bcb62-45c8-e4ef-1e4f-41b8c1fc87fd
+[4]: https://shorturl.at/dezBK
 
 [5]: https://addons.nvda-project.org/addons/easyTableNavigator.da.html
