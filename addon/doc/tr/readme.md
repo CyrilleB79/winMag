@@ -14,9 +14,10 @@ Bu eklenti, Windows Büyüteç'in NVDA ile kullanımını geliştirir.
   verir.
 * Tablo gezinme komutlarının Büyüteç komutlarıyla çakıştığı durumları
   azaltmayı amaçlar.
-* Çeşitli Büyüteç seçenekleri arasında geçiş yapmak için bazı klavye
-  kısayolları ekler.
-
+* Adds some keyboard shortcuts to toggle various native options of the
+  Magnifier.
+* Adds some extra features that are not provided by Windows Magnifier (mouse
+  to view, Magnifier window not on top)
 
 ## Ayarlar
 
@@ -37,8 +38,15 @@ Panel aşağıdaki seçenekleri içerir:
     * Tonlarla: bir ton çalınır, yükselip alçalan perdesi ile görünümün
       taşınmakta olduğu boyutta yakınlaştırılan görünümün konumunu belirtir.
   
-Bu seçenek yalnızca tam görünüm modunu etkiler.
-  
+  This option does not affect docked view mode.
+
+* Report screen edges: controls what is reported when you reach the edges of
+  the screen while moving the view with Control+Alt+Arrows commands.  The
+  three options are: Off, With speech and With tones.  This option does not
+  affect docked view mode.
+* Volume of the tones reporting the view position: allows to define the
+  volume of the tones if you have selected to report view moves or screen
+  edges with tones.
 * Açma veya Kapatmayı raporla: İşaretlenirse, açmak veya kapatmak için
   Windows++ veya Windows+Escape komutlarını kullandığınızda Büyüteç'in
   durumu bildirilir.
@@ -60,19 +68,20 @@ Bu seçenek yalnızca tam görünüm modunu etkiler.
 * Belgelerde ve liste görünümlerinde, control+alt+ok kısayollarını Windows
   Büyüteç'e ilet: Üç kullanılabilir seçenek vardır:
   
-    * Asla: Komut Windows Büyüteç'e iletilmez ve standart NVDA tablo
-      navigasyonu çalışabilir. Bir tablonun dışındaki belgelerde
-      kullanıldığında, Control+Alt+Ok komutu bir "Tabloda değil" hata mesajı
-      verir. Bu, eklenti olmadan NVDA'nın standart davranışıdır.
-    * Yalnızca tabloda olmadığında: Tablo veya liste görünümlerinde,
-      Control+Alt+Ok komutları standart tabloda gezinme gerçekleştirir. Bir
-      tablonun dışındaki belgelerde kullanıldığında, Control+Alt+Ok
-      komutları standart Büyüteç görünümü taşıma komutlarını
-      gerçekleştirir. Tablo veya liste görünümündeyken Windows Büyüteç
-      görünümünü yine de taşımak istiyorsanız, Control+Alt+Ok komutlarını
-      kullanmadan önce NVDA+F2 tuşlarına basmanız gerekir. Hem Büyüteç hem
-      de tabloda gezinme için Control+Alt+Ok kullanmak istiyorsanız bu
-      seçenek en iyi yoldur.
+    * Never: The command is not passed to Windows Magnifier and standard
+      NVDA table navigation can operate.  When used in documents out of a
+      table, the Control+Alt+Arrow command reports a "Not in a table" error
+      message.  This is the standard behaviour of NVDA without this add-on.
+      You can still use NVDA+Windows+O then arrows to move the magnified
+      view.
+    * Only when not in table: In table or in list views, Control+Alt+Arrow
+      commands perform standard table navigation.  When used in documents
+      out of a table, Control+Alt+Arrow commands perform standard Magnifier
+      view move commands.  If you still want to move Windows Magnifier view
+      while in table or in list view, you will need to press NVDA+F2 before
+      using Control+Alt+Arrow commands or alternately use NVDA+Windows+O
+      then arrows.  This option is the best compromise if you want to use
+      Control+Alt+Arrow for both Magnifier and table navigation.
     * Daima: Control+Alt+Ok komutları, her durumda Büyüteç'in görünümünü
       hareket ettirir. Tabloda gezinmek için Control+Alt+Ok kullanmazsanız
       bu seçenek yararlı olabilir. Örneğin: NVDA'da tablo gezinme
@@ -82,11 +91,15 @@ Bu seçenek yalnızca tam görünüm modunu etkiler.
 
 ## Bu eklenti tarafından eklenen komutlar
 
-Varsayılan Büyüteç komutlarına ek olarak, bu eklenti, Büyüteç'in
-seçeneklerini yapılandırma sayfasını açmadan kontrol etmeye olanak tanıyan
-ek komutlar sağlar. Büyüteç seçeneklerini kontrol etmek için eklenen tüm
-komutlara Büyüteç katman komutu olan NVDA+Windows+O aracılığıyla
-erişilebilir:
+In addition to native Magnifier commands, this add-on provide additional
+commands:
+
+* Commands that allow to control Magnifier's options without opening its
+  configuration page.
+* Extra commands specific to this add-on.
+
+All these additional commands are accessible through the Magnifier layer
+command NVDA+Windows+O:
 
 * NVDA+Windows+O ardından C: İmleç izlemeyi açar veya kapatır.
 * NVDA+Windows+O ardından F: Odak izlemeyi açar veya kapatır.
@@ -99,8 +112,12 @@ erişilebilir:
 * NVDA+Windows+O ardından X: Metin imleci izleme modları arasında geçiş
   yapar (ekranın kenarında veya ekranın ortasında); bu özellik yalnızca
   Windows 10 build 18894 veya üzeri sürümlerde mevcuttur.
-* NVDA+Windows+O ardından V: Fare imlecini büyütülmüş görünümün ortasına
-  taşır (komut yalnızca tam ekran görünümünde kullanılabilir).
+* NVDA+Windows+O then Arrows: Move the magnified view.
+* NVDA+Windows+O then V: Moves the mouse cursor in the center of the
+  magnified view (command not available in docked view mode).
+* NVDA+Windows+O then W: Switches on or off the mode keeping Windows
+  Magnifier's control window always on top of the other ones.  This feature
+  is only available for installed versions of NVDA.
 * NVDA+Windows+O ardından O: Windows Büyüteç eklenti ayarlarını açar.
 * NVDA+Windows+O ardından H: Büyüteç katmanı komutlarıyla ilgili yardımı
   görüntüler.
@@ -127,11 +144,10 @@ eklenti tarafından bildirilebilir:
 * Tam ekran görünümünü seçin: Control+Alt+F
 * Mercek görünümünü seçin: Control+Alt+L
 * Üç görünüm türü arasında geçiş yapın: Control+Alt+M
-* Merceği klavyeyle yeniden boyutlandırın: Shift+Alt+Sol/Sağ/Yukarı/Aşağı
-  Ok. Not: Bu belgelenmiş gibi görünmese de, bu kısayol, Windows 2004 gibi
-  son Windows sürümlerinde geri çekilmiş gibi görünüyor.
-* Büyütülmüş görünümü hareket ettirin: Control+Alt+Oklar (raporlama yalnızca
-  tam ekran modunu etkiler)
+* Resize the lens with the keyboard: Shift+Alt+Left/Right/Up/DownArrow Note:
+  although this does not seem to be documented, this shortcut seems to have
+  been withdrawn in recent Windows versions such as Windows 10 2004.
+* Move the magnified view: Control+Alt+Arrows
 
 Burada ayrıca yalnızca bilgi için diğer Büyüteç varsayılan komutlarının bir
 listesi bulunmaktadır:
@@ -174,8 +190,34 @@ Büyüteç Varsayılankomutlarının hiçbiri değiştirilemez.
       kullanın](https://support.microsoft.com/en-us/help/11542/windows-use-magnifier-to-make-things-easier-to-see)
     * [Erişilebilirlik için Windows klavye kısayolları][4]
 
+* This add-on has not been tested in multi-screen environment and there are
+  chances that some feature are not working in this environment.  If you are
+  using multi-screen environment and want it to be supported, please contact
+  me to have it implemented.
+* More generally, do not hesitate to contact me on the [GitHub page][3] of
+  this add-on or directly by e-mail.
+
 
 ## Sürüm Geçmişi:
+
+### Version 2.0
+
+* The view can be moved with arrows while in Windows Magnifier layer.
+* Capability to keep the Magnifier commands Window always on top or not.
+* Added "Report screen edges" feature.
+* Volume setting of tones when using move view commands.
+* Reporting view moves and mouse to view commands are now supported in Lens
+  mode.
+* Compatibility with NVDA 2022.1.
+* Fixed a bug that sometimes incorrectly reported that the Magnifier was not
+  working upon script call.
+* The release is now performed thanks to a GitHub action instead of
+  appVeyor.
+* Updated localizations.
+
+### Version 1.1
+
+* Added localizations.
 
 ### Sürüm 1.0
 
@@ -186,6 +228,8 @@ Büyüteç Varsayılankomutlarının hiçbiri değiştirilemez.
 [1]: https://addons.nvda-project.org/files/get.php?file=winmag
 
 [2]: https://addons.nvda-project.org/files/get.php?file=winmag-dev
+
+[3]: https://github.com/CyrilleB79/winMag
 
 [4]: https://support.microsoft.com/en-us/help/13810
 

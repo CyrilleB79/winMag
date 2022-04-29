@@ -14,8 +14,10 @@ NVDA.
 * Permite anunciar o resultado de certos atallos nativos da lupa.
 * Permite reducir os casos nos que as ordes de navegación por táboas fan
   conflicto con atallos da Lupa.
-* Engade algúns atallos de teclado para alternar certas opcións da Lupa.
-
+* Adds some keyboard shortcuts to toggle various native options of the
+  Magnifier.
+* Adds some extra features that are not provided by Windows Magnifier (mouse
+  to view, Magnifier window not on top)
 
 ## Opcións
 
@@ -35,8 +37,15 @@ O panel contén as seguintes opcións:
     * Con tons: reprodúcese un ton e a súa altura indica a posición da vista
       ampliada na dimensión na que se está a mover a vista.
   
-  Esta opción só afecta ó modo de vista completa.
-  
+  This option does not affect docked view mode.
+
+* Report screen edges: controls what is reported when you reach the edges of
+  the screen while moving the view with Control+Alt+Arrows commands.  The
+  three options are: Off, With speech and With tones.  This option does not
+  affect docked view mode.
+* Volume of the tones reporting the view position: allows to define the
+  volume of the tones if you have selected to report view moves or screen
+  edges with tones.
 * Anunciar activación e desactivación: Se está marcado, o estado da Lupa
   anúnciase cando utilizas as ordes Windows++ ou Windows+Escape para
   activala ou desactivala.
@@ -57,20 +66,20 @@ O panel contén as seguintes opcións:
 * En vistas de &documentos e lista, pasar as ordes control+alt+frechas á
   Lupa de Windows: Hai tres posibles escollas:
   
-    * Nunca: A orde non se pasa á Lupa de Windows e pode operar a navegación
-      de táboa estándar de NVDA.  Cando se use en documentos fóra dunha
-      táboa, o atallo Control+Alt+Frecha anuncia unha mensaxe de erro de
-      "non estás nunha celda da táboa".  Éste é o comportamento estándar de
-      NVDA sen este complemento.
-    * Só cando non estea nunha táboa: en vistas de táboa ou lista, os
-      atallos de Control+Alt+Frecha realizan navegación por táboa estándar.
-      Cando se utilicen en documento fóra dunha táboa, os atallos de
-      Control+Alt+Frecha realizan ordes estándar de mover vista da Lupa.  Se
-      aínda desexas mover a vista da Lupa de windows mentres estás en vista
-      de táboa ou lista, terás que premer NVDA+F2 antes de utilizar os
-      atallos de Control+Alt+Frecha.  Esta opción é a mellor ponderación se
-      queres utilizar Control+Alt+Frecha tanto para a Lupa como para
-      navegación por táboas.
+    * Never: The command is not passed to Windows Magnifier and standard
+      NVDA table navigation can operate.  When used in documents out of a
+      table, the Control+Alt+Arrow command reports a "Not in a table" error
+      message.  This is the standard behaviour of NVDA without this add-on.
+      You can still use NVDA+Windows+O then arrows to move the magnified
+      view.
+    * Only when not in table: In table or in list views, Control+Alt+Arrow
+      commands perform standard table navigation.  When used in documents
+      out of a table, Control+Alt+Arrow commands perform standard Magnifier
+      view move commands.  If you still want to move Windows Magnifier view
+      while in table or in list view, you will need to press NVDA+F2 before
+      using Control+Alt+Arrow commands or alternately use NVDA+Windows+O
+      then arrows.  This option is the best compromise if you want to use
+      Control+Alt+Arrow for both Magnifier and table navigation.
     * Sempre: Os atallos de control+Alt+Frecha moven a vista da Lupa en
       calquera caso.  Esta opción podería ser útil se non utilizas
       Control+Alt+Frecha para navegar en táboa, p.ex. porque cambiaches as
@@ -80,10 +89,15 @@ O panel contén as seguintes opcións:
 
 ## Ordes engadidas por este complemento
 
-Ademais dos atallos da Lupa nativa, este complemento fornece ordes
-adicionais que permiten controlar as opcións da Lupa sen abrir a súa páxina
-de configuración.  todos os comandos engadidos para controlar opcións da
-Lupa son accesibles a través da orde en capa de Magnifier NVDA+Windows+O:
+In addition to native Magnifier commands, this add-on provide additional
+commands:
+
+* Commands that allow to control Magnifier's options without opening its
+  configuration page.
+* Extra commands specific to this add-on.
+
+All these additional commands are accessible through the Magnifier layer
+command NVDA+Windows+O:
 
 * NVDA+Windows+O logo C: Activa ou desactiva seguemento do cursor.
 * NVDA+Windows+O logo F: Activa ou desactiva seguemento do foco.
@@ -97,8 +111,12 @@ Lupa son accesibles a través da orde en capa de Magnifier NVDA+Windows+O:
   texto (dentro do borde da pantalla ou centrado na pantalla); esta
   característica só está dispñible en Windows 10 compilación 18894 ou
   superior.
-* NVDA+Windows+O LOGO V: Move o cursor do rato ó centro da vista da Lupa
-  (orde só dispoñible en vista de pantalla completa).
+* NVDA+Windows+O then Arrows: Move the magnified view.
+* NVDA+Windows+O then V: Moves the mouse cursor in the center of the
+  magnified view (command not available in docked view mode).
+* NVDA+Windows+O then W: Switches on or off the mode keeping Windows
+  Magnifier's control window always on top of the other ones.  This feature
+  is only available for installed versions of NVDA.
 * NVDA+Windows+O logo O: Abre as opcións do complemento Windows Magnifier.
 * NVDA*Windows+O logo H: Amosa axuda sobre as ordes da capa da Lupa.
 
@@ -123,12 +141,10 @@ complemento, de acordo coa súa configuración:
 * Seleccionar vista en pantalla completa: Control+Alt+F
 * Seleccionar vista lente: Control+Alt+L
 * Recorrer os tres tipos de vista: Control+Alft+M
-* Redimensionar a lente co teclado:
-  Shift+Alt+FrechaEsquerda/Dereita/Arriba/Abaixo.  Nota: Aínda que isto non
-  parece estar documentado, este atallo parece que foi retirado en versións
-  de Windows recentes como Windows 2004.
-* Mover a vista da LLupa: Control+Alt+Frechas (o anunciado só afecta ó modo
-  de pantalla completa)
+* Resize the lens with the keyboard: Shift+Alt+Left/Right/Up/DownArrow Note:
+  although this does not seem to be documented, this shortcut seems to have
+  been withdrawn in recent Windows versions such as Windows 10 2004.
+* Move the magnified view: Control+Alt+Arrows
 
 Aquí está tamén unha lista de outras ordes nativas da Lupa, só para
 información:
@@ -172,8 +188,34 @@ Ningunha das ordes nativas da Lupa se poden modificar.
     * [Windows keyboard shortcuts for accessibility (Atallos de teclas de
       Windows para a accesibilidade)][4]
 
+* This add-on has not been tested in multi-screen environment and there are
+  chances that some feature are not working in this environment.  If you are
+  using multi-screen environment and want it to be supported, please contact
+  me to have it implemented.
+* More generally, do not hesitate to contact me on the [GitHub page][3] of
+  this add-on or directly by e-mail.
+
 
 ## Rexistro de trocos
+
+### Version 2.0
+
+* The view can be moved with arrows while in Windows Magnifier layer.
+* Capability to keep the Magnifier commands Window always on top or not.
+* Added "Report screen edges" feature.
+* Volume setting of tones when using move view commands.
+* Reporting view moves and mouse to view commands are now supported in Lens
+  mode.
+* Compatibility with NVDA 2022.1.
+* Fixed a bug that sometimes incorrectly reported that the Magnifier was not
+  working upon script call.
+* The release is now performed thanks to a GitHub action instead of
+  appVeyor.
+* Updated localizations.
+
+### Version 1.1
+
+* Added localizations.
 
 ### Versión 1.0
 
@@ -184,6 +226,8 @@ Ningunha das ordes nativas da Lupa se poden modificar.
 [1]: https://addons.nvda-project.org/files/get.php?file=winmag
 
 [2]: https://addons.nvda-project.org/files/get.php?file=winmag-dev
+
+[3]: https://github.com/CyrilleB79/winMag
 
 [4]: https://support.microsoft.com/en-us/help/13810
 

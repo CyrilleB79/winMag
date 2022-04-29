@@ -14,9 +14,10 @@ Cette extension améliore l'utilisation de la loupe Windows avec NVDA.
   Loupe.
 * Permet de réduire les cas où les commandes de navigation dans les tableaux
   entre en conflit avec les commandes de la loupe.
-* Ajoute des raccourcis clavier pour modifier différentes options de la
-  loupe.
-
+* Adds some keyboard shortcuts to toggle various native options of the
+  Magnifier.
+* Adds some extra features that are not provided by Windows Magnifier (mouse
+  to view, Magnifier window not on top)
 
 ## Paramètres
 
@@ -38,8 +39,15 @@ Le panneau contient les options suivantes :
       de la vue agrandie sur la dimension le long de laquelle la vue est
       déplacée.
   
-  Cette option concerne seulement l'affichage plein écran.
-  
+  This option does not affect docked view mode.
+
+* Report screen edges: controls what is reported when you reach the edges of
+  the screen while moving the view with Control+Alt+Arrows commands.  The
+  three options are: Off, With speech and With tones.  This option does not
+  affect docked view mode.
+* Volume of the tones reporting the view position: allows to define the
+  volume of the tones if you have selected to report view moves or screen
+  edges with tones.
 * Annoncer l'activation ou la désactivation : si cette option est cochée,
   l'état de la Loupe est signalé lorsque vous utilisez les commandes
   Windows++ ou Windows+Échap pour l'activer ou la désactiver.
@@ -64,21 +72,20 @@ Le panneau contient les options suivantes :
 * Dans les documents et les vues de liste, passer les raccourcis
   Ctrl+alt+flèches à la Loupe Windows : Il y a trois choix possibles :
   
-    * Jamais : la commande n'est pas transmise à la Loupe Windows et la
-      navigation standard de NVDA dans les tableaux peut agir. Utilisée dans
-      les documents hors des tableaux, la commande Ctrl+Alt+Flèche annoncent
-      un message d'erreur « Pas dans un tableau ». C'est le comportement
-      habituel de NVDA sans cette extension.
-    * Seulement en dehors des tableaux : Dans les tableaux ou les vues de
-      liste, les commandes Ctrl+Alt+Flèche effectuent la navigation
-      habituelle dans les tableaux. Utilisées dans les documents en dehors
-      des tableaux, les commandes Ctrl+Alt+Flèche exécutent les commandes
-      habituelles de déplacement de la vue de la Loupe. Si vous souhaitez
-      malgré tout déplacer la vue de la Loupe Windows alors que vous êtes
-      dans un tableau ou une vue de liste, , vous devrez appuyer sur NVDA+F2
-      avant d'utiliser les commandes Ctrl+Alt+Flèche. Cette option est le
-      meilleur compromis si vous souhaitez utiliser Ctrl+Alt+Flèche à la
-      fois pour la Loupe et la navigation dans les tableaux.
+    * Never: The command is not passed to Windows Magnifier and standard
+      NVDA table navigation can operate.  When used in documents out of a
+      table, the Control+Alt+Arrow command reports a "Not in a table" error
+      message.  This is the standard behaviour of NVDA without this add-on.
+      You can still use NVDA+Windows+O then arrows to move the magnified
+      view.
+    * Only when not in table: In table or in list views, Control+Alt+Arrow
+      commands perform standard table navigation.  When used in documents
+      out of a table, Control+Alt+Arrow commands perform standard Magnifier
+      view move commands.  If you still want to move Windows Magnifier view
+      while in table or in list view, you will need to press NVDA+F2 before
+      using Control+Alt+Arrow commands or alternately use NVDA+Windows+O
+      then arrows.  This option is the best compromise if you want to use
+      Control+Alt+Arrow for both Magnifier and table navigation.
     * Toujours : les commandes Ctrl+Alt+Flèche déplacent la vue de la Loupe
       dans tous les cas. Cette option peut être utile si vous n'utilisez pas
       Ctrl+Alt+Flèche pour naviguer dans les tableaux, par exemple parce que
@@ -89,11 +96,15 @@ Le panneau contient les options suivantes :
 
 ## Commandes ajoutées par cette extension
 
-En plus des commandes natives de la Loupe, cette extension fournit des
-commandes supplémentaires qui permettent de contrôler les options de la
-Loupe sans ouvrir sa page de configuration. Toutes les commandes ajoutées
-pour contrôler les options de la Loupe sont accessibles via la commande
-séquentielle de la Loupe NVDA+Windows+O :
+In addition to native Magnifier commands, this add-on provide additional
+commands:
+
+* Commands that allow to control Magnifier's options without opening its
+  configuration page.
+* Extra commands specific to this add-on.
+
+All these additional commands are accessible through the Magnifier layer
+command NVDA+Windows+O:
 
 * NVDA+Windows+O puis C: active ou désactive le suivi du curseur.
 * NVDA+Windows+O puis F: active ou désactive le suivi du focus.
@@ -107,8 +118,12 @@ séquentielle de la Loupe NVDA+Windows+O :
   texte (entre les bords de l'écran ou centré sur l'écran); cette
   fonctionnalité n'est disponible que sous Windows 10 build 18894 ou
   supérieur.
-* NVDA+Windows+O puis V : Déplace le curseur de la souris au centre de la
-  vue agrandie (commande disponible uniquement en affichage plein écran).
+* NVDA+Windows+O then Arrows: Move the magnified view.
+* NVDA+Windows+O then V: Moves the mouse cursor in the center of the
+  magnified view (command not available in docked view mode).
+* NVDA+Windows+O then W: Switches on or off the mode keeping Windows
+  Magnifier's control window always on top of the other ones.  This feature
+  is only available for installed versions of NVDA.
 * NVDA+Windows+O puis O : Ouvre les paramètres de l'extension Loupe Windows.
 * NVDA+Windows+O puis H: affiche l'aide sur les commandes séquentielles de
   la Loupe.
@@ -137,12 +152,10 @@ extension, selon sa configuration :
 * Sélectionnez l'affichage objectif (anciennement affichage loupe):
   Ctrl+Alt+L
 * Parcourir les trois types d'affichage: Ctrl+Alt+M
-* Redimensionnez la loupe avec le clavier :
-  Maj+Alt+Gauche/Droite/Haut/Bas. Remarque : bien que cela ne semble pas
-  documenté, ce raccourci semble avoir été supprimé dans les versions
-  récentes de Windows telles que Windows 2004.
-* Déplacer la vue agrandie : Ctrl+Alt+Flèches (cette annonce n'affecte que
-  le mode plein écran)
+* Resize the lens with the keyboard: Shift+Alt+Left/Right/Up/DownArrow Note:
+  although this does not seem to be documented, this shortcut seems to have
+  been withdrawn in recent Windows versions such as Windows 10 2004.
+* Move the magnified view: Control+Alt+Arrows
 
 Voici également une liste d'autres commandes natives de la Loupe, juste à
 titre informatif:
@@ -188,8 +201,34 @@ Aucune des commandes natives de la Loupe ne peut être modifiée.
       l'écran](https://support.microsoft.com/fr-fr/help/11542/windows-use-magnifier-to-make-things-easier-to-see)
     * [Raccourcis clavier d'accessibilité dans Windows][4]
 
+* This add-on has not been tested in multi-screen environment and there are
+  chances that some feature are not working in this environment.  If you are
+  using multi-screen environment and want it to be supported, please contact
+  me to have it implemented.
+* More generally, do not hesitate to contact me on the [GitHub page][3] of
+  this add-on or directly by e-mail.
+
 
 ## Journal des modifications
+
+### Version 2.0
+
+* The view can be moved with arrows while in Windows Magnifier layer.
+* Capability to keep the Magnifier commands Window always on top or not.
+* Added "Report screen edges" feature.
+* Volume setting of tones when using move view commands.
+* Reporting view moves and mouse to view commands are now supported in Lens
+  mode.
+* Compatibility with NVDA 2022.1.
+* Fixed a bug that sometimes incorrectly reported that the Magnifier was not
+  working upon script call.
+* The release is now performed thanks to a GitHub action instead of
+  appVeyor.
+* Updated localizations.
+
+### Version 1.1
+
+* Added localizations.
 
 ### Version 1.0
 
@@ -200,6 +239,8 @@ Aucune des commandes natives de la Loupe ne peut être modifiée.
 [1]: https://addons.nvda-project.org/files/get.php?file=winmag
 
 [2]: https://addons.nvda-project.org/files/get.php?file=winmag-dev
+
+[3]: https://github.com/CyrilleB79/winMag
 
 [4]: Raccourcis clavier d'accessibilité dans Windows
 

@@ -14,9 +14,10 @@ Diese Erweiterung verbessert die Verwendung von Windows-Lupe mit NVDA.
   anzusagen.
 * Ermöglicht die Reduzierung der Fälle, in denen die Befehle für die
   Tabellen-Navigation mit den Befehlen der Lupe in Konflikt stehen.
-* Fügt einige Tastaturkürzel hinzu, um verschiedene Lupenoptionen
-  umzuschalten.
-
+* Adds some keyboard shortcuts to toggle various native options of the
+  Magnifier.
+* Adds some extra features that are not provided by Windows Magnifier (mouse
+  to view, Magnifier window not on top)
 
 ## Die Einstellungen
 
@@ -39,8 +40,15 @@ Das Panel enthält die folgenden Optionen:
       gibt die Position der gezoomten Ansicht auf der Dimension an, in der
       die Ansicht verschoben wird.
   
-  Diese Option betrifft nur den Vollbild-Modus.
-  
+  This option does not affect docked view mode.
+
+* Report screen edges: controls what is reported when you reach the edges of
+  the screen while moving the view with Control+Alt+Arrows commands.  The
+  three options are: Off, With speech and With tones.  This option does not
+  affect docked view mode.
+* Volume of the tones reporting the view position: allows to define the
+  volume of the tones if you have selected to report view moves or screen
+  edges with tones.
 * Ansage ein- oder ausschalten: Wenn diese Option aktiviert ist, wird der
   Status der Lupe gemeldet, wenn Sie Windows+Plus or Minus oder
   Windows+Escape verwenden, um sie ein- oder auszuschalten.
@@ -65,20 +73,20 @@ Das Panel enthält die folgenden Optionen:
   Strg+Alt+Pfeiltasten an die Windows-Lupe durchreichen: Es gibt drei
   Möglichkeiten:
   
-    * Nie: Der Befehl wird nicht an die Windows-Lupe übergeben und die
-      standardmäßige Tabellen-Navigation in NVDA kann ausgeführt werden. Bei
-      Verwendung in Dokumenten außerhalb einer Tabelle meldet der Befehl
-      Strg+Alt+Pfeiltasten die Fehlermeldung "Nicht in einer Tabelle". Dies
-      ist das Standardverhalten von NVDA ohne dieser Erweiterung.
-    * Nur außerhalb von Tabellen: In Tabellen- oder Listenansichten führen
-      die Befehle Strg+Alt+Pfeiltasten die Standardtabellennavigation
-      durch. Bei Verwendung in Dokumenten aus einer Tabelle führen die
-      Befehle Strg+Alt+Pfeiltasten die Standardbefehle zum Verschieben der
-      Lupenansicht aus. Wenn Sie die Windows-Lupe weiterhin in der Tabellen-
-      oder Listenansicht verschieben möchten, müssen Sie NVDA+F2 drücken,
-      bevor Sie die Befehle Strg+Alt+Pfeiltasten verwenden. Diese Option ist
-      der beste Kompromiss, wenn Sie Strg+Alt+Pfeiltasten sowohl für die
-      Lupen- als auch die Tabellennavigation verwenden möchten.
+    * Never: The command is not passed to Windows Magnifier and standard
+      NVDA table navigation can operate.  When used in documents out of a
+      table, the Control+Alt+Arrow command reports a "Not in a table" error
+      message.  This is the standard behaviour of NVDA without this add-on.
+      You can still use NVDA+Windows+O then arrows to move the magnified
+      view.
+    * Only when not in table: In table or in list views, Control+Alt+Arrow
+      commands perform standard table navigation.  When used in documents
+      out of a table, Control+Alt+Arrow commands perform standard Magnifier
+      view move commands.  If you still want to move Windows Magnifier view
+      while in table or in list view, you will need to press NVDA+F2 before
+      using Control+Alt+Arrow commands or alternately use NVDA+Windows+O
+      then arrows.  This option is the best compromise if you want to use
+      Control+Alt+Arrow for both Magnifier and table navigation.
     * Immer: Strg+Alt+Pfeiltasten verschieben die Ansicht der Lupe in jedem
       Fall. Diese Option kann nützlich sein, wenn Sie nicht
       Strg+Alt+Pfeiltasten zum Navigieren in der Tabelle verwenden,
@@ -90,11 +98,15 @@ Das Panel enthält die folgenden Optionen:
 
 ## Befehle
 
-Zusätzlich zu den nativen Lupenbefehlen bietet dieser Erweiterung weitere
-Befehle, mit denen die Optionen der Lupe gesteuert werden können, ohne die
-Konfigurationsseite zu öffnen. Alle Befehle, die zur Steuerung der
-Lupenoptionen hinzugefügt wurden, sind über den Befehl NVDA+Windows+O
-zugänglich:
+In addition to native Magnifier commands, this add-on provide additional
+commands:
+
+* Commands that allow to control Magnifier's options without opening its
+  configuration page.
+* Extra commands specific to this add-on.
+
+All these additional commands are accessible through the Magnifier layer
+command NVDA+Windows+O:
 
 * NVDA+Windows+O, dann C: Schaltet die Verfolgung des System-Cursors ein
   oder aus.
@@ -108,8 +120,12 @@ zugänglich:
 * NVDA+Windows+O dann X: Wechselt zwischen den Textcursor-Tracking-Modi
   (innerhalb des Bildschirmrands oder zentriert auf dem Bildschirm); Diese
   Funktion ist nur unter Windows 10 Build 18894 oder neuer verfügbar.
-* NVDA+Windows+O, dann V: Bewegt den Mauszeiger in die Mitte der
-  vergrößerten Ansicht (Befehl nur in der Vollbild-Ansicht verfügbar).
+* NVDA+Windows+O then Arrows: Move the magnified view.
+* NVDA+Windows+O then V: Moves the mouse cursor in the center of the
+  magnified view (command not available in docked view mode).
+* NVDA+Windows+O then W: Switches on or off the mode keeping Windows
+  Magnifier's control window always on top of the other ones.  This feature
+  is only available for installed versions of NVDA.
 * NVDA+Windows+O, dann O: Öffnet die Einstellungen der Erweiterung für die
   Windows-Lupe.
 * NVDA+Windows+O, dann H: Zeigt die Hilfe zu Befehlen des Levels der Lupe
@@ -139,12 +155,10 @@ entsprechend dessen Konfiguration angesagt werden:
 * Vollbildansicht auswählen: Steuerung+Alt+F
 * Objektivansicht auswählen: Steuerung+Alt+L
 * Zwischen 3 Ansichtstypen (umschalten: Steuerung+Alt+M
-* Ändern Sie die Größe des Objektivs mit der Tastatur:
-  Umschalt+Alt+Pfeiltasten. Hinweis: Obwohl dies nicht dokumentiert zu sein
-  scheint, scheint diese Verknüpfung in neueren Windows-Versionen wie
-  Windows 10 Version 2004 entfernt worden zu sein.
-* Verschieben der vergrößerten Ansicht: Strg+Alt+Pfeil (die
-  Berichterstellung betrifft nur den Vollbild-Modus)
+* Resize the lens with the keyboard: Shift+Alt+Left/Right/Up/DownArrow Note:
+  although this does not seem to be documented, this shortcut seems to have
+  been withdrawn in recent Windows versions such as Windows 10 2004.
+* Move the magnified view: Control+Alt+Arrows
 
 Es gibt auch eine Liste weitere nativer Befehle der Lupe, nur zur
 Information:
@@ -189,8 +203,34 @@ Keiner der Tastenkombinationen für die Windows-Lupe können geändert werden.
       verbessern](https://support.microsoft.com/en-us/help/11542/windows-use-magnifier-to-make-things-easier-to-see)
     * [Windows-Tastaturbefehle für Barrierefreiheit][4]
 
+* This add-on has not been tested in multi-screen environment and there are
+  chances that some feature are not working in this environment.  If you are
+  using multi-screen environment and want it to be supported, please contact
+  me to have it implemented.
+* More generally, do not hesitate to contact me on the [GitHub page][3] of
+  this add-on or directly by e-mail.
+
 
 ## Änderungen
+
+### Version 2.0
+
+* The view can be moved with arrows while in Windows Magnifier layer.
+* Capability to keep the Magnifier commands Window always on top or not.
+* Added "Report screen edges" feature.
+* Volume setting of tones when using move view commands.
+* Reporting view moves and mouse to view commands are now supported in Lens
+  mode.
+* Compatibility with NVDA 2022.1.
+* Fixed a bug that sometimes incorrectly reported that the Magnifier was not
+  working upon script call.
+* The release is now performed thanks to a GitHub action instead of
+  appVeyor.
+* Updated localizations.
+
+### Version 1.1
+
+* Added localizations.
 
 ### Version 1.0
 
@@ -201,6 +241,8 @@ Keiner der Tastenkombinationen für die Windows-Lupe können geändert werden.
 [1]: https://addons.nvda-project.org/files/get.php?file=winmag
 
 [2]: https://addons.nvda-project.org/files/get.php?file=winmag-dev
+
+[3]: https://github.com/CyrilleB79/winMag
 
 [4]: https://support.microsoft.com/en-us/help/13810
 

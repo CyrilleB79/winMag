@@ -10,12 +10,12 @@ msgstr ""
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2021-07-02 22:20+0000\n"
 "PO-Revision-Date: 2021-07-28 14:42+0200\n"
+"Last-Translator: Milo Ivir <mail@milotype.de>\n"
+"Language-Team: \n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Last-Translator: Milo Ivir <mail@milotype.de>\n"
-"Language-Team: \n"
 "X-Generator: Poedit 3.0\n"
 
 #. Alpha-numeric keyboard Magnifier keys
@@ -73,9 +73,19 @@ msgstr ""
 "Prebacuje između modusa praćenja teksta (unutar ruba ekrana ili centrirano "
 "na ekranu)"
 
+#. Translators: The description for the moveView script.
+msgid "Moves the magnified view"
+msgstr ""
+
 #. Translators: The description for the moveMouseToView script.
 msgid "Moves the mouse cursor in the center of the zoomed view"
 msgstr "Pomiče kursor miša u središte zumiranog prikaza"
+
+#. Translators: The description for the keepMagWindowOnTop script.
+msgid ""
+"Switches on or off the mode keeping Windows Magnifier's control window "
+"always on top of the other ones."
+msgstr ""
 
 #. Translators: The description for the openSettings script.
 msgid "Opens Windows Magnifier add-on settings"
@@ -85,17 +95,23 @@ msgstr "Otvara postavke dodatka Windows povećala"
 msgid "Displays help on Magnifier layer commands"
 msgstr "Prikazuje pomoć za naredbe povećala"
 
+#. Translators: A message reported when the user tries to execute a script in multi-screen setup.
+#, fuzzy
+msgid ""
+"Multi-screen setup not yet supported. Please contact the add-on author to "
+"have it implemented."
+msgstr ""
+"Ova naredba još nije dostupna u okruženju s više ekrana. Za implementiranje, "
+"kontaktiraj autora dodatka."
+
 #. Translators: Part of the description for the layered command script.
 msgid "Windows Magnifier layer commands entry point."
 msgstr "Mjesto unosa naredbi Windows povećala."
 
-#. Translators: A message reported when the user tries to execute script mouseToView
-msgid ""
-"This command is not yet available in multi-screen environment. Please "
-"contact the add-on author to have it implemented."
-msgstr ""
-"Ova naredba još nije dostupna u okruženju s više ekrana. Za implementiranje, "
-"kontaktiraj autora dodatka."
+#. Translators: A message reported when the user reaches the edge of the screen while moving the view.
+#, fuzzy
+msgid "Edge of the screen."
+msgstr "Unutar ruba ekrana"
 
 #. Translators: A dimension reported when the user resizes the docked view.
 msgid "Widht"
@@ -169,15 +185,18 @@ msgstr "Centrirano na ekranu"
 msgid "Within the edge of the screen"
 msgstr "Unutar ruba ekrana"
 
+#. Translators: A message reported when the user tries to execute script moveView.
+msgid "Only gestures containing arrow key may be mapped to this script."
+msgstr ""
+
 #. Translators: A message reported when the user tries to execute script mouseToView
-msgid "Move mouse to view command available only on Windows 8 and above."
+#, fuzzy
+msgid ""
+"Move mouse to view command available only on Windows 8 and above in full "
+"screen mode."
 msgstr ""
 "Naredba „pomakni miša za prikaz” dostupna je samo u Windows 8 i novijim "
 "verzijama."
-
-#. Translators: A message reported when the user tries to execute script mouseToView
-msgid "Move mouse to view not applicable with lense view."
-msgstr "„Pomakni miša za prikaz” nije primjenjivo s prikazom leće."
 
 #. o = getDockedWindowObject()
 #. hwnd = o.windowHandle
@@ -186,6 +205,19 @@ msgstr "„Pomakni miša za prikaz” nije primjenjivo s prikazom leće."
 #. Translators: A message reported when the user tries to execute script mouseToView
 msgid "Move mouse to view not implemented for docked view"
 msgstr "„Pomakni miša za prikaz” nije implementirano za fiksirani prikaz."
+
+#. Translators: A message reported when toggling "always on top" mode for Windows Magnifier's control window
+msgid "Magnifier controls always on top."
+msgstr ""
+
+#. Translators: A message reported when toggling "always on top" mode for Windows Magnifier's window
+msgid "Magnifier controls not on top."
+msgstr ""
+
+#. Translators: A message reported when trying toggling "always on top" mode for Windows Magnifier's window
+#. while running a portable NVDA.
+msgid "Command only supported in installed versions of NVDA."
+msgstr ""
 
 #. Translators: A message reported in secure screen when the user attempts to modify magnifiers settings.
 msgid "Command unavailable on this screen."
@@ -227,6 +259,10 @@ msgstr "Leća"
 #. Translators: Title of the layered command help window.
 msgid "Windows Magnifier layered commands"
 msgstr "Naredbe Windows povećala"
+
+#. Translators: Separator between key names in the layered command help window.
+msgid ", "
+msgstr ""
 
 #. Translators: Part of the help message displayed for the layered command help.
 #, python-brace-format
@@ -270,6 +306,15 @@ msgstr "Uvijek"
 #. Translators: This is the label for a combobox in the Windows Magnifier settings panel.
 msgid "Report view &moves:"
 msgstr "Javi po&micanja prikaza:"
+
+#. Translators: This is the label for a combobox in the Windows Magnifier settings panel.
+#, fuzzy
+msgid "Report screen edges:"
+msgstr "Javi po&micanja prikaza:"
+
+#. Translators: This is the label for a slider in the Windows Magnifier settings panel.
+msgid "Volume of the tones reporting the view position:"
+msgstr ""
 
 #. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
 msgid "Report &turn on or off"
@@ -316,3 +361,6 @@ msgstr ""
 "u sukobu s naredbama povećala.\n"
 "\t- Dodaje neke tipkovne prečace za uključivanje i isključivanje raznih "
 "opcija povećala."
+
+#~ msgid "Move mouse to view not applicable with lense view."
+#~ msgstr "„Pomakni miša za prikaz” nije primjenjivo s prikazom leće."

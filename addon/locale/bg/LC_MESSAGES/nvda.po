@@ -9,12 +9,12 @@ msgstr ""
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2021-07-02 22:20+0000\n"
 "PO-Revision-Date: 2021-07-24 10:25+0300\n"
+"Last-Translator: Kostadin Kolev <k_kolev1985@mail.bg>\n"
+"Language-Team: \n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Last-Translator: Kostadin Kolev <k_kolev1985@mail.bg>\n"
-"Language-Team: \n"
 "X-Generator: Poedit 3.0\n"
 
 #. Alpha-numeric keyboard Magnifier keys
@@ -33,8 +33,8 @@ msgstr "Лупата не е стартирана"
 #. Translators: The message reported when the user tries to toggle a tracking mode while docked or full screen view is not active.
 msgid "Tracking configuration only applicable with docked or full screen view."
 msgstr ""
-"Настройката за следене е приложима само при прикрепен изглед или изглед "
-"на цял екран."
+"Настройката за следене е приложима само при прикрепен изглед или изглед на "
+"цял екран."
 
 #. Translators: The description for the toggleCaretTracking script.
 msgid "Toggles on or off caret tracking"
@@ -72,9 +72,19 @@ msgstr ""
 "Превключва между режимите за следене на курсора за въвеждане (в краищата или "
 "центъра на екрана)"
 
+#. Translators: The description for the moveView script.
+msgid "Moves the magnified view"
+msgstr ""
+
 #. Translators: The description for the moveMouseToView script.
 msgid "Moves the mouse cursor in the center of the zoomed view"
 msgstr "Премества курсора на мишката в центъра на увеличения изглед"
+
+#. Translators: The description for the keepMagWindowOnTop script.
+msgid ""
+"Switches on or off the mode keeping Windows Magnifier's control window "
+"always on top of the other ones."
+msgstr ""
 
 #. Translators: The description for the openSettings script.
 msgid "Opens Windows Magnifier add-on settings"
@@ -84,17 +94,23 @@ msgstr "Отваря настройките на добавката за луп�
 msgid "Displays help on Magnifier layer commands"
 msgstr "Извежда помощна информация за слоевите команди за лупата"
 
+#. Translators: A message reported when the user tries to execute a script in multi-screen setup.
+#, fuzzy
+msgid ""
+"Multi-screen setup not yet supported. Please contact the add-on author to "
+"have it implemented."
+msgstr ""
+"Тази команда все още не е налична в среда с няколко монитора. Моля, свържете "
+"се с автора на добавката, за да бъде внедрена тази функционалност."
+
 #. Translators: Part of the description for the layered command script.
 msgid "Windows Magnifier layer commands entry point."
 msgstr "Входна точка на слоя с команди за лупата на Windows."
 
-#. Translators: A message reported when the user tries to execute script mouseToView
-msgid ""
-"This command is not yet available in multi-screen environment. Please "
-"contact the add-on author to have it implemented."
-msgstr ""
-"Тази команда все още не е налична в среда с няколко монитора. Моля, свържете "
-"се с автора на добавката, за да бъде внедрена тази функционалност."
+#. Translators: A message reported when the user reaches the edge of the screen while moving the view.
+#, fuzzy
+msgid "Edge of the screen."
+msgstr "В краищата на екрана"
 
 #. Translators: A dimension reported when the user resizes the docked view.
 msgid "Widht"
@@ -158,8 +174,7 @@ msgstr "Функцията не е налична в тази версия на 
 
 #. Translators: The message reported when the user tries to toggle mouse tracking mode while full screen view is not active.
 msgid "Mouse tracking mode applies only to full screen view."
-msgstr ""
-"Режимът за следене на мишката е приложим само за изглед на цял екран."
+msgstr "Режимът за следене на мишката е приложим само за изглед на цял екран."
 
 #. Translators: A message reporting mouse cursor tracking mode (cf. option in Magnifier settings).
 msgid "Centered on the screen"
@@ -169,17 +184,18 @@ msgstr "В центъра на екрана"
 msgid "Within the edge of the screen"
 msgstr "В краищата на екрана"
 
+#. Translators: A message reported when the user tries to execute script moveView.
+msgid "Only gestures containing arrow key may be mapped to this script."
+msgstr ""
+
 #. Translators: A message reported when the user tries to execute script mouseToView
-msgid "Move mouse to view command available only on Windows 8 and above."
+#, fuzzy
+msgid ""
+"Move mouse to view command available only on Windows 8 and above in full "
+"screen mode."
 msgstr ""
 "Командата за преместване на курсора на мишката в изгледа е налична само под "
 "Windows 8 и по-нови версии."
-
-#. Translators: A message reported when the user tries to execute script mouseToView
-msgid "Move mouse to view not applicable with lense view."
-msgstr ""
-"Преместването на курсора на мишката в изгледа не е приложимо в режим на "
-"изглед на леща."
 
 #. o = getDockedWindowObject()
 #. hwnd = o.windowHandle
@@ -190,6 +206,19 @@ msgid "Move mouse to view not implemented for docked view"
 msgstr ""
 "Преместването на курсора на мишката в изгледа не е внедрено за режим на "
 "прикрепен изглед"
+
+#. Translators: A message reported when toggling "always on top" mode for Windows Magnifier's control window
+msgid "Magnifier controls always on top."
+msgstr ""
+
+#. Translators: A message reported when toggling "always on top" mode for Windows Magnifier's window
+msgid "Magnifier controls not on top."
+msgstr ""
+
+#. Translators: A message reported when trying toggling "always on top" mode for Windows Magnifier's window
+#. while running a portable NVDA.
+msgid "Command only supported in installed versions of NVDA."
+msgstr ""
 
 #. Translators: A message reported in secure screen when the user attempts to modify magnifiers settings.
 msgid "Command unavailable on this screen."
@@ -231,6 +260,10 @@ msgstr "Леща"
 #. Translators: Title of the layered command help window.
 msgid "Windows Magnifier layered commands"
 msgstr "Слоеви команди за лупата на Windows"
+
+#. Translators: Separator between key names in the layered command help window.
+msgid ", "
+msgstr ""
 
 #. Translators: Part of the help message displayed for the layered command help.
 #, python-brace-format
@@ -274,6 +307,15 @@ msgstr "Винаги"
 #. Translators: This is the label for a combobox in the Windows Magnifier settings panel.
 msgid "Report view &moves:"
 msgstr "Докладвай &преместването на изгледа:"
+
+#. Translators: This is the label for a combobox in the Windows Magnifier settings panel.
+#, fuzzy
+msgid "Report screen edges:"
+msgstr "Докладвай &преместването на изгледа:"
+
+#. Translators: This is the label for a slider in the Windows Magnifier settings panel.
+msgid "Volume of the tones reporting the view position:"
+msgstr ""
 
 #. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
 msgid "Report &turn on or off"
@@ -321,3 +363,8 @@ msgstr ""
 "таблици влизат в противоречие с командите на лупата.\n"
 "\t- Добавя някои клавишни комбинации за превключване на различни опции на "
 "лупата."
+
+#~ msgid "Move mouse to view not applicable with lense view."
+#~ msgstr ""
+#~ "Преместването на курсора на мишката в изгледа не е приложимо в режим на "
+#~ "изглед на леща."

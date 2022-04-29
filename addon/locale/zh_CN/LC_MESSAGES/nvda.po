@@ -9,12 +9,12 @@ msgstr ""
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2021-07-02 22:20+0000\n"
 "PO-Revision-Date: 2021-08-16 16:40+0800\n"
+"Last-Translator: 完美很难 <1872265132@qq.com>\n"
+"Language-Team: \n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Last-Translator: 完美很难 <1872265132@qq.com>\n"
-"Language-Team: \n"
 "X-Generator: Poedit 3.0\n"
 
 #. Alpha-numeric keyboard Magnifier keys
@@ -66,9 +66,19 @@ msgid ""
 "centered on the screen)"
 msgstr "在保留文本光标模式之间切换（屏幕边缘内或在屏幕上居中）"
 
+#. Translators: The description for the moveView script.
+msgid "Moves the magnified view"
+msgstr ""
+
 #. Translators: The description for the moveMouseToView script.
 msgid "Moves the mouse cursor in the center of the zoomed view"
 msgstr "将鼠标光标移动到缩放视图的中心"
+
+#. Translators: The description for the keepMagWindowOnTop script.
+msgid ""
+"Switches on or off the mode keeping Windows Magnifier's control window "
+"always on top of the other ones."
+msgstr ""
 
 #. Translators: The description for the openSettings script.
 msgid "Opens Windows Magnifier add-on settings"
@@ -78,15 +88,21 @@ msgstr "打开 Windows 放大镜插件设置"
 msgid "Displays help on Magnifier layer commands"
 msgstr "显示有关放大镜图层命令的帮助"
 
+#. Translators: A message reported when the user tries to execute a script in multi-screen setup.
+#, fuzzy
+msgid ""
+"Multi-screen setup not yet supported. Please contact the add-on author to "
+"have it implemented."
+msgstr "此命令在多屏环境中尚不可用。请联系插件作者以实现该功能。"
+
 #. Translators: Part of the description for the layered command script.
 msgid "Windows Magnifier layer commands entry point."
 msgstr "Windows 放大镜层命令入口点。"
 
-#. Translators: A message reported when the user tries to execute script mouseToView
-msgid ""
-"This command is not yet available in multi-screen environment. Please "
-"contact the add-on author to have it implemented."
-msgstr "此命令在多屏环境中尚不可用。请联系插件作者以实现该功能。"
+#. Translators: A message reported when the user reaches the edge of the screen while moving the view.
+#, fuzzy
+msgid "Edge of the screen."
+msgstr "屏幕边缘内"
 
 #. Translators: A dimension reported when the user resizes the docked view.
 msgid "Widht"
@@ -160,12 +176,14 @@ msgstr "在屏幕上居中"
 msgid "Within the edge of the screen"
 msgstr "屏幕边缘内"
 
-#. Translators: A message reported when the user tries to execute script mouseToView
-msgid "Move mouse to view command available only on Windows 8 and above."
+#. Translators: A message reported when the user tries to execute script moveView.
+msgid "Only gestures containing arrow key may be mapped to this script."
 msgstr ""
 
 #. Translators: A message reported when the user tries to execute script mouseToView
-msgid "Move mouse to view not applicable with lense view."
+msgid ""
+"Move mouse to view command available only on Windows 8 and above in full "
+"screen mode."
 msgstr ""
 
 #. o = getDockedWindowObject()
@@ -174,6 +192,19 @@ msgstr ""
 #. rect = Magnification.MagGetWindowSource(hwnd)
 #. Translators: A message reported when the user tries to execute script mouseToView
 msgid "Move mouse to view not implemented for docked view"
+msgstr ""
+
+#. Translators: A message reported when toggling "always on top" mode for Windows Magnifier's control window
+msgid "Magnifier controls always on top."
+msgstr ""
+
+#. Translators: A message reported when toggling "always on top" mode for Windows Magnifier's window
+msgid "Magnifier controls not on top."
+msgstr ""
+
+#. Translators: A message reported when trying toggling "always on top" mode for Windows Magnifier's window
+#. while running a portable NVDA.
+msgid "Command only supported in installed versions of NVDA."
 msgstr ""
 
 #. Translators: A message reported in secure screen when the user attempts to modify magnifiers settings.
@@ -217,6 +248,10 @@ msgstr "镜头"
 msgid "Windows Magnifier layered commands"
 msgstr "Windows 放大镜层命令"
 
+#. Translators: Separator between key names in the layered command help window.
+msgid ", "
+msgstr ""
+
 #. Translators: Part of the help message displayed for the layered command help.
 #, python-brace-format
 msgid ""
@@ -259,6 +294,15 @@ msgstr "始终"
 #. Translators: This is the label for a combobox in the Windows Magnifier settings panel.
 msgid "Report view &moves:"
 msgstr "读出视图移动(&M)"
+
+#. Translators: This is the label for a combobox in the Windows Magnifier settings panel.
+#, fuzzy
+msgid "Report screen edges:"
+msgstr "读出视图移动(&M)"
+
+#. Translators: This is the label for a slider in the Windows Magnifier settings panel.
+msgid "Volume of the tones reporting the view position:"
+msgstr ""
 
 #. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
 msgid "Report &turn on or off"

@@ -32,7 +32,9 @@ msgstr "Büyüteç etkin değil"
 
 #. Translators: The message reported when the user tries to toggle a tracking mode while docked or full screen view is not active.
 msgid "Tracking configuration only applicable with docked or full screen view."
-msgstr "İzleme yapılandırması yalnızca sabitlenmiş veya tam ekran görünümünde uygulanabilir."
+msgstr ""
+"İzleme yapılandırması yalnızca sabitlenmiş veya tam ekran görünümünde "
+"uygulanabilir."
 
 #. Translators: The description for the toggleCaretTracking script.
 msgid "Toggles on or off caret tracking"
@@ -55,16 +57,34 @@ msgid "Toggles on or off smoothing"
 msgstr "Görüntü Düzeltmeyi açıp kapatır"
 
 #. Translators: The description for the toggleMouseCursorTrackingMode script.
-msgid "Switches between mouse tracking modes (within the edge of the screen or centered on the screen)"
-msgstr "Fare izleme modları arasında geçiş yapar (ekranın kenarında veya ekranın ortasında)"
+msgid ""
+"Switches between mouse tracking modes (within the edge of the screen or "
+"centered on the screen)"
+msgstr ""
+"Fare izleme modları arasında geçiş yapar (ekranın kenarında veya ekranın "
+"ortasında)"
 
 #. Translators: The description for the toggleTextCursorTrackingMode script.
-msgid "Switches between text tracking modes (within the edge of the screen or centered on the screen)"
-msgstr "Metin izleme modları arasında geçiş yapar (ekranın kenarında veya ekranın ortasında)"
+msgid ""
+"Switches between text tracking modes (within the edge of the screen or "
+"centered on the screen)"
+msgstr ""
+"Metin izleme modları arasında geçiş yapar (ekranın kenarında veya ekranın "
+"ortasında)"
+
+#. Translators: The description for the moveView script.
+msgid "Moves the magnified view"
+msgstr ""
 
 #. Translators: The description for the moveMouseToView script.
 msgid "Moves the mouse cursor in the center of the zoomed view"
 msgstr "Fare imlecini yakınlaştırılmış görünümün ortasına taşır"
+
+#. Translators: The description for the keepMagWindowOnTop script.
+msgid ""
+"Switches on or off the mode keeping Windows Magnifier's control window "
+"always on top of the other ones."
+msgstr ""
 
 #. Translators: The description for the openSettings script.
 msgid "Opens Windows Magnifier add-on settings"
@@ -74,13 +94,23 @@ msgstr "Windows Büyüteç eklenti ayarlarını açar"
 msgid "Displays help on Magnifier layer commands"
 msgstr "Büyüteç katman komutlarıyla ilgili yardımı görüntüler"
 
+#. Translators: A message reported when the user tries to execute a script in multi-screen setup.
+#, fuzzy
+msgid ""
+"Multi-screen setup not yet supported. Please contact the add-on author to "
+"have it implemented."
+msgstr ""
+"Bu komut, çoklu ekran ortamında henüz mevcut değildir. Lütfen eklenmesi için "
+"eklenti yazarıyla iletişime geçin."
+
 #. Translators: Part of the description for the layered command script.
 msgid "Windows Magnifier layer commands entry point."
 msgstr "Windows Büyüteç katmanı komutları giriş noktası."
 
-#. Translators: A message reported when the user tries to execute script mouseToView
-msgid "This command is not yet available in multi-screen environment. Please contact the add-on author to have it implemented."
-msgstr "Bu komut, çoklu ekran ortamında henüz mevcut değildir. Lütfen eklenmesi için eklenti yazarıyla iletişime geçin."
+#. Translators: A message reported when the user reaches the edge of the screen while moving the view.
+#, fuzzy
+msgid "Edge of the screen."
+msgstr "Ekranın kenarında"
 
 #. Translators: A dimension reported when the user resizes the docked view.
 msgid "Widht"
@@ -154,13 +184,18 @@ msgstr "Ekranda ortalanmış"
 msgid "Within the edge of the screen"
 msgstr "Ekranın kenarında"
 
-#. Translators: A message reported when the user tries to execute script mouseToView
-msgid "Move mouse to view command available only on Windows 8 and above."
-msgstr "Fareyi görüntüye taşıma komutu yalnızca Windows 8 ve üzeri sürümlerde geçerli."
+#. Translators: A message reported when the user tries to execute script moveView.
+msgid "Only gestures containing arrow key may be mapped to this script."
+msgstr ""
 
 #. Translators: A message reported when the user tries to execute script mouseToView
-msgid "Move mouse to view not applicable with lense view."
-msgstr "Fareyi görüntüye taşıma mercek görünümü ile geçerli değil."
+#, fuzzy
+msgid ""
+"Move mouse to view command available only on Windows 8 and above in full "
+"screen mode."
+msgstr ""
+"Fareyi görüntüye taşıma komutu yalnızca Windows 8 ve üzeri sürümlerde "
+"geçerli."
 
 #. o = getDockedWindowObject()
 #. hwnd = o.windowHandle
@@ -169,6 +204,19 @@ msgstr "Fareyi görüntüye taşıma mercek görünümü ile geçerli değil."
 #. Translators: A message reported when the user tries to execute script mouseToView
 msgid "Move mouse to view not implemented for docked view"
 msgstr "Fareyi görüntüye taşıma sabitlenmiş görünüm için uygulanmadı"
+
+#. Translators: A message reported when toggling "always on top" mode for Windows Magnifier's control window
+msgid "Magnifier controls always on top."
+msgstr ""
+
+#. Translators: A message reported when toggling "always on top" mode for Windows Magnifier's window
+msgid "Magnifier controls not on top."
+msgstr ""
+
+#. Translators: A message reported when trying toggling "always on top" mode for Windows Magnifier's window
+#. while running a portable NVDA.
+msgid "Command only supported in installed versions of NVDA."
+msgstr ""
 
 #. Translators: A message reported in secure screen when the user attempts to modify magnifiers settings.
 msgid "Command unavailable on this screen."
@@ -210,6 +258,10 @@ msgstr "Mercek"
 #. Translators: Title of the layered command help window.
 msgid "Windows Magnifier layered commands"
 msgstr "Windows Büyüteç katman komutları"
+
+#. Translators: Separator between key names in the layered command help window.
+msgid ", "
+msgstr ""
 
 #. Translators: Part of the help message displayed for the layered command help.
 #, python-brace-format
@@ -254,6 +306,15 @@ msgstr "Daima"
 msgid "Report view &moves:"
 msgstr "Görünü&m Hareketlerini Bildir:"
 
+#. Translators: This is the label for a combobox in the Windows Magnifier settings panel.
+#, fuzzy
+msgid "Report screen edges:"
+msgstr "Görünü&m Hareketlerini Bildir:"
+
+#. Translators: This is the label for a slider in the Windows Magnifier settings panel.
+msgid "Volume of the tones reporting the view position:"
+msgstr ""
+
 #. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
 msgid "Report &turn on or off"
 msgstr "Açma veya Kapa&tmayı Bildir"
@@ -275,18 +336,30 @@ msgid "Report &lens or docked window resizing"
 msgstr "Mercek veya sabit&lenmiş pencere yeniden boyutlandırmayı bildir"
 
 #. Translators: This is the label for a combobox in the Windows Magnifier settings panel.
-msgid "In &documents and list views, pass control+alt+arrows shortcuts to Windows Magnifier:"
-msgstr "Belgeler&de ve liste görünümlerinde, Windows Büyüteç'e control+alt+ok kısayollarını ilet:"
+msgid ""
+"In &documents and list views, pass control+alt+arrows shortcuts to Windows "
+"Magnifier:"
+msgstr ""
+"Belgeler&de ve liste görünümlerinde, Windows Büyüteç'e control+alt+ok "
+"kısayollarını ilet:"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 msgid ""
-"This addon improves the use of Windows Magnifier with NVDA with the following features:\n"
+"This addon improves the use of Windows Magnifier with NVDA with the "
+"following features:\n"
 "\t- Allows to report the result of some native Magnifier keyboard commands.\n"
-"\t- Allows to reduces the cases where table navigation command conflict with Magnifier's commands.\n"
+"\t- Allows to reduces the cases where table navigation command conflict with "
+"Magnifier's commands.\n"
 "\t- Adds some keyboard shortcuts to toggle various Magnifier options."
 msgstr ""
-"Bu eklenti, aşağıdaki özelliklerle Windows Büyüteç'in NVDA ile kullanımını iyileştirir:\n"
+"Bu eklenti, aşağıdaki özelliklerle Windows Büyüteç'in NVDA ile kullanımını "
+"iyileştirir:\n"
 "\t- Bazı Varsayılan Büyüteç klavye komutlarının sonucunu bildirmeyi sağlar.\n"
-"\t- Tablo gezinme komutunun Büyüteç'in komutlarıyla çakıştığı durumları azaltır.\n"
-"\t- Çeşitli Büyüteç seçenekleri arasında geçiş yapmak için bazı klavye kısayolları ekler."
+"\t- Tablo gezinme komutunun Büyüteç'in komutlarıyla çakıştığı durumları "
+"azaltır.\n"
+"\t- Çeşitli Büyüteç seçenekleri arasında geçiş yapmak için bazı klavye "
+"kısayolları ekler."
+
+#~ msgid "Move mouse to view not applicable with lense view."
+#~ msgstr "Fareyi görüntüye taşıma mercek görünümü ile geçerli değil."

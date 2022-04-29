@@ -73,9 +73,19 @@ msgstr ""
 "Alterna entre os modos de rastreamento de texto (no limite da tela ou "
 "centralizado na tela)"
 
+#. Translators: The description for the moveView script.
+msgid "Moves the magnified view"
+msgstr ""
+
 #. Translators: The description for the moveMouseToView script.
 msgid "Moves the mouse cursor in the center of the zoomed view"
 msgstr "Move o cursor do mouse para o centro da visualização ampliada"
+
+#. Translators: The description for the keepMagWindowOnTop script.
+msgid ""
+"Switches on or off the mode keeping Windows Magnifier's control window "
+"always on top of the other ones."
+msgstr ""
 
 #. Translators: The description for the openSettings script.
 msgid "Opens Windows Magnifier add-on settings"
@@ -85,17 +95,23 @@ msgstr "Abre as configurações do complemento Lupa do Windows"
 msgid "Displays help on Magnifier layer commands"
 msgstr "Exibe ajuda sobre os comandos de camada Lupa"
 
+#. Translators: A message reported when the user tries to execute a script in multi-screen setup.
+#, fuzzy
+msgid ""
+"Multi-screen setup not yet supported. Please contact the add-on author to "
+"have it implemented."
+msgstr ""
+"Este comando ainda não está disponível em ambiente multitelas. Entre em "
+"contato com o autor do complemento para implementá-lo."
+
 #. Translators: Part of the description for the layered command script.
 msgid "Windows Magnifier layer commands entry point."
 msgstr "Ponto de entrada dos comandos de camada Lupa do Windows."
 
-#. Translators: A message reported when the user tries to execute script mouseToView
-msgid ""
-"This command is not yet available in multi-screen environment. Please "
-"contact the add-on author to have it implemented."
-msgstr ""
-"Este comando ainda não está disponível em ambiente multitelas. Entre em "
-"contato com o autor do complemento para implementá-lo."
+#. Translators: A message reported when the user reaches the edge of the screen while moving the view.
+#, fuzzy
+msgid "Edge of the screen."
+msgstr "No limite da tela"
 
 #. Translators: A dimension reported when the user resizes the docked view.
 msgid "Widht"
@@ -171,16 +187,18 @@ msgstr "Centralizado na tela"
 msgid "Within the edge of the screen"
 msgstr "No limite da tela"
 
+#. Translators: A message reported when the user tries to execute script moveView.
+msgid "Only gestures containing arrow key may be mapped to this script."
+msgstr ""
+
 #. Translators: A message reported when the user tries to execute script mouseToView
-msgid "Move mouse to view command available only on Windows 8 and above."
+#, fuzzy
+msgid ""
+"Move mouse to view command available only on Windows 8 and above in full "
+"screen mode."
 msgstr ""
 "Comando de mover mouse para visualização disponível somente no Windows 8 e "
 "superior."
-
-#. Translators: A message reported when the user tries to execute script mouseToView
-msgid "Move mouse to view not applicable with lense view."
-msgstr ""
-"Mover mouse para visualização não aplicável com a visualização de lente."
 
 #. o = getDockedWindowObject()
 #. hwnd = o.windowHandle
@@ -190,6 +208,19 @@ msgstr ""
 msgid "Move mouse to view not implemented for docked view"
 msgstr ""
 "Mover o mouse para visualizar não implementado para visualização acoplada"
+
+#. Translators: A message reported when toggling "always on top" mode for Windows Magnifier's control window
+msgid "Magnifier controls always on top."
+msgstr ""
+
+#. Translators: A message reported when toggling "always on top" mode for Windows Magnifier's window
+msgid "Magnifier controls not on top."
+msgstr ""
+
+#. Translators: A message reported when trying toggling "always on top" mode for Windows Magnifier's window
+#. while running a portable NVDA.
+msgid "Command only supported in installed versions of NVDA."
+msgstr ""
 
 #. Translators: A message reported in secure screen when the user attempts to modify magnifiers settings.
 msgid "Command unavailable on this screen."
@@ -231,6 +262,10 @@ msgstr "Lente"
 #. Translators: Title of the layered command help window.
 msgid "Windows Magnifier layered commands"
 msgstr "Comandos em camadas Lupa do Windows"
+
+#. Translators: Separator between key names in the layered command help window.
+msgid ", "
+msgstr ""
 
 #. Translators: Part of the help message displayed for the layered command help.
 #, python-brace-format
@@ -274,6 +309,15 @@ msgstr "Sempre"
 #. Translators: This is the label for a combobox in the Windows Magnifier settings panel.
 msgid "Report view &moves:"
 msgstr "Relatar &movimentos da visualização:"
+
+#. Translators: This is the label for a combobox in the Windows Magnifier settings panel.
+#, fuzzy
+msgid "Report screen edges:"
+msgstr "Relatar &movimentos da visualização:"
+
+#. Translators: This is the label for a slider in the Windows Magnifier settings panel.
+msgid "Volume of the tones reporting the view position:"
+msgstr ""
 
 #. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
 msgid "Report &turn on or off"
@@ -320,3 +364,7 @@ msgstr ""
 "\t- Permite reduzir os casos de conflito entre o comando de navegação nas "
 "tabelas e os comandos da lupa.\n"
 "\t- Adiciona alguns atalhos de teclado para alternar várias opções de Lupa."
+
+#~ msgid "Move mouse to view not applicable with lense view."
+#~ msgstr ""
+#~ "Mover mouse para visualização não aplicável com a visualização de lente."
