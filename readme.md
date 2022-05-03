@@ -35,7 +35,7 @@ The panel contains the following options:
 * Report screen edges: controls what is reported when you reach the edges of the screen while moving the view with Control+Alt+Arrows commands.
   The three options are: Off, With speech and With tones.
   This option does not affect docked view mode.
-* Volume of the tones reporting the view position: allows to define the volume of the tones if you have selected to report view moves or screen edges with tones.
+* Volume of the tones reporting the position of the view: allows to define the volume of the tones if you have selected to report view moves or screen edges with tones.
 * Report turn on or off:
   If checked, the Magnifier's state is reported when you use Windows++ or Windows+Escape commands to turn it on or off.
 * Report zoom:
@@ -82,7 +82,7 @@ All these additional commands are accessible through the Magnifier layer command
 * NVDA+Windows+O then X: Switches between text cursor tracking modes (within the edge of the screen or centered on the screen); this feature is only available on Windows 10 build 18894 or higher.
 * NVDA+Windows+O then Arrows: Move the magnified view.
 * NVDA+Windows+O then V: Moves the mouse cursor in the center of the magnified view (command not available in docked view mode).
-* NVDA+Windows+O then W: Switches on or off the mode keeping Windows Magnifier's control window always on top of the other ones.
+* NVDA+Windows+O then W: Switches on or off the mode allowing to keep Windows Magnifier's control window always on top of the other ones.
   This feature is only available for installed versions of NVDA.
 * NVDA+Windows+O then O: Opens Windows Magnifier add-on settings.
 * NVDA+Windows+O then H: Displays help on Magnifier layer commands.
