@@ -60,7 +60,7 @@ class WinMagSettingsPanel(gui.SettingsPanel):
 		self.reportViewMoveList.Bind(wx.EVT_CHOICE, self.onReportViewMoveChange)
 		
 		# Translators: This is the label for a combobox in the Windows Magnifier settings panel.
-		reportScreenEdgesLabelText = _("Report screen edges:")
+		reportScreenEdgesLabelText = _("Report screen &edges:")
 		reportScreenEdgesChoices = [name for setting, name in self.reportViewMoveAndScreenEdgesLabels]
 		self.reportScreenEdgesList = sHelper.addLabeledControl(reportScreenEdgesLabelText, wx.Choice, choices=reportScreenEdgesChoices)
 		for index, (setting, name) in enumerate(self.reportViewMoveAndScreenEdgesLabels):
@@ -72,7 +72,7 @@ class WinMagSettingsPanel(gui.SettingsPanel):
 		self.reportScreenEdgesList.Bind(wx.EVT_CHOICE, self.onReportScreenEdgesChange)
 
 		# Translators: This is the label for a slider in the Windows Magnifier settings panel.
-		toneVolumeLabelText = _('Volume of the tones reporting the view position:')
+		toneVolumeLabelText = _('Volume of the tones indicating the &position of the view:')
 		self.toneVolumeSlider = sHelper.addLabeledControl(
 			toneVolumeLabelText,
 			nvdaControls.EnhancedInputSlider,

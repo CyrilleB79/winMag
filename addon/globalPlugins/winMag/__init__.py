@@ -346,7 +346,7 @@ DESC_MOVE_VIEW = _("Moves the magnified view")
 # Translators: The description for the moveMouseToView script.
 DESC_MOVE_MOUSE_TO_VIEW = _("Moves the mouse cursor in the center of the zoomed view")
 # Translators: The description for the keepMagWindowOnTop script.
-DESC_KEEP_MAG_WINDOW_ON_TOP = _("Switches on or off the mode keeping Windows Magnifier's control window always on top of the other ones.")
+DESC_KEEP_MAG_WINDOW_ON_TOP = _("Switches on or off the mode allowing to keep Windows Magnifier's control window always on top of the other ones.")
 # Translators: The description for the openSettings script.
 DESC_OPEN_SETTINGS = _("Opens Windows Magnifier add-on settings")
 # Translators: The description for the displayHelp script.
