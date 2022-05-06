@@ -14,10 +14,11 @@ Cette extension améliore l'utilisation de la loupe Windows avec NVDA.
   Loupe.
 * Permet de réduire les cas où les commandes de navigation dans les tableaux
   entre en conflit avec les commandes de la loupe.
-* Adds some keyboard shortcuts to toggle various native options of the
-  Magnifier.
-* Adds some extra features that are not provided by Windows Magnifier (mouse
-  to view, Magnifier window not on top)
+* Ajout de raccourcis clavier pour basculer entre diverses options natives
+  de la loupe.
+* Ajoute quelques fonctionnalités supplémentaires qui ne sont pas fournies
+  par la loupe Windows (souris pour afficher, fenêtre de la loupe pas en
+  haut)
 
 ## Paramètres
 
@@ -41,13 +42,13 @@ Le panneau contient les options suivantes :
   
   This option does not affect docked view mode.
 
-* Report screen edges: controls what is reported when you reach the edges of
-  the screen while moving the view with Control+Alt+Arrows commands.  The
-  three options are: Off, With speech and With tones.  This option does not
-  affect docked view mode.
-* Volume of the tones reporting the view position: allows to define the
-  volume of the tones if you have selected to report view moves or screen
-  edges with tones.
+* Annoncer les bords de l'écran : contrôle ce qui est signalé lorsque vous
+  atteignez les bords de l'écran tout en déplaçant la vue avec les commandes
+  Contrôle+Alt+Flèches. Les trois options sont : Désactivé, Avec parole et
+  Avec tonalités. Cette option n'affecte pas le mode d'affichage ancré.
+* Volume des tonalités signalant la position de la vue : permet de définir
+  le volume des tonalités si vous avez choisi de signaler les mouvements de
+  vue ou les bords d'écran avec des tonalités.
 * Annoncer l'activation ou la désactivation : si cette option est cochée,
   l'état de la Loupe est signalé lorsque vous utilisez les commandes
   Windows++ ou Windows+Échap pour l'activer ou la désactiver.
@@ -96,11 +97,11 @@ Le panneau contient les options suivantes :
 
 ## Commandes ajoutées par cette extension
 
-In addition to native Magnifier commands, this add-on provide additional
-commands:
+En plus des commandes natives de la loupe, cette extension fournit des
+commandes supplémentaires :
 
-* Commands that allow to control Magnifier's options without opening its
-  configuration page.
+* Commandes permettant de contrôler les options de la Loupe sans ouvrir sa
+  page de configuration.
 * Extra commands specific to this add-on.
 
 All these additional commands are accessible through the Magnifier layer
@@ -121,9 +122,9 @@ command NVDA+Windows+O:
 * NVDA+Windows+O then Arrows: Move the magnified view.
 * NVDA+Windows+O then V: Moves the mouse cursor in the center of the
   magnified view (command not available in docked view mode).
-* NVDA+Windows+O then W: Switches on or off the mode keeping Windows
-  Magnifier's control window always on top of the other ones.  This feature
-  is only available for installed versions of NVDA.
+* NVDA+Windows+O puis W : active ou désactive le mode en gardant la fenêtre
+  de contrôle de la loupe Windows toujours au-dessus des autres. Cette
+  fonctionnalité n'est disponible que pour les versions installées de NVDA.
 * NVDA+Windows+O puis O : Ouvre les paramètres de l'extension Loupe Windows.
 * NVDA+Windows+O puis H: affiche l'aide sur les commandes séquentielles de
   la Loupe.
@@ -201,34 +202,38 @@ Aucune des commandes natives de la Loupe ne peut être modifiée.
       l'écran](https://support.microsoft.com/fr-fr/help/11542/windows-use-magnifier-to-make-things-easier-to-see)
     * [Raccourcis clavier d'accessibilité dans Windows][4]
 
-* This add-on has not been tested in multi-screen environment and there are
-  chances that some feature are not working in this environment.  If you are
-  using multi-screen environment and want it to be supported, please contact
-  me to have it implemented.
-* More generally, do not hesitate to contact me on the [GitHub page][3] of
-  this add-on or directly by e-mail.
+* Cette extension n'a pas été testée dans un environnement multi-écran et il
+  est possible que certaines fonctionnalités ne fonctionnent pas dans cet
+  environnement. Si vous utilisez un environnement multi-écran et que vous
+  souhaitez qu'il soit pris en charge, veuillez me contacter pour
+  l'implémenter.
+* Plus généralement, n'hésitez pas à me contacter sur la [page GitHub][3] de
+  cet add-on ou directement par e-mail.
 
 
 ## Journal des modifications
 
 ### Version 2.0
 
-* The view can be moved with arrows while in Windows Magnifier layer.
-* Capability to keep the Magnifier commands Window always on top or not.
-* Added "Report screen edges" feature.
-* Volume setting of tones when using move view commands.
-* Reporting view moves and mouse to view commands are now supported in Lens
-  mode.
-* Compatibility with NVDA 2022.1.
-* Fixed a bug that sometimes incorrectly reported that the Magnifier was not
-  working upon script call.
-* The release is now performed thanks to a GitHub action instead of
-  appVeyor.
-* Updated localizations.
+* La vue peut être déplacée avec les flèches dans la couche de la loupe
+  Windows.
+* Possibilité de garder la fenêtre des commandes de la loupe toujours en
+  haut ou non.
+* Ajout de la fonctionnalité "Signaler les bords de l'écran".
+* Réglage du volume des tonalités lors de l'utilisation des commandes de
+  déplacement de vue.
+* Les déplacements de vue de rapport et les commandes de souris pour
+  afficher sont désormais pris en charge en mode Objectif.
+* Compatibilité avec NVDA 2022.1.
+* Correction d'un bogue qui signalait parfois à tort que la loupe ne
+  fonctionnait pas lors d'un appel de script.
+* La release est maintenant effectuée grâce à une action GitHub au lieu
+  d'appVeyor.
+* Localisations mises à jour.
 
 ### Version 1.1
 
-* Added localizations.
+* Localisations ajoutées.
 
 ### Version 1.0
 

@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: winMag 1.1\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2021-09-03 22:20+0000\n"
-"PO-Revision-Date: 2021-11-21 14:28+0300\n"
+"PO-Revision-Date: 2022-05-01 09:15+0300\n"
 "Last-Translator: Çağrı Doğan <cagrid@hotmail.com>\n"
 "Language-Team: Umut KORKMAZ, Çağrı Doğan <Cagrid@hotmail.com>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.0\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #. Alpha-numeric keyboard Magnifier keys
 #. Translators: The key used natively byt the Magnifier on the alpha-numeric (main) keyboard in conjunction with Win key to zoom in.
@@ -74,17 +74,20 @@ msgstr ""
 
 #. Translators: The description for the moveView script.
 msgid "Moves the magnified view"
-msgstr ""
+msgstr "Büyütülmüş görünümü taşır"
 
 #. Translators: The description for the moveMouseToView script.
 msgid "Moves the mouse cursor in the center of the zoomed view"
 msgstr "Fare imlecini yakınlaştırılmış görünümün ortasına taşır"
 
 #. Translators: The description for the keepMagWindowOnTop script.
+#, fuzzy
 msgid ""
-"Switches on or off the mode keeping Windows Magnifier's control window "
-"always on top of the other ones."
+"Switches on or off the mode allowing to keep Windows Magnifier's control "
+"window always on top of the other ones."
 msgstr ""
+"Windows Büyüteç'in kontrol penceresini her zaman diğerlerinin üstünde tutan "
+"modu açıp kapatır."
 
 #. Translators: The description for the openSettings script.
 msgid "Opens Windows Magnifier add-on settings"
@@ -95,26 +98,24 @@ msgid "Displays help on Magnifier layer commands"
 msgstr "Büyüteç katman komutlarıyla ilgili yardımı görüntüler"
 
 #. Translators: A message reported when the user tries to execute a script in multi-screen setup.
-#, fuzzy
 msgid ""
 "Multi-screen setup not yet supported. Please contact the add-on author to "
 "have it implemented."
 msgstr ""
-"Bu komut, çoklu ekran ortamında henüz mevcut değildir. Lütfen eklenmesi için "
-"eklenti yazarıyla iletişime geçin."
+"Çoklu ekran kurulumu henüz desteklenmiyor. Lütfen uygulanması için eklenti "
+"yazarıyla iletişime geçin."
 
 #. Translators: Part of the description for the layered command script.
 msgid "Windows Magnifier layer commands entry point."
 msgstr "Windows Büyüteç katmanı komutları giriş noktası."
 
 #. Translators: A message reported when the user reaches the edge of the screen while moving the view.
-#, fuzzy
 msgid "Edge of the screen."
-msgstr "Ekranın kenarında"
+msgstr "Ekranın kenarı."
 
 #. Translators: A dimension reported when the user resizes the docked view.
 msgid "Widht"
-msgstr "genişlik"
+msgstr "Genişlik"
 
 #. Translators: A dimension reported when the user resizes the docked view.
 msgid "Height"
@@ -186,7 +187,7 @@ msgstr "Ekranın kenarında"
 
 #. Translators: A message reported when the user tries to execute script moveView.
 msgid "Only gestures containing arrow key may be mapped to this script."
-msgstr ""
+msgstr "Yalnızca ok tuşunu içeren hareketler bu komut için atanabilir."
 
 #. Translators: A message reported when the user tries to execute script mouseToView
 #, fuzzy
@@ -207,16 +208,16 @@ msgstr "Fareyi görüntüye taşıma sabitlenmiş görünüm için uygulanmadı"
 
 #. Translators: A message reported when toggling "always on top" mode for Windows Magnifier's control window
 msgid "Magnifier controls always on top."
-msgstr ""
+msgstr "Büyüteç kontrolleri her zaman üstte."
 
 #. Translators: A message reported when toggling "always on top" mode for Windows Magnifier's window
 msgid "Magnifier controls not on top."
-msgstr ""
+msgstr "Büyüteç kontrolleri üstte değil."
 
 #. Translators: A message reported when trying toggling "always on top" mode for Windows Magnifier's window
 #. while running a portable NVDA.
 msgid "Command only supported in installed versions of NVDA."
-msgstr ""
+msgstr "Komut yalnızca NVDA'nın kurulu sürümlerinde desteklenir."
 
 #. Translators: A message reported in secure screen when the user attempts to modify magnifiers settings.
 msgid "Command unavailable on this screen."
@@ -261,7 +262,7 @@ msgstr "Windows Büyüteç katman komutları"
 
 #. Translators: Separator between key names in the layered command help window.
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #. Translators: Part of the help message displayed for the layered command help.
 #, python-brace-format
@@ -308,12 +309,13 @@ msgstr "Görünü&m Hareketlerini Bildir:"
 
 #. Translators: This is the label for a combobox in the Windows Magnifier settings panel.
 #, fuzzy
-msgid "Report screen edges:"
+msgid "Report screen &edges:"
 msgstr "Görünü&m Hareketlerini Bildir:"
 
 #. Translators: This is the label for a slider in the Windows Magnifier settings panel.
-msgid "Volume of the tones reporting the view position:"
-msgstr ""
+#, fuzzy
+msgid "Volume of the tones indicating the &position of the view:"
+msgstr "Görünüm konumunu bildiren tonların ses düzeyi:"
 
 #. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
 msgid "Report &turn on or off"
@@ -345,21 +347,26 @@ msgstr ""
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
-msgid ""
-"This addon improves the use of Windows Magnifier with NVDA with the "
-"following features:\n"
-"\t- Allows to report the result of some native Magnifier keyboard commands.\n"
-"\t- Allows to reduces the cases where table navigation command conflict with "
-"Magnifier's commands.\n"
-"\t- Adds some keyboard shortcuts to toggle various Magnifier options."
+msgid "This add-on improves the use of Windows Magnifier with NVDA."
 msgstr ""
-"Bu eklenti, aşağıdaki özelliklerle Windows Büyüteç'in NVDA ile kullanımını "
-"iyileştirir:\n"
-"\t- Bazı Varsayılan Büyüteç klavye komutlarının sonucunu bildirmeyi sağlar.\n"
-"\t- Tablo gezinme komutunun Büyüteç'in komutlarıyla çakıştığı durumları "
-"azaltır.\n"
-"\t- Çeşitli Büyüteç seçenekleri arasında geçiş yapmak için bazı klavye "
-"kısayolları ekler."
+
+#~ msgid ""
+#~ "This addon improves the use of Windows Magnifier with NVDA with the "
+#~ "following features:\n"
+#~ "\t- Allows to report the result of some native Magnifier keyboard "
+#~ "commands.\n"
+#~ "\t- Allows to reduces the cases where table navigation command conflict "
+#~ "with Magnifier's commands.\n"
+#~ "\t- Adds some keyboard shortcuts to toggle various Magnifier options."
+#~ msgstr ""
+#~ "Bu eklenti, aşağıdaki özelliklerle Windows Büyüteç'in NVDA ile "
+#~ "kullanımını iyileştirir:\n"
+#~ "\t- Bazı Varsayılan Büyüteç klavye komutlarının sonucunu bildirmeyi "
+#~ "sağlar.\n"
+#~ "\t- Tablo gezinme komutunun Büyüteç'in komutlarıyla çakıştığı durumları "
+#~ "azaltır.\n"
+#~ "\t- Çeşitli Büyüteç seçenekleri arasında geçiş yapmak için bazı klavye "
+#~ "kısayolları ekler."
 
 #~ msgid "Move mouse to view not applicable with lense view."
 #~ msgstr "Fareyi görüntüye taşıma mercek görünümü ile geçerli değil."

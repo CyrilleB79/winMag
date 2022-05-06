@@ -76,8 +76,8 @@ msgstr "将鼠标光标移动到缩放视图的中心"
 
 #. Translators: The description for the keepMagWindowOnTop script.
 msgid ""
-"Switches on or off the mode keeping Windows Magnifier's control window "
-"always on top of the other ones."
+"Switches on or off the mode allowing to keep Windows Magnifier's control "
+"window always on top of the other ones."
 msgstr ""
 
 #. Translators: The description for the openSettings script.
@@ -297,11 +297,11 @@ msgstr "读出视图移动(&M)"
 
 #. Translators: This is the label for a combobox in the Windows Magnifier settings panel.
 #, fuzzy
-msgid "Report screen edges:"
+msgid "Report screen &edges:"
 msgstr "读出视图移动(&M)"
 
 #. Translators: This is the label for a slider in the Windows Magnifier settings panel.
-msgid "Volume of the tones reporting the view position:"
+msgid "Volume of the tones indicating the &position of the view:"
 msgstr ""
 
 #. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
@@ -332,15 +332,19 @@ msgstr "在文档和列表视图中，将Ctrl+alt+光标快捷键传递给 Windo
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
-msgid ""
-"This addon improves the use of Windows Magnifier with NVDA with the "
-"following features:\n"
-"\t- Allows to report the result of some native Magnifier keyboard commands.\n"
-"\t- Allows to reduces the cases where table navigation command conflict with "
-"Magnifier's commands.\n"
-"\t- Adds some keyboard shortcuts to toggle various Magnifier options."
+msgid "This add-on improves the use of Windows Magnifier with NVDA."
 msgstr ""
-"此插件改进了 Windows 放大镜与 NVDA 的使用，具有以下功能：\n"
-"\t- 允许读出某些放大镜原有快捷键的结果。\n"
-"\t- 允许减少表格导航快捷键与放大镜快捷键的冲突。\n"
-"\t- 添加一些键盘快捷键来切换各种放大镜选项。"
+
+#~ msgid ""
+#~ "This addon improves the use of Windows Magnifier with NVDA with the "
+#~ "following features:\n"
+#~ "\t- Allows to report the result of some native Magnifier keyboard "
+#~ "commands.\n"
+#~ "\t- Allows to reduces the cases where table navigation command conflict "
+#~ "with Magnifier's commands.\n"
+#~ "\t- Adds some keyboard shortcuts to toggle various Magnifier options."
+#~ msgstr ""
+#~ "此插件改进了 Windows 放大镜与 NVDA 的使用，具有以下功能：\n"
+#~ "\t- 允许读出某些放大镜原有快捷键的结果。\n"
+#~ "\t- 允许减少表格导航快捷键与放大镜快捷键的冲突。\n"
+#~ "\t- 添加一些键盘快捷键来切换各种放大镜选项。"

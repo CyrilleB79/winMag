@@ -83,8 +83,8 @@ msgstr "Sposta il mouse al centro della vista ingrandita"
 
 #. Translators: The description for the keepMagWindowOnTop script.
 msgid ""
-"Switches on or off the mode keeping Windows Magnifier's control window "
-"always on top of the other ones."
+"Switches on or off the mode allowing to keep Windows Magnifier's control "
+"window always on top of the other ones."
 msgstr ""
 
 #. Translators: The description for the openSettings script.
@@ -311,11 +311,11 @@ msgstr "Legge informazioni sullo spostamento della visualizzazione"
 
 #. Translators: This is the label for a combobox in the Windows Magnifier settings panel.
 #, fuzzy
-msgid "Report screen edges:"
+msgid "Report screen &edges:"
 msgstr "Legge informazioni sullo spostamento della visualizzazione"
 
 #. Translators: This is the label for a slider in the Windows Magnifier settings panel.
-msgid "Volume of the tones reporting the view position:"
+msgid "Volume of the tones indicating the &position of the view:"
 msgstr ""
 
 #. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
@@ -348,22 +348,26 @@ msgstr ""
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
-msgid ""
-"This addon improves the use of Windows Magnifier with NVDA with the "
-"following features:\n"
-"\t- Allows to report the result of some native Magnifier keyboard commands.\n"
-"\t- Allows to reduces the cases where table navigation command conflict with "
-"Magnifier's commands.\n"
-"\t- Adds some keyboard shortcuts to toggle various Magnifier options."
+msgid "This add-on improves the use of Windows Magnifier with NVDA."
 msgstr ""
-"Questo componente migliora l'utilizzo della lente d'ingrandimento di Windows "
-"tramite le caratteristiche seguenti:\n"
-"\t- Consente di avere un feedback vocale quando si utilizzano comandi da "
-"tastiera relativi alla lente.\n"
-"\t- Consente di ridurre i casi in cui i comandi di navigazione delle tabelle "
-"vanno in conflitto con i comandi della lente.\n"
-"\t- Aggiunge alcune scorciatoie da tastiera per attivare varie opzioni della "
-"Lente di ingrandimento."
+
+#~ msgid ""
+#~ "This addon improves the use of Windows Magnifier with NVDA with the "
+#~ "following features:\n"
+#~ "\t- Allows to report the result of some native Magnifier keyboard "
+#~ "commands.\n"
+#~ "\t- Allows to reduces the cases where table navigation command conflict "
+#~ "with Magnifier's commands.\n"
+#~ "\t- Adds some keyboard shortcuts to toggle various Magnifier options."
+#~ msgstr ""
+#~ "Questo componente migliora l'utilizzo della lente d'ingrandimento di "
+#~ "Windows tramite le caratteristiche seguenti:\n"
+#~ "\t- Consente di avere un feedback vocale quando si utilizzano comandi da "
+#~ "tastiera relativi alla lente.\n"
+#~ "\t- Consente di ridurre i casi in cui i comandi di navigazione delle "
+#~ "tabelle vanno in conflitto con i comandi della lente.\n"
+#~ "\t- Aggiunge alcune scorciatoie da tastiera per attivare varie opzioni "
+#~ "della Lente di ingrandimento."
 
 #~ msgid "Move mouse to view not applicable with lense view."
 #~ msgstr ""

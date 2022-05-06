@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: winMag 1.0\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2021-06-21 09:38+0000\n"
-"PO-Revision-Date: 2021-07-09 10:30+0200\n"
-"Last-Translator: Cyrille Bougot <cyrille.bougot2@laposte.net>\n"
+"PO-Revision-Date: 2022-05-03 12:06+0200\n"
+"Last-Translator: Michel Such <michelsuch93@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 3.0\n"
 
 #. Alpha-numeric keyboard Magnifier keys
 #. Translators: The key used natively byt the Magnifier on the alpha-numeric (main) keyboard in conjunction with Win key to zoom in.
@@ -74,17 +74,20 @@ msgstr ""
 
 #. Translators: The description for the moveView script.
 msgid "Moves the magnified view"
-msgstr ""
+msgstr "Déplace la vue agrandie"
 
 #. Translators: The description for the moveMouseToView script.
 msgid "Moves the mouse cursor in the center of the zoomed view"
 msgstr "Déplacer le curseur de la souris au centre de la vue agrandie"
 
 #. Translators: The description for the keepMagWindowOnTop script.
+#, fuzzy
 msgid ""
-"Switches on or off the mode keeping Windows Magnifier's control window "
-"always on top of the other ones."
+"Switches on or off the mode allowing to keep Windows Magnifier's control "
+"window always on top of the other ones."
 msgstr ""
+"Active ou désactive le mode permettant de garder la fenêtre de contrôle de "
+"la Loupe Windows toujours au-dessus des autres."
 
 #. Translators: The description for the openSettings script.
 msgid "Opens Windows Magnifier add-on settings"
@@ -95,22 +98,20 @@ msgid "Displays help on Magnifier layer commands"
 msgstr "Afficher l'aide sur les commandes séquentielles de la Loupe"
 
 #. Translators: A message reported when the user tries to execute a script in multi-screen setup.
-#, fuzzy
 msgid ""
 "Multi-screen setup not yet supported. Please contact the add-on author to "
 "have it implemented."
 msgstr ""
-"Cette commande n'est pas encore disponible dans un environnement multi-"
-"écrans. Veuillez contacter l'auteur de l'extension pour la faire implémenter."
+"La configuration multi-écran n'est pas encore prise en charge. Veuillez "
+"contacter l'auteur de l'extension pour l'implémenter."
 
 #. Translators: Part of the description for the layered command script.
 msgid "Windows Magnifier layer commands entry point."
 msgstr "Point d'entrée des commandes séquentielles de la Loupe Windows."
 
 #. Translators: A message reported when the user reaches the edge of the screen while moving the view.
-#, fuzzy
 msgid "Edge of the screen."
-msgstr "dans les bords de l'écran"
+msgstr "Bord de l'écran."
 
 #. Translators: A dimension reported when the user resizes the docked view.
 msgid "Widht"
@@ -184,20 +185,21 @@ msgstr "Centré sur l'écran"
 
 #. Translators: A message reporting mouse cursor tracking mode (cf. option in Magnifier settings).
 msgid "Within the edge of the screen"
-msgstr "dans les bords de l'écran"
+msgstr "Dans les bords de l'écran"
 
 #. Translators: A message reported when the user tries to execute script moveView.
 msgid "Only gestures containing arrow key may be mapped to this script."
 msgstr ""
+"Seuls les gestes contenant une touche fléchée peuvent être mappés à ce "
+"script."
 
 #. Translators: A message reported when the user tries to execute script mouseToView
-#, fuzzy
 msgid ""
 "Move mouse to view command available only on Windows 8 and above in full "
 "screen mode."
 msgstr ""
 "La commande de déplacement de la souris vers la vue est uniquement "
-"disponible sur Windows 8 et supérieur."
+"disponible sous Windows 8 et supérieur en mode plein écran."
 
 #. o = getDockedWindowObject()
 #. hwnd = o.windowHandle
@@ -210,16 +212,17 @@ msgstr ""
 
 #. Translators: A message reported when toggling "always on top" mode for Windows Magnifier's control window
 msgid "Magnifier controls always on top."
-msgstr ""
+msgstr "Commandes de la loupe toujours au dessus."
 
 #. Translators: A message reported when toggling "always on top" mode for Windows Magnifier's window
 msgid "Magnifier controls not on top."
-msgstr ""
+msgstr "Commandes de la loupe pas au dessus."
 
 #. Translators: A message reported when trying toggling "always on top" mode for Windows Magnifier's window
 #. while running a portable NVDA.
 msgid "Command only supported in installed versions of NVDA."
 msgstr ""
+"Commande prise en charge uniquement dans les versions installées de NVDA."
 
 #. Translators: A message reported in secure screen when the user attempts to modify magnifiers settings.
 msgid "Command unavailable on this screen."
@@ -264,7 +267,7 @@ msgstr "Commandes séquentielles de la Loupe Windows"
 
 #. Translators: Separator between key names in the layered command help window.
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #. Translators: Part of the help message displayed for the layered command help.
 #, python-brace-format
@@ -311,12 +314,13 @@ msgstr "Annoncer les &déplacements de la vue :"
 
 #. Translators: This is the label for a combobox in the Windows Magnifier settings panel.
 #, fuzzy
-msgid "Report screen edges:"
-msgstr "Annoncer les &déplacements de la vue :"
+msgid "Report screen &edges:"
+msgstr "Annoncer les bords de l'écran :"
 
 #. Translators: This is the label for a slider in the Windows Magnifier settings panel.
-msgid "Volume of the tones reporting the view position:"
-msgstr ""
+#, fuzzy
+msgid "Volume of the tones indicating the &position of the view:"
+msgstr "Volume des tonalités indiquant la position de la vue :"
 
 #. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
 msgid "Report &turn on or off"
@@ -348,22 +352,26 @@ msgstr ""
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
-msgid ""
-"This addon improves the use of Windows Magnifier with NVDA with the "
-"following features:\n"
-"\t- Allows to report the result of some native Magnifier keyboard commands.\n"
-"\t- Allows to reduces the cases where table navigation command conflict with "
-"Magnifier's commands.\n"
-"\t- Adds some keyboard shortcuts to toggle various Magnifier options."
+msgid "This add-on improves the use of Windows Magnifier with NVDA."
 msgstr ""
-"Cette extension améliore l'utilisation de Windows Magnifier avec NVDA grâce "
-"aux fonctionnalités suivantes :\n"
-"\t- Permet de vocaliser le résultat de certaines commandes clavier natives "
-"de la Loupe.\n"
-"\t- Permet de réduire les cas où la commande de navigation dans les tables "
-"est en conflit avec les commandes de la Loupe.\n"
-"\t- Ajoute des raccourcis clavier pour basculer entre les différentes "
-"options de la Loupe."
+
+#~ msgid ""
+#~ "This addon improves the use of Windows Magnifier with NVDA with the "
+#~ "following features:\n"
+#~ "\t- Allows to report the result of some native Magnifier keyboard "
+#~ "commands.\n"
+#~ "\t- Allows to reduces the cases where table navigation command conflict "
+#~ "with Magnifier's commands.\n"
+#~ "\t- Adds some keyboard shortcuts to toggle various Magnifier options."
+#~ msgstr ""
+#~ "Cette extension améliore l'utilisation de Windows Magnifier avec NVDA "
+#~ "grâce aux fonctionnalités suivantes :\n"
+#~ "\t- Permet de vocaliser le résultat de certaines commandes clavier "
+#~ "natives de la Loupe.\n"
+#~ "\t- Permet de réduire les cas où la commande de navigation dans les "
+#~ "tables est en conflit avec les commandes de la Loupe.\n"
+#~ "\t- Ajoute des raccourcis clavier pour basculer entre les différentes "
+#~ "options de la Loupe."
 
 #~ msgid "Move mouse to view not applicable with lense view."
 #~ msgstr ""

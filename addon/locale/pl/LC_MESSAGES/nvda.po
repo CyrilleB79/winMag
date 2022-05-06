@@ -82,8 +82,8 @@ msgstr "Przemieszcza kursor myszy na środek powiększonego obszaru."
 
 #. Translators: The description for the keepMagWindowOnTop script.
 msgid ""
-"Switches on or off the mode keeping Windows Magnifier's control window "
-"always on top of the other ones."
+"Switches on or off the mode allowing to keep Windows Magnifier's control "
+"window always on top of the other ones."
 msgstr ""
 
 #. Translators: The description for the openSettings script.
@@ -312,11 +312,11 @@ msgstr "Ogłaszaj zmiany &widoku:"
 
 #. Translators: This is the label for a combobox in the Windows Magnifier settings panel.
 #, fuzzy
-msgid "Report screen edges:"
+msgid "Report screen &edges:"
 msgstr "Ogłaszaj zmiany &widoku:"
 
 #. Translators: This is the label for a slider in the Windows Magnifier settings panel.
-msgid "Volume of the tones reporting the view position:"
+msgid "Volume of the tones indicating the &position of the view:"
 msgstr ""
 
 #. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
@@ -349,22 +349,26 @@ msgstr ""
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
-msgid ""
-"This addon improves the use of Windows Magnifier with NVDA with the "
-"following features:\n"
-"\t- Allows to report the result of some native Magnifier keyboard commands.\n"
-"\t- Allows to reduces the cases where table navigation command conflict with "
-"Magnifier's commands.\n"
-"\t- Adds some keyboard shortcuts to toggle various Magnifier options."
+msgid "This add-on improves the use of Windows Magnifier with NVDA."
 msgstr ""
-"Ten dodatek poprawia korzystanie z lupy systemu Windows przy pomocy NVDA. "
-"Posiada następujące funkcje:\n"
-"\t- Umożliwia ogłaszanie wyników niektórych natywnych poleceń klawiszowych "
-"Lupy.\n"
-"\t- Zmniejsza występowanie konfliktów między poleceniami nawigacji w "
-"tabelach a poleceniami Lupy.\n"
-"\t- Dodaje kilka skrótów klawiszowych służących do przełączania różnych "
-"opcji lupy."
+
+#~ msgid ""
+#~ "This addon improves the use of Windows Magnifier with NVDA with the "
+#~ "following features:\n"
+#~ "\t- Allows to report the result of some native Magnifier keyboard "
+#~ "commands.\n"
+#~ "\t- Allows to reduces the cases where table navigation command conflict "
+#~ "with Magnifier's commands.\n"
+#~ "\t- Adds some keyboard shortcuts to toggle various Magnifier options."
+#~ msgstr ""
+#~ "Ten dodatek poprawia korzystanie z lupy systemu Windows przy pomocy NVDA. "
+#~ "Posiada następujące funkcje:\n"
+#~ "\t- Umożliwia ogłaszanie wyników niektórych natywnych poleceń "
+#~ "klawiszowych Lupy.\n"
+#~ "\t- Zmniejsza występowanie konfliktów między poleceniami nawigacji w "
+#~ "tabelach a poleceniami Lupy.\n"
+#~ "\t- Dodaje kilka skrótów klawiszowych służących do przełączania różnych "
+#~ "opcji lupy."
 
 #~ msgid "Move mouse to view not applicable with lense view."
 #~ msgstr "Przemieść kursor myszy do widoku (nie dotyczy widoku soczewki)."
