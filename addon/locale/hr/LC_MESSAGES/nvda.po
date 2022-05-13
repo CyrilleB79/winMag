@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: winMag 1.0\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2021-07-02 22:20+0000\n"
-"PO-Revision-Date: 2022-05-01 19:36+0200\n"
+"PO-Revision-Date: 2022-05-07 01:24+0200\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: \n"
 "Language: hr\n"
@@ -82,13 +82,12 @@ msgid "Moves the mouse cursor in the center of the zoomed view"
 msgstr "Pomiče kursor miša u središte zumiranog prikaza"
 
 #. Translators: The description for the keepMagWindowOnTop script.
-#, fuzzy
 msgid ""
 "Switches on or off the mode allowing to keep Windows Magnifier's control "
 "window always on top of the other ones."
 msgstr ""
-"Uključuje ili isključuje način rada zadržavajući kontrolni prozor Windows "
-"povećala uvijek iznad ostalih prozora."
+"Uključuje ili isključuje način rada zadržavajući kontrolni Windows prozor "
+"povećala uvijek ispred ostalih prozora."
 
 #. Translators: The description for the openSettings script.
 msgid "Opens Windows Magnifier add-on settings"
@@ -309,14 +308,12 @@ msgid "Report view &moves:"
 msgstr "Javi po&micanja prikaza:"
 
 #. Translators: This is the label for a combobox in the Windows Magnifier settings panel.
-#, fuzzy
 msgid "Report screen &edges:"
-msgstr "Javi rubove ekrana:"
+msgstr "Javi rubove &ekrana:"
 
 #. Translators: This is the label for a slider in the Windows Magnifier settings panel.
-#, fuzzy
 msgid "Volume of the tones indicating the &position of the view:"
-msgstr "Glasnoća tonova koji izvještavaju o položaju prikaza:"
+msgstr "Glasnoća tonova izvještavaju o &položaju prikaza:"
 
 #. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
 msgid "Report &turn on or off"
@@ -349,7 +346,7 @@ msgstr ""
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 msgid "This add-on improves the use of Windows Magnifier with NVDA."
-msgstr ""
+msgstr "Ovaj dodatak poboljšava korištenje Windows povećala s NVDA čitačem."
 
 #~ msgid ""
 #~ "This addon improves the use of Windows Magnifier with NVDA with the "

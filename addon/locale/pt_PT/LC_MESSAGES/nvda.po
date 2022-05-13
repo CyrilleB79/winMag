@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: winMag 1.0\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2021-06-21 09:38+0000\n"
-"PO-Revision-Date: 2021-11-18 23:31+0000\n"
+"PO-Revision-Date: 2021-11-21 02:23+0000\n"
 "Last-Translator: Ângelo Abrantes <ampa4374@gmail.com>\n"
 "Language-Team: Equipa Portuguesa do NVDA: Ângelo Abrantes e Rui Fontes\n"
 "Language: pt_PT\n"
@@ -307,7 +307,7 @@ msgstr "Sempre"
 
 #. Translators: This is the label for a combobox in the Windows Magnifier settings panel.
 msgid "Report view &moves:"
-msgstr "Anunciar movimentos das Vistas:"
+msgstr "Anunciar movimentos das &Vistas:"
 
 #. Translators: This is the label for a combobox in the Windows Magnifier settings panel.
 #, fuzzy

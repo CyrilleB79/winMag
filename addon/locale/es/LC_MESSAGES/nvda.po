@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: winMag 1.0\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2021-06-21 09:38+0000\n"
-"PO-Revision-Date: 2022-05-02 13:36+0200\n"
+"PO-Revision-Date: 2022-05-08 09:23+0200\n"
 "Last-Translator: José Manuel Delicado <jmdaweb@hotmail.com>\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -81,7 +81,6 @@ msgid "Moves the mouse cursor in the center of the zoomed view"
 msgstr "Desplaza el cursor del ratón al centro de la vista ampliada"
 
 #. Translators: The description for the keepMagWindowOnTop script.
-#, fuzzy
 msgid ""
 "Switches on or off the mode allowing to keep Windows Magnifier's control "
 "window always on top of the other ones."
@@ -310,14 +309,12 @@ msgid "Report view &moves:"
 msgstr "Anunciar &movimientos de la vista:"
 
 #. Translators: This is the label for a combobox in the Windows Magnifier settings panel.
-#, fuzzy
 msgid "Report screen &edges:"
-msgstr "Indicar bordes de la pantalla:"
+msgstr "Indicar &bordes de la pantalla:"
 
 #. Translators: This is the label for a slider in the Windows Magnifier settings panel.
-#, fuzzy
 msgid "Volume of the tones indicating the &position of the view:"
-msgstr "Volumen de los pitidos que indican la posición de la vista:"
+msgstr "Volumen de los pitidos que indican la &posición de la vista:"
 
 #. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
 msgid "Report &turn on or off"
@@ -350,22 +347,4 @@ msgstr ""
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 msgid "This add-on improves the use of Windows Magnifier with NVDA."
-msgstr ""
-
-#~ msgid ""
-#~ "This addon improves the use of Windows Magnifier with NVDA with the "
-#~ "following features:\n"
-#~ "\t- Allows to report the result of some native Magnifier keyboard "
-#~ "commands.\n"
-#~ "\t- Allows to reduces the cases where table navigation command conflict "
-#~ "with Magnifier's commands.\n"
-#~ "\t- Adds some keyboard shortcuts to toggle various Magnifier options."
-#~ msgstr ""
-#~ "Este complemento mejora el uso de la lupa de Windows con NVDA gracias a "
-#~ "las siguientes funciones:\n"
-#~ "\t- Permite anunciar el resultado de algunas órdenes de teclado de la "
-#~ "lupa.\n"
-#~ "\t- Permite reducir los casos donde las órdenes de navegación por tablas "
-#~ "hacen conflicto con las órdenes de la lupa.\n"
-#~ "\t- Añade algunos atajos de teclado para conmutar diversas opciones de la "
-#~ "lupa."
+msgstr "Este complemento mejora el uso de la lupa de Windows con NVDA."
