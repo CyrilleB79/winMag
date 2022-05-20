@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: winMag 1.0\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2021-07-02 22:20+0000\n"
-"PO-Revision-Date: 2021-07-14 10:18+0200\n"
+"PO-Revision-Date: 2022-05-15 10:15+0200\n"
 "Last-Translator: Nicolai Svendsen <chojiro1990@gmail.com>\n"
 "Language-Team: \n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.0\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #. Alpha-numeric keyboard Magnifier keys
 #. Translators: The key used natively byt the Magnifier on the alpha-numeric (main) keyboard in conjunction with Win key to zoom in.
@@ -72,7 +72,7 @@ msgstr ""
 
 #. Translators: The description for the moveView script.
 msgid "Moves the magnified view"
-msgstr ""
+msgstr "Flytter den forstørrede visning"
 
 #. Translators: The description for the moveMouseToView script.
 msgid "Moves the mouse cursor in the center of the zoomed view"
@@ -83,6 +83,8 @@ msgid ""
 "Switches on or off the mode allowing to keep Windows Magnifier's control "
 "window always on top of the other ones."
 msgstr ""
+"Dette kontrollere om vinduet til styring af Windows Forstørrelse skal "
+"forblive ovenpå de andre vinduer."
 
 #. Translators: The description for the openSettings script.
 msgid "Opens Windows Magnifier add-on settings"
@@ -93,22 +95,20 @@ msgid "Displays help on Magnifier layer commands"
 msgstr "Viser hjælp for forstørrelseslagskommandoerne"
 
 #. Translators: A message reported when the user tries to execute a script in multi-screen setup.
-#, fuzzy
 msgid ""
 "Multi-screen setup not yet supported. Please contact the add-on author to "
 "have it implemented."
 msgstr ""
-"Denne kommando er endnu ikke tilgængelig i miljøer med flere skærme. Kontakt "
-"tilføjelsesforfatteren for at få det implementeret."
+"Miljøer med flere skærme understøttes ikke. Kontakt tilføjelsesforfatteren "
+"for at få det implementeret."
 
 #. Translators: Part of the description for the layered command script.
 msgid "Windows Magnifier layer commands entry point."
 msgstr "Tastekombination for tilføjelsen Windows Forstørrelsesglas kommandolag"
 
 #. Translators: A message reported when the user reaches the edge of the screen while moving the view.
-#, fuzzy
 msgid "Edge of the screen."
-msgstr "Inden for kanten af skærmen"
+msgstr "Kanten af skærmen"
 
 #. Translators: A dimension reported when the user resizes the docked view.
 msgid "Widht"
@@ -184,15 +184,14 @@ msgstr "Inden for kanten af skærmen"
 
 #. Translators: A message reported when the user tries to execute script moveView.
 msgid "Only gestures containing arrow key may be mapped to this script."
-msgstr ""
+msgstr "Kun kommandoer, der benytter piletasterne, må tildeles dette script."
 
 #. Translators: A message reported when the user tries to execute script mouseToView
-#, fuzzy
 msgid ""
 "Move mouse to view command available only on Windows 8 and above in full "
 "screen mode."
 msgstr ""
-"Kommandoen \"Flyt mus i visning\" er kun er tilgængelig i Windows 8 og nyere."
+"Kommandoen \"Flyt mus til visning\" er kun tilgængelig i Windows 8 og nyere."
 
 #. o = getDockedWindowObject()
 #. hwnd = o.windowHandle
@@ -204,16 +203,16 @@ msgstr "\"Flyt mus i visning\" ikke tilgængelig i forankret visning."
 
 #. Translators: A message reported when toggling "always on top" mode for Windows Magnifier's control window
 msgid "Magnifier controls always on top."
-msgstr ""
+msgstr "Forstørrelsesvindue altid øverst"
 
 #. Translators: A message reported when toggling "always on top" mode for Windows Magnifier's window
 msgid "Magnifier controls not on top."
-msgstr ""
+msgstr "Forstørrelsesvindue ikke øverst"
 
 #. Translators: A message reported when trying toggling "always on top" mode for Windows Magnifier's window
 #. while running a portable NVDA.
 msgid "Command only supported in installed versions of NVDA."
-msgstr ""
+msgstr "Kommando understøttes kun i installerede versioner af NVDA."
 
 #. Translators: A message reported in secure screen when the user attempts to modify magnifiers settings.
 msgid "Command unavailable on this screen."
@@ -258,7 +257,7 @@ msgstr "Lagdelte kommandoer for Windows Forstørrelsesglas"
 
 #. Translators: Separator between key names in the layered command help window.
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #. Translators: Part of the help message displayed for the layered command help.
 #, python-brace-format
@@ -304,13 +303,12 @@ msgid "Report view &moves:"
 msgstr "Oplys &panorering:"
 
 #. Translators: This is the label for a combobox in the Windows Magnifier settings panel.
-#, fuzzy
 msgid "Report screen &edges:"
-msgstr "Oplys &panorering:"
+msgstr "Oplys skærmens &kanter:"
 
 #. Translators: This is the label for a slider in the Windows Magnifier settings panel.
 msgid "Volume of the tones indicating the &position of the view:"
-msgstr ""
+msgstr "Lydstyrken af tonerne, der angiver visningens &position:"
 
 #. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
 msgid "Report &turn on or off"
@@ -344,6 +342,8 @@ msgstr ""
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 msgid "This add-on improves the use of Windows Magnifier with NVDA."
 msgstr ""
+"Denne tilføjelse forbedrer brugen af Windows Forstørrelsesglas sammen med "
+"NVDA."
 
 #~ msgid ""
 #~ "This addon improves the use of Windows Magnifier with NVDA with the "

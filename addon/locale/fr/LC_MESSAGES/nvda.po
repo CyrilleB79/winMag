@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: winMag 1.0\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2021-06-21 09:38+0000\n"
-"PO-Revision-Date: 2022-05-03 12:06+0200\n"
+"PO-Revision-Date: 2022-05-16 17:02+0200\n"
 "Last-Translator: Michel Such <michelsuch93@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -81,7 +81,6 @@ msgid "Moves the mouse cursor in the center of the zoomed view"
 msgstr "Déplacer le curseur de la souris au centre de la vue agrandie"
 
 #. Translators: The description for the keepMagWindowOnTop script.
-#, fuzzy
 msgid ""
 "Switches on or off the mode allowing to keep Windows Magnifier's control "
 "window always on top of the other ones."
@@ -313,14 +312,12 @@ msgid "Report view &moves:"
 msgstr "Annoncer les &déplacements de la vue :"
 
 #. Translators: This is the label for a combobox in the Windows Magnifier settings panel.
-#, fuzzy
 msgid "Report screen &edges:"
-msgstr "Annoncer les bords de l'écran :"
+msgstr "Annoncer les &bords de l'écran :"
 
 #. Translators: This is the label for a slider in the Windows Magnifier settings panel.
-#, fuzzy
 msgid "Volume of the tones indicating the &position of the view:"
-msgstr "Volume des tonalités indiquant la position de la vue :"
+msgstr "Volume des sons indiquant la &position de la vue :"
 
 #. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
 msgid "Report &turn on or off"
@@ -353,7 +350,7 @@ msgstr ""
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 msgid "This add-on improves the use of Windows Magnifier with NVDA."
-msgstr ""
+msgstr "Cette extension améliore l'utilisation de la Loupe Windows avec NVDA."
 
 #~ msgid ""
 #~ "This addon improves the use of Windows Magnifier with NVDA with the "

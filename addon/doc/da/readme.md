@@ -14,10 +14,10 @@ Denne tilføjelse forbedrer brugen af Windows Forstørrelsesglas med NVDA.
   for Windows Forstørrelsesglas
 * Gør det muligt at reducere de tilfælde, hvor tabelnavigationskommandoer er
   i konflikt med forstørrelses kommandoer.
-* Adds some keyboard shortcuts to toggle various native options of the
-  Magnifier.
-* Adds some extra features that are not provided by Windows Magnifier (mouse
-  to view, Magnifier window not on top)
+* Tilføjer nogle tastaturgenveje, der ændre forskellige
+  standardindstillinger for Forstørrelsesglas.
+* Tilføjer nogle ekstra funktioner, der ikke leveres af Windows Forstørrelse
+  (mus til visning, forstørrelsesvindue ikke øverst)
 
 ## indstillinger
 
@@ -37,15 +37,15 @@ Panelet indeholder følgende indstillinger:
     * Med toner: En tone afspilles, og dens tonehøjde angiver placeringen af
       den zoomede visning på den dimension, der panoreres.
   
-  This option does not affect docked view mode.
+  Denne indstilling påvirker ikke forankret visning.
 
-* Report screen edges: controls what is reported when you reach the edges of
-  the screen while moving the view with Control+Alt+Arrows commands.  The
-  three options are: Off, With speech and With tones.  This option does not
-  affect docked view mode.
-* Volume of the tones reporting the view position: allows to define the
-  volume of the tones if you have selected to report view moves or screen
-  edges with tones.
+* Oplys skærmens kanter: styrer, hvad der oplyses, når du når kanterne af
+  skærmen, mens du panorere visningen med kommandoerne
+  Ctrl+Alt+Piletaster. De tre muligheder er: Fra, Med tale og Med
+  toner. Denne indstilling påvirker ikke forankret visning.
+* Lydstyrken af tonerne, der angiver visningens position: Gør det muligt at
+  definere lydstyrken af tonerne, hvis du har valgt at få oplyst
+  skærmkanter, eller  når der panoreres med toner.
 * Oplys, når forstørrelsesglas slås til: Hvis dette er markeret, rapporteres
   Forstørrelsesglasets tilstand, når du bruger kommandoerne Windows++ eller
   Windows+Escape til at slå funktionen til eller fra.
@@ -68,20 +68,22 @@ Panelet indeholder følgende indstillinger:
   Forstørrelsesglas, når NVDA befinder sig i dokumenter og listevisninger:
   Der er tre mulige valg:
   
-    * Never: The command is not passed to Windows Magnifier and standard
-      NVDA table navigation can operate.  When used in documents out of a
-      table, the Control+Alt+Arrow command reports a "Not in a table" error
-      message.  This is the standard behaviour of NVDA without this add-on.
-      You can still use NVDA+Windows+O then arrows to move the magnified
-      view.
-    * Only when not in table: In table or in list views, Control+Alt+Arrow
-      commands perform standard table navigation.  When used in documents
-      out of a table, Control+Alt+Arrow commands perform standard Magnifier
-      view move commands.  If you still want to move Windows Magnifier view
-      while in table or in list view, you will need to press NVDA+F2 before
-      using Control+Alt+Arrow commands or alternately use NVDA+Windows+O
-      then arrows.  This option is the best compromise if you want to use
-      Control+Alt+Arrow for both Magnifier and table navigation.
+    * Aldrig: Kommandoen videregives ikke til Windows Forstørrelsesglas, og
+      standard NVDA-tabelnavigation vil fungere. Når dette bruges i
+      dokumenter udenfor en tabel, oplyser kommandoen fejlmeddelelsen "Ikke
+      i en tabelcelle". Dette er NVDAs standardadfærd uden denne
+      tilføjelse. Du kan stadig benytte NVDA+Windows+o og derefter
+      piletasterne for at panorere den forstørrede visning.
+    * Brug kun, hvis udenfor en tabel: I tabeller eller listevisninger
+      udfører Ctrl+Alt+piletasterne standardnavigering i tabeller. Når disse
+      bruges i dokumenter udenfor en tabel, udfører kommandoerne
+      Alt+Ctrl+piletasterne standardkommandoerne for
+      forstørrelsesglasset. Hvis du stadig vil panorere, mens du er i en
+      tabel eller listevisning, skal du trykke på NVDA+F2, før du bruger
+      Ctrl+alt+piletasterne. Du kan også bruge NVDA+Windows+O og derefter
+      piletasterne for at panorere visningen. qDenne mulighed er det bedste
+      kompromis, hvis du vil bruge kommandoerne til både forstørrelse og
+      tabelnavigation.
     * Altid: Ctrl+Altpiletasterne vil panorere uanset hvad. Dette kan være
       brugbart, hvis du ikke bruger Ctrl+Alt+piletaster til at navigere i
       tabeller, fordi du har ændret tastekombinationen eller benytter dig af
@@ -90,15 +92,15 @@ Panelet indeholder følgende indstillinger:
 
 ## Kommandoer udbudt af denne tilføjelse
 
-In addition to native Magnifier commands, this add-on provide additional
-commands:
+Ud over de standardkommandoer, der benyttes når du bruger Forstørrelsesglas,
+tilføjer denne tilføjelse yderligere kommandoer:
 
-* Commands that allow to control Magnifier's options without opening its
-  configuration page.
-* Extra commands specific to this add-on.
+* Kommandoer, der gør det muligt at styre indstillingerne for
+  Forstørrelsesglas uden at åbne indstillingspanelet.
+* Yderligere kommandoer, der kan bruges med denne tilføjelse.
 
-All these additional commands are accessible through the Magnifier layer
-command NVDA+Windows+O:
+Alle disse kommandoer er tilglngelige via forstørelseslaget med kommandoen
+NVDA+skift+o.
 
 * NVDA+Windows+O og derefter C: Slår sporing af tekstmarkøren til og fra.
 * NVDA+Windows+O og derefter F: Slår fokussporing til eller fra.
@@ -111,12 +113,12 @@ command NVDA+Windows+O:
 * NVDA+Windows+O og derefter X: Skifter mellem sporingsfunktioner for
   tekstmarkøren(indenfor kanten af skærmen eller centreret på skærmen);
   denne funktion er kun tilgængelig på Windows 10 build 18894 eller nyere.
-* NVDA+Windows+O then Arrows: Move the magnified view.
-* NVDA+Windows+O then V: Moves the mouse cursor in the center of the
-  magnified view (command not available in docked view mode).
-* NVDA+Windows+O then W: Switches on or off the mode keeping Windows
-  Magnifier's control window always on top of the other ones.  This feature
-  is only available for installed versions of NVDA.
+* NVDA+Windows+O derefter piletasterne: Panorere den forstørrede visning.
+* NVDA+Windows+O og derefter V: Flytter musemarkøren i midten af den
+  forstørrede visning (kommandoen er ikke tilgængelig i forankret visning).
+* NVDA+Windows+O derefter W: Aktivere eller deaktivere funktionen, der gør
+  at forstørelsesvinduet altid forbliver oven på de andre. Denne funktion er
+  kun tilgængelig for installerede versioner af NVDA.
 * NVDA+Windows+O og derefter O: Åbner indstillingerne for tilføjelsen.
 * NVDA+Windows+O og derefter H: Viser hjælpen for kommandoerne til
   forstørrelseslaget.
@@ -143,10 +145,10 @@ rapporteres af denne tilføjelse i henhold til dens konfiguration:
 * Vælg fuldskærmsvisning: Ctrl+Alt+F
 * Vælg linsevisning: Ctrl+Alt+L.
 * Skift mellem de tre visningstyper: Ctrl+Alt+M.
-* Resize the lens with the keyboard: Shift+Alt+Left/Right/Up/DownArrow Note:
-  although this does not seem to be documented, this shortcut seems to have
-  been withdrawn in recent Windows versions such as Windows 10 2004.
-* Move the magnified view: Control+Alt+Arrows
+* Tilpas linsens størrelse med tastaturet: Skift+Alt+piletasterne. Bemærk:
+  skønt dette ikke ser ud til at være dokumenteret, synes denne genvej at
+  være trukket tilbage i de nyeste Windows-versioner som Windows 10 2004.
+* Panorer den forstørrede visning: Ctrl+Alt+piletasterne
 
 Yderligere er disse indbyggede kommandoer til rådighed:
 
@@ -187,34 +189,37 @@ Ingen af de indbyggede kommandoer til Forstørrelsesglas kan ændres.
       se](https://support.microsoft.com/da-DK/windows/use-magnifier-to-make-things-on-the-screen-easier-to-see-414948ba-8b1c-d3bd-8615-0e5e32204198?WT.mc_id=365AdminCSH_gethelp)
     * [Windows-tastaturgenveje som hjælp til handicappede][4]
 
-* This add-on has not been tested in multi-screen environment and there are
-  chances that some feature are not working in this environment.  If you are
-  using multi-screen environment and want it to be supported, please contact
-  me to have it implemented.
-* More generally, do not hesitate to contact me on the [GitHub page][3] of
-  this add-on or directly by e-mail.
+* Denne tilføjelse er ikke blevet testet i miljøer, hvor flere skærme
+  benyttes samtidigt, og der er chancer for, at nogle funktioner ikke virker
+  i dette miljø. Hvis du bruger flere skærme på én gang og ønsker, at det
+  skal understøttes, bedes du kontakte mig for at få det implementeret.
+* Tøv desuden ikke med at kontakte mig på [GitHub-siden][3] vedr. denne
+  tilføjelse eller direkte via e-mail.
 
 
 ## Ændringshistorik
 
 ### Version 2.0
 
-* The view can be moved with arrows while in Windows Magnifier layer.
-* Capability to keep the Magnifier commands Window always on top or not.
-* Added "Report screen edges" feature.
-* Volume setting of tones when using move view commands.
-* Reporting view moves and mouse to view commands are now supported in Lens
-  mode.
-* Compatibility with NVDA 2022.1.
-* Fixed a bug that sometimes incorrectly reported that the Magnifier was not
-  working upon script call.
-* The release is now performed thanks to a GitHub action instead of
+* Du kan panorere visningen med piletasterne, når du er I
+  forstørrelseslaget.
+* Mulighed, der gør det muligt at vise vinduet for Forstørelsesglas oven på
+  andre vinduer.
+* Tilføjet funktion til at oplyse skærmens kanter.
+* Lydstyrkeindstilling for toner, når du bruger kommandoer til at panorere
+  visningen.
+* Kommandoer til at oplyse panorering af visningen, samt kommandoer til at
+  flytte musen til visningen, understøttes nu I linsetilstand.
+* Kompatibilitet med NVDA 2022.1.
+* Rettede en fejl, der nogle gange fejlagtigt rapporterede, at
+  forstørrelsesglasset ikke fungerede ved scriptkald.
+* Udgivelsen udføres nu takket være en GitHub-handling i stedet for
   appVeyor.
-* Updated localizations.
+* Opdaterede oversættelser.
 
 ### Version 1.1
 
-* Added localizations.
+* Tilføjede oversættelser.
 
 ### Version 1.0
 
