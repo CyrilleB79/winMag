@@ -1,4 +1,4 @@
-# Windows-suurennuslasi #
+# Windowsin suurennuslasi #
 
 * Tekijä: Cyrille Bougot
 * yhteensopivuus: NVDA 2018.3 ja uudemmat
