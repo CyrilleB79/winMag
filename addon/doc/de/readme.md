@@ -14,8 +14,8 @@ Diese Erweiterung verbessert die Verwendung von Windows-Lupe mit NVDA.
   anzusagen.
 * Ermöglicht die Reduzierung der Fälle, in denen die Befehle für die
   Tabellen-Navigation mit den Befehlen der Lupe in Konflikt stehen.
-* Adds some keyboard shortcuts to toggle various native options of the
-  Magnifier.
+* Fügt einige Tastenkombinationen zum Umschalten verschiedener Optionen der
+  Lupe hinzu.
 * Fügt einige zusätzliche Funktionen hinzu, die die Windows-Lupe nicht
   anbietet (Maus zum Betrachten, Lupenfenster nicht im Vordergrund)
 
@@ -40,7 +40,7 @@ Das Panel enthält die folgenden Optionen:
       gibt die Position der gezoomten Ansicht auf der Dimension an, in der
       die Ansicht verschoben wird.
   
-  This option does not affect docked view mode.
+  Diese Option wirkt sich nicht auf den angedockten Ansichtsmodus aus.
 
 * Bildschirmränder mitteilen: Steuert, was gemeldet wird, wenn Sie beim
   Verschieben der Ansicht mit den Befehlen Strg+Alt+Pfeile die
@@ -75,20 +75,23 @@ Das Panel enthält die folgenden Optionen:
   Strg+Alt+Pfeiltasten an die Windows-Lupe durchreichen: Es gibt drei
   Möglichkeiten:
   
-    * Never: The command is not passed to Windows Magnifier and standard
-      NVDA table navigation can operate.  When used in documents out of a
-      table, the Control+Alt+Arrow command reports a "Not in a table" error
-      message.  This is the standard behaviour of NVDA without this add-on.
-      You can still use NVDA+Windows+O then arrows to move the magnified
-      view.
-    * Only when not in table: In table or in list views, Control+Alt+Arrow
-      commands perform standard table navigation.  When used in documents
-      out of a table, Control+Alt+Arrow commands perform standard Magnifier
-      view move commands.  If you still want to move Windows Magnifier view
-      while in table or in list view, you will need to press NVDA+F2 before
-      using Control+Alt+Arrow commands or alternately use NVDA+Windows+O
-      then arrows.  This option is the best compromise if you want to use
-      Control+Alt+Arrow for both Magnifier and table navigation.
+    * Niemals: Der Befehl wird nicht an die Windows-Lupe weitergegeben und
+      die Standard-Tabellen-Navigation in NVDA kann funktionieren. Wenn der
+      Befehl Strg+Alt+Pfeiltasten in Dokumenten außerhalb einer Tabelle
+      betätigt werden, wird eine Fehlermeldung "Nicht in einer Tabelle"
+      angezeigt. Dies ist das standardmäßige Verhalten von NVDA ohne diese
+      Erweiterung. Sie können weiterhin NVDA+Windows+O und dann die
+      Pfeiltasten betätigen, um die vergrößerte Ansicht zu verschieben.
+    * Nur wenn nicht in einer Tabelle: In Tabellen- oder Listenansichten
+      führt Strg+Alt+Pfeiltasten die Standard-Tabellen-Navigation aus. In
+      Dokumenten außerhalb einer Tabelle führt Strg+Alt+Pfeiltasten die
+      Standardbefehle zum Verschieben der Lupenansicht aus. Wenn Sie die
+      Windows-Lupenansicht in der Tabellen- oder Listenansicht dennoch
+      verschieben möchten, müssen Sie vor der Verwendung von dem Drücken von
+      Strg+Alt+Pfeiltasten einmal NVDA+F2 drücken oder alternativ
+      NVDA+Windows+O und dann die Pfeiltaste betätigen. Diese Option ist der
+      beste Kompromiss, wenn Sie Strg+Alt+Pfeiltasten sowohl für die Lupen-
+      als auch für die Tabellen-Navigation verwenden möchten.
     * Immer: Strg+Alt+Pfeiltasten verschieben die Ansicht der Lupe in jedem
       Fall. Diese Option kann nützlich sein, wenn Sie nicht
       Strg+Alt+Pfeiltasten zum Navigieren in der Tabelle verwenden,
@@ -105,10 +108,10 @@ weitere Befehle:
 
 * Befehle, die die Optionen für die Windows-Lupe steuern, ohne die
   Konfigurationsseite zu öffnen.
-* Extra commands specific to this add-on.
+* Zusätzliche Befehle speziell für diese Erweiterung.
 
-All these additional commands are accessible through the Magnifier layer
-command NVDA+Windows+O:
+Alle diese zusätzlichen Befehle sind über die Tastenkombination
+NVDA+Windows+O zu erreichen:
 
 * NVDA+Windows+O, dann C: Schaltet die Verfolgung des System-Cursors ein
   oder aus.
@@ -122,9 +125,10 @@ command NVDA+Windows+O:
 * NVDA+Windows+O dann X: Wechselt zwischen den Textcursor-Tracking-Modi
   (innerhalb des Bildschirmrands oder zentriert auf dem Bildschirm); Diese
   Funktion ist nur unter Windows 10 Build 18894 oder neuer verfügbar.
-* NVDA+Windows+O then Arrows: Move the magnified view.
-* NVDA+Windows+O then V: Moves the mouse cursor in the center of the
-  magnified view (command not available in docked view mode).
+* NVDA+Windows+O und dann Pfeiltasten: Verschieben Sie die damit vergrößerte
+  Ansicht.
+* NVDA+Windows+O dann V: Bewegt den Mauszeiger in die Mitte der vergrößerten
+  Ansicht (Befehl nicht verfügbar im angedockten Ansichtsmodus).
 * NVDA+Windows+O dann W: Schaltet den Modus ein oder aus, bei dem das
   Kontrollfenster der Windows-Lupe immer über den anderen Fenstern liegt.
   Diese Funktion ist nur für installierte NVDA-Versionen verfügbar.
@@ -157,10 +161,12 @@ entsprechend dessen Konfiguration angesagt werden:
 * Vollbildansicht auswählen: Steuerung+Alt+F
 * Objektivansicht auswählen: Steuerung+Alt+L
 * Zwischen 3 Ansichtstypen (umschalten: Steuerung+Alt+M
-* Resize the lens with the keyboard: Shift+Alt+Left/Right/Up/DownArrow Note:
-  although this does not seem to be documented, this shortcut seems to have
-  been withdrawn in recent Windows versions such as Windows 10 2004.
-* Move the magnified view: Control+Alt+Arrows
+* Ändern Sie die Größe des Objektivs mit der Tastatur:
+  Umschalt+Alt+Pfeiltasten nach oben/unten/links/rechts - Hinweis: Obwohl
+  dies nicht dokumentiert zu sein scheint, scheint diese Tastenkombination
+  in neueren Windows-Versionen wie Windows 10 Version 2004 zurückgekehrt zu
+  sein.
+* Verschieben Sie die vergrößerte Ansicht: Strg+Alt+Pfeiltasten
 
 Es gibt auch eine Liste weitere nativer Befehle der Lupe, nur zur
 Information:

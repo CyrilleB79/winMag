@@ -20,7 +20,7 @@ Tämä lisäosa parantaa Windowsin suurennuslasin käytettävyyttä NVDA:n kanss
 
 ## Asetukset
 
-Windowsin suurennuslasi -lisäosan asetuspaneelissa voit määrittää, miten NVDA reagoi alkuperäisiin suurennuslasin komentoihin.
+Windowsin suurennuslasi -lisäosan asetuspaneelissa voit määrittää, miten NVDA reagoi Windowsin suurennuslasin alkuperäisiin komentoihin.
 Voit haluta enemmän tai vähemmän komentoja ilmoitettavan riippuen siitä, minkä verran näet.
 Tämä paneeli voidaan avata Valitsemalla NVDA-valikosta Asetukset -> Asetukset ja sitten Windowsin suurennuslasi -kategoria.
 Näppäinkomento NVDA+Win+O ja sitten O avaa myös tämän asetuspaneelin suoraan.
@@ -76,12 +76,12 @@ Tämä asetus ei vaikuta kiinnitetyn näkymän tilaan.
       liikkumiseen.  Käytettäessä asiakirjoissa olevien taulukoiden
       ulkopuolella Ctrl+Alt+Nuoli-komennot suorittavat tavallisia
       suurennuslasin näkymänsiirtokomentoja. Mikäli haluat silti siirtää
-      suurennuslasin näkymää taulukko- tai luettelonäkymässä, sinun on
-      painettava NVDA+F2 ennen kuin käytät Ctrl+Alt+Nuoli-komentoja, tai
-      käytä vaihtoehtoisesti NVDA+Win+O:ta ja sitten nuolinäppäimiä. Tämä
-      vaihtoehto on paras kompromissi, jos haluat käyttää
-      Ctrl+Alt+Nuoli-näppäinyhdistelmää sekä suurennuslasissa että
-      taulukossa liikkumiseen.
+      Windowsin suurennuslasin näkymää taulukko- tai luettelonäkymässä,
+      sinun on painettava NVDA+F2 ennen kuin käytät
+      Ctrl+Alt+Nuoli-komentoja, tai käytä vaihtoehtoisesti NVDA+Win+O:ta ja
+      sitten nuolinäppäimiä. Tämä vaihtoehto on paras kompromissi, jos
+      haluat käyttää Ctrl+Alt+Nuoli-näppäinyhdistelmää sekä suurennuslasissa
+      että taulukossa liikkumiseen.
     * Aina: Ctrl+Alt+Nuoli-komennot siirtävät suurennuslasin näkymää
       kaikissa tapauksissa. Tämä vaihtoehto voi olla hyödyllinen, mikäli et
       käytä Ctrl+Alt+Nuoli-komentoja taulukossa liikkumiseen, esim. koska
@@ -122,14 +122,14 @@ NVDA+Win+O, kautta:
 * NVDA+Win+O ja sitten V: Siirtää hiirikohdistimen suurennetun näkymän
   keskelle (komento ei käytettävissä kiinnitetyn näkymän tilassa).
 * NVDA+Win+O ja sitten W: Ottaa käyttöön tai poistaa käytöstä tilan, joka
-  pitää suurennuslasin ikkunan muiden ikkunoiden päällä. Tämä ominaisuus on
-  käytettävissä vain NVDA:n asennetuissa versioissa.
+  pitää Windowsin suurennuslasin ikkunan muiden ikkunoiden päällä. Tämä
+  ominaisuus on käytettävissä vain NVDA:n asennetuissa versioissa.
 * NVDA+Win+O ja sitten O: Avaa Windowsin suurennuslasi -lisäosan asetukset.
 * NVDA+Win+O ja sitten H: Näyttää suurennuslasin komentokerroskomentojen
   ohjeen.
 
-Komennoilla ei ole oletusarvoisia syötekomentoja, mutta voit halutessasi
-määrittää ne normaalisti Syötekomennot-valintaikkunassa. Samalla tavalla
+Komennoilla ei ole oletusarvoisia näppäinkomentoja, mutta voit halutessasi
+määrittää ne normaalisti Näppäinkomennot-valintaikkunassa. Samalla tavalla
 voit myös muuttaa tai poistaa suurennuslasin komentokerroksen
 aktivointikomennon (NVDA+Win+O). Komentokerroksen alikomentojen muuttaminen
 ei kuitenkaan ole mahdollista.
@@ -173,7 +173,7 @@ Alkuperäisiä suurennuslasikomentoja ei voi muuttaa.
   vasemmalle/oikealle/ylös/alas ovat myös näytön suunnan muuttamisen
   pikanäppäimiä. Nämä pikanäppäimet ovat oletusarvoisesti käytössä ja
   ristiriidassa Windowsin suurennuslasin näkymänsiirtopikanäppäinten
-  kanssa. Sinun on poistettava ne käytöstä, jotta voit käyttää niitä
+  kanssa. Ne on poistettava käytöstä, jotta voit käyttää niitä
   suurennuslasissa. Ne voidaan poistaa käytöstä Intelin ohjauspaneelista tai
   ilmaisinalueen Intel-valikosta.
 * Windows-versiostasi riippuen Alt+Vaihto+Nuoli-komennot ovat Windowsin

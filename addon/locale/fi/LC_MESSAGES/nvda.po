@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: winMag 1.0\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2021-06-21 09:38+0000\n"
-"PO-Revision-Date: 2022-05-07 20:24+0200\n"
+"PO-Revision-Date: 2022-05-30 18:40+0200\n"
 "Last-Translator: Jani Kinnunen <janikinnunen340@gmail.com>\n"
 "Language-Team: fi_FI <janikinnunen340@gmail.com>\n"
 "Language: fi\n"
@@ -86,7 +86,7 @@ msgstr ""
 
 #. Translators: The description for the openSettings script.
 msgid "Opens Windows Magnifier add-on settings"
-msgstr "Avaa Windows suurennuslasi -lisäosan asetukset"
+msgstr "Avaa Windowsin suurennuslasi -lisäosan asetukset"
 
 #. Translators: The description for the displayHelp script.
 msgid "Displays help on Magnifier layer commands"
@@ -102,7 +102,7 @@ msgstr ""
 
 #. Translators: Part of the description for the layered command script.
 msgid "Windows Magnifier layer commands entry point."
-msgstr "Windows suurennuslasin komentokerroskomentojen aloituskohta."
+msgstr "Windowsin suurennuslasin komentokerroskomentojen aloituskohta."
 
 #. Translators: A message reported when the user reaches the edge of the screen while moving the view.
 msgid "Edge of the screen."
@@ -183,7 +183,7 @@ msgstr "Näytön reunassa"
 #. Translators: A message reported when the user tries to execute script moveView.
 msgid "Only gestures containing arrow key may be mapped to this script."
 msgstr ""
-"Tähän skriptiin voi yhdistää vain nuolinäppäimen sisältäviä syötekomentoja."
+"Tähän skriptiin voi yhdistää vain nuolinäppäimen sisältäviä näppäinkomentoja."
 
 #. Translators: A message reported when the user tries to execute script mouseToView
 msgid ""
@@ -253,7 +253,7 @@ msgstr "Linssi"
 
 #. Translators: Title of the layered command help window.
 msgid "Windows Magnifier layered commands"
-msgstr "Windows suurennuslasin komentokerroskomennot"
+msgstr "Windowsin suurennuslasin komentokerroskomennot"
 
 #. Translators: Separator between key names in the layered command help window.
 msgid ", "
@@ -336,12 +336,12 @@ msgid ""
 "Magnifier:"
 msgstr ""
 "Välitä Ctrl+Alt+Nuolet-pikanäppäimet &asiakirjoissa ja luettelonäkymissä "
-"Windows suurennuslasille:"
+"Windowsin suurennuslasille:"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 msgid "This add-on improves the use of Windows Magnifier with NVDA."
-msgstr "Tämä lisäosa parantaa Windows suurennuslasin käyttöä NVDA:n kanssa."
+msgstr "Tämä lisäosa parantaa Windowsin suurennuslasin käyttöä NVDA:n kanssa."
 
 #~ msgid ""
 #~ "This addon improves the use of Windows Magnifier with NVDA with the "
