@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: winMag 1.0\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2021-06-21 09:38+0000\n"
-"PO-Revision-Date: 2021-11-21 02:23+0000\n"
+"PO-Revision-Date: 2022-07-25 14:25+0100\n"
 "Last-Translator: Ângelo Abrantes <ampa4374@gmail.com>\n"
 "Language-Team: Equipa Portuguesa do NVDA: Ângelo Abrantes e Rui Fontes\n"
 "Language: pt_PT\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0\n"
+"X-Generator: Poedit 3.1.1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #. Alpha-numeric keyboard Magnifier keys
@@ -76,7 +76,7 @@ msgstr ""
 
 #. Translators: The description for the moveView script.
 msgid "Moves the magnified view"
-msgstr ""
+msgstr "Move a vista ampliada"
 
 #. Translators: The description for the moveMouseToView script.
 msgid "Moves the mouse cursor in the center of the zoomed view"
@@ -87,6 +87,8 @@ msgid ""
 "Switches on or off the mode allowing to keep Windows Magnifier's control "
 "window always on top of the other ones."
 msgstr ""
+"Liga ou desliga o modo que permite manter a janela de controlo do Windows "
+"Magnifier sempre em cima das outras."
 
 #. Translators: The description for the openSettings script.
 msgid "Opens Windows Magnifier add-on settings"
@@ -97,7 +99,6 @@ msgid "Displays help on Magnifier layer commands"
 msgstr "Mostra a ajuda dos comandos em camada da lupa"
 
 #. Translators: A message reported when the user tries to execute a script in multi-screen setup.
-#, fuzzy
 msgid ""
 "Multi-screen setup not yet supported. Please contact the add-on author to "
 "have it implemented."
@@ -110,9 +111,8 @@ msgid "Windows Magnifier layer commands entry point."
 msgstr "Comando para iniciar os comandos em camada da lupa."
 
 #. Translators: A message reported when the user reaches the edge of the screen while moving the view.
-#, fuzzy
 msgid "Edge of the screen."
-msgstr "Dentro das extremidades do ecrã"
+msgstr "Dentro das extremidades do ecrã."
 
 #. Translators: A dimension reported when the user resizes the docked view.
 msgid "Widht"
@@ -190,9 +190,10 @@ msgstr "Dentro das extremidades do ecrã"
 #. Translators: A message reported when the user tries to execute script moveView.
 msgid "Only gestures containing arrow key may be mapped to this script."
 msgstr ""
+"Apenas os comandos contendo a tecla de seta podem ser mapeados para este "
+"script."
 
 #. Translators: A message reported when the user tries to execute script mouseToView
-#, fuzzy
 msgid ""
 "Move mouse to view command available only on Windows 8 and above in full "
 "screen mode."
@@ -210,16 +211,16 @@ msgstr "Mover o rato para a vista não implementado para a vista ancorada"
 
 #. Translators: A message reported when toggling "always on top" mode for Windows Magnifier's control window
 msgid "Magnifier controls always on top."
-msgstr ""
+msgstr "Os controlos da lupa estão sempre por cima."
 
 #. Translators: A message reported when toggling "always on top" mode for Windows Magnifier's window
 msgid "Magnifier controls not on top."
-msgstr ""
+msgstr "Os controlos da lupa não estão por cima."
 
 #. Translators: A message reported when trying toggling "always on top" mode for Windows Magnifier's window
 #. while running a portable NVDA.
 msgid "Command only supported in installed versions of NVDA."
-msgstr ""
+msgstr "Comando suportado apenas em versões instaladas do NVDA."
 
 #. Translators: A message reported in secure screen when the user attempts to modify magnifiers settings.
 msgid "Command unavailable on this screen."
@@ -264,7 +265,7 @@ msgstr "Comandos em camada da Lupa  do Windows"
 
 #. Translators: Separator between key names in the layered command help window.
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #. Translators: Part of the help message displayed for the layered command help.
 #, python-brace-format
@@ -310,13 +311,12 @@ msgid "Report view &moves:"
 msgstr "Anunciar movimentos das &Vistas:"
 
 #. Translators: This is the label for a combobox in the Windows Magnifier settings panel.
-#, fuzzy
 msgid "Report screen &edges:"
-msgstr "Anunciar movimentos das Vistas:"
+msgstr "ecrã de relatório &edges:"
 
 #. Translators: This is the label for a slider in the Windows Magnifier settings panel.
 msgid "Volume of the tones indicating the &position of the view:"
-msgstr ""
+msgstr "Volume dos tons que indicam a &posição da vista:"
 
 #. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
 msgid "Report &turn on or off"
@@ -348,7 +348,7 @@ msgstr ""
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 msgid "This add-on improves the use of Windows Magnifier with NVDA."
-msgstr ""
+msgstr "Este extra melhora a utilização do Windows Magnifier com NVDA."
 
 #~ msgid ""
 #~ "This addon improves the use of Windows Magnifier with NVDA with the "
