@@ -14,10 +14,10 @@ Ovaj dodatak poboljšava upotrebu Windows povećala s NVDA čitačem.
   povećala.
 * Dozvoljava smanjivanje broja slučajeva, gdje se naredbe za kretanje po
   tablici sukobljavaju s naredbama povećala.
-* Adds some keyboard shortcuts to toggle various native options of the
-  Magnifier.
-* Adds some extra features that are not provided by Windows Magnifier (mouse
-  to view, Magnifier window not on top)
+* Dodaje neke tipkovničke prečace za uključivanje i isključivanje raznih
+  opcija povećala.
+* Dodaje neke dodatne značajke koje ne pruža Windows povećalo (miš za
+  prikaz, prozor povećala nije na vrhu)
 
 ## Postavke
 
@@ -37,15 +37,15 @@ Ploča sadrži sljedeće opcije:
     * Sa zvučnim signalima: svira se ton i njegova visina označava položaj
       uvećanog prikaza na dimenziji na kojoj se prikaz pomiče.
   
-  This option does not affect docked view mode.
+  Ova opcija ne utječe na usidreni način prikaza.
 
-* Report screen edges: controls what is reported when you reach the edges of
-  the screen while moving the view with Control+Alt+Arrows commands.  The
-  three options are: Off, With speech and With tones.  This option does not
-  affect docked view mode.
-* Volume of the tones reporting the view position: allows to define the
-  volume of the tones if you have selected to report view moves or screen
-  edges with tones.
+* Javi rubove ekrana: kontrolira ono što se prijavljuje kad dosegneš rubove
+  ekrana tijekom micanja prikaza pomoću naredbi Kontrol+Alt+Strelice. Tri
+  opcije su: Isključeno, S govorom i S tonovima. Ova opcija ne utječe na
+  usidreni način prikaza.
+* Glasnoća tonova za javljanje položaja prikaza: omogućuje definiranje
+  glasnoće tonova ako su odabrana javljanja o premještanju prikaza ili o
+  rubovima ekrana s tonovima.
 * Uključi ili isključi javljanje: Ako je označeno, javlja se stanje povećala
   kad za uključivanje ili isključivanje koristiš naredbe Windows++ ili
   Windows+Escape.
@@ -66,20 +66,21 @@ Ploča sadrži sljedeće opcije:
 * U prikazima dokumenata i popisa, proslijedi prečace kontrol+alt+strelice
   Windows povećalu: Postoje tri mogućnosti:
   
-    * Never: The command is not passed to Windows Magnifier and standard
-      NVDA table navigation can operate.  When used in documents out of a
-      table, the Control+Alt+Arrow command reports a "Not in a table" error
-      message.  This is the standard behaviour of NVDA without this add-on.
-      You can still use NVDA+Windows+O then arrows to move the magnified
-      view.
-    * Only when not in table: In table or in list views, Control+Alt+Arrow
-      commands perform standard table navigation.  When used in documents
-      out of a table, Control+Alt+Arrow commands perform standard Magnifier
-      view move commands.  If you still want to move Windows Magnifier view
-      while in table or in list view, you will need to press NVDA+F2 before
-      using Control+Alt+Arrow commands or alternately use NVDA+Windows+O
-      then arrows.  This option is the best compromise if you want to use
-      Control+Alt+Arrow for both Magnifier and table navigation.
+    * Nikada: Naredba se ne prosljeđuje Windows povećalu i standardno NVDA
+      kretanje tablicom može raditi. Kad se koristi u dokumentima izvan
+      tablice, naredba Kontrol+Alt+Strelica javlja poruku o grešci „Nije u
+      tablici”. To je standardno ponašanje NVDA čitača bez ovog dodatka. I
+      dalje možeš koristiti NVDA+Windows+O zatim strelice za pomicanje
+      uvećanog prikaza.
+    * Samo izvan tablice: U prikazima tablice ili popisa, naredbe
+      Kontrol+Alt+Strelica izvode standardno kretanje po tablici. Kad se
+      koriste u dokumentima izvan tablice, naredbe Kontrol+Alt+Strelica
+      izvode standardne naredbe za pomicanje prikaza povećala. Ako i dalje
+      želiš pomaknuti prikaz Windows povećala dok se nalaziš u prikazu
+      tablice ili popisa, morat ćeš pritisnuti NVDA+F2 prije korištenja
+      naredbi Kontrol+Alt+Strelica ili alternativno NVDA+Windows+O zatim
+      strelice. Ova je opcija najbolji kompromis, ako želiš koristiti
+      Kontrol+Alt+Strelica za povećalo i za kretanje po tablici.
     * Uvijek: Naredbe Kontrol+Alt+Strelica u svakom slučaju pomiču prikaz
       povećala. Ova opcija može biti korisna, ako ne koristiš
       Kontrol+Alt+Strelica za kretanje po tablici, npr. jer si promijenio/la
@@ -90,15 +91,14 @@ Ploča sadrži sljedeće opcije:
 
 ## Dodatak dodaje sljedeće naredbe
 
-In addition to native Magnifier commands, this add-on provide additional
-commands:
+Osim izvornih naredbi povećala, ovaj dodatak pruža dodatne naredbe:
 
-* Commands that allow to control Magnifier's options without opening its
-  configuration page.
-* Extra commands specific to this add-on.
+* Naredbe koje omogućuju upravljanje opcijama povećala bez otvaranja njegove
+  konfiguracijske stranice.
+* Dodatne naredbe specifične za ovaj dodatak.
 
-All these additional commands are accessible through the Magnifier layer
-command NVDA+Windows+O:
+Sve ove dodatne naredbe dostupne su putem naredbe sloja povećala
+NVDA+Windows+O:
 
 * NVDA+Windows+O, zatim C: Uključuje ili isključuje praćenje kursora.
 * NVDA+Windows+O, zatim F: Uključuje ili isključuje praćenje fokusa.
@@ -111,12 +111,12 @@ command NVDA+Windows+O:
 * NVDA+Windows+O, zatim X: Prebacuje se između modusa praćenja miša (unutar
   ruba ekrana ili centrirano na ekranu); ova je funkcija dostupna samo u
   Windows 10 gradnja 18894 ili novijoj verziji.
-* NVDA+Windows+O then Arrows: Move the magnified view.
-* NVDA+Windows+O then V: Moves the mouse cursor in the center of the
-  magnified view (command not available in docked view mode).
-* NVDA+Windows+O then W: Switches on or off the mode keeping Windows
-  Magnifier's control window always on top of the other ones.  This feature
-  is only available for installed versions of NVDA.
+* NVDA+Windows+O zatim strelice: Pomakni uvećani prikaz.
+* NVDA+Windows+O zatim V: Pomiče kursor miša u središte uvećanog prikaza
+  (naredba nije dostupna u usidrenom načinu prikaza).
+* NVDA+Windows+O zatim W: Uključuje ili isključuje način rada držeći
+  kontrolni prozor Windows povećala uvijek iznad ostalih. Ova je značajka
+  dostupna samo za instalirane NVDA verzije.
 * NVDA+Windows+O, zatim O: Otvara postavke dodatka Windows povećala.
 * NVDA+Windows+O, zatim H: Prikazuje pomoć za naredbe povećala.
 
@@ -144,10 +144,11 @@ ovisno o konfiguraciji:
 * Odaberi cjeloekranski prikaz: Kontrol+Alt+F
 * Odaberi prikaz lećom: Kontrol+Alt+L
 * Mijenjaj između tri vrste prikaza: Kontrol+Alt+M
-* Resize the lens with the keyboard: Shift+Alt+Left/Right/Up/DownArrow Note:
-  although this does not seem to be documented, this shortcut seems to have
-  been withdrawn in recent Windows versions such as Windows 10 2004.
-* Move the magnified view: Control+Alt+Arrows
+* Promijeni veličinu leće pomoću tipkovnice: Šift+Alt+strelica
+  lijevo/desno/gore/dolje. Napomena: iako ovo nije dokumentirano, čini se da
+  je ovaj prečac povučen u novijim verzijama Windows sustava kao što je
+  Windows 10 2004.
+* Pomakni uvećani prikaz: Kontrol+Alt+strelice
 
 Za kraj, evo popis ostalih izvornih naredbi povećala, čisto informativno:
 
@@ -187,34 +188,34 @@ Nije moguće promijeniti niti jednu izvornu naredbu povećala.
       zaslonu](https://support.microsoft.com/hr-hr/windows/kori%C5%A1tenje-pove%C4%87ala-za-lak%C5%A1e-gledanje-sadr%C5%BEaja-na-zaslonu-414948ba-8b1c-d3bd-8615-0e5e32204198)
     * [Tipkovni prečaci za pristupačnost u sustavu Windows][4]
 
-* This add-on has not been tested in multi-screen environment and there are
-  chances that some feature are not working in this environment.  If you are
-  using multi-screen environment and want it to be supported, please contact
-  me to have it implemented.
-* More generally, do not hesitate to contact me on the [GitHub page][3] of
-  this add-on or directly by e-mail.
+* Ovaj dodatak nije testiran u višeekranskom okruženju i neka značajka možda
+  neće radi u ovom okruženju. Ako koristiš višeekransko okruženje i ako
+  želiš da se to podrži, kontaktiraj me kako bih ga implementirao.
+* Općenito, ne ustručavaj se me kontaktirati na [GitHub stranici][3] ovog
+  dodatka ili izravno putem e-pošte.
 
 
 ## Dnevnik promjena
 
-### Version 2.0
+### Verzija 2.0
 
-* The view can be moved with arrows while in Windows Magnifier layer.
-* Capability to keep the Magnifier commands Window always on top or not.
-* Added "Report screen edges" feature.
-* Volume setting of tones when using move view commands.
-* Reporting view moves and mouse to view commands are now supported in Lens
-  mode.
-* Compatibility with NVDA 2022.1.
-* Fixed a bug that sometimes incorrectly reported that the Magnifier was not
-  working upon script call.
-* The release is now performed thanks to a GitHub action instead of
-  appVeyor.
-* Updated localizations.
+* Prikaz se može pomicati strelicama dok se nalaziš u sloju Windows
+  povećala.
+* Mogućnost za održavanje prozora naredbi povećala uvijek na vrhu ili ne.
+* Dodana je funkcija „Javi rubove ekrana”.
+* Podešavanje glasnoće tonova tijekom korištenja naredbi za pomicanje
+  prikaza.
+* Izvještavanje o pomicanjima prikaza i o naredbama prikaz mišem su sada
+  podržane u modusu leće.
+* Kompatibilnost s NVDA 2022.1.
+* Ispravljena je greška koja je ponekad netočno javljala da povećalo ne radi
+  nakon pozivanja skripta.
+* Izdanje se sada izvodi zahvaljujući GitHub radnji umjesto appVeyora.
+* Aktualizirane lokalizacije.
 
-### Version 1.1
+### Verzija 1.1
 
-* Added localizations.
+* Dodane su lokalizacije.
 
 ### Verzija 1.0
 
