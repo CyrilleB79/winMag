@@ -346,7 +346,7 @@ DESC_MOVE_VIEW = _("Moves the magnified view")
 # Translators: The description for the moveMouseToView script.
 DESC_MOVE_MOUSE_TO_VIEW = _("Moves the mouse cursor in the center of the zoomed view")
 # Translators: The description for the keepMagWindowOnTop script.
-DESC_KEEP_MAG_WINDOW_ON_TOP = _("Switches on or off the mode allowing to keep Windows Magnifier's control window always on top of the other ones.")
+DESC_KEEP_MAG_WINDOW_ON_TOP = _("Switches on or off the mode keeping Windows Magnifier's control window always on top of the other ones.")
 # Translators: The description for the openSettings script.
 DESC_OPEN_SETTINGS = _("Opens Windows Magnifier add-on settings")
 # Translators: The description for the displayHelp script.
@@ -973,9 +973,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				cy=0,
 				uFlags=winUser2.SWP_NOSIZE | winUser2.SWP_NOMOVE | winUser2.SWP_NOACTIVATE | winUser2.SWP_ASYNCWINDOWPOS,
 			)
-		except PermissionError as e:
-		# from errno import EACCES  # 13
-		# if e.errno = EACCES and e.winerror = 5:  # [WinError 5] Access is denied
+		except WindowsError as e:
+		# Python 3 raises PermissionError which is a subclass of OSError alias WindowsError.
+		# Python 2 raises WindowsError
 			if e.winerror == 5:  # [WinError 5] Access is denied
 				if config.isInstalledCopy():
 					log.error('Unable to set window on topmost / not on top.')
