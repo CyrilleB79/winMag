@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: winMag 1.1\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2021-09-03 22:20+0000\n"
-"PO-Revision-Date: 2022-05-01 09:15+0300\n"
-"Last-Translator: Çağrı Doğan <cagrid@hotmail.com>\n"
+"PO-Revision-Date: 2023-02-05 00:24+0300\n"
+"Last-Translator: Umut KORKMAZ <umutkork@gmail.com>\n"
 "Language-Team: Umut KORKMAZ, Çağrı Doğan <Cagrid@hotmail.com>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #. Alpha-numeric keyboard Magnifier keys
 #. Translators: The key used natively byt the Magnifier on the alpha-numeric (main) keyboard in conjunction with Win key to zoom in.
@@ -81,13 +81,12 @@ msgid "Moves the mouse cursor in the center of the zoomed view"
 msgstr "Fare imlecini yakınlaştırılmış görünümün ortasına taşır"
 
 #. Translators: The description for the keepMagWindowOnTop script.
-#, fuzzy
 msgid ""
 "Switches on or off the mode allowing to keep Windows Magnifier's control "
 "window always on top of the other ones."
 msgstr ""
-"Windows Büyüteç'in kontrol penceresini her zaman diğerlerinin üstünde tutan "
-"modu açıp kapatır."
+"Windows Büyüteç'in kontrol penceresini her zaman diğer pencerelerin üstünde "
+"tutan modu açıp kapatır."
 
 #. Translators: The description for the openSettings script.
 msgid "Opens Windows Magnifier add-on settings"
@@ -190,13 +189,12 @@ msgid "Only gestures containing arrow key may be mapped to this script."
 msgstr "Yalnızca ok tuşunu içeren hareketler bu komut için atanabilir."
 
 #. Translators: A message reported when the user tries to execute script mouseToView
-#, fuzzy
 msgid ""
 "Move mouse to view command available only on Windows 8 and above in full "
 "screen mode."
 msgstr ""
-"Fareyi görüntüye taşıma komutu yalnızca Windows 8 ve üzeri sürümlerde "
-"geçerli."
+"Yalnızca Windows 8 ve üzeri sürümlerde tam ekran modunda kullanılabilen "
+"komutu görüntülemek için fareyi hareket ettirin."
 
 #. o = getDockedWindowObject()
 #. hwnd = o.windowHandle
@@ -285,7 +283,7 @@ msgstr "Kapalı"
 
 #. Translators: An option in the combobox "Report view moves" in winMag setting panel.
 msgid "With speech"
-msgstr "konuşarak"
+msgstr "Konuşarak"
 
 #. Translators: An option in the combobox "Report view moves" in winMag setting panel.
 msgid "With tones"
@@ -308,14 +306,12 @@ msgid "Report view &moves:"
 msgstr "Görünü&m Hareketlerini Bildir:"
 
 #. Translators: This is the label for a combobox in the Windows Magnifier settings panel.
-#, fuzzy
 msgid "Report screen &edges:"
-msgstr "Görünü&m Hareketlerini Bildir:"
+msgstr "&Ekran kenarlarını bildir:"
 
 #. Translators: This is the label for a slider in the Windows Magnifier settings panel.
-#, fuzzy
 msgid "Volume of the tones indicating the &position of the view:"
-msgstr "Görünüm konumunu bildiren tonların ses düzeyi:"
+msgstr "G&örünümün konumunu gösteren tonların ses düzeyi:"
 
 #. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
 msgid "Report &turn on or off"
@@ -348,7 +344,7 @@ msgstr ""
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 msgid "This add-on improves the use of Windows Magnifier with NVDA."
-msgstr ""
+msgstr "Bu eklenti, Windows Büyüteç'in NVDA ile kullanımını geliştirir."
 
 #~ msgid ""
 #~ "This addon improves the use of Windows Magnifier with NVDA with the "
