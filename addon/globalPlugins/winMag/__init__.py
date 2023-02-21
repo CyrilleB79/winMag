@@ -8,7 +8,15 @@
 from __future__ import unicode_literals
 
 from .wmGui import WinMagSettingsPanel
-from .utils import getMagnifierKeyValue, setMagnifierKeyValue, toggleMagnifierKeyValue, isMagnifierRunning, getMagnifierUIWindow
+from .utils import (
+	getMagnifierKeyValue,
+	setMagnifierKeyValue,
+	toggleMagnifierKeyValue,
+	isMagnifierRunning,
+	getMagnifierUIWindow,
+	getDockedWindowObject,
+	getLensWindowObject,
+)
 from .msg import nvdaTranslation
 from .magnification import Magnification 
 from . import winUser2
