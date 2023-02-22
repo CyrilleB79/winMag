@@ -19,6 +19,8 @@ This add-on improves the use of Windows Magnifier with NVDA.
 
 The setting panel of Windows Magnifier add-on allows to configure how NVDA reacts to native Windows Magnifier commands.
 You may want to have more or less commands reported according to what you are able to see.
+The panel also contains an option to modify the behaviour of Windows Magnifier control window.
+
 This panel may be opened choosing Preferences -> Settings in the NVDA menu and then selecting the Windows Magnifier category in the Settings window.
 The keyboard shortcut NVDA+Windows+O then O also allows to open this settings panel directly.
 
@@ -63,6 +65,8 @@ The panel contains the following options:
     * Always: Control+Alt+Arrow commands moves the Magnifier's view in any case.
       This option may be useful if you do not use Control+Alt+Arrow to navigate in table, e.g. because you have changed table navigation shortcuts in NVDA or because you exclusively use [Easy table navigator][5] add-on for table navigation.
 
+* Keep Windows Magnifier command window always on top:
+  If unchecked, the Magnifier's control window will not be kept always on top of other windows.
 
 ## Commands added by this add-on
 
