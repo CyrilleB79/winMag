@@ -893,8 +893,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		if mainKeyName and 'arrow' in mainKeyName.lower():
 			self.report_viewMove(KeyboardInputGesture.fromName('control+alt+' + mainKeyName))
 		else:
-			# Translators: A message reported when the user tries to execute script moveView.
-			ui.message(_("Only gestures containing arrow key may be mapped to this script."))
+			log.error("Only gestures containing arrow key may be mapped to script_moveViewLayeredCommand (gesture: {}).".format(gesture))
 	script_moveViewLayeredCommand.allowMultipleLayeredCommands = True
 	
 	@script(
