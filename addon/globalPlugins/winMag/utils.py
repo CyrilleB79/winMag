@@ -9,6 +9,8 @@ from __future__ import unicode_literals
 
 import winUser
 from NVDAObjects.IAccessible import getNVDAObjectFromEvent
+import vision
+from visionEnhancementProviders.screenCurtain import ScreenCurtainProvider
 
 try:
 	import winreg
@@ -65,3 +67,9 @@ def getDockedWindowObject():
 
 def getLensWindowObject():
 	return getDesktopChildObject(windowClassName="Screen Magnifier Lens Window")
+
+def isScreenCurtainActive():
+	screenCurtainId = ScreenCurtainProvider.getSettings().getId()
+	screenCurtainProviderInfo = vision.handler.getProviderInfo(screenCurtainId)
+	isScreenCurtainRunning = bool(vision.handler.getProviderInstance(screenCurtainProviderInfo))
+	return isScreenCurtainRunning

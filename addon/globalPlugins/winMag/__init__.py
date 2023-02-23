@@ -16,6 +16,7 @@ from .utils import (
 	getMagnifierUIWindow,
 	getDockedWindowObject,
 	getLensWindowObject,
+	isScreenCurtainActive,
 )
 from .msg import nvdaTranslation
 from .magnification import Magnification 
@@ -637,7 +638,12 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		if not (reportMoves or reportEdges):
 			return
 		mode = getMagViewMode()
-		if mode == MAG_VIEW_DOCKED:
+		if (
+			# No implementation has been found to report view position in docked mode
+			mode == MAG_VIEW_DOCKED
+			# Calling Magnification.MagGetFullscreenTransform causes unwanted deactivation (crash) of screen curtain.
+			or (mode == MAG_VIEW_FULLSCREEN and isScreenCurtainActive())
+		):
 			return
 		
 		# Cancel previously scheduled position reporting.
@@ -902,9 +908,16 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	@onlyIfMagRunning
 	def script_moveMouseToView(self, gesture):
 		mode = getMagViewMode()
-		if mode == MAG_VIEW_FULLSCREEN and Magnification.MagGetFullscreenTransform is None:
-			# Translators: A message reported when the user tries to execute script mouseToView
-			ui.message(_('Move mouse to view command available only on Windows 8 and above in full screen mode.'))
+		if mode == MAG_VIEW_FULLSCREEN:
+			if Magnification.MagGetFullscreenTransform is None:
+				# Translators: A message reported when the user tries to execute script mouseToView
+				ui.message(_('Move mouse to view command available only on Windows 8 and above in full screen mode.'))
+			elif isScreenCurtainActive():
+				ui.message(
+					# Translators: A message reported when the user tries to execute script mouseToView
+					_('Move mouse to view command not available in full screen mode while screen curtain is active.')
+				)
+				
 			return
 		if mode == MAG_VIEW_DOCKED:
 			# o = getDockedWindowObject()
