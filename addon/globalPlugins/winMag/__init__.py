@@ -623,8 +623,13 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		gestures = ["kb:control+alt+M", "kb:control+alt+D", "kb:control+alt+F", "kb:control+alt+L"]
 	)
 	def script_changeMagnificationView(self, gesture):
-		if config.conf['winMag']['reportViewChange'] and isMagnifierRunning():
-			self.modifyMagnificationView(gesture)
+		if isMagnifierRunning():
+			if config.conf['winMag']['reportViewChange']:
+				self.modifyMagnificationView(gesture)
+			else:
+				gesture.send()
+			time.sleep(0.5)
+			self.updateKeepMagWindowOnTop(config.conf['winMag']['keepWindowAlwaysOnTop'])
 		else:
 			gesture.send()
 	
