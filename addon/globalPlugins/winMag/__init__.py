@@ -9,6 +9,7 @@ from __future__ import unicode_literals
 
 from .wmGui import WinMagSettingsPanel
 from .utils import (
+	magnifierDefaultValuesMapping,
 	getMagnifierKeyValue,
 	setMagnifierKeyValue,
 	toggleMagnifierKeyValue,
@@ -23,6 +24,7 @@ from .magnification import Magnification
 from . import winUser2
 
 import globalPluginHandler
+import appModuleHandler
 import ui
 import gui.settingsDialogs
 import scriptHandler
@@ -53,6 +55,12 @@ import addonHandler
 
 addonHandler.initTranslation()
 
+
+# Magnifier view types
+MAG_VIEW_DOCKED = 1
+MAG_VIEW_FULLSCREEN = 2
+MAG_VIEW_LENS = 3
+
 confspec = {
 	"reportViewMove": 'option("off", "speech", "tones", default="off")',
 	"reportMoveToScreenEdges": 'option("off", "speech", "tones", default="off")',
@@ -64,6 +72,9 @@ confspec = {
 	"reportLensResizing": "boolean(default=False)",
 	"passCtrlAltArrow": 'option("never", "whenNotInTable", "always", default="never")',
 	"keepWindowAlwaysOnTop": "boolean(default=True)",
+	"magnifierConfig": {
+		k: "integer(default={})".format(v) for (k, v) in magnifierDefaultValuesMapping.items()
+	},
 }
 config.conf.spec["winMag"] = confspec
 
@@ -86,25 +97,9 @@ if (
 ):
 	log.error("Error in Windows Magnifier shortcut key translation (Windows Magnifier add-on)")
 
-#Magnifier view types
-MAG_VIEW_DOCKED = 1
-MAG_VIEW_FULLSCREEN = 2
-MAG_VIEW_LENS = 3
-
-#Default config when names are not present in the key
-MAG_DEFAULT_CENTER_TEXT_INSERTION_POINT = 1
-MAG_DEFAULT_FOLLOW_CARET = 0
-MAG_DEFAULT_FOLLOW_FOCUS = 0
-MAG_DEFAULT_FOLLOW_MOUSE = 1
-MAG_DEFAULT_FULL_SCREEN_TRACKING_MODE = 0
-MAG_DEFAULT_INVERT = 1
-MAG_DEFAULT_MAGNIFICATION = 200
-MAG_DEFAULT_MAGNIFICATION_MODE = MAG_VIEW_FULLSCREEN
-MAG_DEFAULT_RUNNING_STATE = 0
-MAG_DEFAULT_USE_BITMAP_SMOOTHING = 1
 
 def getMagViewMode():
-	return getMagnifierKeyValue('MagnificationMode', default=MAG_DEFAULT_MAGNIFICATION_MODE)
+	return getMagnifierKeyValue('MagnificationMode')
 
 def onlyIfMagRunning(s):
 	"""This script decorator allows the decorated script to execute only if the Magnifier is active.
@@ -252,18 +247,15 @@ def patched_message(text, *args, **kwargs):
 
 class TrackingConfig(object):
 	
-	EVENTS_TRACKING_DEFAULT_VALUES = {
-		'FollowCaret':  MAG_DEFAULT_FOLLOW_CARET,
-		'FollowFocus':  MAG_DEFAULT_FOLLOW_FOCUS,
-		'FollowMouse':  MAG_DEFAULT_FOLLOW_MOUSE,
-		}
+	EVENTS_TRACKING_KEYS = [
+		'FollowCaret',
+		'FollowFocus',
+		'FollowMouse',
+	]
 	lastTrackingConfig = None
 	
-	def __init__(self):
-		pass
-		
 	def toggle(self, eventType):
-		cfg = {n:getMagnifierKeyValue(n, d) for (n,d) in self.EVENTS_TRACKING_DEFAULT_VALUES.items()}
+		cfg = {k: getMagnifierKeyValue(k) for k in self.EVENTS_TRACKING_KEYS}
 		if any(cfg.values()):
 			self.__class__.lastTrackingConfig = dict(cfg)
 		if eventType == 'All':
@@ -285,29 +277,34 @@ class TrackingConfig(object):
 			self.__class__.lastTrackingConfig = dict(cfg)
 		return val
 
-# Translators: The description for the toggleCaretTracking script.
+
+# Translators: The description of a command of this add-on.
 DESC_TOGGLE_CARET_TRACKING = _("Toggles on or off caret tracking")
-# Translators: The description for the toggleFocusTracking script.
+# Translators: The description of a command of this add-on.
 DESC_TOGGLE_FOCUS_TRACKING = _("Toggles on or off focus tracking")
-# Translators: The description for the toggleMouseTracking script.
+# Translators: The description of a command of this add-on.
 DESC_TOGGLE_MOUSE_TRACKING = _("Toggles on or off mouse tracking")
-# Translators: The description for the toggleTracking script.
+# Translators: The description of a command of this add-on.
 DESC_TOGGLE_TRACKING = _("Toggles on or off tracking globally")
-# Translators: The description for the toggleSmoothing script.
+# Translators: The description of a command of this add-on.
 DESC_TOGGLE_SMOOTHING = _("Toggles on or off smoothing")
-# Translators: The description for the toggleMouseCursorTrackingMode script.
-DESC_TOGGLE_MOUSE_CURSOR_TRACKING_MODE = _("Switches between mouse tracking modes (within the edge of the screen or centered on the screen)")
-# Translators: The description for the toggleTextCursorTrackingMode script.
+# Translators: The description of a command of this add-on.
+DESC_TOGGLE_MOUSE_CURSOR_TRACKING_MODE = _("Switches between mouse pointeur tracking modes (within the edge of the screen or centered on the screen)")
+# Translators: The description of a command of this add-on.
 DESC_TOGGLE_TEXT_CURSOR_TRACKING_MODE = _("Switches between text tracking modes (within the edge of the screen or centered on the screen)")
-# Translators: The description for the moveView script.
+# Translators: The description of a command of this add-on.
+DESC_SAVE_MAGNIFIER_CONFIG = _("Saves the current configuration parameters of the magnifier to NVDA's configuration.")
+# Translators: The description of a command of this add-on.
+DESC_RESTORE_MAGNIFIER_CONFIG = _("Restores the current configuration parameters of the magnifier from NVDA's configuration.")
+# Translators: The description of a command of this add-on.
 DESC_MOVE_VIEW = _("Moves the magnified view")
-# Translators: The description for the moveMouseToView script.
+# Translators: The description of a command of this add-on.
 DESC_MOVE_MOUSE_TO_VIEW = _("Moves the mouse cursor in the center of the zoomed view")
-# Translators: The description for the keepMagWindowOnTop script.
+# Translators: The description of a command of this add-on.
 DESC_KEEP_MAG_WINDOW_ON_TOP = _("Switches on or off the mode keeping Windows Magnifier's control window always on top of the other ones.")
-# Translators: The description for the openSettings script.
+# Translators: The description of a command of this add-on.
 DESC_OPEN_SETTINGS = _("Opens Windows Magnifier add-on settings")
-# Translators: The description for the displayHelp script.
+# Translators: The description of a command of this add-on.
 DESC_DISPLAY_HELP = _("Displays help on Magnifier layer commands")
 
 
@@ -454,11 +451,25 @@ class VolumeSlider(NVDAObjects.IAccessible.IAccessible):
 	def event_valueChange(self,):
 		pass
 
+
+def enableProfileTriggersAndActivate():
+	"""Enable profile triggers after they have been disabled
+	and activate the profile of the currently focused application if any.
+	"""
+	# Code copied from NVDA globalCommands.py
+	
+	config.conf.enableProfileTriggers()
+	# Explicitly trigger profiles for the current application.
+	mod = api.getForegroundObject().appModule
+	trigger = mod._configProfileTrigger = appModuleHandler.AppProfileTrigger(mod.appName)
+	trigger.enter()			
+
+
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	scriptCategory = ADDON_SUMMARY
 	
-	__magLayerScriptList = [
+	__magLayerCommandList = [
 		(["c"], "toggleCaretTracking",DESC_TOGGLE_CARET_TRACKING),
 		(["f"], "toggleFocusTracking",DESC_TOGGLE_FOCUS_TRACKING),
 		(["m"], "toggleMouseTracking",DESC_TOGGLE_MOUSE_TRACKING),
@@ -466,6 +477,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		(["s"], "toggleSmoothing", DESC_TOGGLE_SMOOTHING),
 		(["r"], "toggleMouseCursorTrackingMode", DESC_TOGGLE_MOUSE_CURSOR_TRACKING_MODE),
 		(["x"], "toggleTextCursorTrackingMode", DESC_TOGGLE_TEXT_CURSOR_TRACKING_MODE),
+		(["shift+p"], "saveMagnifierConfig", DESC_SAVE_MAGNIFIER_CONFIG),
+		(["p"], "restoreMagnifierConfig", DESC_RESTORE_MAGNIFIER_CONFIG),
 		(["upArrow", "downArrow", "leftArrow", "rightArrow"], "moveViewLayeredCommand", DESC_MOVE_VIEW),
 		(["v"], "moveMouseToView", DESC_MOVE_MOUSE_TO_VIEW),
 		(["w"], "keepMagWindowOnTop", DESC_KEEP_MAG_WINDOW_ON_TOP),
@@ -543,9 +556,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			self.script_error(gesture)
 			return
 		layerGestures = {}
-		for (keys, script, desc) in self.__magLayerScriptList:
-			for key in keys:
-				layerGestures["kb:" + key] = script
+		for (gestures, command, desc) in self.__magLayerCommandList:
+			for g in gestures:
+				layerGestures["kb:" + g] = command
 		self.bindGestures(layerGestures)
 		self.toggling = True
 		beep(100, 10)
@@ -831,7 +844,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def script_toggleSmoothing(self, gesture):
 		if self.checkSecureScreen():
 			return
-		val = toggleMagnifierKeyValue('UseBitmapSmoothing', default=MAG_DEFAULT_USE_BITMAP_SMOOTHING)
+		val = toggleMagnifierKeyValue('UseBitmapSmoothing')
 		if val:
 			# Translators: The message reported when the user turns on smoothing.
 			ui.message(_('Smoothing on'))
@@ -848,21 +861,21 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			return
 		# Full screen tracking mode feature is available on Windows 10 build 17643 or higher.
 		if not self.checkWindowsVersion(major=10, build=17643):
-			# Translators: The message reported when the user tries to toggle mouse tracking mode whereas his Windows version does not support it.
+			# Translators: The message reported when the user tries to toggle mouse pointer tracking mode whereas his Windows version does not support it.
 			ui.message(_('Feature unavailable in this version of Windows.'))
 			return
 		# Feature applicable only to full screen view
 		mode = getMagViewMode()
 		if mode != MAG_VIEW_FULLSCREEN:
-			# Translators: The message reported when the user tries to toggle mouse tracking mode while full screen view is not active.
-			ui.message(_('Mouse tracking mode applies only to full screen view.'))
+			# Translators: The message reported when the user tries to toggle mouse pointer tracking mode while full screen view is not active.
+			ui.message(_('Mouse pointer tracking mode applies only to full screen view.'))
 			return
-		val = toggleMagnifierKeyValue('FullScreenTrackingMode', default=MAG_DEFAULT_FULL_SCREEN_TRACKING_MODE)
+		val = toggleMagnifierKeyValue('FullScreenTrackingMode')
 		if val:
-			# Translators: A message reporting mouse cursor tracking mode (cf. option in Magnifier settings).
+			# Translators: A message reporting mouse pointer tracking mode (cf. option in Magnifier settings).
 			ui.message(_('Centered on the screen'))
 		else:
-			# Translators: A message reporting mouse cursor tracking mode (cf. option in Magnifier settings).
+			# Translators: A message reporting mouse pointer tracking mode (cf. option in Magnifier settings).
 			ui.message(_('Within the edge of the screen'))
 
 	@script(
@@ -874,23 +887,59 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			return
 		# Full screen tracking mode feature is available on Windows 10 build 18894 or higher.
 		if not self.checkWindowsVersion(major=10, build=18894):
-			# Translators: The message reported when the user tries to toggle mouse tracking mode whereas his Windows version does not support it.
+			# Translators: The message reported when the user tries to toggle text cursor tracking mode whereas his Windows version does not support it.
 			ui.message(_('Feature unavailable in this version of Windows.'))
 			return
 		# Feature applicable only to full screen view
 		mode = getMagViewMode()
 		if mode != MAG_VIEW_FULLSCREEN:
-			# Translators: The message reported when the user tries to toggle mouse tracking mode while full screen view is not active.
-			ui.message(_('Mouse tracking mode applies only to full screen view.'))
+			# Translators: The message reported when the user tries to toggle text cursor tracking mode while full screen view is not active.
+			ui.message(_('Text cursor tracking mode applies only to full screen view.'))
 			return
-		val = toggleMagnifierKeyValue('CenterTextInsertionPoint', default=MAG_DEFAULT_CENTER_TEXT_INSERTION_POINT)
+		val = toggleMagnifierKeyValue('CenterTextInsertionPoint')
 		if val:
-			# Translators: A message reporting mouse cursor tracking mode (cf. option in Magnifier settings).
+			# Translators: A message reporting text cursor tracking mode (cf. option in Magnifier settings).
 			ui.message(_('Centered on the screen'))
 		else:
-			# Translators: A message reporting mouse cursor tracking mode (cf. option in Magnifier settings).
+			# Translators: A message reporting text cursor tracking mode (cf. option in Magnifier settings).
 			ui.message(_('Within the edge of the screen'))
 
+	@script(
+		description = DESC_SAVE_MAGNIFIER_CONFIG,
+	)
+	def script_saveMagnifierConfig(self, gesture):
+		if self.checkSecureScreen():
+			return
+		try:
+			config.conf.disableProfileTriggers()
+			for key, defaultValue in magnifierDefaultValuesMapping.items():
+				config.conf['winMag']['magnifierConfig'][key] = getMagnifierKeyValue(key)
+			ui.message(_("Magnifier config saved."))
+		except Exception as e:
+			log.error("Error saving Magnifier's config: {}".format(e), exc_info=True)
+		finally:
+			enableProfileTriggersAndActivate()
+			config.conf.enableProfileTriggers()
+	
+	@script(
+		description = DESC_RESTORE_MAGNIFIER_CONFIG,
+	)
+	def script_restoreMagnifierConfig(self, gesture):
+		if self.checkSecureScreen():
+			return
+		try:
+			config.conf.disableProfileTriggers()
+			for key in magnifierDefaultValuesMapping.keys():
+				val = config.conf['winMag']['magnifierConfig'][key]
+				setMagnifierKeyValue(key, val)
+			# Translators: A message reported when the user calls the command
+			# to restores the Magnifier's configuration.
+			ui.message(_("Magnifier config restored."))
+		except Exception as e:
+			log.error("Error while restoring magnifier's config: {}".format(e), exc_info=True)
+		finally:
+			enableProfileTriggersAndActivate()
+	
 	# This script has no description so that it cannot be mapped by the user to any gesture.
 	# Indeed mapping a gesture to this script could cause it not to work if the mapped gesture
 	# contains modifiers other than control and alt.
@@ -1020,7 +1069,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		zzz
 
 	def modifyRunningState(self, gesture):
-		fetcher = lambda: getMagnifierKeyValue('RunningState', default=MAG_DEFAULT_RUNNING_STATE)
+		fetcher = lambda: getMagnifierKeyValue('RunningState')
 		val = _WaitForValueChangeForAction(gesture, fetcher, timeout=4)
 		if val == 1:
 			# Translators: The message reported when the user turns on the Magnifier.
@@ -1035,13 +1084,13 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		if not config.conf['winMag']['reportZoom']:
 			gesture.send()
 			return
-		fetcher = lambda: getMagnifierKeyValue('Magnification', default=MAG_DEFAULT_MAGNIFICATION)
+		fetcher = lambda: getMagnifierKeyValue('Magnification')
 		val = _WaitForValueChangeForAction(gesture, fetcher)
 		# Translators: A zoom level reported when the user changes the zoom level.
 		ui.message(_('{zoomLevel}%'.format(zoomLevel=val)))
 		
 	def modifyColorInversion(self, gesture):
-		fetcher = lambda: getMagnifierKeyValue('Invert', default=MAG_DEFAULT_INVERT)
+		fetcher = lambda: getMagnifierKeyValue('Invert')
 		val = _WaitForValueChangeForAction(gesture, fetcher, timeout=0.5)
 		if val == 1:
 			# Translators: The message reported when the user turns on color inversion.
@@ -1080,12 +1129,19 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		# Translators: Title of the layered command help window.
 		title = _("Windows Magnifier layered commands")
 		cmdList = []
-		for (keys, script, desc) in self.__magLayerScriptList:
-			cmdList.append(
+		for (gestures, command, desc) in self.__magLayerCommandList:
+			cmdParts = []
+			cmdParts.append(
 				# Translators: Separator between key names in the layered command help window.
-				_(', ').join(localizedKeyLabels.get(k.lower(), k) for k in keys)
-				+ ': ' + desc
+				_(', ').join(
+					'+'.join(
+						localizedKeyLabels.get(k.lower(), k) for k in gesture.split('+')
+					) for gesture in gestures
+				)
 			)
+			cmdParts.append(': ')
+			cmdParts.append(desc)
+			cmdList.append(''.join(cmdParts))
 		cmdList = '\r'.join(cmdList)
 		# Translators: Part of the help message displayed for the layered command help.
 		msg = _("Magnifier layer commands:\n{cmdList}").format(cmdList=cmdList)

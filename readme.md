@@ -13,6 +13,7 @@ This add-on improves the use of Windows Magnifier with NVDA.
 * Allows to report the result of some native Magnifier keyboard commands.
 * Allows to reduce the cases where table navigation commands conflict with Magnifier's commands.
 * Adds some keyboard shortcuts to toggle various native options of the Magnifier.
+* Allow to save and restore the configuration parameters of the Magnifier.
 * Adds some extra features that are not provided by Windows Magnifier (mouse to view, Magnifier window not on top)
 
 ## Settings
@@ -82,8 +83,11 @@ All these additional commands are accessible through the Magnifier layer command
 * NVDA+Windows+O then M: Toggles on or off mouse tracking.
 * NVDA+Windows+O then T: Toggles on or off tracking globally.
 * NVDA+Windows+O then S: Toggles on or off smoothing.
-* NVDA+Windows+O then R: Switches between mouse tracking modes (within the edge of the screen or centered on the screen); this feature is only available on Windows 10 build 17643 or higher.
+* NVDA+Windows+O then R: Switches between mouse pointer tracking modes (within the edge of the screen or centered on the screen); this feature is only available on Windows 10 build 17643 or higher.
 * NVDA+Windows+O then X: Switches between text cursor tracking modes (within the edge of the screen or centered on the screen); this feature is only available on Windows 10 build 18894 or higher.
+* NVDA+Windows+O then shift+p: Saves the current configuration parameters of the magnifier to NVDA's configuration.
+* NVDA+Windows+O then p: Restores the current configuration parameters of the magnifier from NVDA's configuration.
+  If no configuration parameters has been previously saved to NVDA's configuration, the default configuration parameters of Windows Magnifier are restored instead.
 * NVDA+Windows+O then Arrows: Move the magnified view.
 * NVDA+Windows+O then V: Moves the mouse cursor in the center of the magnified view (command not available in docked view mode).
 * NVDA+Windows+O then W: Switches on or off the mode allowing to keep Windows Magnifier's control window always on top of the other ones.

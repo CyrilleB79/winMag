@@ -21,7 +21,21 @@ except ImportError:
 
 MAG_REGISTRY_KEY = r'Software\Microsoft\ScreenMagnifier'
 
-def getMagnifierKeyValue(name, default=None):
+# Magnifier config mapping
+magnifierDefaultValuesMapping = {
+	'CenterTextInsertionPoint': 1,  # 0 = In screen edges, 1 = Centered
+	'FollowCaret':  1,
+	'FollowFocus':  1,
+	'FollowMouse':  1,
+	'FullScreenTrackingMode': 0,  # 0 = In screen edges, 1 = Centered
+	'Invert': 0,
+	'Magnification': 200,
+	'MagnificationMode': 2,  # 2 = Full screen
+	# 'RunningState': 0,
+	'UseBitmapSmoothing': 1,
+}
+
+def getMagnifierKeyValue(name, useDefaultIfMissing=True):
 	k = winreg.OpenKey(
 		winreg.HKEY_CURRENT_USER,
 		MAG_REGISTRY_KEY,
@@ -30,8 +44,8 @@ def getMagnifierKeyValue(name, default=None):
 	try:
 		return winreg.QueryValueEx(k, name)[0]
 	except WindowsError as e:
-		if default is not None:
-			return default
+		if useDefaultIfMissing:
+			return magnifierDefaultValuesMapping[name]
 		raise e
 
 def setMagnifierKeyValue(name, val):
@@ -42,8 +56,8 @@ def setMagnifierKeyValue(name, val):
 	)
 	winreg.SetValueEx(k, name, 0, winreg.REG_DWORD, val)
 	
-def toggleMagnifierKeyValue(name, default=None):
-	val = getMagnifierKeyValue(name, default)
+def toggleMagnifierKeyValue(name):
+	val = getMagnifierKeyValue(name)
 	val = 0 if val == 1 else 1
 	setMagnifierKeyValue(name, val)
 	return val
