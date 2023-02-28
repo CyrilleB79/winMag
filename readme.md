@@ -155,6 +155,18 @@ None of the Magnifier native commands can be modified.
 
 ## Change log
 
+### Version 3.0
+
+* Pressing the zoom buttons in the Magnifier window (with the keyboard) now reports the new zoom level.
+* The parameter controlling if Magnifier control window remains always on top is now stored in configuration;
+  this means that this parameter is remembered when restarting NVDA and can be enabled or not depending on the active profile.
+* Fixed a bug causing unexpected screen curtain de-activation when using move to view or move view commands.
+* Option alwaysOnTop setting will no be honoured also when changing magnification mode.
+* Added ability to save and restore Windows Magnifier's config in NVDA's config.
+* Compatibility with NVDA 2023.1.
+* Clarify which type of tracking is re-enabled when tracking is toggled on again.
+* Updated localizations.
+
 ### Version 2.0
 
 * The view can be moved with arrows while in Windows Magnifier layer.
