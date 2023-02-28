@@ -15,8 +15,9 @@ Denne tilføjelse forbedrer brugen af Windows Forstørrelsesglas med NVDA.
 * Gør det muligt at reducere de tilfælde, hvor tabelnavigationskommandoer er
   i konflikt med forstørrelses kommandoer.
 * Tilføjer nogle tastaturgenveje, der ændre forskellige
-  forstørrelsesindstillinger.
-
+  standardindstillinger for Forstørrelsesglas.
+* Tilføjer nogle ekstra funktioner, der ikke leveres af Windows Forstørrelse
+  (mus til visning, forstørrelsesvindue ikke øverst)
 
 ## indstillinger
 
@@ -36,8 +37,15 @@ Panelet indeholder følgende indstillinger:
     * Med toner: En tone afspilles, og dens tonehøjde angiver placeringen af
       den zoomede visning på den dimension, der panoreres.
   
-  Denne indstilling påvirker kun fuldskærmsvisning.
-  
+  Denne indstilling påvirker ikke forankret visning.
+
+* Oplys skærmens kanter: styrer, hvad der oplyses, når du når kanterne af
+  skærmen, mens du panorere visningen med kommandoerne
+  Ctrl+Alt+Piletaster. De tre muligheder er: Fra, Med tale og Med
+  toner. Denne indstilling påvirker ikke forankret visning.
+* Lydstyrken af tonerne, der angiver visningens position: Gør det muligt at
+  definere lydstyrken af tonerne, hvis du har valgt at få oplyst
+  skærmkanter, eller  når der panoreres med toner.
 * Oplys, når forstørrelsesglas slås til: Hvis dette er markeret, rapporteres
   Forstørrelsesglasets tilstand, når du bruger kommandoerne Windows++ eller
   Windows+Escape til at slå funktionen til eller fra.
@@ -63,15 +71,19 @@ Panelet indeholder følgende indstillinger:
     * Aldrig: Kommandoen videregives ikke til Windows Forstørrelsesglas, og
       standard NVDA-tabelnavigation vil fungere. Når dette bruges i
       dokumenter udenfor en tabel, oplyser kommandoen fejlmeddelelsen "Ikke
-      i en tabelcelle". Dette er NVDAs standardadfærd uden denne tilføjelse.
+      i en tabelcelle". Dette er NVDAs standardadfærd uden denne
+      tilføjelse. Du kan stadig benytte NVDA+Windows+o og derefter
+      piletasterne for at panorere den forstørrede visning.
     * Brug kun, hvis udenfor en tabel: I tabeller eller listevisninger
       udfører Ctrl+Alt+piletasterne standardnavigering i tabeller. Når disse
       bruges i dokumenter udenfor en tabel, udfører kommandoerne
       Alt+Ctrl+piletasterne standardkommandoerne for
       forstørrelsesglasset. Hvis du stadig vil panorere, mens du er i en
       tabel eller listevisning, skal du trykke på NVDA+F2, før du bruger
-      Ctrl+alt+piletasterne. Denne mulighed er det bedste kompromis, hvis du
-      vil bruge kommandoerne til både forstørrelse og tabelnavigation.
+      Ctrl+alt+piletasterne. Du kan også bruge NVDA+Windows+O og derefter
+      piletasterne for at panorere visningen. qDenne mulighed er det bedste
+      kompromis, hvis du vil bruge kommandoerne til både forstørrelse og
+      tabelnavigation.
     * Altid: Ctrl+Altpiletasterne vil panorere uanset hvad. Dette kan være
       brugbart, hvis du ikke bruger Ctrl+Alt+piletaster til at navigere i
       tabeller, fordi du har ændret tastekombinationen eller benytter dig af
@@ -80,12 +92,15 @@ Panelet indeholder følgende indstillinger:
 
 ## Kommandoer udbudt af denne tilføjelse
 
-Ud over de oprindelige kommandoer for Forstørrelsesglas, udbyder denne
-tilføjelse yderligere kommandoer, der gør det muligt at ændre funktionens
-indstillinger uden at åbne indstillingerne. Alle kommandoer, der er tilføjet
-for at ændre forstørrelsesindstillinger er tilgængelige via kommandoen
-NVDA+Windows+O, der åbner et Forstørrelseslag til brug af følgende
-kommandoer:
+Ud over de standardkommandoer, der benyttes når du bruger Forstørrelsesglas,
+tilføjer denne tilføjelse yderligere kommandoer:
+
+* Kommandoer, der gør det muligt at styre indstillingerne for
+  Forstørrelsesglas uden at åbne indstillingspanelet.
+* Yderligere kommandoer, der kan bruges med denne tilføjelse.
+
+Alle disse kommandoer er tilglngelige via forstørelseslaget med kommandoen
+NVDA+skift+o.
 
 * NVDA+Windows+O og derefter C: Slår sporing af tekstmarkøren til og fra.
 * NVDA+Windows+O og derefter F: Slår fokussporing til eller fra.
@@ -98,8 +113,12 @@ kommandoer:
 * NVDA+Windows+O og derefter X: Skifter mellem sporingsfunktioner for
   tekstmarkøren(indenfor kanten af skærmen eller centreret på skærmen);
   denne funktion er kun tilgængelig på Windows 10 build 18894 eller nyere.
+* NVDA+Windows+O derefter piletasterne: Panorere den forstørrede visning.
 * NVDA+Windows+O og derefter V: Flytter musemarkøren i midten af den
-  forstørrede visning (kommandoen er kun tilgængelig i fuldskærmsvisning).
+  forstørrede visning (kommandoen er ikke tilgængelig i forankret visning).
+* NVDA+Windows+O derefter W: Aktivere eller deaktivere funktionen, der gør
+  at forstørelsesvinduet altid forbliver oven på de andre. Denne funktion er
+  kun tilgængelig for installerede versioner af NVDA.
 * NVDA+Windows+O og derefter O: Åbner indstillingerne for tilføjelsen.
 * NVDA+Windows+O og derefter H: Viser hjælpen for kommandoerne til
   forstørrelseslaget.
@@ -128,9 +147,8 @@ rapporteres af denne tilføjelse i henhold til dens konfiguration:
 * Skift mellem de tre visningstyper: Ctrl+Alt+M.
 * Tilpas linsens størrelse med tastaturet: Skift+Alt+piletasterne. Bemærk:
   skønt dette ikke ser ud til at være dokumenteret, synes denne genvej at
-  være trukket tilbage i de nyeste Windows-versioner som Windows 2004.
-* Flyt den forstørrede visning: Ctrl+Alt+piletasterne (rapportering påvirker
-  kun fuldskærmsvisning)
+  være trukket tilbage i de nyeste Windows-versioner som Windows 10 2004.
+* Panorer den forstørrede visning: Ctrl+Alt+piletasterne
 
 Yderligere er disse indbyggede kommandoer til rådighed:
 
@@ -171,8 +189,37 @@ Ingen af de indbyggede kommandoer til Forstørrelsesglas kan ændres.
       se](https://support.microsoft.com/da-DK/windows/use-magnifier-to-make-things-on-the-screen-easier-to-see-414948ba-8b1c-d3bd-8615-0e5e32204198?WT.mc_id=365AdminCSH_gethelp)
     * [Windows-tastaturgenveje som hjælp til handicappede][4]
 
+* Denne tilføjelse er ikke blevet testet i miljøer, hvor flere skærme
+  benyttes samtidigt, og der er chancer for, at nogle funktioner ikke virker
+  i dette miljø. Hvis du bruger flere skærme på én gang og ønsker, at det
+  skal understøttes, bedes du kontakte mig for at få det implementeret.
+* Tøv desuden ikke med at kontakte mig på [GitHub-siden][3] vedr. denne
+  tilføjelse eller direkte via e-mail.
+
 
 ## Ændringshistorik
+
+### Version 2.0
+
+* Du kan panorere visningen med piletasterne, når du er I
+  forstørrelseslaget.
+* Mulighed, der gør det muligt at vise vinduet for Forstørelsesglas oven på
+  andre vinduer.
+* Tilføjet funktion til at oplyse skærmens kanter.
+* Lydstyrkeindstilling for toner, når du bruger kommandoer til at panorere
+  visningen.
+* Kommandoer til at oplyse panorering af visningen, samt kommandoer til at
+  flytte musen til visningen, understøttes nu I linsetilstand.
+* Kompatibilitet med NVDA 2022.1.
+* Rettede en fejl, der nogle gange fejlagtigt rapporterede, at
+  forstørrelsesglasset ikke fungerede ved scriptkald.
+* Udgivelsen udføres nu takket være en GitHub-handling i stedet for
+  appVeyor.
+* Opdaterede oversættelser.
+
+### Version 1.1
+
+* Tilføjede oversættelser.
 
 ### Version 1.0
 
@@ -183,6 +230,8 @@ Ingen af de indbyggede kommandoer til Forstørrelsesglas kan ændres.
 [1]: https://addons.nvda-project.org/files/get.php?file=winmag
 
 [2]: https://addons.nvda-project.org/files/get.php?file=winmag-dev
+
+[3]: https://github.com/CyrilleB79/winMag
 
 [4]: https://shorturl.at/dezBK
 

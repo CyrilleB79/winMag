@@ -14,9 +14,11 @@ Cette extension améliore l'utilisation de la loupe Windows avec NVDA.
   Loupe.
 * Permet de réduire les cas où les commandes de navigation dans les tableaux
   entre en conflit avec les commandes de la loupe.
-* Ajoute des raccourcis clavier pour modifier différentes options de la
-  loupe.
-
+* Ajout de raccourcis clavier pour basculer entre diverses options natives
+  de la loupe.
+* Ajoute quelques fonctionnalités supplémentaires qui ne sont pas fournies
+  par la loupe Windows (souris au centre de la vue, fenêtre de la loupe pas
+  au dessus)
 
 ## Paramètres
 
@@ -38,8 +40,15 @@ Le panneau contient les options suivantes :
       de la vue agrandie sur la dimension le long de laquelle la vue est
       déplacée.
   
-  Cette option concerne seulement l'affichage plein écran.
-  
+  Cette option n'affecte pas le mode d'affichage ancré.
+
+* Annoncer les bords de l'écran : contrôle ce qui est signalé lorsque vous
+  atteignez les bords de l'écran tout en déplaçant la vue avec les commandes
+  Contrôle+Alt+Flèches. Les trois options sont : Désactivé, Avec parole et
+  Avec des sons. Cette option n'affecte pas le mode d'affichage ancré.
+* Volume des sons indiquant la position de la vue : permet de définir le
+  volume des sons si vous avez choisi de signaler les mouvements de la vue
+  ou les bords d'écran avec des sons.
 * Annoncer l'activation ou la désactivation : si cette option est cochée,
   l'état de la Loupe est signalé lorsque vous utilisez les commandes
   Windows++ ou Windows+Échap pour l'activer ou la désactiver.
@@ -65,20 +74,23 @@ Le panneau contient les options suivantes :
   Ctrl+alt+flèches à la Loupe Windows : Il y a trois choix possibles :
   
     * Jamais : la commande n'est pas transmise à la Loupe Windows et la
-      navigation standard de NVDA dans les tableaux peut agir. Utilisée dans
-      les documents hors des tableaux, la commande Ctrl+Alt+Flèche annoncent
-      un message d'erreur « Pas dans un tableau ». C'est le comportement
-      habituel de NVDA sans cette extension.
+      navigation standard de NVDA dans les tableaux peut fonctionner.
+      Utilisée dans les documents hors des tableaux, la commande
+      Ctrl+Alt+Flèche annoncent un message d'erreur « Pas dans un
+      tableau ».  C'est le comportement habituel de NVDA sans cette
+      extension.  Vous pouvez toujours utiliser NVDA+Windows+O puis les
+      flèches pour déplacer la vue agrandie.
     * Seulement en dehors des tableaux : Dans les tableaux ou les vues de
       liste, les commandes Ctrl+Alt+Flèche effectuent la navigation
-      habituelle dans les tableaux. Utilisées dans les documents en dehors
+      habituelle dans les tableaux.  Utilisées dans les documents en dehors
       des tableaux, les commandes Ctrl+Alt+Flèche exécutent les commandes
-      habituelles de déplacement de la vue de la Loupe. Si vous souhaitez
+      habituelles de déplacement de la vue de la Loupe.  Si vous souhaitez
       malgré tout déplacer la vue de la Loupe Windows alors que vous êtes
-      dans un tableau ou une vue de liste, , vous devrez appuyer sur NVDA+F2
-      avant d'utiliser les commandes Ctrl+Alt+Flèche. Cette option est le
-      meilleur compromis si vous souhaitez utiliser Ctrl+Alt+Flèche à la
-      fois pour la Loupe et la navigation dans les tableaux.
+      dans un tableau ou une vue de liste, vous devrez appuyer sur NVDA+F2
+      avant d'utiliser les commandes Ctrl+Alt+Flèche ou alors utiliser
+      NVDA+Windows+O puis les flèches.  Cette option est le meilleur
+      compromis si vous souhaitez utiliser Ctrl+Alt+Flèche à la fois pour la
+      Loupe et la navigation dans les tableaux.
     * Toujours : les commandes Ctrl+Alt+Flèche déplacent la vue de la Loupe
       dans tous les cas. Cette option peut être utile si vous n'utilisez pas
       Ctrl+Alt+Flèche pour naviguer dans les tableaux, par exemple parce que
@@ -89,11 +101,15 @@ Le panneau contient les options suivantes :
 
 ## Commandes ajoutées par cette extension
 
-En plus des commandes natives de la Loupe, cette extension fournit des
-commandes supplémentaires qui permettent de contrôler les options de la
-Loupe sans ouvrir sa page de configuration. Toutes les commandes ajoutées
-pour contrôler les options de la Loupe sont accessibles via la commande
-séquentielle de la Loupe NVDA+Windows+O :
+En plus des commandes natives de la loupe, cette extension fournit des
+commandes supplémentaires :
+
+* Commandes permettant de contrôler les options de la Loupe sans ouvrir sa
+  page de configuration.
+* Commandes supplémentaires spécifiques à cette extension.
+
+Toutes ces commandes supplémentaires sont accessibles via l'accès aux
+commandes séquentielles de la Loupe NVDA+Windows+O :
 
 * NVDA+Windows+O puis C: active ou désactive le suivi du curseur.
 * NVDA+Windows+O puis F: active ou désactive le suivi du focus.
@@ -107,8 +123,12 @@ séquentielle de la Loupe NVDA+Windows+O :
   texte (entre les bords de l'écran ou centré sur l'écran); cette
   fonctionnalité n'est disponible que sous Windows 10 build 18894 ou
   supérieur.
+* NVDA+Windows+O puis Flèches : Déplacer la vue agrandie.
 * NVDA+Windows+O puis V : Déplace le curseur de la souris au centre de la
-  vue agrandie (commande disponible uniquement en affichage plein écran).
+  vue agrandie (commande non disponible en mode d'affichage ancré).
+* NVDA+Windows+O puis W : active ou désactive le mode en gardant la fenêtre
+  de contrôle de la loupe Windows toujours au-dessus des autres. Cette
+  fonctionnalité n'est disponible que pour les versions installées de NVDA.
 * NVDA+Windows+O puis O : Ouvre les paramètres de l'extension Loupe Windows.
 * NVDA+Windows+O puis H: affiche l'aide sur les commandes séquentielles de
   la Loupe.
@@ -126,23 +146,23 @@ modifier les touches de raccourci des sous-commandes de la Loupe.
 Le résultat des commandes suivantes de la Loupe peut être annoncé par cette
 extension, selon sa configuration :
 
-* Démarrer la loupe: Windows++ (sur un clavier alphanumérique ou sur un pavé
+* Démarrer la loupe: Windows++ (sur le clavier alphanumérique ou sur le pavé
   numérique)
 * Quitter la loupe: Windows+Échap
-* Zoom avant: Windows++ (sur clavier alphanumérique ou pavé numérique)
-* Zoom arrière: Windows+- (sur clavier alphanumérique ou sur pavé numérique)
+* Zoom avant: Windows++ (sur le clavier alphanumérique ou le pavé numérique)
+* Zoom arrière: Windows+- (sur le clavier alphanumérique ou sur le pavé
+  numérique)
 * Activer ou désactiver l'inversion des couleurs: Ctrl+Alt+I
 * Sélectionnez l'affichage ancré: Ctrl+Alt+D
 * Sélectionnez l'affichage plein écran: Ctrl+Alt+F
 * Sélectionnez l'affichage objectif (anciennement affichage loupe):
   Ctrl+Alt+L
 * Parcourir les trois types d'affichage: Ctrl+Alt+M
-* Redimensionnez la loupe avec le clavier :
-  Maj+Alt+Gauche/Droite/Haut/Bas. Remarque : bien que cela ne semble pas
-  documenté, ce raccourci semble avoir été supprimé dans les versions
-  récentes de Windows telles que Windows 2004.
-* Déplacer la vue agrandie : Ctrl+Alt+Flèches (cette annonce n'affecte que
-  le mode plein écran)
+* Redimensionnez la loupe avec le clavier : Maj+Alt+Gauche/Droite/Haut/Bas
+  Remarque : bien que cela ne semble pas documenté, ce raccourci semble
+  avoir été supprimé dans les versions récentes de Windows telles que
+  Windows 10 2004.
+* Déplacer la vue agrandie : Ctrl+Alt+Flèches
 
 Voici également une liste d'autres commandes natives de la Loupe, juste à
 titre informatif:
@@ -188,8 +208,39 @@ Aucune des commandes natives de la Loupe ne peut être modifiée.
       l'écran](https://support.microsoft.com/fr-fr/help/11542/windows-use-magnifier-to-make-things-easier-to-see)
     * [Raccourcis clavier d'accessibilité dans Windows][4]
 
+* Cette extension n'a pas été testée dans un environnement multi-écran et il
+  est possible que certaines fonctionnalités ne fonctionnent pas dans cet
+  environnement. Si vous utilisez un environnement multi-écran et que vous
+  souhaitez qu'il soit pris en charge, veuillez me contacter pour
+  l'implémenter.
+* Plus généralement, n'hésitez pas à me contacter sur la [page GitHub][3] de
+  cette extension ou directement par e-mail.
+
 
 ## Journal des modifications
+
+### Version 2.0
+
+* La vue peut être déplacée avec les flèches dans les commandes
+  séquentielles de la loupe Windows.
+* Possibilité de garder la fenêtre des commandes de la loupe toujours au
+  dessus ou pas.
+* Ajout de la fonctionnalité "Signaler les bords de l'écran".
+* Réglage du volume des sons lors de l'utilisation des commandes de
+  déplacement de vue.
+* L'annonce des déplacements de la vue et la commande de déplacement de la
+  souris vers la vue pour afficher sont désormais pris en charge en mode
+  Objectif.
+* Compatibilité avec NVDA 2022.1.
+* Correction d'un bogue qui signalait parfois à tort que la loupe ne
+  fonctionnait pas lors d'un appel de script.
+* La release est maintenant effectuée grâce à une action GitHub au lieu
+  d'appVeyor.
+* Localisations mises à jour.
+
+### Version 1.1
+
+* Localisations ajoutées.
 
 ### Version 1.0
 
@@ -200,6 +251,8 @@ Aucune des commandes natives de la Loupe ne peut être modifiée.
 [1]: https://addons.nvda-project.org/files/get.php?file=winmag
 
 [2]: https://addons.nvda-project.org/files/get.php?file=winmag-dev
+
+[3]: https://github.com/CyrilleB79/winMag
 
 [4]: Raccourcis clavier d'accessibilité dans Windows
 

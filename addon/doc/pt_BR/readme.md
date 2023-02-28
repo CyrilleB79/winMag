@@ -13,8 +13,10 @@ Este complemento melhora o uso da Lupa do Windows com NVDA.
 * Permite informar o resultado de alguns comandos de teclado nativo da Lupa.
 * Permite reduzir os casos em que os comandos de navegação em tabelas entram
   em conflito com os comandos da Lupa.
-* Adiciona alguns atalhos de teclado para alternar várias opções da Lupa.
-
+* Adds some keyboard shortcuts to toggle various native options of the
+  Magnifier.
+* Adds some extra features that are not provided by Windows Magnifier (mouse
+  to view, Magnifier window not on top)
 
 ## Configurações
 
@@ -35,8 +37,15 @@ O painel contém as seguintes opções:
       visualização ampliada na dimensão em que a visualização está sendo
       movida.
   
-  Essa opção afeta apenas o modo de visualização cheia.
-  
+  This option does not affect docked view mode.
+
+* Report screen edges: controls what is reported when you reach the edges of
+  the screen while moving the view with Control+Alt+Arrows commands.  The
+  three options are: Off, With speech and With tones.  This option does not
+  affect docked view mode.
+* Volume of the tones reporting the view position: allows to define the
+  volume of the tones if you have selected to report view moves or screen
+  edges with tones.
 * Relatar ativação ou desativação: Se marcada, o estado da lupa é informado
   quando você usa os comandos Windows++ ou Windows+Esc para ativá-la ou
   desativá-la.
@@ -57,20 +66,20 @@ O painel contém as seguintes opções:
 * Em documentos e visualizações de listas, passar atalhos control+alt+setas
   para a Lupa do Windows: Há três opções possíveis:
   
-    * Nunca: O comando não é passado para a Lupa do Windows e a navegação
-      padrão de tabela do NVDA pode operar. Quando usado em documentos fora
-      de uma tabela, o comando Control+Alt+Seta relata uma mensagem de erro
-      "Não está numa tabela". Esse é o comportamento padrão do NVDA sem este
-      complemento.
-    * Somente quando não estiver em tabela: Em tabela ou em visualizações de
-      lista, os comandos Control+Alt+Seta executam a navegação padrão de
-      tabela. Quando usados em documentos fora duma tabela, os comandos
-      Control+Alt+Seta executam comandos padrões de movimento da
-      visualização da Lupa. Se você ainda deseja mover a visualização da
-      Lupa do Windows enquanto está na tabela ou na visualização de lista,
-      você precisará pressionar NVDA+F2 antes de usar os comandos
-      Control+Alt+Seta. Essa opção é o melhor meio-termo se você deseja usar
-      Control+Alt+Seta para ampliação e navegação de tabela.
+    * Never: The command is not passed to Windows Magnifier and standard
+      NVDA table navigation can operate.  When used in documents out of a
+      table, the Control+Alt+Arrow command reports a "Not in a table" error
+      message.  This is the standard behaviour of NVDA without this add-on.
+      You can still use NVDA+Windows+O then arrows to move the magnified
+      view.
+    * Only when not in table: In table or in list views, Control+Alt+Arrow
+      commands perform standard table navigation.  When used in documents
+      out of a table, Control+Alt+Arrow commands perform standard Magnifier
+      view move commands.  If you still want to move Windows Magnifier view
+      while in table or in list view, you will need to press NVDA+F2 before
+      using Control+Alt+Arrow commands or alternately use NVDA+Windows+O
+      then arrows.  This option is the best compromise if you want to use
+      Control+Alt+Arrow for both Magnifier and table navigation.
     * Sempre: Os comandos Control+Alt+Seta movem a visualização da Lupa em
       qualquer caso. Esta opção pode ser útil se você não usar
       Control+Alt+Seta para navegar em tabela, por exemplo, porque alterou
@@ -81,10 +90,15 @@ O painel contém as seguintes opções:
 
 ## Comandos adicionados por este complemento
 
-Além dos comandos nativos da Lupa, este complemento fornece comandos
-adicionais que permitem controlar as opções da Lupa sem abrir sua página de
-configuração. Todos os comandos adicionados para controlar as opções da Lupa
-são acessíveis através do comando de camada Lupa NVDA+Windows+O:
+In addition to native Magnifier commands, this add-on provide additional
+commands:
+
+* Commands that allow to control Magnifier's options without opening its
+  configuration page.
+* Extra commands specific to this add-on.
+
+All these additional commands are accessible through the Magnifier layer
+command NVDA+Windows+O:
 
 * NVDA+Windows+O depois C: Ativa ou desativa o rastreamento do cursor.
 * NVDA+Windows+O depois F: Ativa ou desativa o rastreamento do foco.
@@ -97,9 +111,12 @@ são acessíveis através do comando de camada Lupa NVDA+Windows+O:
 * NVDA+Windows+O depois X: Alterna entre os modos de rastreamento do cursor
   de texto (no limite da tela ou centralizado na tela); esse recurso está
   disponível apenas no Windows 10 compilação 18894 ou superior.
-* NVDA+Windows+O depois V: Coloca o cursor do mouse no centro da
-  visualização ampliada (comando disponível apenas na visualização em tela
-  cheia).
+* NVDA+Windows+O then Arrows: Move the magnified view.
+* NVDA+Windows+O then V: Moves the mouse cursor in the center of the
+  magnified view (command not available in docked view mode).
+* NVDA+Windows+O then W: Switches on or off the mode keeping Windows
+  Magnifier's control window always on top of the other ones.  This feature
+  is only available for installed versions of NVDA.
 * NVDA+Windows+O depois O: Abre as configurações do complemento Lupa do
   Windows.
 * NVDA+Windows+O depois H: Exibe a ajuda sobre os comandos de camada Lupa.
@@ -126,12 +143,10 @@ este complemento, de acordo com sua configuração:
 * Selecionar visualização em tela cheia: Control+Alt+F
 * Selecionar visualização de lente: Control+Alt+L
 * Circuitar através dos três tipos de visualização: Control+Alt+M
-* Redimensionar a lente com o teclado: Shift+Alt+seta para
-  Esquerda/Direita/Cima/Baixo. Nota: embora isso não pareça estar
-  documentado, este atalho parece ter sido retirado em versões recentes do
-  Windows, como o Windows 2004.
-* Mover a visualização ampliada: Control+Alt+Setas (a informação afeta
-  apenas o modo de tela cheia)
+* Resize the lens with the keyboard: Shift+Alt+Left/Right/Up/DownArrow Note:
+  although this does not seem to be documented, this shortcut seems to have
+  been withdrawn in recent Windows versions such as Windows 10 2004.
+* Move the magnified view: Control+Alt+Arrows
 
 Aqui está também uma lista de outros comandos nativos da Lupa, apenas para
 informação:
@@ -176,8 +191,34 @@ Nenhum dos comandos nativos da Lupa podem ser modificados.
       tela](https://support.microsoft.com/pt-br/windows/usar-a-lupa-para-facilitar-a-visualiza%C3%A7%C3%A3o-dos-itens-na-tela-414948ba-8b1c-d3bd-8615-0e5e32204198)
     * [Atalhos de teclado de acessibilidade do Windows][4]
 
+* This add-on has not been tested in multi-screen environment and there are
+  chances that some feature are not working in this environment.  If you are
+  using multi-screen environment and want it to be supported, please contact
+  me to have it implemented.
+* More generally, do not hesitate to contact me on the [GitHub page][3] of
+  this add-on or directly by e-mail.
+
 
 ## Registro de alterações (Change log)
+
+### Version 2.0
+
+* The view can be moved with arrows while in Windows Magnifier layer.
+* Capability to keep the Magnifier commands Window always on top or not.
+* Added "Report screen edges" feature.
+* Volume setting of tones when using move view commands.
+* Reporting view moves and mouse to view commands are now supported in Lens
+  mode.
+* Compatibility with NVDA 2022.1.
+* Fixed a bug that sometimes incorrectly reported that the Magnifier was not
+  working upon script call.
+* The release is now performed thanks to a GitHub action instead of
+  appVeyor.
+* Updated localizations.
+
+### Version 1.1
+
+* Added localizations.
 
 ### Versão 1.0
 
@@ -188,6 +229,8 @@ Nenhum dos comandos nativos da Lupa podem ser modificados.
 [1]: https://addons.nvda-project.org/files/get.php?file=winmag
 
 [2]: https://addons.nvda-project.org/files/get.php?file=winmag-dev
+
+[3]: https://github.com/CyrilleB79/winMag
 
 [4]: https://support.microsoft.com/pt-br/help/13810
 

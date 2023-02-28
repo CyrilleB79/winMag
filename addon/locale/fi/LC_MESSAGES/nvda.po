@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: winMag 1.0\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2021-06-21 09:38+0000\n"
-"PO-Revision-Date: 2022-04-03 12:08+0200\n"
+"PO-Revision-Date: 2022-05-30 18:40+0200\n"
 "Last-Translator: Jani Kinnunen <janikinnunen340@gmail.com>\n"
 "Language-Team: fi_FI <janikinnunen340@gmail.com>\n"
 "Language: fi\n"
@@ -68,29 +68,45 @@ msgid ""
 "centered on the screen)"
 msgstr "Vaihtaa tekstin seurannan tilaa (näytön reunassa tai näytön keskellä)"
 
+#. Translators: The description for the moveView script.
+msgid "Moves the magnified view"
+msgstr "Siirtää suurennettua näkymää"
+
 #. Translators: The description for the moveMouseToView script.
 msgid "Moves the mouse cursor in the center of the zoomed view"
 msgstr "Siirtää hiirikohdistimen zoomatun näkymän keskelle"
 
+#. Translators: The description for the keepMagWindowOnTop script.
+msgid ""
+"Switches on or off the mode allowing to keep Windows Magnifier's control "
+"window always on top of the other ones."
+msgstr ""
+"Ottaa käyttöön tai poistaa käytöstä tilan, joka pitää suurennuslasin "
+"säädinikkunan aina muiden ikkunoiden päällä."
+
 #. Translators: The description for the openSettings script.
 msgid "Opens Windows Magnifier add-on settings"
-msgstr "Avaa Windows suurennuslasi -lisäosan asetukset"
+msgstr "Avaa Windowsin suurennuslasi -lisäosan asetukset"
 
 #. Translators: The description for the displayHelp script.
 msgid "Displays help on Magnifier layer commands"
 msgstr "Näyttää suurennuslasin komentokerroskomentojen ohjeen"
 
+#. Translators: A message reported when the user tries to execute a script in multi-screen setup.
+msgid ""
+"Multi-screen setup not yet supported. Please contact the add-on author to "
+"have it implemented."
+msgstr ""
+"Moninäyttöympäristöä ei vielä tueta. Ota yhteyttä lisäosan tekijään tuen "
+"toteuttamiseen liittyen."
+
 #. Translators: Part of the description for the layered command script.
 msgid "Windows Magnifier layer commands entry point."
-msgstr "Windows suurennuslasin komentokerroskomentojen aloituskohta."
+msgstr "Windowsin suurennuslasin komentokerroskomentojen aloituskohta."
 
-#. Translators: A message reported when the user tries to execute script mouseToView
-msgid ""
-"This command is not yet available in multi-screen environment. Please "
-"contact the add-on author to have it implemented."
-msgstr ""
-"Tämä komento ei ole vielä käytettävissä moninäyttöympäristössä. Ota yhteyttä "
-"lisäosan tekijään pyytääksesi sitä."
+#. Translators: A message reported when the user reaches the edge of the screen while moving the view.
+msgid "Edge of the screen."
+msgstr "Näytön reuna"
 
 #. Translators: A dimension reported when the user resizes the docked view.
 msgid "Widht"
@@ -164,15 +180,18 @@ msgstr "Näytön keskellä"
 msgid "Within the edge of the screen"
 msgstr "Näytön reunassa"
 
-#. Translators: A message reported when the user tries to execute script mouseToView
-msgid "Move mouse to view command available only on Windows 8 and above."
+#. Translators: A message reported when the user tries to execute script moveView.
+msgid "Only gestures containing arrow key may be mapped to this script."
 msgstr ""
-"Siirrä hiiri näkymään -komento käytettävissä vain Windows 8:ssa ja "
-"uudemmissa."
+"Tähän skriptiin voi yhdistää vain nuolinäppäimen sisältäviä näppäinkomentoja."
 
 #. Translators: A message reported when the user tries to execute script mouseToView
-msgid "Move mouse to view not applicable with lense view."
-msgstr "Siirrä hiiri näkymään -komento ei käytettävissä linssinäkymässä."
+msgid ""
+"Move mouse to view command available only on Windows 8 and above in full "
+"screen mode."
+msgstr ""
+"Siirrä hiiri näkymään -komento käytettävissä koko näytön tilassa vain "
+"Windows 8:ssa ja uudemmissa"
 
 #. o = getDockedWindowObject()
 #. hwnd = o.windowHandle
@@ -181,6 +200,19 @@ msgstr "Siirrä hiiri näkymään -komento ei käytettävissä linssinäkymäss�
 #. Translators: A message reported when the user tries to execute script mouseToView
 msgid "Move mouse to view not implemented for docked view"
 msgstr "Siirrä hiiri näkymään -komentoa ei toteutettu kiinnitetylle näkymälle"
+
+#. Translators: A message reported when toggling "always on top" mode for Windows Magnifier's control window
+msgid "Magnifier controls always on top."
+msgstr "Suurennuslasin säätimet aina päällimmäisenä"
+
+#. Translators: A message reported when toggling "always on top" mode for Windows Magnifier's window
+msgid "Magnifier controls not on top."
+msgstr "Suurennuslasin säätimet eivät päällimmäisenä"
+
+#. Translators: A message reported when trying toggling "always on top" mode for Windows Magnifier's window
+#. while running a portable NVDA.
+msgid "Command only supported in installed versions of NVDA."
+msgstr "Komentoa tuetaan vain NVDA:n asennetussa versiossa"
 
 #. Translators: A message reported in secure screen when the user attempts to modify magnifiers settings.
 msgid "Command unavailable on this screen."
@@ -221,7 +253,11 @@ msgstr "Linssi"
 
 #. Translators: Title of the layered command help window.
 msgid "Windows Magnifier layered commands"
-msgstr "Windows suurennuslasin komentokerroskomennot"
+msgstr "Windowsin suurennuslasin komentokerroskomennot"
+
+#. Translators: Separator between key names in the layered command help window.
+msgid ", "
+msgstr ", "
 
 #. Translators: Part of the help message displayed for the layered command help.
 #, python-brace-format
@@ -266,6 +302,14 @@ msgstr "Aina"
 msgid "Report view &moves:"
 msgstr "Ilmoita näkymän &siirtäminen:"
 
+#. Translators: This is the label for a combobox in the Windows Magnifier settings panel.
+msgid "Report screen &edges:"
+msgstr "Ilmoita näytön r&eunat:"
+
+#. Translators: This is the label for a slider in the Windows Magnifier settings panel.
+msgid "Volume of the tones indicating the &position of the view:"
+msgstr "Näkymän &sijainnin ilmoittavien äänimerkkien voimakkuus:"
+
 #. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
 msgid "Report &turn on or off"
 msgstr "Ilmoita &käyttöönotto ja käytöstä poistaminen"
@@ -292,22 +336,29 @@ msgid ""
 "Magnifier:"
 msgstr ""
 "Välitä Ctrl+Alt+Nuolet-pikanäppäimet &asiakirjoissa ja luettelonäkymissä "
-"Windows suurennuslasille:"
+"Windowsin suurennuslasille:"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
-msgid ""
-"This addon improves the use of Windows Magnifier with NVDA with the "
-"following features:\n"
-"\t- Allows to report the result of some native Magnifier keyboard commands.\n"
-"\t- Allows to reduces the cases where table navigation command conflict with "
-"Magnifier's commands.\n"
-"\t- Adds some keyboard shortcuts to toggle various Magnifier options."
-msgstr ""
-"Tämä lisäosa parantaa Windowsin suurennuslasin käyttöä  NVDA:n kanssa "
-"seuraavilla ominaisuuksilla:\n"
-"\t- Mahdollistaa joidenkin suurennuslasin omien näppäinkomentojen "
-"puhepalautteen.\n"
-"\t- Vähentää ristiriitoja taulukkonavigointikomentojen ja suurennuslasin "
-"komentojen välillä.\n"
-"\t- Lisää muutamia näppäinkomentoja suurennuslasin asetusten muuttamiseen."
+msgid "This add-on improves the use of Windows Magnifier with NVDA."
+msgstr "Tämä lisäosa parantaa Windowsin suurennuslasin käyttöä NVDA:n kanssa."
+
+#~ msgid ""
+#~ "This addon improves the use of Windows Magnifier with NVDA with the "
+#~ "following features:\n"
+#~ "\t- Allows to report the result of some native Magnifier keyboard "
+#~ "commands.\n"
+#~ "\t- Allows to reduces the cases where table navigation command conflict "
+#~ "with Magnifier's commands.\n"
+#~ "\t- Adds some keyboard shortcuts to toggle various Magnifier options."
+#~ msgstr ""
+#~ "Tämä lisäosa parantaa Windowsin suurennuslasin käyttöä  NVDA:n kanssa "
+#~ "seuraavilla ominaisuuksilla:\n"
+#~ "\t- Mahdollistaa joidenkin suurennuslasin omien näppäinkomentojen "
+#~ "puhepalautteen.\n"
+#~ "\t- Vähentää ristiriitoja taulukkonavigointikomentojen ja suurennuslasin "
+#~ "komentojen välillä.\n"
+#~ "\t- Lisää muutamia näppäinkomentoja suurennuslasin asetusten muuttamiseen."
+
+#~ msgid "Move mouse to view not applicable with lense view."
+#~ msgstr "Siirrä hiiri näkymään -komento ei käytettävissä linssinäkymässä."

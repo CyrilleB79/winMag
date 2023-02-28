@@ -14,9 +14,10 @@ Ovaj dodatak poboljšava upotrebu Windows povećala s NVDA čitačem.
   povećala.
 * Dozvoljava smanjivanje broja slučajeva, gdje se naredbe za kretanje po
   tablici sukobljavaju s naredbama povećala.
-* Dodaje neke prečace na tipkovnici za uključivanje i isključivanje raznih
+* Dodaje neke tipkovničke prečace za uključivanje i isključivanje raznih
   opcija povećala.
-
+* Dodaje neke dodatne značajke koje ne pruža Windows povećalo (miš za
+  prikaz, prozor povećala nije na vrhu)
 
 ## Postavke
 
@@ -36,8 +37,15 @@ Ploča sadrži sljedeće opcije:
     * Sa zvučnim signalima: svira se ton i njegova visina označava položaj
       uvećanog prikaza na dimenziji na kojoj se prikaz pomiče.
   
-  Ova opcija vrijedi samo za cjloekranski prikaz.
-  
+  Ova opcija ne utječe na usidreni način prikaza.
+
+* Javi rubove ekrana: kontrolira ono što se prijavljuje kad dosegneš rubove
+  ekrana tijekom micanja prikaza pomoću naredbi Kontrol+Alt+Strelice. Tri
+  opcije su: Isključeno, S govorom i S tonovima. Ova opcija ne utječe na
+  usidreni način prikaza.
+* Glasnoća tonova za javljanje položaja prikaza: omogućuje definiranje
+  glasnoće tonova ako su odabrana javljanja o premještanju prikaza ili o
+  rubovima ekrana s tonovima.
 * Uključi ili isključi javljanje: Ako je označeno, javlja se stanje povećala
   kad za uključivanje ili isključivanje koristiš naredbe Windows++ ili
   Windows+Escape.
@@ -61,16 +69,18 @@ Ploča sadrži sljedeće opcije:
     * Nikada: Naredba se ne prosljeđuje Windows povećalu i standardno NVDA
       kretanje tablicom može raditi. Kad se koristi u dokumentima izvan
       tablice, naredba Kontrol+Alt+Strelica javlja poruku o grešci „Nije u
-      tablici”. To je standardno ponašanje NVDA čitača bez ovog dodatka.
+      tablici”. To je standardno ponašanje NVDA čitača bez ovog dodatka. I
+      dalje možeš koristiti NVDA+Windows+O zatim strelice za pomicanje
+      uvećanog prikaza.
     * Samo izvan tablice: U prikazima tablice ili popisa, naredbe
       Kontrol+Alt+Strelica izvode standardno kretanje po tablici. Kad se
       koriste u dokumentima izvan tablice, naredbe Kontrol+Alt+Strelica
       izvode standardne naredbe za pomicanje prikaza povećala. Ako i dalje
       želiš pomaknuti prikaz Windows povećala dok se nalaziš u prikazu
       tablice ili popisa, morat ćeš pritisnuti NVDA+F2 prije korištenja
-      naredbi Kontrol+Alt+Strelica. Ova je opcija najbolji kompromis, ako
-      želiš koristiti Kontrol+Alt+Strelica za povećalo i za kretanje po
-      tablici.
+      naredbi Kontrol+Alt+Strelica ili alternativno NVDA+Windows+O zatim
+      strelice. Ova je opcija najbolji kompromis, ako želiš koristiti
+      Kontrol+Alt+Strelica za povećalo i za kretanje po tablici.
     * Uvijek: Naredbe Kontrol+Alt+Strelica u svakom slučaju pomiču prikaz
       povećala. Ova opcija može biti korisna, ako ne koristiš
       Kontrol+Alt+Strelica za kretanje po tablici, npr. jer si promijenio/la
@@ -81,10 +91,14 @@ Ploča sadrži sljedeće opcije:
 
 ## Dodatak dodaje sljedeće naredbe
 
-Osim izvornih naredbi povećala, ovaj dodatak nudi dodatne naredbe koje
-omogućuju upravljanje opcijama povećala bez otvaranja njegove stranice
-konfiguracije. Sve naredbe koje su dodane za upravljanje opcijama povećala
-dostupne su putem naredbe povećala NVDA+Windows+O:
+Osim izvornih naredbi povećala, ovaj dodatak pruža dodatne naredbe:
+
+* Naredbe koje omogućuju upravljanje opcijama povećala bez otvaranja njegove
+  konfiguracijske stranice.
+* Dodatne naredbe specifične za ovaj dodatak.
+
+Sve ove dodatne naredbe dostupne su putem naredbe sloja povećala
+NVDA+Windows+O:
 
 * NVDA+Windows+O, zatim C: Uključuje ili isključuje praćenje kursora.
 * NVDA+Windows+O, zatim F: Uključuje ili isključuje praćenje fokusa.
@@ -97,8 +111,12 @@ dostupne su putem naredbe povećala NVDA+Windows+O:
 * NVDA+Windows+O, zatim X: Prebacuje se između modusa praćenja miša (unutar
   ruba ekrana ili centrirano na ekranu); ova je funkcija dostupna samo u
   Windows 10 gradnja 18894 ili novijoj verziji.
-* NVDA+Windows+O, zatim V: Pomiče kursor miša u središte uvećanog prikaza
-  (naredba je dostupna samo u cjeloekranskom prikazu).
+* NVDA+Windows+O zatim strelice: Pomakni uvećani prikaz.
+* NVDA+Windows+O zatim V: Pomiče kursor miša u središte uvećanog prikaza
+  (naredba nije dostupna u usidrenom načinu prikaza).
+* NVDA+Windows+O zatim W: Uključuje ili isključuje način rada držeći
+  kontrolni prozor Windows povećala uvijek iznad ostalih. Ova je značajka
+  dostupna samo za instalirane NVDA verzije.
 * NVDA+Windows+O, zatim O: Otvara postavke dodatka Windows povećala.
 * NVDA+Windows+O, zatim H: Prikazuje pomoć za naredbe povećala.
 
@@ -126,12 +144,11 @@ ovisno o konfiguraciji:
 * Odaberi cjeloekranski prikaz: Kontrol+Alt+F
 * Odaberi prikaz lećom: Kontrol+Alt+L
 * Mijenjaj između tri vrste prikaza: Kontrol+Alt+M
-* Promijeni veličinu leće tipkovnicom: Šift+Alt+strelica
-  Lijevo/Desno/Gore/Dolje. Napomena: iako se čini da ovo nije dokumentirano,
-  čini se da je ovaj prečac povučen u novijim verzijama Windowsa, kao što je
-  Windows 2004.
-* Pomakni uvećani prikaz: Kontrol+Alt+strelice (izvještavanje utječe samo na
-  cjeloekranski modus)
+* Promijeni veličinu leće pomoću tipkovnice: Šift+Alt+strelica
+  lijevo/desno/gore/dolje. Napomena: iako ovo nije dokumentirano, čini se da
+  je ovaj prečac povučen u novijim verzijama Windows sustava kao što je
+  Windows 10 2004.
+* Pomakni uvećani prikaz: Kontrol+Alt+strelice
 
 Za kraj, evo popis ostalih izvornih naredbi povećala, čisto informativno:
 
@@ -171,8 +188,34 @@ Nije moguće promijeniti niti jednu izvornu naredbu povećala.
       zaslonu](https://support.microsoft.com/hr-hr/windows/kori%C5%A1tenje-pove%C4%87ala-za-lak%C5%A1e-gledanje-sadr%C5%BEaja-na-zaslonu-414948ba-8b1c-d3bd-8615-0e5e32204198)
     * [Tipkovni prečaci za pristupačnost u sustavu Windows][4]
 
+* Ovaj dodatak nije testiran u višeekranskom okruženju i neka značajka možda
+  neće radi u ovom okruženju. Ako koristiš višeekransko okruženje i ako
+  želiš da se to podrži, kontaktiraj me kako bih ga implementirao.
+* Općenito, ne ustručavaj se me kontaktirati na [GitHub stranici][3] ovog
+  dodatka ili izravno putem e-pošte.
+
 
 ## Dnevnik promjena
+
+### Verzija 2.0
+
+* Prikaz se može pomicati strelicama dok se nalaziš u sloju Windows
+  povećala.
+* Mogućnost za održavanje prozora naredbi povećala uvijek na vrhu ili ne.
+* Dodana je funkcija „Javi rubove ekrana”.
+* Podešavanje glasnoće tonova tijekom korištenja naredbi za pomicanje
+  prikaza.
+* Izvještavanje o pomicanjima prikaza i o naredbama prikaz mišem su sada
+  podržane u modusu leće.
+* Kompatibilnost s NVDA 2022.1.
+* Ispravljena je greška koja je ponekad netočno javljala da povećalo ne radi
+  nakon pozivanja skripta.
+* Izdanje se sada izvodi zahvaljujući GitHub radnji umjesto appVeyora.
+* Aktualizirane lokalizacije.
+
+### Verzija 1.1
+
+* Dodane su lokalizacije.
 
 ### Verzija 1.0
 
@@ -183,6 +226,8 @@ Nije moguće promijeniti niti jednu izvornu naredbu povećala.
 [1]: https://addons.nvda-project.org/files/get.php?file=winmag
 
 [2]: https://addons.nvda-project.org/files/get.php?file=winmag-dev
+
+[3]: https://github.com/CyrilleB79/winMag
 
 [4]: https://support.microsoft.com/hr-hr/help/13810
 

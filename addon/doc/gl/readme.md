@@ -14,8 +14,10 @@ NVDA.
 * Permite anunciar o resultado de certos atallos nativos da lupa.
 * Permite reducir os casos nos que as ordes de navegación por táboas fan
   conflicto con atallos da Lupa.
-* Engade algúns atallos de teclado para alternar certas opcións da Lupa.
-
+* Engade algúns atallos de teclado para alternar certas opcións nativas da
+  Lupa.
+* Engade algunhas características extra que non proporciona a Lupa de
+  Windows (rato á vista, xanela da Lupa non en primeiro plano)
 
 ## Opcións
 
@@ -35,8 +37,15 @@ O panel contén as seguintes opcións:
     * Con tons: reprodúcese un ton e a súa altura indica a posición da vista
       ampliada na dimensión na que se está a mover a vista.
   
-  Esta opción só afecta ó modo de vista completa.
-  
+  Esta opción non afecta ó modo de vista acoplada.
+
+* Anunciar bordes da pantalla: controla que se anuncia cando chegas ós
+  bordes da pantalla mentres moves a vista coas ordes Control+Alt+Frechas.
+  As tres opcións son: desactivado, con voz ou con tons.  Esta opción non
+  afecta ó modo de vista acoplada.
+* Volume dos tons informando da posición da vista: permite definir o volume
+  dos tons se seleccionaches anunciar movementos da vista ou os bordes da
+  pantalla con tons.
 * Anunciar activación e desactivación: Se está marcado, o estado da Lupa
   anúnciase cando utilizas as ordes Windows++ ou Windows+Escape para
   activala ou desactivala.
@@ -81,9 +90,14 @@ O panel contén as seguintes opcións:
 ## Ordes engadidas por este complemento
 
 Ademais dos atallos da Lupa nativa, este complemento fornece ordes
-adicionais que permiten controlar as opcións da Lupa sen abrir a súa páxina
-de configuración.  todos os comandos engadidos para controlar opcións da
-Lupa son accesibles a través da orde en capa de Magnifier NVDA+Windows+O:
+adicionais:
+
+* Ordes que permiten controlar as opcións da Lupa sen abrir a súa páxina de
+  configuración.
+* Ordes adicionais específicas deste complemento.
+
+Todas estas ordes adicionais son accesibles a través da orde de capa da Lupa
+NVDA+Windows+O:
 
 * NVDA+Windows+O logo C: Activa ou desactiva seguemento do cursor.
 * NVDA+Windows+O logo F: Activa ou desactiva seguemento do foco.
@@ -97,8 +111,13 @@ Lupa son accesibles a través da orde en capa de Magnifier NVDA+Windows+O:
   texto (dentro do borde da pantalla ou centrado na pantalla); esta
   característica só está dispñible en Windows 10 compilación 18894 ou
   superior.
+* NVDA+Windows+O logo frechas: Mover a vista da Lupa.
 * NVDA+Windows+O LOGO V: Move o cursor do rato ó centro da vista da Lupa
-  (orde só dispoñible en vista de pantalla completa).
+  (orde non dispoñible en vista acoplada).
+* NVDA+Windows+O logo W: alterna entre activado e desactivado o modo para
+  manter .  This feature is only available for installed versions of NVDA.a
+  xanela de control da Lupa de windows sempre enriba das outras.  Esta
+  característica só está dispoñible para versións instaladas de NVDA:
 * NVDA+Windows+O logo O: Abre as opcións do complemento Windows Magnifier.
 * NVDA*Windows+O logo H: Amosa axuda sobre as ordes da capa da Lupa.
 
@@ -124,11 +143,10 @@ complemento, de acordo coa súa configuración:
 * Seleccionar vista lente: Control+Alt+L
 * Recorrer os tres tipos de vista: Control+Alft+M
 * Redimensionar a lente co teclado:
-  Shift+Alt+FrechaEsquerda/Dereita/Arriba/Abaixo.  Nota: Aínda que isto non
+  Shift+Alt+FrechaEsquerda/Dereita/Arriba/Abaixo Nota: Aínda que isto non
   parece estar documentado, este atallo parece que foi retirado en versións
-  de Windows recentes como Windows 2004.
-* Mover a vista da LLupa: Control+Alt+Frechas (o anunciado só afecta ó modo
-  de pantalla completa)
+  de Windows recentes como Windows 10 2004.
+* Mover a vista da Lupa: Control+Alt+Frechas
 
 Aquí está tamén unha lista de outras ordes nativas da Lupa, só para
 información:
@@ -172,8 +190,34 @@ Ningunha das ordes nativas da Lupa se poden modificar.
     * [Windows keyboard shortcuts for accessibility (Atallos de teclas de
       Windows para a accesibilidade)][4]
 
+* Este complemento non se probou nun entorno multipantalla e podería ser que
+  algunhas características non funcionasen neste entorno.  Se estás
+  utilizando un entorno multipantalla e queres que se soporte, por favor
+  contáctame para implementalo.
+* Máis en xeral, non dubides en contactarme na [páxina de gitHub][3] deste
+  complemento ou directamente por correo electrónico.
+
 
 ## Rexistro de trocos
+
+### Versión 2.0
+
+* A vista pódese mover coas frechas dende a capa de windows Magnifier.
+* Capacidade para manter a xanela de ordes da Lupa sempre enriba ou non.
+* Engadida a aracterística "Anunciar bordes da pantalla".
+* Axuste do volume dos tons ó utilizar ordes de movemento da vistsa.
+* As ordes para anunciar cambios de vista e rato á vista agora sopórtanse en
+  modo Lente.
+* Compatibilidade con NVDA 2022.1.
+* Arranxado un erro polo que en ocasións se anunciaba que a lupa non estaba
+  funcionando ó chamar ó script.
+* A publicación agora faise grazas a unha acción de GitHub no canto de
+  appVeyor.
+* Traducións actualizadas.
+
+### Versión 1.1
+
+* Traducións engadidas.
 
 ### Versión 1.0
 
@@ -184,6 +228,8 @@ Ningunha das ordes nativas da Lupa se poden modificar.
 [1]: https://addons.nvda-project.org/files/get.php?file=winmag
 
 [2]: https://addons.nvda-project.org/files/get.php?file=winmag-dev
+
+[3]: https://github.com/CyrilleB79/winMag
 
 [4]: https://support.microsoft.com/en-us/help/13810
 

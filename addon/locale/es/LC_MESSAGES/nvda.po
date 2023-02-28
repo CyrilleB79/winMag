@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: winMag 1.0\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2021-06-21 09:38+0000\n"
-"PO-Revision-Date: 2021-07-03 09:44+0200\n"
+"PO-Revision-Date: 2022-05-08 09:23+0200\n"
 "Last-Translator: José Manuel Delicado <jmdaweb@hotmail.com>\n"
 "Language-Team: \n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.0\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #. Alpha-numeric keyboard Magnifier keys
 #. Translators: The key used natively byt the Magnifier on the alpha-numeric (main) keyboard in conjunction with Win key to zoom in.
@@ -72,9 +72,21 @@ msgstr ""
 "Alterna entre modos de seguimiento de texto (en el borde de la pantalla o "
 "centrado)"
 
+#. Translators: The description for the moveView script.
+msgid "Moves the magnified view"
+msgstr "Mueve la vista ampliada"
+
 #. Translators: The description for the moveMouseToView script.
 msgid "Moves the mouse cursor in the center of the zoomed view"
 msgstr "Desplaza el cursor del ratón al centro de la vista ampliada"
+
+#. Translators: The description for the keepMagWindowOnTop script.
+msgid ""
+"Switches on or off the mode allowing to keep Windows Magnifier's control "
+"window always on top of the other ones."
+msgstr ""
+"Activa o desactiva el modo siempre visible de la ventana de control de la "
+"lupa."
 
 #. Translators: The description for the openSettings script.
 msgid "Opens Windows Magnifier add-on settings"
@@ -84,17 +96,21 @@ msgstr "Abre las opciones del complemento Lupa de Windows"
 msgid "Displays help on Magnifier layer commands"
 msgstr "Muestra ayuda sobre las órdenes de capa de la lupa"
 
+#. Translators: A message reported when the user tries to execute a script in multi-screen setup.
+msgid ""
+"Multi-screen setup not yet supported. Please contact the add-on author to "
+"have it implemented."
+msgstr ""
+"Configuración de varias pantallas no soportada. Contacta con el autor del "
+"complemento para que la implemente."
+
 #. Translators: Part of the description for the layered command script.
 msgid "Windows Magnifier layer commands entry point."
 msgstr "Punto de entrada de órdenes de capa de la lupa de Windows."
 
-#. Translators: A message reported when the user tries to execute script mouseToView
-msgid ""
-"This command is not yet available in multi-screen environment. Please "
-"contact the add-on author to have it implemented."
-msgstr ""
-"Esta orden todavía no está disponible en entornos de varias pantallas. "
-"Contacta con el autor del complemento para que la implemente."
+#. Translators: A message reported when the user reaches the edge of the screen while moving the view.
+msgid "Edge of the screen."
+msgstr "Borde de la pantalla."
 
 #. Translators: A dimension reported when the user resizes the docked view.
 msgid "Widht"
@@ -170,15 +186,17 @@ msgstr "Centrado en pantalla"
 msgid "Within the edge of the screen"
 msgstr "En el borde de la pantalla"
 
-#. Translators: A message reported when the user tries to execute script mouseToView
-msgid "Move mouse to view command available only on Windows 8 and above."
-msgstr ""
-"La orden de desplazar el ratón a la vista sólo está disponible en Windows 8 "
-"y superiores."
+#. Translators: A message reported when the user tries to execute script moveView.
+msgid "Only gestures containing arrow key may be mapped to this script."
+msgstr "Sólo se pueden asignar a este script gestos que contengan las flechas."
 
 #. Translators: A message reported when the user tries to execute script mouseToView
-msgid "Move mouse to view not applicable with lense view."
-msgstr "Desplazar el ratón a la vista no se puede usar en la vista lente."
+msgid ""
+"Move mouse to view command available only on Windows 8 and above in full "
+"screen mode."
+msgstr ""
+"La orden de desplazar el ratón a la vista sólo está disponible en Windows 8 "
+"y superiores en el modo pantalla completa."
 
 #. o = getDockedWindowObject()
 #. hwnd = o.windowHandle
@@ -188,6 +206,19 @@ msgstr "Desplazar el ratón a la vista no se puede usar en la vista lente."
 msgid "Move mouse to view not implemented for docked view"
 msgstr ""
 "Desplazar el ratón a la vista no está implementado en la vista acoplada"
+
+#. Translators: A message reported when toggling "always on top" mode for Windows Magnifier's control window
+msgid "Magnifier controls always on top."
+msgstr "Controles de la lupa siempre visibles."
+
+#. Translators: A message reported when toggling "always on top" mode for Windows Magnifier's window
+msgid "Magnifier controls not on top."
+msgstr "Controles de la lupa no siempre visibles."
+
+#. Translators: A message reported when trying toggling "always on top" mode for Windows Magnifier's window
+#. while running a portable NVDA.
+msgid "Command only supported in installed versions of NVDA."
+msgstr "Orden soportada sólo en copias instaladas de NVDA."
 
 #. Translators: A message reported in secure screen when the user attempts to modify magnifiers settings.
 msgid "Command unavailable on this screen."
@@ -229,6 +260,10 @@ msgstr "Lente"
 #. Translators: Title of the layered command help window.
 msgid "Windows Magnifier layered commands"
 msgstr "Órdenes de capa de la lupa de Windows"
+
+#. Translators: Separator between key names in the layered command help window.
+msgid ", "
+msgstr ", "
 
 #. Translators: Part of the help message displayed for the layered command help.
 #, python-brace-format
@@ -273,6 +308,14 @@ msgstr "Siempre"
 msgid "Report view &moves:"
 msgstr "Anunciar &movimientos de la vista:"
 
+#. Translators: This is the label for a combobox in the Windows Magnifier settings panel.
+msgid "Report screen &edges:"
+msgstr "Indicar &bordes de la pantalla:"
+
+#. Translators: This is the label for a slider in the Windows Magnifier settings panel.
+msgid "Volume of the tones indicating the &position of the view:"
+msgstr "Volumen de los pitidos que indican la &posición de la vista:"
+
 #. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
 msgid "Report &turn on or off"
 msgstr "Anunciar &activada o desactivada"
@@ -303,18 +346,5 @@ msgstr ""
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
-msgid ""
-"This addon improves the use of Windows Magnifier with NVDA with the "
-"following features:\n"
-"\t- Allows to report the result of some native Magnifier keyboard commands.\n"
-"\t- Allows to reduces the cases where table navigation command conflict with "
-"Magnifier's commands.\n"
-"\t- Adds some keyboard shortcuts to toggle various Magnifier options."
-msgstr ""
-"Este complemento mejora el uso de la lupa de Windows con NVDA gracias a las "
-"siguientes funciones:\n"
-"\t- Permite anunciar el resultado de algunas órdenes de teclado de la lupa.\n"
-"\t- Permite reducir los casos donde las órdenes de navegación por tablas "
-"hacen conflicto con las órdenes de la lupa.\n"
-"\t- Añade algunos atajos de teclado para conmutar diversas opciones de la "
-"lupa."
+msgid "This add-on improves the use of Windows Magnifier with NVDA."
+msgstr "Este complemento mejora el uso de la lupa de Windows con NVDA."

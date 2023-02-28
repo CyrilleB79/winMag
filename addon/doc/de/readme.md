@@ -14,9 +14,10 @@ Diese Erweiterung verbessert die Verwendung von Windows-Lupe mit NVDA.
   anzusagen.
 * Ermöglicht die Reduzierung der Fälle, in denen die Befehle für die
   Tabellen-Navigation mit den Befehlen der Lupe in Konflikt stehen.
-* Fügt einige Tastaturkürzel hinzu, um verschiedene Lupenoptionen
-  umzuschalten.
-
+* Fügt einige Tastenkombinationen zum Umschalten verschiedener Optionen der
+  Lupe hinzu.
+* Fügt einige zusätzliche Funktionen hinzu, die die Windows-Lupe nicht
+  anbietet (Maus zum Betrachten, Lupenfenster nicht im Vordergrund)
 
 ## Die Einstellungen
 
@@ -39,8 +40,17 @@ Das Panel enthält die folgenden Optionen:
       gibt die Position der gezoomten Ansicht auf der Dimension an, in der
       die Ansicht verschoben wird.
   
-  Diese Option betrifft nur den Vollbild-Modus.
-  
+  Diese Option wirkt sich nicht auf den angedockten Ansichtsmodus aus.
+
+* Bildschirmränder mitteilen: Steuert, was gemeldet wird, wenn Sie beim
+  Verschieben der Ansicht mit den Befehlen Strg+Alt+Pfeile die
+  Bildschirmränder erreichen.  Die drei Optionen sind: Deaktiviert, mit
+  Sprachausgabe oder mit Signaltönen. Diese Option wirkt sich nicht auf den
+  angedockten Ansichtsmodus aus.
+* Lautstärke der Signaltöne, die die Ansichtsposition wiedergeben:
+  Ermöglicht die Festlegung der Lautstärke der Signaltöne, wenn Sie
+  ausgewählt haben, dass Ansichtsbewegungen oder Bildschirmränder mit
+  Signaltönen wiedergegeben werden.
 * Ansage ein- oder ausschalten: Wenn diese Option aktiviert ist, wird der
   Status der Lupe gemeldet, wenn Sie Windows+Plus or Minus oder
   Windows+Escape verwenden, um sie ein- oder auszuschalten.
@@ -65,20 +75,23 @@ Das Panel enthält die folgenden Optionen:
   Strg+Alt+Pfeiltasten an die Windows-Lupe durchreichen: Es gibt drei
   Möglichkeiten:
   
-    * Nie: Der Befehl wird nicht an die Windows-Lupe übergeben und die
-      standardmäßige Tabellen-Navigation in NVDA kann ausgeführt werden. Bei
-      Verwendung in Dokumenten außerhalb einer Tabelle meldet der Befehl
-      Strg+Alt+Pfeiltasten die Fehlermeldung "Nicht in einer Tabelle". Dies
-      ist das Standardverhalten von NVDA ohne dieser Erweiterung.
-    * Nur außerhalb von Tabellen: In Tabellen- oder Listenansichten führen
-      die Befehle Strg+Alt+Pfeiltasten die Standardtabellennavigation
-      durch. Bei Verwendung in Dokumenten aus einer Tabelle führen die
-      Befehle Strg+Alt+Pfeiltasten die Standardbefehle zum Verschieben der
-      Lupenansicht aus. Wenn Sie die Windows-Lupe weiterhin in der Tabellen-
-      oder Listenansicht verschieben möchten, müssen Sie NVDA+F2 drücken,
-      bevor Sie die Befehle Strg+Alt+Pfeiltasten verwenden. Diese Option ist
-      der beste Kompromiss, wenn Sie Strg+Alt+Pfeiltasten sowohl für die
-      Lupen- als auch die Tabellennavigation verwenden möchten.
+    * Niemals: Der Befehl wird nicht an die Windows-Lupe weitergegeben und
+      die Standard-Tabellen-Navigation in NVDA kann funktionieren. Wenn der
+      Befehl Strg+Alt+Pfeiltasten in Dokumenten außerhalb einer Tabelle
+      betätigt werden, wird eine Fehlermeldung "Nicht in einer Tabelle"
+      angezeigt. Dies ist das standardmäßige Verhalten von NVDA ohne diese
+      Erweiterung. Sie können weiterhin NVDA+Windows+O und dann die
+      Pfeiltasten betätigen, um die vergrößerte Ansicht zu verschieben.
+    * Nur wenn nicht in einer Tabelle: In Tabellen- oder Listenansichten
+      führt Strg+Alt+Pfeiltasten die Standard-Tabellen-Navigation aus. In
+      Dokumenten außerhalb einer Tabelle führt Strg+Alt+Pfeiltasten die
+      Standardbefehle zum Verschieben der Lupenansicht aus. Wenn Sie die
+      Windows-Lupenansicht in der Tabellen- oder Listenansicht dennoch
+      verschieben möchten, müssen Sie vor der Verwendung von dem Drücken von
+      Strg+Alt+Pfeiltasten einmal NVDA+F2 drücken oder alternativ
+      NVDA+Windows+O und dann die Pfeiltaste betätigen. Diese Option ist der
+      beste Kompromiss, wenn Sie Strg+Alt+Pfeiltasten sowohl für die Lupen-
+      als auch für die Tabellen-Navigation verwenden möchten.
     * Immer: Strg+Alt+Pfeiltasten verschieben die Ansicht der Lupe in jedem
       Fall. Diese Option kann nützlich sein, wenn Sie nicht
       Strg+Alt+Pfeiltasten zum Navigieren in der Tabelle verwenden,
@@ -90,11 +103,15 @@ Das Panel enthält die folgenden Optionen:
 
 ## Befehle
 
-Zusätzlich zu den nativen Lupenbefehlen bietet dieser Erweiterung weitere
-Befehle, mit denen die Optionen der Lupe gesteuert werden können, ohne die
-Konfigurationsseite zu öffnen. Alle Befehle, die zur Steuerung der
-Lupenoptionen hinzugefügt wurden, sind über den Befehl NVDA+Windows+O
-zugänglich:
+Zusätzlich zu den nativen Befehlen der Windows-Lupe bietet diese Erweiterung
+weitere Befehle:
+
+* Befehle, die die Optionen für die Windows-Lupe steuern, ohne die
+  Konfigurationsseite zu öffnen.
+* Zusätzliche Befehle speziell für diese Erweiterung.
+
+Alle diese zusätzlichen Befehle sind über die Tastenkombination
+NVDA+Windows+O zu erreichen:
 
 * NVDA+Windows+O, dann C: Schaltet die Verfolgung des System-Cursors ein
   oder aus.
@@ -108,8 +125,13 @@ zugänglich:
 * NVDA+Windows+O dann X: Wechselt zwischen den Textcursor-Tracking-Modi
   (innerhalb des Bildschirmrands oder zentriert auf dem Bildschirm); Diese
   Funktion ist nur unter Windows 10 Build 18894 oder neuer verfügbar.
-* NVDA+Windows+O, dann V: Bewegt den Mauszeiger in die Mitte der
-  vergrößerten Ansicht (Befehl nur in der Vollbild-Ansicht verfügbar).
+* NVDA+Windows+O und dann Pfeiltasten: Verschieben Sie die damit vergrößerte
+  Ansicht.
+* NVDA+Windows+O dann V: Bewegt den Mauszeiger in die Mitte der vergrößerten
+  Ansicht (Befehl nicht verfügbar im angedockten Ansichtsmodus).
+* NVDA+Windows+O dann W: Schaltet den Modus ein oder aus, bei dem das
+  Kontrollfenster der Windows-Lupe immer über den anderen Fenstern liegt.
+  Diese Funktion ist nur für installierte NVDA-Versionen verfügbar.
 * NVDA+Windows+O, dann O: Öffnet die Einstellungen der Erweiterung für die
   Windows-Lupe.
 * NVDA+Windows+O, dann H: Zeigt die Hilfe zu Befehlen des Levels der Lupe
@@ -140,11 +162,11 @@ entsprechend dessen Konfiguration angesagt werden:
 * Objektivansicht auswählen: Steuerung+Alt+L
 * Zwischen 3 Ansichtstypen (umschalten: Steuerung+Alt+M
 * Ändern Sie die Größe des Objektivs mit der Tastatur:
-  Umschalt+Alt+Pfeiltasten. Hinweis: Obwohl dies nicht dokumentiert zu sein
-  scheint, scheint diese Verknüpfung in neueren Windows-Versionen wie
-  Windows 10 Version 2004 entfernt worden zu sein.
-* Verschieben der vergrößerten Ansicht: Strg+Alt+Pfeil (die
-  Berichterstellung betrifft nur den Vollbild-Modus)
+  Umschalt+Alt+Pfeiltasten nach oben/unten/links/rechts - Hinweis: Obwohl
+  dies nicht dokumentiert zu sein scheint, scheint diese Tastenkombination
+  in neueren Windows-Versionen wie Windows 10 Version 2004 zurückgekehrt zu
+  sein.
+* Verschieben Sie die vergrößerte Ansicht: Strg+Alt+Pfeiltasten
 
 Es gibt auch eine Liste weitere nativer Befehle der Lupe, nur zur
 Information:
@@ -189,8 +211,37 @@ Keiner der Tastenkombinationen für die Windows-Lupe können geändert werden.
       verbessern](https://support.microsoft.com/en-us/help/11542/windows-use-magnifier-to-make-things-easier-to-see)
     * [Windows-Tastaturbefehle für Barrierefreiheit][4]
 
+* Diese Erweiterung wurde nicht mit mehreren Bildschirm getestet und es
+  besteht die Möglichkeit, dass einige Funktionen in dieser Umgebung nicht
+  funktionieren.  Wenn Sie eine mehrere Bildschirme gleichzeitig verwenden
+  und möchten, dass es unterstützt wird, kontaktieren Sie mich bitte, damit
+  es implementiert werden kann.
+* Im Allgemeinen zögern Sie nicht, mich auf der [GitHub-Seite][3] diese
+  Erweiterung oder direkt per E-Mail zu kontaktieren.
+
 
 ## Änderungen
+
+### Version 2.0
+
+* In der Ansicht kann die Vergrößerungsstufe der Windows-Lupe mit den
+  Pfeiltasten eingestellt werden.
+* Möglichkeit geschaffen, das Fenster mit den Befehlen für die Windows-Lupe
+  immer im Vordergrund zu halten oder nicht.
+* Funktion zum Mitteilen der Bildschirmränder hinzugefügt.
+* Einstellung der Lautstärke von Signaltönen bei der Verwendung von Befehlen
+  zur Verschiebung der Ansicht.
+* Die Mitteilung zum Verschieben der Ansichten und Befehle zum Verschieben
+  von Ansichten mit der Maus werden auch im Objektivmodus unterstützt.
+* Kompatibilität mit NVDA 2022.1.
+* Ein Fehler wurde behoben, der manchmal fälschlicherweise meldete, dass die
+  Windows-Lupe beim Skriptaufruf nicht funktionierte.
+* Die Freigabe erfolgt nun über eine GitHub-Aktion anstelle von appVeyor.
+* Übersetzungen aktualisiert.
+
+### Version 1.1
+
+* Übersetzungen hinzugefügt.
 
 ### Version 1.0
 
@@ -201,6 +252,8 @@ Keiner der Tastenkombinationen für die Windows-Lupe können geändert werden.
 [1]: https://addons.nvda-project.org/files/get.php?file=winmag
 
 [2]: https://addons.nvda-project.org/files/get.php?file=winmag-dev
+
+[3]: https://github.com/CyrilleB79/winMag
 
 [4]: https://support.microsoft.com/en-us/help/13810
 
