@@ -246,16 +246,22 @@ def patched_message(text, *args, **kwargs):
 	orig_message(text, *args, **kwargs)
 
 class TrackingConfig(object):
-	
-	EVENTS_TRACKING_KEYS = [
-		'FollowCaret',
-		'FollowFocus',
-		'FollowMouse',
-	]
+
+	TRACKING_KEY_NAME_MAPPING = {
+		# Translators: A UI object that can be tracked (followed) by the Magnifier.
+		# If possible, translate with the term used in Magnifier's options.
+		'FollowMouse': _('Mouse pointer'),
+		# Translators: A UI object that can be tracked (followed) by the Magnifier.
+		# If possible, translate with the term used in Magnifier's options.
+		'FollowFocus': _('Keyboard focus'),
+		# Translators: A UI object that can be tracked (followed) by the Magnifier.
+		# If possible, translate with the term used in Magnifier's options.
+		'FollowCaret': _('Text cursor'),
+	}
 	lastTrackingConfig = None
 	
 	def toggle(self, eventType):
-		cfg = {k: getMagnifierKeyValue(k) for k in self.EVENTS_TRACKING_KEYS}
+		cfg = {k: getMagnifierKeyValue(k) for k in self.TRACKING_KEY_NAME_MAPPING.keys()}
 		if any(cfg.values()):
 			self.__class__.lastTrackingConfig = dict(cfg)
 		if eventType == 'All':
@@ -832,7 +838,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		val = cfg.toggle('All')
 		if val:
 			# Translators: The message reported when the user turns on tracking.
-			ui.message(_('Tracking on'))
+			ui.message(_('Tracking on - {trackingTypes}').format(trackingTypes=', '.join(
+				cfg.TRACKING_KEY_NAME_MAPPING[c] for c, v in cfg.lastTrackingConfig.items() if v
+			)))
 		else:
 			# Translators: The message reported when the user turns off tracking.
 			ui.message(_('Tracking off'))

@@ -82,6 +82,7 @@ All these additional commands are accessible through the Magnifier layer command
 * NVDA+Windows+O then F: Toggles on or off focus tracking.
 * NVDA+Windows+O then M: Toggles on or off mouse tracking.
 * NVDA+Windows+O then T: Toggles on or off tracking globally.
+  When tracking is toggled on again, it is set to the last active tracking configuration before tracking was toggled off.
 * NVDA+Windows+O then S: Toggles on or off smoothing.
 * NVDA+Windows+O then R: Switches between mouse pointer tracking modes (within the edge of the screen or centered on the screen); this feature is only available on Windows 10 build 17643 or higher.
 * NVDA+Windows+O then X: Switches between text cursor tracking modes (within the edge of the screen or centered on the screen); this feature is only available on Windows 10 build 18894 or higher.
