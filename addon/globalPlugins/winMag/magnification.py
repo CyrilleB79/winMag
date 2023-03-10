@@ -3,17 +3,19 @@
 # See the file COPYING for more details.
 # Copyright (C) 2020 Cyrille Bougot, NV Access Limited
 
-import winVersion
 from ctypes import Structure, windll, c_float, POINTER, WINFUNCTYPE, WinError
 from ctypes.wintypes import BOOL
 from ctypes.wintypes import HWND, INT, FLOAT
 try:
+	# Python 3
 	from ctypes.wintypes import PINT, PRECT, PFLOAT
 except ImportError:
-	from ctypes.wintypes import POINTER, RECT
+	# Python 2 fallback
+	from ctypes.wintypes import RECT
 	PINT = POINTER(INT)
 	PRECT = POINTER(RECT)
 	PFLOAT = POINTER(FLOAT)
+
 
 class MAGCOLOREFFECT(Structure):
 	_fields_ = (("transform", c_float * 5 * 5),)
@@ -55,7 +57,7 @@ class Magnification:
 	# show system cursor
 	_MagShowSystemCursorFuncType = WINFUNCTYPE(BOOL, BOOL)
 	_MagShowSystemCursorArgTypes = ((1, "showCursor"),)
-	
+
 	# GetWindowSource
 	_MagGetWindowSourceFuncType = WINFUNCTYPE(BOOL, HWND, PRECT)
 	_MagGetWindowSourceArgTypes = ((1, "hwnd"), (2, "pRect"))
@@ -98,7 +100,7 @@ class Magnification:
 			_MagShowSystemCursorArgTypes
 		)
 		MagShowSystemCursor.errcheck = _errCheck
-		
+
 		MagGetWindowSource = _MagGetWindowSourceFuncType(
 			("MagGetWindowSource", _magnification),
 			_MagGetWindowSourceArgTypes
@@ -110,5 +112,3 @@ class Magnification:
 		MagSetFullscreenTransform = None
 		MagGetFullscreenTransform = None
 		MagShowSystemCursor = None
-
-

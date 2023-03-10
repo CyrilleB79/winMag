@@ -5,6 +5,7 @@
 
 import os.path
 
+
 # Since some strings in `addon_info` are translatable,
 # we need to include them in the .po files.
 # Gettext recognizes only strings given as parameters to the `_` function.
