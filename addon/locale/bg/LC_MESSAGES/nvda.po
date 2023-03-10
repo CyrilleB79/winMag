@@ -36,35 +36,51 @@ msgstr ""
 "Настройката за следене е приложима само при прикрепен изглед или изглед на "
 "цял екран."
 
-#. Translators: The description for the toggleCaretTracking script.
+#. Translators: A UI object that can be tracked (followed) by the Magnifier.
+#. If possible, translate with the term used in Magnifier's options.
+msgid "Mouse pointer"
+msgstr ""
+
+#. Translators: A UI object that can be tracked (followed) by the Magnifier.
+#. If possible, translate with the term used in Magnifier's options.
+msgid "Keyboard focus"
+msgstr ""
+
+#. Translators: A UI object that can be tracked (followed) by the Magnifier.
+#. If possible, translate with the term used in Magnifier's options.
+msgid "Text cursor"
+msgstr ""
+
+#. Translators: The description of a command of this add-on.
 msgid "Toggles on or off caret tracking"
 msgstr "Включва или изключва следенето на точката за въвеждане на текст"
 
-#. Translators: The description for the toggleFocusTracking script.
+#. Translators: The description of a command of this add-on.
 msgid "Toggles on or off focus tracking"
 msgstr "Включва или изключва следенето на фокуса на клавиатурата"
 
-#. Translators: The description for the toggleMouseTracking script.
+#. Translators: The description of a command of this add-on.
 msgid "Toggles on or off mouse tracking"
 msgstr "Включва или изключва следенето на курсора на мишката"
 
-#. Translators: The description for the toggleTracking script.
+#. Translators: The description of a command of this add-on.
 msgid "Toggles on or off tracking globally"
 msgstr "Включва или изключва следенето като цяло"
 
-#. Translators: The description for the toggleSmoothing script.
+#. Translators: The description of a command of this add-on.
 msgid "Toggles on or off smoothing"
 msgstr "Включва или изключва изглаждането на ръбове на изображенията и текста"
 
-#. Translators: The description for the toggleMouseCursorTrackingMode script.
+#. Translators: The description of a command of this add-on.
+#, fuzzy
 msgid ""
-"Switches between mouse tracking modes (within the edge of the screen or "
-"centered on the screen)"
+"Switches between mouse pointeur tracking modes (within the edge of the "
+"screen or centered on the screen)"
 msgstr ""
 "Превключва между режимите за следене на курсора на мишката (в краищата или "
 "центъра на екрана)"
 
-#. Translators: The description for the toggleTextCursorTrackingMode script.
+#. Translators: The description of a command of this add-on.
 msgid ""
 "Switches between text tracking modes (within the edge of the screen or "
 "centered on the screen)"
@@ -72,27 +88,40 @@ msgstr ""
 "Превключва между режимите за следене на курсора за въвеждане (в краищата или "
 "центъра на екрана)"
 
-#. Translators: The description for the moveView script.
+#. Translators: The description of a command of this add-on.
+msgid ""
+"Saves the current configuration parameters of the magnifier to NVDA's "
+"configuration."
+msgstr ""
+
+#. Translators: The description of a command of this add-on.
+msgid ""
+"Restores the current configuration parameters of the magnifier from NVDA's "
+"configuration."
+msgstr ""
+
+#. Translators: The description of a command of this add-on.
 msgid "Moves the magnified view"
 msgstr "Премества увеличения изглед"
 
-#. Translators: The description for the moveMouseToView script.
+#. Translators: The description of a command of this add-on.
 msgid "Moves the mouse cursor in the center of the zoomed view"
 msgstr "Премества курсора на мишката в центъра на увеличения изглед"
 
-#. Translators: The description for the keepMagWindowOnTop script.
+#. Translators: The description of a command of this add-on.
+#, fuzzy
 msgid ""
-"Switches on or off the mode allowing to keep Windows Magnifier's control "
-"window always on top of the other ones."
+"Switches on or off the mode keeping Windows Magnifier's control window "
+"always on top of the other ones."
 msgstr ""
 "Включва или изключва режима, който прави контролния прозорец на лупата на "
 "Windows винаги да е най-отгоре."
 
-#. Translators: The description for the openSettings script.
+#. Translators: The description of a command of this add-on.
 msgid "Opens Windows Magnifier add-on settings"
 msgstr "Отваря настройките на добавката за лупата на Windows"
 
-#. Translators: The description for the displayHelp script.
+#. Translators: The description of a command of this add-on.
 msgid "Displays help on Magnifier layer commands"
 msgstr "Извежда помощна информация за слоевите команди за лупата"
 
@@ -153,8 +182,9 @@ msgid "Mouse tracking off"
 msgstr "Следенето на мишката е изключено"
 
 #. Translators: The message reported when the user turns on tracking.
-msgid "Tracking on"
-msgstr "Следенето е включено"
+#, python-brace-format
+msgid "Tracking on - {trackingTypes}"
+msgstr ""
 
 #. Translators: The message reported when the user turns off tracking.
 msgid "Tracking off"
@@ -168,32 +198,54 @@ msgstr "Изглаждането е включено"
 msgid "Smoothing off"
 msgstr "Изглаждането е изключено"
 
-#. Translators: The message reported when the user tries to toggle mouse tracking mode whereas his Windows version does not support it.
+#. Translators: The message reported when the user tries to toggle mouse pointer tracking mode whereas his Windows version does not support it.
+#. Translators: The message reported when the user tries to toggle text cursor tracking mode whereas his Windows version does not support it.
 msgid "Feature unavailable in this version of Windows."
 msgstr "Функцията не е налична в тази версия на Windows."
 
-#. Translators: The message reported when the user tries to toggle mouse tracking mode while full screen view is not active.
-msgid "Mouse tracking mode applies only to full screen view."
+#. Translators: The message reported when the user tries to toggle mouse pointer tracking mode while full screen view is not active.
+#, fuzzy
+msgid "Mouse pointer tracking mode applies only to full screen view."
 msgstr "Режимът за следене на мишката е приложим само за изглед на цял екран."
 
-#. Translators: A message reporting mouse cursor tracking mode (cf. option in Magnifier settings).
+#. Translators: A message reporting mouse pointer tracking mode (cf. option in Magnifier settings).
+#. Translators: A message reporting text cursor tracking mode (cf. option in Magnifier settings).
 msgid "Centered on the screen"
 msgstr "В центъра на екрана"
 
-#. Translators: A message reporting mouse cursor tracking mode (cf. option in Magnifier settings).
+#. Translators: A message reporting mouse pointer tracking mode (cf. option in Magnifier settings).
+#. Translators: A message reporting text cursor tracking mode (cf. option in Magnifier settings).
 msgid "Within the edge of the screen"
 msgstr "В краищата на екрана"
 
-#. Translators: A message reported when the user tries to execute script moveView.
-msgid "Only gestures containing arrow key may be mapped to this script."
-msgstr ""
-"Само жестове, съдържащи клавиш със стрелка, могат да бъдат зададени към този "
-"скрипт."
+#. Translators: The message reported when the user tries to toggle text cursor tracking mode while full screen view is not active.
+#, fuzzy
+msgid "Text cursor tracking mode applies only to full screen view."
+msgstr "Режимът за следене на мишката е приложим само за изглед на цял екран."
+
+#, fuzzy
+msgid "Magnifier config saved."
+msgstr "Лупата е стартирана"
+
+#. Translators: A message reported when the user calls the command
+#. to restores the Magnifier's configuration.
+#, fuzzy
+msgid "Magnifier config restored."
+msgstr "Контролен панел на лупата не е най-отгоре."
 
 #. Translators: A message reported when the user tries to execute script mouseToView
 msgid ""
 "Move mouse to view command available only on Windows 8 and above in full "
 "screen mode."
+msgstr ""
+"Командата за преместване на курсора на мишката в изгледа е налична само под "
+"Windows 8 и по-нови версии, в режим на цял екран."
+
+#. Translators: A message reported when the user tries to execute script mouseToView
+#, fuzzy
+msgid ""
+"Move mouse to view command not available in full screen mode while screen "
+"curtain is active."
 msgstr ""
 "Командата за преместване на курсора на мишката в изгледа е налична само под "
 "Windows 8 и по-нови версии, в режим на цял екран."
@@ -208,6 +260,11 @@ msgstr ""
 "Преместването на курсора на мишката в изгледа не е внедрено за режим на "
 "прикрепен изглед"
 
+#. Translators: A message reported when trying toggling "always on top" mode for Windows Magnifier's window
+#. while running a portable NVDA.
+msgid "Command only supported in installed versions of NVDA."
+msgstr "Командата се поддържа само в инсталирани версии на NVDA."
+
 #. Translators: A message reported when toggling "always on top" mode for Windows Magnifier's control window
 msgid "Magnifier controls always on top."
 msgstr "Контролен панел на лупата е винаги най-отгоре."
@@ -215,11 +272,6 @@ msgstr "Контролен панел на лупата е винаги най-�
 #. Translators: A message reported when toggling "always on top" mode for Windows Magnifier's window
 msgid "Magnifier controls not on top."
 msgstr "Контролен панел на лупата не е най-отгоре."
-
-#. Translators: A message reported when trying toggling "always on top" mode for Windows Magnifier's window
-#. while running a portable NVDA.
-msgid "Command only supported in installed versions of NVDA."
-msgstr "Командата се поддържа само в инсталирани версии на NVDA."
 
 #. Translators: A message reported in secure screen when the user attempts to modify magnifiers settings.
 msgid "Command unavailable on this screen."
@@ -345,10 +397,23 @@ msgstr ""
 "В &документи и списъчни изгледи, препредавай Control+Alt+Стрелките към "
 "лупата на Windows:"
 
+#. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
+#, fuzzy
+msgid "&Keep Windows Magnifier command window always on top"
+msgstr "Входна точка на слоя с команди за лупата на Windows."
+
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 msgid "This add-on improves the use of Windows Magnifier with NVDA."
 msgstr "Тази добавка подобрява използването на лупата на Windows с NVDA."
+
+#~ msgid "Tracking on"
+#~ msgstr "Следенето е включено"
+
+#~ msgid "Only gestures containing arrow key may be mapped to this script."
+#~ msgstr ""
+#~ "Само жестове, съдържащи клавиш със стрелка, могат да бъдат зададени към "
+#~ "този скрипт."
 
 #~ msgid ""
 #~ "This addon improves the use of Windows Magnifier with NVDA with the "

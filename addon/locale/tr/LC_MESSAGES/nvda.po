@@ -36,35 +36,51 @@ msgstr ""
 "İzleme yapılandırması yalnızca sabitlenmiş veya tam ekran görünümünde "
 "uygulanabilir."
 
-#. Translators: The description for the toggleCaretTracking script.
+#. Translators: A UI object that can be tracked (followed) by the Magnifier.
+#. If possible, translate with the term used in Magnifier's options.
+msgid "Mouse pointer"
+msgstr ""
+
+#. Translators: A UI object that can be tracked (followed) by the Magnifier.
+#. If possible, translate with the term used in Magnifier's options.
+msgid "Keyboard focus"
+msgstr ""
+
+#. Translators: A UI object that can be tracked (followed) by the Magnifier.
+#. If possible, translate with the term used in Magnifier's options.
+msgid "Text cursor"
+msgstr ""
+
+#. Translators: The description of a command of this add-on.
 msgid "Toggles on or off caret tracking"
 msgstr "İmleç izlemeyi açıp kapatır"
 
-#. Translators: The description for the toggleFocusTracking script.
+#. Translators: The description of a command of this add-on.
 msgid "Toggles on or off focus tracking"
 msgstr "Odak izlemeyi açıp kapatır"
 
-#. Translators: The description for the toggleMouseTracking script.
+#. Translators: The description of a command of this add-on.
 msgid "Toggles on or off mouse tracking"
 msgstr "Fare izlemeyi açıp kapatır"
 
-#. Translators: The description for the toggleTracking script.
+#. Translators: The description of a command of this add-on.
 msgid "Toggles on or off tracking globally"
 msgstr "Genel olarak izlemeyi açıp kapatır"
 
-#. Translators: The description for the toggleSmoothing script.
+#. Translators: The description of a command of this add-on.
 msgid "Toggles on or off smoothing"
 msgstr "Görüntü Düzeltmeyi açıp kapatır"
 
-#. Translators: The description for the toggleMouseCursorTrackingMode script.
+#. Translators: The description of a command of this add-on.
+#, fuzzy
 msgid ""
-"Switches between mouse tracking modes (within the edge of the screen or "
-"centered on the screen)"
+"Switches between mouse pointeur tracking modes (within the edge of the "
+"screen or centered on the screen)"
 msgstr ""
 "Fare izleme modları arasında geçiş yapar (ekranın kenarında veya ekranın "
 "ortasında)"
 
-#. Translators: The description for the toggleTextCursorTrackingMode script.
+#. Translators: The description of a command of this add-on.
 msgid ""
 "Switches between text tracking modes (within the edge of the screen or "
 "centered on the screen)"
@@ -72,27 +88,40 @@ msgstr ""
 "Metin izleme modları arasında geçiş yapar (ekranın kenarında veya ekranın "
 "ortasında)"
 
-#. Translators: The description for the moveView script.
+#. Translators: The description of a command of this add-on.
+msgid ""
+"Saves the current configuration parameters of the magnifier to NVDA's "
+"configuration."
+msgstr ""
+
+#. Translators: The description of a command of this add-on.
+msgid ""
+"Restores the current configuration parameters of the magnifier from NVDA's "
+"configuration."
+msgstr ""
+
+#. Translators: The description of a command of this add-on.
 msgid "Moves the magnified view"
 msgstr "Büyütülmüş görünümü taşır"
 
-#. Translators: The description for the moveMouseToView script.
+#. Translators: The description of a command of this add-on.
 msgid "Moves the mouse cursor in the center of the zoomed view"
 msgstr "Fare imlecini yakınlaştırılmış görünümün ortasına taşır"
 
-#. Translators: The description for the keepMagWindowOnTop script.
+#. Translators: The description of a command of this add-on.
+#, fuzzy
 msgid ""
-"Switches on or off the mode allowing to keep Windows Magnifier's control "
-"window always on top of the other ones."
+"Switches on or off the mode keeping Windows Magnifier's control window "
+"always on top of the other ones."
 msgstr ""
 "Windows Büyüteç'in kontrol penceresini her zaman diğer pencerelerin üstünde "
 "tutan modu açıp kapatır."
 
-#. Translators: The description for the openSettings script.
+#. Translators: The description of a command of this add-on.
 msgid "Opens Windows Magnifier add-on settings"
 msgstr "Windows Büyüteç eklenti ayarlarını açar"
 
-#. Translators: The description for the displayHelp script.
+#. Translators: The description of a command of this add-on.
 msgid "Displays help on Magnifier layer commands"
 msgstr "Büyüteç katman komutlarıyla ilgili yardımı görüntüler"
 
@@ -153,8 +182,9 @@ msgid "Mouse tracking off"
 msgstr "Fare izleme kapalı"
 
 #. Translators: The message reported when the user turns on tracking.
-msgid "Tracking on"
-msgstr "İzleme Açık"
+#, python-brace-format
+msgid "Tracking on - {trackingTypes}"
+msgstr ""
 
 #. Translators: The message reported when the user turns off tracking.
 msgid "Tracking off"
@@ -168,30 +198,54 @@ msgstr "Düzeltme Açık"
 msgid "Smoothing off"
 msgstr "Düzeltme Kapalı"
 
-#. Translators: The message reported when the user tries to toggle mouse tracking mode whereas his Windows version does not support it.
+#. Translators: The message reported when the user tries to toggle mouse pointer tracking mode whereas his Windows version does not support it.
+#. Translators: The message reported when the user tries to toggle text cursor tracking mode whereas his Windows version does not support it.
 msgid "Feature unavailable in this version of Windows."
 msgstr "Özellik, Windows'un bu sürümünde kullanılamıyor."
 
-#. Translators: The message reported when the user tries to toggle mouse tracking mode while full screen view is not active.
-msgid "Mouse tracking mode applies only to full screen view."
+#. Translators: The message reported when the user tries to toggle mouse pointer tracking mode while full screen view is not active.
+#, fuzzy
+msgid "Mouse pointer tracking mode applies only to full screen view."
 msgstr "Fare izleme modu yalnızca tam ekran görünümü için geçerli."
 
-#. Translators: A message reporting mouse cursor tracking mode (cf. option in Magnifier settings).
+#. Translators: A message reporting mouse pointer tracking mode (cf. option in Magnifier settings).
+#. Translators: A message reporting text cursor tracking mode (cf. option in Magnifier settings).
 msgid "Centered on the screen"
 msgstr "Ekranda ortalanmış"
 
-#. Translators: A message reporting mouse cursor tracking mode (cf. option in Magnifier settings).
+#. Translators: A message reporting mouse pointer tracking mode (cf. option in Magnifier settings).
+#. Translators: A message reporting text cursor tracking mode (cf. option in Magnifier settings).
 msgid "Within the edge of the screen"
 msgstr "Ekranın kenarında"
 
-#. Translators: A message reported when the user tries to execute script moveView.
-msgid "Only gestures containing arrow key may be mapped to this script."
-msgstr "Yalnızca ok tuşunu içeren hareketler bu komut için atanabilir."
+#. Translators: The message reported when the user tries to toggle text cursor tracking mode while full screen view is not active.
+#, fuzzy
+msgid "Text cursor tracking mode applies only to full screen view."
+msgstr "Fare izleme modu yalnızca tam ekran görünümü için geçerli."
+
+#, fuzzy
+msgid "Magnifier config saved."
+msgstr "Büyüteç açık"
+
+#. Translators: A message reported when the user calls the command
+#. to restores the Magnifier's configuration.
+#, fuzzy
+msgid "Magnifier config restored."
+msgstr "Büyüteç kontrolleri üstte değil."
 
 #. Translators: A message reported when the user tries to execute script mouseToView
 msgid ""
 "Move mouse to view command available only on Windows 8 and above in full "
 "screen mode."
+msgstr ""
+"Yalnızca Windows 8 ve üzeri sürümlerde tam ekran modunda kullanılabilen "
+"komutu görüntülemek için fareyi hareket ettirin."
+
+#. Translators: A message reported when the user tries to execute script mouseToView
+#, fuzzy
+msgid ""
+"Move mouse to view command not available in full screen mode while screen "
+"curtain is active."
 msgstr ""
 "Yalnızca Windows 8 ve üzeri sürümlerde tam ekran modunda kullanılabilen "
 "komutu görüntülemek için fareyi hareket ettirin."
@@ -204,6 +258,11 @@ msgstr ""
 msgid "Move mouse to view not implemented for docked view"
 msgstr "Fareyi görüntüye taşıma sabitlenmiş görünüm için uygulanmadı"
 
+#. Translators: A message reported when trying toggling "always on top" mode for Windows Magnifier's window
+#. while running a portable NVDA.
+msgid "Command only supported in installed versions of NVDA."
+msgstr "Komut yalnızca NVDA'nın kurulu sürümlerinde desteklenir."
+
 #. Translators: A message reported when toggling "always on top" mode for Windows Magnifier's control window
 msgid "Magnifier controls always on top."
 msgstr "Büyüteç kontrolleri her zaman üstte."
@@ -211,11 +270,6 @@ msgstr "Büyüteç kontrolleri her zaman üstte."
 #. Translators: A message reported when toggling "always on top" mode for Windows Magnifier's window
 msgid "Magnifier controls not on top."
 msgstr "Büyüteç kontrolleri üstte değil."
-
-#. Translators: A message reported when trying toggling "always on top" mode for Windows Magnifier's window
-#. while running a portable NVDA.
-msgid "Command only supported in installed versions of NVDA."
-msgstr "Komut yalnızca NVDA'nın kurulu sürümlerinde desteklenir."
 
 #. Translators: A message reported in secure screen when the user attempts to modify magnifiers settings.
 msgid "Command unavailable on this screen."
@@ -341,10 +395,21 @@ msgstr ""
 "Belgeler&de ve liste görünümlerinde, Windows Büyüteç'e control+alt+ok "
 "kısayollarını ilet:"
 
+#. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
+#, fuzzy
+msgid "&Keep Windows Magnifier command window always on top"
+msgstr "Windows Büyüteç katmanı komutları giriş noktası."
+
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 msgid "This add-on improves the use of Windows Magnifier with NVDA."
 msgstr "Bu eklenti, Windows Büyüteç'in NVDA ile kullanımını geliştirir."
+
+#~ msgid "Tracking on"
+#~ msgstr "İzleme Açık"
+
+#~ msgid "Only gestures containing arrow key may be mapped to this script."
+#~ msgstr "Yalnızca ok tuşunu içeren hareketler bu komut için atanabilir."
 
 #~ msgid ""
 #~ "This addon improves the use of Windows Magnifier with NVDA with the "

@@ -36,35 +36,51 @@ msgstr ""
 "Śledzenie ustawień można zastosować tylko dla widoku przypiętego lub "
 "pełnoekranowego."
 
-#. Translators: The description for the toggleCaretTracking script.
+#. Translators: A UI object that can be tracked (followed) by the Magnifier.
+#. If possible, translate with the term used in Magnifier's options.
+msgid "Mouse pointer"
+msgstr ""
+
+#. Translators: A UI object that can be tracked (followed) by the Magnifier.
+#. If possible, translate with the term used in Magnifier's options.
+msgid "Keyboard focus"
+msgstr ""
+
+#. Translators: A UI object that can be tracked (followed) by the Magnifier.
+#. If possible, translate with the term used in Magnifier's options.
+msgid "Text cursor"
+msgstr ""
+
+#. Translators: The description of a command of this add-on.
 msgid "Toggles on or off caret tracking"
 msgstr "Włącza lub wyłącza śledzenie kursora systemowego"
 
-#. Translators: The description for the toggleFocusTracking script.
+#. Translators: The description of a command of this add-on.
 msgid "Toggles on or off focus tracking"
 msgstr "Włącza lub wyłącza śledzenie fokusu"
 
-#. Translators: The description for the toggleMouseTracking script.
+#. Translators: The description of a command of this add-on.
 msgid "Toggles on or off mouse tracking"
 msgstr "Włącza lub wyłącza śledzenie myszy"
 
-#. Translators: The description for the toggleTracking script.
+#. Translators: The description of a command of this add-on.
 msgid "Toggles on or off tracking globally"
 msgstr "Włącza lub wyłącza śledzenie ogólne"
 
-#. Translators: The description for the toggleSmoothing script.
+#. Translators: The description of a command of this add-on.
 msgid "Toggles on or off smoothing"
 msgstr "Włącza lub wyłącza wygładzanie"
 
-#. Translators: The description for the toggleMouseCursorTrackingMode script.
+#. Translators: The description of a command of this add-on.
+#, fuzzy
 msgid ""
-"Switches between mouse tracking modes (within the edge of the screen or "
-"centered on the screen)"
+"Switches between mouse pointeur tracking modes (within the edge of the "
+"screen or centered on the screen)"
 msgstr ""
 "Przełącza między trybami śledzenia myszy: w obrębie krawędzi ekranu lub na "
 "środku ekranu."
 
-#. Translators: The description for the toggleTextCursorTrackingMode script.
+#. Translators: The description of a command of this add-on.
 msgid ""
 "Switches between text tracking modes (within the edge of the screen or "
 "centered on the screen)"
@@ -72,27 +88,40 @@ msgstr ""
 "Przełącza między trybami śledzenia tekstu: w obrębie krawędzi ekranu lub na "
 "środku ekranu."
 
-#. Translators: The description for the moveView script.
+#. Translators: The description of a command of this add-on.
+msgid ""
+"Saves the current configuration parameters of the magnifier to NVDA's "
+"configuration."
+msgstr ""
+
+#. Translators: The description of a command of this add-on.
+msgid ""
+"Restores the current configuration parameters of the magnifier from NVDA's "
+"configuration."
+msgstr ""
+
+#. Translators: The description of a command of this add-on.
 msgid "Moves the magnified view"
 msgstr "Przesuwa powiększony widok"
 
-#. Translators: The description for the moveMouseToView script.
+#. Translators: The description of a command of this add-on.
 msgid "Moves the mouse cursor in the center of the zoomed view"
 msgstr "Przemieszcza kursor myszy na środek powiększonego obszaru"
 
-#. Translators: The description for the keepMagWindowOnTop script.
+#. Translators: The description of a command of this add-on.
+#, fuzzy
 msgid ""
-"Switches on or off the mode allowing to keep Windows Magnifier's control "
-"window always on top of the other ones."
+"Switches on or off the mode keeping Windows Magnifier's control window "
+"always on top of the other ones."
 msgstr ""
 "Włącza lub wyłącza tryb, dzięki czemu okno sterowania Lupy Windows jest "
 "zawsze na wierzchu pozostałych."
 
-#. Translators: The description for the openSettings script.
+#. Translators: The description of a command of this add-on.
 msgid "Opens Windows Magnifier add-on settings"
 msgstr "Otwiera ustawienia dodatku Windows Magnifier"
 
-#. Translators: The description for the displayHelp script.
+#. Translators: The description of a command of this add-on.
 msgid "Displays help on Magnifier layer commands"
 msgstr ""
 "Wyświetla pomoc w wielowarstwowych poleceniach dodatku wspierającego obsługę "
@@ -157,8 +186,9 @@ msgid "Mouse tracking off"
 msgstr "Śledzenie myszy nie"
 
 #. Translators: The message reported when the user turns on tracking.
-msgid "Tracking on"
-msgstr "Śledzenie włączone"
+#, python-brace-format
+msgid "Tracking on - {trackingTypes}"
+msgstr ""
 
 #. Translators: The message reported when the user turns off tracking.
 msgid "Tracking off"
@@ -172,30 +202,54 @@ msgstr "Wygładzanie włączone"
 msgid "Smoothing off"
 msgstr "Wygładzanie wyłączone"
 
-#. Translators: The message reported when the user tries to toggle mouse tracking mode whereas his Windows version does not support it.
+#. Translators: The message reported when the user tries to toggle mouse pointer tracking mode whereas his Windows version does not support it.
+#. Translators: The message reported when the user tries to toggle text cursor tracking mode whereas his Windows version does not support it.
 msgid "Feature unavailable in this version of Windows."
 msgstr "Funkcja niedostępna w tej wersji systemu Windows."
 
-#. Translators: The message reported when the user tries to toggle mouse tracking mode while full screen view is not active.
-msgid "Mouse tracking mode applies only to full screen view."
+#. Translators: The message reported when the user tries to toggle mouse pointer tracking mode while full screen view is not active.
+#, fuzzy
+msgid "Mouse pointer tracking mode applies only to full screen view."
 msgstr "Tryb śledzenia myszy dotyczy tylko widoku pełnoekranowego."
 
-#. Translators: A message reporting mouse cursor tracking mode (cf. option in Magnifier settings).
+#. Translators: A message reporting mouse pointer tracking mode (cf. option in Magnifier settings).
+#. Translators: A message reporting text cursor tracking mode (cf. option in Magnifier settings).
 msgid "Centered on the screen"
 msgstr "Na środku ekranu"
 
-#. Translators: A message reporting mouse cursor tracking mode (cf. option in Magnifier settings).
+#. Translators: A message reporting mouse pointer tracking mode (cf. option in Magnifier settings).
+#. Translators: A message reporting text cursor tracking mode (cf. option in Magnifier settings).
 msgid "Within the edge of the screen"
 msgstr "W obrębie krawędzi ekranu"
 
-#. Translators: A message reported when the user tries to execute script moveView.
-msgid "Only gestures containing arrow key may be mapped to this script."
-msgstr "Tylko gesty zawierające strzałki mogą być mapowane na ten skrypt."
+#. Translators: The message reported when the user tries to toggle text cursor tracking mode while full screen view is not active.
+#, fuzzy
+msgid "Text cursor tracking mode applies only to full screen view."
+msgstr "Tryb śledzenia myszy dotyczy tylko widoku pełnoekranowego."
+
+#, fuzzy
+msgid "Magnifier config saved."
+msgstr "Lupa włączona"
+
+#. Translators: A message reported when the user calls the command
+#. to restores the Magnifier's configuration.
+#, fuzzy
+msgid "Magnifier config restored."
+msgstr "Sterowanie lupą nie znajduje się na górze."
 
 #. Translators: A message reported when the user tries to execute script mouseToView
 msgid ""
 "Move mouse to view command available only on Windows 8 and above in full "
 "screen mode."
+msgstr ""
+"Przesuń myszą, aby wyświetlić polecenie dostępne tylko w systemie Windows 8 "
+"lub nowszym w trybie pełnoekranowym."
+
+#. Translators: A message reported when the user tries to execute script mouseToView
+#, fuzzy
+msgid ""
+"Move mouse to view command not available in full screen mode while screen "
+"curtain is active."
 msgstr ""
 "Przesuń myszą, aby wyświetlić polecenie dostępne tylko w systemie Windows 8 "
 "lub nowszym w trybie pełnoekranowym."
@@ -208,6 +262,11 @@ msgstr ""
 msgid "Move mouse to view not implemented for docked view"
 msgstr "Przemieść kursor myszy do widoku (niewdrożone w widoku przypiętym)"
 
+#. Translators: A message reported when trying toggling "always on top" mode for Windows Magnifier's window
+#. while running a portable NVDA.
+msgid "Command only supported in installed versions of NVDA."
+msgstr "Polecenie obsługiwane tylko w zainstalowanych wersjach NVDA."
+
 #. Translators: A message reported when toggling "always on top" mode for Windows Magnifier's control window
 msgid "Magnifier controls always on top."
 msgstr "Sterowanie lupą zawsze na górze."
@@ -215,11 +274,6 @@ msgstr "Sterowanie lupą zawsze na górze."
 #. Translators: A message reported when toggling "always on top" mode for Windows Magnifier's window
 msgid "Magnifier controls not on top."
 msgstr "Sterowanie lupą nie znajduje się na górze."
-
-#. Translators: A message reported when trying toggling "always on top" mode for Windows Magnifier's window
-#. while running a portable NVDA.
-msgid "Command only supported in installed versions of NVDA."
-msgstr "Polecenie obsługiwane tylko w zainstalowanych wersjach NVDA."
 
 #. Translators: A message reported in secure screen when the user attempts to modify magnifiers settings.
 msgid "Command unavailable on this screen."
@@ -345,10 +399,23 @@ msgstr ""
 "W &dokumentach i widokach listy przekazuj polecenia control+alt+strzałki do "
 "dodatku Windows Magnifier:"
 
+#. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
+#, fuzzy
+msgid "&Keep Windows Magnifier command window always on top"
+msgstr ""
+"Punkt wejścia poleceń wielowarstwowych dodatku wspierającego obsługę lupy "
+"systemu Windows."
+
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 msgid "This add-on improves the use of Windows Magnifier with NVDA."
 msgstr "Ten dodatek poprawia korzystanie z Lupy Windows z NVDA."
+
+#~ msgid "Tracking on"
+#~ msgstr "Śledzenie włączone"
+
+#~ msgid "Only gestures containing arrow key may be mapped to this script."
+#~ msgstr "Tylko gesty zawierające strzałki mogą być mapowane na ten skrypt."
 
 #~ msgid ""
 #~ "This addon improves the use of Windows Magnifier with NVDA with the "
