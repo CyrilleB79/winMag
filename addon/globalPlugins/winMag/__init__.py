@@ -295,7 +295,7 @@ DESC_TOGGLE_TRACKING = _("Toggles on or off tracking globally")
 # Translators: The description of a command of this add-on.
 DESC_TOGGLE_SMOOTHING = _("Toggles on or off smoothing")
 # Translators: The description of a command of this add-on.
-DESC_TOGGLE_MOUSE_CURSOR_TRACKING_MODE = _("Switches between mouse pointeur tracking modes (within the edge of the screen or centered on the screen)")
+DESC_TOGGLE_MOUSE_CURSOR_TRACKING_MODE = _("Switches between mouse pointer tracking modes (within the edge of the screen or centered on the screen)")
 # Translators: The description of a command of this add-on.
 DESC_TOGGLE_TEXT_CURSOR_TRACKING_MODE = _("Switches between text tracking modes (within the edge of the screen or centered on the screen)")
 # Translators: The description of a command of this add-on.

@@ -86,8 +86,8 @@ All these additional commands are accessible through the Magnifier layer command
 * NVDA+Windows+O then S: Toggles on or off smoothing.
 * NVDA+Windows+O then R: Switches between mouse pointer tracking modes (within the edge of the screen or centered on the screen); this feature is only available on Windows 10 build 17643 or higher.
 * NVDA+Windows+O then X: Switches between text cursor tracking modes (within the edge of the screen or centered on the screen); this feature is only available on Windows 10 build 18894 or higher.
-* NVDA+Windows+O then shift+p: Saves the current configuration parameters of the magnifier to NVDA's configuration.
-* NVDA+Windows+O then p: Restores the current configuration parameters of the magnifier from NVDA's configuration.
+* NVDA+Windows+O then shift+P: Saves the current configuration parameters of the magnifier to NVDA's configuration.
+* NVDA+Windows+O then P: Restores the current configuration parameters of the magnifier from NVDA's configuration.
   If no configuration parameters has been previously saved to NVDA's configuration, the default configuration parameters of Windows Magnifier are restored instead.
 * NVDA+Windows+O then Arrows: Move the magnified view.
 * NVDA+Windows+O then V: Moves the mouse cursor in the center of the magnified view (command not available in docked view mode).
@@ -161,7 +161,7 @@ None of the Magnifier native commands can be modified.
 * The parameter controlling if Magnifier control window remains always on top is now stored in configuration;
   this means that this parameter is remembered when restarting NVDA and can be enabled or not depending on the active profile.
 * Fixed a bug causing unexpected screen curtain de-activation when using move to view or move view commands.
-* Option alwaysOnTop setting will no be honoured also when changing magnification mode.
+* Option alwaysOnTop setting will now be honoured also when changing magnification mode.
 * Added ability to save and restore Windows Magnifier's config in NVDA's config.
 * Compatibility with NVDA 2023.1.
 * Clarify which type of tracking is re-enabled when tracking is toggled on again.
