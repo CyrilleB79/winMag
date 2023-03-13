@@ -981,6 +981,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			config.conf.disableProfileTriggers()
 			for key, defaultValue in magnifierDefaultValuesMapping.items():
 				config.conf['winMag']['magnifierConfig'][key] = getMagnifierKeyValue(key)
+			# Translators: A message reported when the user calls the command
+			# to save the Magnifier's configuration.
 			ui.message(_("Magnifier config saved."))
 		except Exception as e:
 			log.error("Error saving Magnifier's config: {}".format(e), exc_info=True)
