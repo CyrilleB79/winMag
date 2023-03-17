@@ -16,16 +16,20 @@ Diese Erweiterung verbessert die Verwendung von Windows-Lupe mit NVDA.
   Tabellen-Navigation mit den Befehlen der Lupe in Konflikt stehen.
 * Fügt einige Tastenkombinationen zum Umschalten verschiedener Optionen der
   Lupe hinzu.
+* Allow to save and restore the configuration parameters of the Magnifier.
 * Fügt einige zusätzliche Funktionen hinzu, die die Windows-Lupe nicht
   anbietet (Maus zum Betrachten, Lupenfenster nicht im Vordergrund)
 
 ## Die Einstellungen
 
-Im Einstellungsfeld der Erweiterung für die Windows-Lupe können Sie konfigurieren, wie NVDA auf native Befehle für die Windows_lupe reagiert.
-Möglicherweise möchten Sie mehr oder weniger Befehle angesagt bekommen, je nachdem, was Sie sehen können.
-Dieses Fenster kann geöffnet werden, indem Sie im NVDA-Menü Einstellungen -> Optionen auswählen und dann im Einstellungsfenster die Kategorie "Windows-Lupe" auswählen.
+The setting panel of Windows Magnifier add-on allows to configure how NVDA
+reacts to native Windows Magnifier commands.  You may want to have more or
+less commands reported according to what you are able to see.  The panel
+also contains an option to modify the behaviour of Windows Magnifier control
+window.
 
-Die Tastenkombination NVDA+Windows+O dann O öffnet auch dieses Einstellungsfenster direkt.
+This panel may be opened choosing Preferences -> Settings in the NVDA menu and then selecting the Windows Magnifier category in the Settings window.
+The keyboard shortcut NVDA+Windows+O then O also allows to open this settings panel directly.
 
 Das Panel enthält die folgenden Optionen:
 
@@ -47,10 +51,9 @@ Das Panel enthält die folgenden Optionen:
   Bildschirmränder erreichen.  Die drei Optionen sind: Deaktiviert, mit
   Sprachausgabe oder mit Signaltönen. Diese Option wirkt sich nicht auf den
   angedockten Ansichtsmodus aus.
-* Lautstärke der Signaltöne, die die Ansichtsposition wiedergeben:
-  Ermöglicht die Festlegung der Lautstärke der Signaltöne, wenn Sie
-  ausgewählt haben, dass Ansichtsbewegungen oder Bildschirmränder mit
-  Signaltönen wiedergegeben werden.
+* Volume of the tones reporting the position of the view: allows to define
+  the volume of the tones if you have selected to report view moves or
+  screen edges with tones.
 * Ansage ein- oder ausschalten: Wenn diese Option aktiviert ist, wird der
   Status der Lupe gemeldet, wenn Sie Windows+Plus or Minus oder
   Windows+Escape verwenden, um sie ein- oder auszuschalten.
@@ -100,6 +103,9 @@ Das Panel enthält die folgenden Optionen:
       [Einfache Tabellen-Navigation][5] für die Tabellen-Navigation
       verwenden.
 
+* Keep Windows Magnifier command window always on top: If unchecked, the
+  Magnifier's control window will not be kept always on top of other
+  windows.
 
 ## Befehle
 
@@ -117,21 +123,29 @@ NVDA+Windows+O zu erreichen:
   oder aus.
 * NVDA+Windows+O, dann F: Schaltet die Verfolgung des Cursors ein oder aus.
 * NVDA+Windows+O, dann M: Schaltet die Verfolgung der Maus ein oder aus.
-* NVDA+Windows+O, dann T: Schaltet die Verfolgung global ein oder aus.
+* NVDA+Windows+O then T: Toggles on or off tracking globally.  When tracking
+  is toggled on again, it is set to the last active tracking configuration
+  before tracking was toggled off.
 * NVDA+Windows+O, dann S: Schaltet die Kantenglättung ein oder aus.
-* NVDA+Windows+O, dann R: Schaltet zwischen den Verfolgungsmodi der Maus um
-  (am Rand des Bildschirms oder zentriert auf dem Bildschirm). Diese
-  Funktion ist nur unter Windows 10 Build 17643 oder neuer verfügbar.
+* NVDA+Windows+O then R: Switches between mouse pointer tracking modes
+  (within the edge of the screen or centered on the screen); this feature is
+  only available on Windows 10 build 17643 or higher.
 * NVDA+Windows+O dann X: Wechselt zwischen den Textcursor-Tracking-Modi
   (innerhalb des Bildschirmrands oder zentriert auf dem Bildschirm); Diese
   Funktion ist nur unter Windows 10 Build 18894 oder neuer verfügbar.
+* NVDA+Windows+O then shift+P: Saves the current configuration parameters of
+  the magnifier to NVDA's configuration.
+* NVDA+Windows+O then P: Restores the current configuration parameters of
+  the magnifier from NVDA's configuration.  If no configuration parameters
+  has been previously saved to NVDA's configuration, the default
+  configuration parameters of Windows Magnifier are restored instead.
 * NVDA+Windows+O und dann Pfeiltasten: Verschieben Sie die damit vergrößerte
   Ansicht.
 * NVDA+Windows+O dann V: Bewegt den Mauszeiger in die Mitte der vergrößerten
   Ansicht (Befehl nicht verfügbar im angedockten Ansichtsmodus).
-* NVDA+Windows+O dann W: Schaltet den Modus ein oder aus, bei dem das
-  Kontrollfenster der Windows-Lupe immer über den anderen Fenstern liegt.
-  Diese Funktion ist nur für installierte NVDA-Versionen verfügbar.
+* NVDA+Windows+O then W: Switches on or off the mode allowing to keep
+  Windows Magnifier's control window always on top of the other ones.  This
+  feature is only available for installed versions of NVDA.
 * NVDA+Windows+O, dann O: Öffnet die Einstellungen der Erweiterung für die
   Windows-Lupe.
 * NVDA+Windows+O, dann H: Zeigt die Hilfe zu Befehlen des Levels der Lupe
@@ -221,6 +235,25 @@ Keiner der Tastenkombinationen für die Windows-Lupe können geändert werden.
 
 
 ## Änderungen
+
+### Version 3.0
+
+* Pressing the zoom buttons in the Magnifier window (with the keyboard) now
+  reports the new zoom level.
+* The parameter controlling if Magnifier control window remains always on
+  top is now stored in configuration; this means that this parameter is
+  remembered when restarting NVDA and can be enabled or not depending on the
+  active profile.
+* Fixed a bug causing unexpected screen curtain de-activation when using
+  move to view or move view commands.
+* Option alwaysOnTop setting will now be honoured also when changing
+  magnification mode.
+* Added ability to save and restore Windows Magnifier's config in NVDA's
+  config.
+* Compatibility with NVDA 2023.1.
+* Clarify which type of tracking is re-enabled when tracking is toggled on
+  again.
+* Übersetzungen aktualisiert.
 
 ### Version 2.0
 

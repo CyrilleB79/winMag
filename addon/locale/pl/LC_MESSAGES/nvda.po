@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: winMag 1.0\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2021-07-02 22:20+0000\n"
-"PO-Revision-Date: 2022-05-29 10:48+0200\n"
+"PO-Revision-Date: 2023-03-12 03:04+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #. Alpha-numeric keyboard Magnifier keys
 #. Translators: The key used natively byt the Magnifier on the alpha-numeric (main) keyboard in conjunction with Win key to zoom in.
@@ -39,17 +39,17 @@ msgstr ""
 #. Translators: A UI object that can be tracked (followed) by the Magnifier.
 #. If possible, translate with the term used in Magnifier's options.
 msgid "Mouse pointer"
-msgstr ""
+msgstr "Wskaźnik myszy"
 
 #. Translators: A UI object that can be tracked (followed) by the Magnifier.
 #. If possible, translate with the term used in Magnifier's options.
 msgid "Keyboard focus"
-msgstr ""
+msgstr "Fokus klawiatury"
 
 #. Translators: A UI object that can be tracked (followed) by the Magnifier.
 #. If possible, translate with the term used in Magnifier's options.
 msgid "Text cursor"
-msgstr ""
+msgstr "Kursor tekstu"
 
 #. Translators: The description of a command of this add-on.
 msgid "Toggles on or off caret tracking"
@@ -72,13 +72,12 @@ msgid "Toggles on or off smoothing"
 msgstr "Włącza lub wyłącza wygładzanie"
 
 #. Translators: The description of a command of this add-on.
-#, fuzzy
 msgid ""
 "Switches between mouse pointeur tracking modes (within the edge of the "
 "screen or centered on the screen)"
 msgstr ""
-"Przełącza między trybami śledzenia myszy: w obrębie krawędzi ekranu lub na "
-"środku ekranu."
+"Przełączanie między trybami śledzenia wskaźnika myszy (na krawędzi ekranu "
+"lub wyśrodkowane na ekranie)"
 
 #. Translators: The description of a command of this add-on.
 msgid ""
@@ -92,13 +91,13 @@ msgstr ""
 msgid ""
 "Saves the current configuration parameters of the magnifier to NVDA's "
 "configuration."
-msgstr ""
+msgstr "Zapisuje bieżące parametry konfiguracyjne lupy w konfiguracji NVDA."
 
 #. Translators: The description of a command of this add-on.
 msgid ""
 "Restores the current configuration parameters of the magnifier from NVDA's "
 "configuration."
-msgstr ""
+msgstr "Przywraca bieżące parametry konfiguracyjne lupy z konfiguracji NVDA."
 
 #. Translators: The description of a command of this add-on.
 msgid "Moves the magnified view"
@@ -109,13 +108,12 @@ msgid "Moves the mouse cursor in the center of the zoomed view"
 msgstr "Przemieszcza kursor myszy na środek powiększonego obszaru"
 
 #. Translators: The description of a command of this add-on.
-#, fuzzy
 msgid ""
 "Switches on or off the mode keeping Windows Magnifier's control window "
 "always on top of the other ones."
 msgstr ""
-"Włącza lub wyłącza tryb, dzięki czemu okno sterowania Lupy Windows jest "
-"zawsze na wierzchu pozostałych."
+"Włącza lub wyłącza tryb, dzięki czemu okno sterowania programu Windows "
+"Upifier jest zawsze na wierzchu innych."
 
 #. Translators: The description of a command of this add-on.
 msgid "Opens Windows Magnifier add-on settings"
@@ -188,7 +186,7 @@ msgstr "Śledzenie myszy nie"
 #. Translators: The message reported when the user turns on tracking.
 #, python-brace-format
 msgid "Tracking on - {trackingTypes}"
-msgstr ""
+msgstr "Śledzenie włączone - {trackingTypes}"
 
 #. Translators: The message reported when the user turns off tracking.
 msgid "Tracking off"
@@ -208,9 +206,8 @@ msgid "Feature unavailable in this version of Windows."
 msgstr "Funkcja niedostępna w tej wersji systemu Windows."
 
 #. Translators: The message reported when the user tries to toggle mouse pointer tracking mode while full screen view is not active.
-#, fuzzy
 msgid "Mouse pointer tracking mode applies only to full screen view."
-msgstr "Tryb śledzenia myszy dotyczy tylko widoku pełnoekranowego."
+msgstr "Tryb śledzenia wskaźnika myszy dotyczy tylko widoku pełnoekranowego."
 
 #. Translators: A message reporting mouse pointer tracking mode (cf. option in Magnifier settings).
 #. Translators: A message reporting text cursor tracking mode (cf. option in Magnifier settings).
@@ -223,19 +220,17 @@ msgid "Within the edge of the screen"
 msgstr "W obrębie krawędzi ekranu"
 
 #. Translators: The message reported when the user tries to toggle text cursor tracking mode while full screen view is not active.
-#, fuzzy
 msgid "Text cursor tracking mode applies only to full screen view."
-msgstr "Tryb śledzenia myszy dotyczy tylko widoku pełnoekranowego."
+msgstr ""
+"Tryb śledzenia kursora tekstowego dotyczy tylko widoku pełnoekranowego."
 
-#, fuzzy
 msgid "Magnifier config saved."
-msgstr "Lupa włączona"
+msgstr "Zapisano konfigurację lupy."
 
 #. Translators: A message reported when the user calls the command
 #. to restores the Magnifier's configuration.
-#, fuzzy
 msgid "Magnifier config restored."
-msgstr "Sterowanie lupą nie znajduje się na górze."
+msgstr "Przywrócono konfigurację lupy."
 
 #. Translators: A message reported when the user tries to execute script mouseToView
 msgid ""
@@ -246,13 +241,12 @@ msgstr ""
 "lub nowszym w trybie pełnoekranowym."
 
 #. Translators: A message reported when the user tries to execute script mouseToView
-#, fuzzy
 msgid ""
 "Move mouse to view command not available in full screen mode while screen "
 "curtain is active."
 msgstr ""
-"Przesuń myszą, aby wyświetlić polecenie dostępne tylko w systemie Windows 8 "
-"lub nowszym w trybie pełnoekranowym."
+"Polecenie Przesuń myszą, aby wyświetlić, nie jest dostępne w trybie "
+"pełnoekranowym, gdy kurtyna ekranowa jest aktywna."
 
 #. o = getDockedWindowObject()
 #. hwnd = o.windowHandle
@@ -400,11 +394,8 @@ msgstr ""
 "dodatku Windows Magnifier:"
 
 #. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
-#, fuzzy
 msgid "&Keep Windows Magnifier command window always on top"
-msgstr ""
-"Punkt wejścia poleceń wielowarstwowych dodatku wspierającego obsługę lupy "
-"systemu Windows."
+msgstr "&Zachowaj okno poleceń Lupy systemu Windows zawsze na wierzchu"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager

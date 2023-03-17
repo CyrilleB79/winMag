@@ -16,13 +16,18 @@ Ovaj dodatak poboljšava upotrebu Windows povećala s NVDA čitačem.
   tablici sukobljavaju s naredbama povećala.
 * Dodaje neke tipkovničke prečace za uključivanje i isključivanje raznih
   opcija povećala.
+* Dozvoli spremanje i obnavljanje parametara konfiguracije povećala.
 * Dodaje neke dodatne značajke koje ne pruža Windows povećalo (miš za
   prikaz, prozor povećala nije na vrhu)
 
 ## Postavke
 
-Ploča za postavljanje dodatka Windows povećala omogućuje konfiguriranje načina na koji NVDA reagira na izvorne naredbe Windows povećala.
-Možda želiš da se javlja više ili manje naredbi u skladu s onim što možeš vidjeti.
+Ploča za postavljanje dodatka Windows povećala omogućuje konfiguriranje
+načina na koji NVDA reagira na izvorne naredbe Windows povećala. Možda želiš
+da se javlja više ili manje naredbi u skladu s onim što možeš vidjeti. Ploča
+također sadrži opciju za mijenjanje ponašanja kontrolnog prozora Windows
+povećala.
+
 Ova se ploča može otvoriti odabirom Postavke -> Postavke u NVDA izborniku, a zatim odabirom kategorije Windows Povećalo u prozoru Postavke.
 Tipkovni prečac NVDA+Windows+O, zatim O, također omogućuje izravno otvaranje ove ploče s postavkama.
 
@@ -44,8 +49,8 @@ Ploča sadrži sljedeće opcije:
   opcije su: Isključeno, S govorom i S tonovima. Ova opcija ne utječe na
   usidreni način prikaza.
 * Glasnoća tonova za javljanje položaja prikaza: omogućuje definiranje
-  glasnoće tonova ako su odabrana javljanja o premještanju prikaza ili o
-  rubovima ekrana s tonovima.
+  glasnoće tonova ako je odabrana mogućnost javljanja premještanja prikaza
+  ili rubova ekrana pomoću tonova.
 * Uključi ili isključi javljanje: Ako je označeno, javlja se stanje povećala
   kad za uključivanje ili isključivanje koristiš naredbe Windows++ ili
   Windows+Escape.
@@ -88,6 +93,9 @@ Ploča sadrži sljedeće opcije:
       tablicama isključivo koristiš dodatak [Jednostavno kretanje po
       tablici][5].
 
+* Keep Windows Magnifier command window always on top: If unchecked, the
+  Magnifier's control window will not be kept always on top of other
+  windows.
 
 ## Dodatak dodaje sljedeće naredbe
 
@@ -103,20 +111,28 @@ NVDA+Windows+O:
 * NVDA+Windows+O, zatim C: Uključuje ili isključuje praćenje kursora.
 * NVDA+Windows+O, zatim F: Uključuje ili isključuje praćenje fokusa.
 * NVDA+Windows+O, zatim M: Uključuje ili isključuje praćenje miša.
-* NVDA+Windows+O, zatim T: Uključuje ili isključuje praćenje globalno.
+* NVDA+Windows+O then T: Toggles on or off tracking globally.  When tracking
+  is toggled on again, it is set to the last active tracking configuration
+  before tracking was toggled off.
 * NVDA+Windows+O, zatim S: Uključuje ili isključuje zaglađivanje rubova.
-* NVDA+Windows+O, zatim R: Prebacuje se između modusa praćenja miša (unutar
-  ruba ekrana ili centrirano na ekranu); ova je funkcija dostupna samo u
-  Windows 10 gradnja 17643 ili novijoj verziji.
+* NVDA+Windows+O, zatim R: Prebacuje se između modusa praćenja kursora miša
+  (unutar ruba ekrana ili centrirano na ekranu); ova je funkcija dostupna
+  samo u Windows 10 gradnja 17643 ili novijoj verziji.
 * NVDA+Windows+O, zatim X: Prebacuje se između modusa praćenja miša (unutar
   ruba ekrana ili centrirano na ekranu); ova je funkcija dostupna samo u
   Windows 10 gradnja 18894 ili novijoj verziji.
-* NVDA+Windows+O zatim strelice: Pomakni uvećani prikaz.
-* NVDA+Windows+O zatim V: Pomiče kursor miša u središte uvećanog prikaza
+* NVDA+Windows+O, zatim šift+P: Sprema aktualne parametre konfiguracije
+  povećala u NVDA konfiguraciju.
+* NVDA+Windows+O then P: Restores the current configuration parameters of
+  the magnifier from NVDA's configuration.  If no configuration parameters
+  has been previously saved to NVDA's configuration, the default
+  configuration parameters of Windows Magnifier are restored instead.
+* NVDA+Windows+O, zatim strelice: Pomakni uvećani prikaz.
+* NVDA+Windows+O, zatim V: Pomiče kursor miša u središte uvećanog prikaza
   (naredba nije dostupna u usidrenom načinu prikaza).
-* NVDA+Windows+O zatim W: Uključuje ili isključuje način rada držeći
-  kontrolni prozor Windows povećala uvijek iznad ostalih. Ova je značajka
-  dostupna samo za instalirane NVDA verzije.
+* NVDA+Windows+O, zatim W: Uključuje ili isključuje modus omogučujući
+  zadržavanje kontrolnog prozora Windows povećala uvijek iznad ostalih. Ova
+  je značajka dostupna samo za instalirane NVDA verzije.
 * NVDA+Windows+O, zatim O: Otvara postavke dodatka Windows povećala.
 * NVDA+Windows+O, zatim H: Prikazuje pomoć za naredbe povećala.
 
@@ -196,6 +212,25 @@ Nije moguće promijeniti niti jednu izvornu naredbu povećala.
 
 
 ## Dnevnik promjena
+
+### Verzija 3.0
+
+* Pressing the zoom buttons in the Magnifier window (with the keyboard) now
+  reports the new zoom level.
+* The parameter controlling if Magnifier control window remains always on
+  top is now stored in configuration; this means that this parameter is
+  remembered when restarting NVDA and can be enabled or not depending on the
+  active profile.
+* Fixed a bug causing unexpected screen curtain de-activation when using
+  move to view or move view commands.
+* Option alwaysOnTop setting will now be honoured also when changing
+  magnification mode.
+* Added ability to save and restore Windows Magnifier's config in NVDA's
+  config.
+* Kompatibilnost s NVDA verzijom 2023.1.
+* Clarify which type of tracking is re-enabled when tracking is toggled on
+  again.
+* Aktualizirane lokalizacije.
 
 ### Verzija 2.0
 

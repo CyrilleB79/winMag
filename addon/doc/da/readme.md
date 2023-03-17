@@ -16,15 +16,20 @@ Denne tilføjelse forbedrer brugen af Windows Forstørrelsesglas med NVDA.
   i konflikt med forstørrelses kommandoer.
 * Tilføjer nogle tastaturgenveje, der ændre forskellige
   standardindstillinger for Forstørrelsesglas.
+* Allow to save and restore the configuration parameters of the Magnifier.
 * Tilføjer nogle ekstra funktioner, der ikke leveres af Windows Forstørrelse
   (mus til visning, forstørrelsesvindue ikke øverst)
 
 ## indstillinger
 
-Indstillingspanelet for tilføjelsesprogrammet gør det muligt at konfigurere, hvordan NVDA reagerer til de oprindelige kommandoer for Windows Forstørrelsesglas.
-Du vil sandsynligvis helst have oplyst, når du udfører flere eller færre kommandoer i henhold til din synsrest.
-Dette panel åbnes ved at vælge Opsætning>Indstillinger i NVDA-menuen og derefter vælge kategorien Windows Forstørrelsesglas i vinduet Indstillinger.
-Tastaturgenvejen NVDA+Windows+O lader dig også åbne dette indstillingspanel.
+The setting panel of Windows Magnifier add-on allows to configure how NVDA
+reacts to native Windows Magnifier commands.  You may want to have more or
+less commands reported according to what you are able to see.  The panel
+also contains an option to modify the behaviour of Windows Magnifier control
+window.
+
+This panel may be opened choosing Preferences -> Settings in the NVDA menu and then selecting the Windows Magnifier category in the Settings window.
+The keyboard shortcut NVDA+Windows+O then O also allows to open this settings panel directly.
 
 Panelet indeholder følgende indstillinger:
 
@@ -43,9 +48,9 @@ Panelet indeholder følgende indstillinger:
   skærmen, mens du panorere visningen med kommandoerne
   Ctrl+Alt+Piletaster. De tre muligheder er: Fra, Med tale og Med
   toner. Denne indstilling påvirker ikke forankret visning.
-* Lydstyrken af tonerne, der angiver visningens position: Gør det muligt at
-  definere lydstyrken af tonerne, hvis du har valgt at få oplyst
-  skærmkanter, eller  når der panoreres med toner.
+* Volume of the tones reporting the position of the view: allows to define
+  the volume of the tones if you have selected to report view moves or
+  screen edges with tones.
 * Oplys, når forstørrelsesglas slås til: Hvis dette er markeret, rapporteres
   Forstørrelsesglasets tilstand, når du bruger kommandoerne Windows++ eller
   Windows+Escape til at slå funktionen til eller fra.
@@ -89,6 +94,9 @@ Panelet indeholder følgende indstillinger:
       tabeller, fordi du har ændret tastekombinationen eller benytter dig af
       tilføjelsen [Easy table navigator][5], når du navigere i tabeller.
 
+* Keep Windows Magnifier command window always on top: If unchecked, the
+  Magnifier's control window will not be kept always on top of other
+  windows.
 
 ## Kommandoer udbudt af denne tilføjelse
 
@@ -105,20 +113,28 @@ NVDA+skift+o.
 * NVDA+Windows+O og derefter C: Slår sporing af tekstmarkøren til og fra.
 * NVDA+Windows+O og derefter F: Slår fokussporing til eller fra.
 * NVDA+Windows+O og derefter M: Slår musesporing til eller fra.
-* NVDA+Windows+O og derefter T: Slår sporing til eller fra globalt.
+* NVDA+Windows+O then T: Toggles on or off tracking globally.  When tracking
+  is toggled on again, it is set to the last active tracking configuration
+  before tracking was toggled off.
 * NVDA+ Windows+O og derefter S: Slår tekstudglatning til eller fra.
-* NVDA+Windows+O og derefter R: Skifter mellem musesporingstilstande
-  (indenfor kanten af skærmen eller centreret på skærmen); denne funktion er
-  kun tilgængelig på Windows 10 build 17643 eller nyere.
+* NVDA+Windows+O then R: Switches between mouse pointer tracking modes
+  (within the edge of the screen or centered on the screen); this feature is
+  only available on Windows 10 build 17643 or higher.
 * NVDA+Windows+O og derefter X: Skifter mellem sporingsfunktioner for
   tekstmarkøren(indenfor kanten af skærmen eller centreret på skærmen);
   denne funktion er kun tilgængelig på Windows 10 build 18894 eller nyere.
+* NVDA+Windows+O then shift+P: Saves the current configuration parameters of
+  the magnifier to NVDA's configuration.
+* NVDA+Windows+O then P: Restores the current configuration parameters of
+  the magnifier from NVDA's configuration.  If no configuration parameters
+  has been previously saved to NVDA's configuration, the default
+  configuration parameters of Windows Magnifier are restored instead.
 * NVDA+Windows+O derefter piletasterne: Panorere den forstørrede visning.
 * NVDA+Windows+O og derefter V: Flytter musemarkøren i midten af den
   forstørrede visning (kommandoen er ikke tilgængelig i forankret visning).
-* NVDA+Windows+O derefter W: Aktivere eller deaktivere funktionen, der gør
-  at forstørelsesvinduet altid forbliver oven på de andre. Denne funktion er
-  kun tilgængelig for installerede versioner af NVDA.
+* NVDA+Windows+O then W: Switches on or off the mode allowing to keep
+  Windows Magnifier's control window always on top of the other ones.  This
+  feature is only available for installed versions of NVDA.
 * NVDA+Windows+O og derefter O: Åbner indstillingerne for tilføjelsen.
 * NVDA+Windows+O og derefter H: Viser hjælpen for kommandoerne til
   forstørrelseslaget.
@@ -198,6 +214,25 @@ Ingen af de indbyggede kommandoer til Forstørrelsesglas kan ændres.
 
 
 ## Ændringshistorik
+
+### Version 3.0
+
+* Pressing the zoom buttons in the Magnifier window (with the keyboard) now
+  reports the new zoom level.
+* The parameter controlling if Magnifier control window remains always on
+  top is now stored in configuration; this means that this parameter is
+  remembered when restarting NVDA and can be enabled or not depending on the
+  active profile.
+* Fixed a bug causing unexpected screen curtain de-activation when using
+  move to view or move view commands.
+* Option alwaysOnTop setting will now be honoured also when changing
+  magnification mode.
+* Added ability to save and restore Windows Magnifier's config in NVDA's
+  config.
+* Compatibility with NVDA 2023.1.
+* Clarify which type of tracking is re-enabled when tracking is toggled on
+  again.
+* Opdaterede oversættelser.
 
 ### Version 2.0
 

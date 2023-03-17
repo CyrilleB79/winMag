@@ -15,13 +15,18 @@ Tämä lisäosa parantaa Windowsin suurennuslasin käytettävyyttä NVDA:n kanss
   suurennuslasikomentojen kanssa.
 * Lisätty joitakin pikanäppäimiä suurennuslasin useiden alkuperäisten
   asetusten muuttamiseen.
+* Mahdollistaa suurennuslasin asetusten tallentamisen ja palauttamisen.
 * Lisää joitain lisäominaisuuksia, joita Windowsin suurennuslasi ei tarjoa
   (siirrä hiiri näkymään, suurennuslasi ei päällimmäisenä)
 
 ## Asetukset
 
-Windowsin suurennuslasi -lisäosan asetuspaneelissa voit määrittää, miten NVDA reagoi Windowsin suurennuslasin alkuperäisiin komentoihin.
-Voit haluta enemmän tai vähemmän komentoja ilmoitettavan riippuen siitä, minkä verran näet.
+Windowsin suurennuslasi -lisäosan asetuspaneelissa voit määrittää, miten
+NVDA reagoi suurennuslasin alkuperäisiin komentoihin. Voit haluta enemmän
+tai vähemmän komentoja ilmoitettavan riippuen siitä, minkä verran
+näet. Paneelissa on myös asetus, jolla voidaan muokata suurennuslasin
+säädinikkunan toimintaa.
+
 Tämä paneeli voidaan avata Valitsemalla NVDA-valikosta Asetukset -> Asetukset ja sitten Windowsin suurennuslasi -kategoria.
 Näppäinkomento NVDA+Win+O ja sitten O avaa myös tämän asetuspaneelin suoraan.
 
@@ -44,7 +49,7 @@ Tämä asetus ei vaikuta kiinnitetyn näkymän tilaan.
   Äänimerkeillä. Tämä asetus ei vaikuta kiinnitetyn näkymän tilaan.
 * Näkymän sijainnin ilmoittavien äänimerkkien voimakkuus: Mahdollistaa
   äänimerkkien voimakkuuden määrittämisen, mikäli olet valinnut näkymän
-  siirtämisen ilmoittamisen tai näytön reunojen ilmoittamisen äänimerkeillä.
+  siirtämisen tai näytön reunojen ilmoittamisen äänimerkeillä.
 * Ilmoita käyttöön ottaminen tai käytöstä poistaminen: Jos tämä on
   valittuna, suurennuslasin tila ilmoitetaan käyttäessäsi Win++- tai
   Win+Esc-komentoja sen käyttöön ottamiseksi tai käytöstä poistamiseksi.
@@ -52,8 +57,8 @@ Tämä asetus ei vaikuta kiinnitetyn näkymän tilaan.
   taso ilmoitetaan käyttäessäsi zoomauskomentoja Win++ tai Win+-.
 * Ilmoita värin inversio: Jos tämä on valittuna, värin inversion tila
   ilmoitetaan käyttäessäsi tilanvaihtokomentoa Ctrl+Alt+I.
-* Ilmoita näkymän muuttumisesta: Jos tämä on valittuna, näkymän tyyppi
-  ilmoitetaan käyttäessäsi sitä muuttavaa komentoa (Ctrl+Alt+M, Ctrl+Alt+F,
+* Ilmoita näkymän vaihtaminen: Jos tämä on valittuna, näkymän tyyppi
+  ilmoitetaan käyttäessäsi sitä vaihtavaa komentoa (Ctrl+Alt+M, Ctrl+Alt+F,
   Ctrl+Alt+D ja Ctrl+Alt+L).
 * Ilmaise linssi- tai kiinnitetyn ikkunan koon muuttaminen: Jos tämä on
   valittuna, NVDA antaa ilmoituksen käyttäessäsi koonmuuttamiskomentoja
@@ -89,6 +94,9 @@ Tämä asetus ei vaikuta kiinnitetyn näkymän tilaan.
       yksinomaan [Helppo taulukossa liikkuminen][5] -lisäosaa taulukossa
       liikkumiseen.
 
+* Pidä Windowsin suurennuslasin komentoikkuna aina päällimmäisenä: Jos tämä
+  ei ole valittuna, suurennuslasin säädinikkunaa ei pidetä aina muiden
+  ikkunoiden päällä.
 
 ## Lisäosan komennot
 
@@ -108,16 +116,23 @@ NVDA+Win+O, kautta:
   sen käytöstä.
 * NVDA+Win+O ja sitten M: Ottaa hiiren seurannan käyttöön tai poistaa sen
   käytöstä.
-* NVDA+Win+O ja sitten T: Ottaa seurannan käyttöön tai poistaa sen käytöstä
-  yleisesti.
+* NVDA+Win+O ja sitten T: Ottaa käyttöön seurannan tai poistaa sen käytöstä
+  järjestelmänlaajuisesti. Kun seuranta otetaan uudelleen käyttöön, käytössä
+  on ennen sen käytöstä poistamista aktiivisena ollut asetus.
 * NVDA+Win+O ja sitten S: Ottaa pehmennyksen käyttöön tai poistaa sen
   käytöstä.
-* NVDA+Win+O ja sitten R: Vaihtaa hiiren seurannan tilaa (ruudun reunassa
-  tai keskitettynä). Tämä ominaisuus on käytettävissä vain Windows 10:n
-  koontiversiossa 17643 tai uudemmassa.
-* NVDA+Win+O ja sitten X: Vaihtaa tekstikohdistimen seurannan tilaa (näytön
-  reunassa tai näytön keskellä). Tämä ominaisuus on käytettävissä vain
-  Windows 10:n koontiversiossa 18894 tai sitä uudemmassa.
+* NVDA+Win+O ja sitten R: Vaihtaa hiiren osoittimen seurannan tilaa (näytön
+  reunojen sisäpuolella tai näytöllä keskitettynä). Tämä ominaisuus on
+  käytettävissä vain Windows 10:n koontiversiossa 17643 tai sitä uudemmassa.
+* NVDA+Win+O ja sitten X: Vaihtaa tekstin kohdistimen seurannan tilaa
+  (näytön reunojen sisäpuolella tai näytöllä keskitettynä). Tämä ominaisuus
+  on käytettävissä vain Windows 10:n koontiversiossa 18894 tai sitä
+  uudemmassa.
+* NVDA+Win+O ja sitten Vaihto+P: Tallentaa nykyiset suurennuslasin asetukset
+  NVDA:n asetuksiin.
+* NVDA+Win+O ja sitten P: Palauttaa suurennuslasin nykyiset asetukset NVDA:n
+  asetuksista. Mikäli asetuksia ei ole aiemmin tallennettu, Windowsin
+  suurennuslasin oletusasetukset palautetaan.
 * NVDA+Win+O ja sitten nuolinäppäimet: Siirrä suurennettua näkymää.
 * NVDA+Win+O ja sitten V: Siirtää hiirikohdistimen suurennetun näkymän
   keskelle (komento ei käytettävissä kiinnitetyn näkymän tilassa).
@@ -142,8 +157,8 @@ tulokset puhutaan tätä lisäosaa käytettäessä:
 
 * Käynnistä suurennuslasi: Win++ (numeroriviltä tai numeronäppäimistöltä)
 * Lopeta suurennuslasi: Win+Esc
-* Lähennä näkymää: Win++ (numeroriviltä tai numeronäppäimistöltä)
-* Loitonna näkymää: Win+- (numeroriviltä tai numeronäppäimistöltä)
+* Zoomaa lähemmäs: Win++ (numeroriviltä tai laskinnäppäimistöltä)
+* Zoomaa loitommas: Win+- (numeroriviltä tai laskinnäppäimistöltä)
 * Ota käänteiset värit käyttöön tai poista ne käytöstä: Ctrl+Alt+I
 * Valitse kiinnitetty näkymä: Ctrl+Alt+D
 * Valitse koko ruudun näkymä: Ctrl+Alt+F
@@ -157,7 +172,7 @@ tulokset puhutaan tätä lisäosaa käytettäessä:
 
 Tässä on lisäksi luettelo muista Suurennuslasin alkuperäisistä komennoista:
 
-* Ctrl+Alt+Hiiren vieritysrulla: Lähentää ja loitontaa näkymää hiiren
+* Ctrl+Alt+Hiiren vieritysrulla: Zoomaa lähemmäs tai loitommas hiiren
   vieritysrullaa käyttäen.
 * Ctrl+Win+M: Avaa suurennuslasin asetusikkunan.
 * Ctrl+Alt+R: Muuttaa linssin kokoa hiiren avulla.
@@ -198,13 +213,31 @@ Alkuperäisiä suurennuslasikomentoja ei voi muuttaa.
 
 * Tätä lisäosaa ei ole testattu moninäyttöympäristössä, ja on mahdollista,
   että jokin ominaisuus ei toimi sitä käytettäessä. Mikäli käytät
-  moninäyttöympäristöä ja haluat, että sitä tuetaan, ota minuun yhteyttä
-  siihen liittyen.
+  moninäyttöympäristöä ja haluat, että sitä tuetaan, ota minuun yhteyttä.
 * Yleisemmin ottaen älä epäröi ottaa minuun yhteyttä tämän lisäosan
   [GitHub-sivulla][3] tai suoraan sähköpostitse.
 
 
 ## Muutosloki
+
+### Versio 3.0
+
+* Uusi zoomauksen taso ilmoitetaan nyt painettaessa suurennuslasin ikkunassa
+  olevia Zoomauspainikkeita näppäimistöltä.
+* Suurennuslasin säädinikkunan päällimmäisenä olemista määrittävä asetus
+  tallennetaan nyt asetuksiin. Tämä tarkoittaa, että asetuksen tila
+  muistetaan NVDA:ta uudelleenkäynnistettäessä, ja asetus voidaan ottaa
+  käyttöön tai poistaa käytöstä aktiivisesta profiilista riippuen.
+* Korjattu bugi, joka aiheutti odottamattoman näyttöverhon käytöstä
+  poistamisen Siirry näkymään- tai Siirrä näkymää -komentoja käytettäessä.
+* Aina päällimmäisenä -asetusta noudatetaan nyt myös suurennuksen tilaa
+  vaihdettaessa.
+* Lisätty mahdollisuus Windowsin suurennuslasin asetusten tallentamiseen ja
+  palauttamiseen.
+* Yhteensopivuus NVDA 2023.1:n kanssa.
+* Selvennetty, mikä asetus on käytössä, kun seuranta otetaan uudelleen
+  käyttöön.
+* Lokalisointeja päivitetty.
 
 ### Versio 2.0
 

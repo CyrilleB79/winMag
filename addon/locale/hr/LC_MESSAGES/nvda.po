@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: winMag 1.0\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2021-07-02 22:20+0000\n"
-"PO-Revision-Date: 2022-05-07 01:24+0200\n"
+"PO-Revision-Date: 2023-03-13 22:06+0100\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: \n"
 "Language: hr\n"
@@ -40,17 +40,17 @@ msgstr ""
 #. Translators: A UI object that can be tracked (followed) by the Magnifier.
 #. If possible, translate with the term used in Magnifier's options.
 msgid "Mouse pointer"
-msgstr ""
+msgstr "Pokazivač miša"
 
 #. Translators: A UI object that can be tracked (followed) by the Magnifier.
 #. If possible, translate with the term used in Magnifier's options.
 msgid "Keyboard focus"
-msgstr ""
+msgstr "Fokus tipkovnice"
 
 #. Translators: A UI object that can be tracked (followed) by the Magnifier.
 #. If possible, translate with the term used in Magnifier's options.
 msgid "Text cursor"
-msgstr ""
+msgstr "Tekstualni kursor"
 
 #. Translators: The description of a command of this add-on.
 msgid "Toggles on or off caret tracking"
@@ -73,13 +73,12 @@ msgid "Toggles on or off smoothing"
 msgstr "Uključuje ili isključuje zaglađivanje rubova"
 
 #. Translators: The description of a command of this add-on.
-#, fuzzy
 msgid ""
 "Switches between mouse pointeur tracking modes (within the edge of the "
 "screen or centered on the screen)"
 msgstr ""
-"Prebacuje između modusa praćenja miša (unutar ruba ekrana ili centrirano na "
-"ekranu)"
+"Prebacuje između modusa praćenja pokazivača miša (unutar ruba ekrana ili "
+"centrirano na ekranu)"
 
 #. Translators: The description of a command of this add-on.
 msgid ""
@@ -93,13 +92,14 @@ msgstr ""
 msgid ""
 "Saves the current configuration parameters of the magnifier to NVDA's "
 "configuration."
-msgstr ""
+msgstr "Sprema aktualne parametre konfiguracije povećala u NVDA konfiguraciju."
 
 #. Translators: The description of a command of this add-on.
 msgid ""
 "Restores the current configuration parameters of the magnifier from NVDA's "
 "configuration."
 msgstr ""
+"Sprema aktualne parametre konfiguracije povećala od NVDA konfiguracije."
 
 #. Translators: The description of a command of this add-on.
 msgid "Moves the magnified view"
@@ -110,12 +110,11 @@ msgid "Moves the mouse cursor in the center of the zoomed view"
 msgstr "Pomiče kursor miša u središte zumiranog prikaza"
 
 #. Translators: The description of a command of this add-on.
-#, fuzzy
 msgid ""
 "Switches on or off the mode keeping Windows Magnifier's control window "
 "always on top of the other ones."
 msgstr ""
-"Uključuje ili isključuje način rada zadržavajući kontrolni Windows prozor "
+"Uključuje ili isključuje modus zadržavanja kontrolnog prozora Windows "
 "povećala uvijek ispred ostalih prozora."
 
 #. Translators: The description of a command of this add-on.
@@ -185,7 +184,7 @@ msgstr "Praćenje miša isključeno"
 #. Translators: The message reported when the user turns on tracking.
 #, python-brace-format
 msgid "Tracking on - {trackingTypes}"
-msgstr ""
+msgstr "Praćenje uključeno – {trackingTypes}"
 
 #. Translators: The message reported when the user turns off tracking.
 msgid "Tracking off"
@@ -205,9 +204,9 @@ msgid "Feature unavailable in this version of Windows."
 msgstr "Funkcija nedostupna u ovoj verziji Windowsa."
 
 #. Translators: The message reported when the user tries to toggle mouse pointer tracking mode while full screen view is not active.
-#, fuzzy
 msgid "Mouse pointer tracking mode applies only to full screen view."
-msgstr "Modus praćenja miša vrijedi samo za cjloekranski prikaz."
+msgstr ""
+"Modus praćenja pokazivača miša se primjenjuje samo u cjeloekranskom prikazu."
 
 #. Translators: A message reporting mouse pointer tracking mode (cf. option in Magnifier settings).
 #. Translators: A message reporting text cursor tracking mode (cf. option in Magnifier settings).
@@ -220,19 +219,18 @@ msgid "Within the edge of the screen"
 msgstr "Unutar ruba ekrana"
 
 #. Translators: The message reported when the user tries to toggle text cursor tracking mode while full screen view is not active.
-#, fuzzy
 msgid "Text cursor tracking mode applies only to full screen view."
-msgstr "Modus praćenja miša vrijedi samo za cjloekranski prikaz."
+msgstr ""
+"Modus praćenja tekstualnog kursora se primjenjuje samo u cjeloekranskom "
+"prikazu."
 
-#, fuzzy
 msgid "Magnifier config saved."
-msgstr "Povećalo uključeno"
+msgstr "Konfiguracija povećala spremljena."
 
 #. Translators: A message reported when the user calls the command
 #. to restores the Magnifier's configuration.
-#, fuzzy
 msgid "Magnifier config restored."
-msgstr "Kontrole povećala ispod ostalih prozora."
+msgstr "Konfiguracija povećala obnovljena."
 
 #. Translators: A message reported when the user tries to execute script mouseToView
 msgid ""
@@ -243,13 +241,12 @@ msgstr ""
 "novijim verzijama u cjeloekranskom prikazu."
 
 #. Translators: A message reported when the user tries to execute script mouseToView
-#, fuzzy
 msgid ""
 "Move mouse to view command not available in full screen mode while screen "
 "curtain is active."
 msgstr ""
-"Naredba „Pomakni miša za prikaz” dostupna je samo u sustavu Windows 8 i "
-"novijim verzijama u cjeloekranskom prikazu."
+"Naredba „Pomakni miša za prikaz” nije dostupna u cjeloekranskom prikazu kad "
+"je tema ekrana aktivna."
 
 #. o = getDockedWindowObject()
 #. hwnd = o.windowHandle
@@ -398,9 +395,8 @@ msgstr ""
 "Windows povećalu:"
 
 #. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
-#, fuzzy
 msgid "&Keep Windows Magnifier command window always on top"
-msgstr "Mjesto unosa naredbi Windows povećala."
+msgstr "&Zadrži prozor Windows povećala uvijek ispred ostalih prozora"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager

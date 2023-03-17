@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: winMag 1.0\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2021-06-21 09:38+0000\n"
-"PO-Revision-Date: 2022-05-30 18:40+0200\n"
+"PO-Revision-Date: 2023-03-11 14:51+0200\n"
 "Last-Translator: Jani Kinnunen <janikinnunen340@gmail.com>\n"
 "Language-Team: fi_FI <janikinnunen340@gmail.com>\n"
 "Language: fi\n"
@@ -33,23 +33,22 @@ msgstr "Suurennuslasi ei ole käytössä"
 
 #. Translators: The message reported when the user tries to toggle a tracking mode while docked or full screen view is not active.
 msgid "Tracking configuration only applicable with docked or full screen view."
-msgstr ""
-"Seurannan asetukset koskevat vain kiinnitettyä tai koko näytön näkymää."
+msgstr "Seuranta käytettävissä vain kiinnitetyssä tai koko näytön näkymässä."
 
 #. Translators: A UI object that can be tracked (followed) by the Magnifier.
 #. If possible, translate with the term used in Magnifier's options.
 msgid "Mouse pointer"
-msgstr ""
+msgstr "Hiiren osoitin"
 
 #. Translators: A UI object that can be tracked (followed) by the Magnifier.
 #. If possible, translate with the term used in Magnifier's options.
 msgid "Keyboard focus"
-msgstr ""
+msgstr "Näppäimistön kohdistus"
 
 #. Translators: A UI object that can be tracked (followed) by the Magnifier.
 #. If possible, translate with the term used in Magnifier's options.
 msgid "Text cursor"
-msgstr ""
+msgstr "Tekstin kohdistin"
 
 #. Translators: The description of a command of this add-on.
 msgid "Toggles on or off caret tracking"
@@ -65,36 +64,40 @@ msgstr "Ottaa käyttöön hiiren seurannan tai poistaa sen käytöstä"
 
 #. Translators: The description of a command of this add-on.
 msgid "Toggles on or off tracking globally"
-msgstr "Ottaa käyttöön seurannan järjestelmänlaajuisesti"
+msgstr ""
+"Ottaa seurannan käyttöön tai poistaa sen käytöstä järjestelmänlaajuisesti"
 
 #. Translators: The description of a command of this add-on.
 msgid "Toggles on or off smoothing"
 msgstr "Ottaa käyttöön pehmennyksen tai poistaa sen käytöstä"
 
 #. Translators: The description of a command of this add-on.
-#, fuzzy
 msgid ""
 "Switches between mouse pointeur tracking modes (within the edge of the "
 "screen or centered on the screen)"
-msgstr "Vaihtaa hiiren seurannan tilaa (näytön reunassa tai näytön keskellä)"
+msgstr ""
+"Vaihtaa hiiren osoittimen seurannan tilaa (näytön reunojen sisäpuolella tai "
+"näytön keskellä)"
 
 #. Translators: The description of a command of this add-on.
 msgid ""
 "Switches between text tracking modes (within the edge of the screen or "
 "centered on the screen)"
-msgstr "Vaihtaa tekstin seurannan tilaa (näytön reunassa tai näytön keskellä)"
+msgstr ""
+"Vaihtaa tekstin seurannan tilaa (näytön reunojen sisäpuolella tai näytön "
+"keskellä)"
 
 #. Translators: The description of a command of this add-on.
 msgid ""
 "Saves the current configuration parameters of the magnifier to NVDA's "
 "configuration."
-msgstr ""
+msgstr "Tallentaa suurennuslasin nykyiset asetukset NVDA:n asetuksiin."
 
 #. Translators: The description of a command of this add-on.
 msgid ""
 "Restores the current configuration parameters of the magnifier from NVDA's "
 "configuration."
-msgstr ""
+msgstr "Palauttaa suurennuslasin nykyiset asetukset NVDA:n asetuksista."
 
 #. Translators: The description of a command of this add-on.
 msgid "Moves the magnified view"
@@ -105,13 +108,12 @@ msgid "Moves the mouse cursor in the center of the zoomed view"
 msgstr "Siirtää hiirikohdistimen zoomatun näkymän keskelle"
 
 #. Translators: The description of a command of this add-on.
-#, fuzzy
 msgid ""
 "Switches on or off the mode keeping Windows Magnifier's control window "
 "always on top of the other ones."
 msgstr ""
-"Ottaa käyttöön tai poistaa käytöstä tilan, joka pitää suurennuslasin "
-"säädinikkunan aina muiden ikkunoiden päällä."
+"Ottaa käyttöön tai poistaa käytöstä tilan, joka pitää Windowsin "
+"suurennuslasin säädinikkunan aina muiden ikkunoiden päällä."
 
 #. Translators: The description of a command of this add-on.
 msgid "Opens Windows Magnifier add-on settings"
@@ -159,7 +161,7 @@ msgstr "Kohdistimen seuranta käytössä"
 
 #. Translators: The message reported when the user turns off caret tracking.
 msgid "Caret tracking off"
-msgstr "Kohdistimen seuranta pois"
+msgstr "Kohdistimen seuranta ei käytössä"
 
 #. Translators: The message reported when the user turns on focus tracking.
 msgid "Focus tracking on"
@@ -167,7 +169,7 @@ msgstr "Kohdistuksen seuranta käytössä"
 
 #. Translators: The message reported when the user turns off focus tracking.
 msgid "Focus tracking off"
-msgstr "Kohdistuksen seuranta pois"
+msgstr "Kohdistuksen seuranta ei käytössä"
 
 #. Translators: The message reported when the user turns on mouse tracking.
 msgid "Mouse tracking on"
@@ -175,16 +177,16 @@ msgstr "Hiiren seuranta käytössä"
 
 #. Translators: The message reported when the user turns off focus tracking.
 msgid "Mouse tracking off"
-msgstr "Hiiren seuranta pois"
+msgstr "Hiiren seuranta ei käytössä"
 
 #. Translators: The message reported when the user turns on tracking.
 #, python-brace-format
 msgid "Tracking on - {trackingTypes}"
-msgstr ""
+msgstr "Seuranta käytössä - {trackingTypes}"
 
 #. Translators: The message reported when the user turns off tracking.
 msgid "Tracking off"
-msgstr "Seuranta pois"
+msgstr "Seuranta ei käytössä"
 
 #. Translators: The message reported when the user turns on smoothing.
 msgid "Smoothing on"
@@ -192,7 +194,7 @@ msgstr "Pehmennys käytössä"
 
 #. Translators: The message reported when the user turns off smoothing.
 msgid "Smoothing off"
-msgstr "Pehmennys pois"
+msgstr "Pehmennys ei käytössä"
 
 #. Translators: The message reported when the user tries to toggle mouse pointer tracking mode whereas his Windows version does not support it.
 #. Translators: The message reported when the user tries to toggle text cursor tracking mode whereas his Windows version does not support it.
@@ -200,9 +202,9 @@ msgid "Feature unavailable in this version of Windows."
 msgstr "Ominaisuus ei käytettävissä tässä Windowsin versiossa."
 
 #. Translators: The message reported when the user tries to toggle mouse pointer tracking mode while full screen view is not active.
-#, fuzzy
 msgid "Mouse pointer tracking mode applies only to full screen view."
-msgstr "Hiiren seurantatila käytettävissä vain koko näytön näkymässä."
+msgstr ""
+"Hiiren osoittimen seurantatila käytettävissä vain koko näytön näkymässä."
 
 #. Translators: A message reporting mouse pointer tracking mode (cf. option in Magnifier settings).
 #. Translators: A message reporting text cursor tracking mode (cf. option in Magnifier settings).
@@ -212,22 +214,20 @@ msgstr "Näytön keskellä"
 #. Translators: A message reporting mouse pointer tracking mode (cf. option in Magnifier settings).
 #. Translators: A message reporting text cursor tracking mode (cf. option in Magnifier settings).
 msgid "Within the edge of the screen"
-msgstr "Näytön reunassa"
+msgstr "Näytön reunojen sisäpuolella"
 
 #. Translators: The message reported when the user tries to toggle text cursor tracking mode while full screen view is not active.
-#, fuzzy
 msgid "Text cursor tracking mode applies only to full screen view."
-msgstr "Hiiren seurantatila käytettävissä vain koko näytön näkymässä."
+msgstr ""
+"Tekstin kohdistimen seurantatila käytettävissä vain koko näytön näkymässä."
 
-#, fuzzy
 msgid "Magnifier config saved."
-msgstr "Suurennuslasi käytössä"
+msgstr "Suurennuslasin asetukset tallennettu."
 
 #. Translators: A message reported when the user calls the command
 #. to restores the Magnifier's configuration.
-#, fuzzy
 msgid "Magnifier config restored."
-msgstr "Suurennuslasin säätimet eivät päällimmäisenä"
+msgstr "Suurennuslasin asetukset palautettu."
 
 #. Translators: A message reported when the user tries to execute script mouseToView
 msgid ""
@@ -238,13 +238,12 @@ msgstr ""
 "Windows 8:ssa ja uudemmissa"
 
 #. Translators: A message reported when the user tries to execute script mouseToView
-#, fuzzy
 msgid ""
 "Move mouse to view command not available in full screen mode while screen "
 "curtain is active."
 msgstr ""
-"Siirrä hiiri näkymään -komento käytettävissä koko näytön tilassa vain "
-"Windows 8:ssa ja uudemmissa"
+"Siirrä hiiri näkymään -komento ei käytettävissä koko näytön tilassa "
+"näyttöverhon ollessa käytössä"
 
 #. o = getDockedWindowObject()
 #. hwnd = o.windowHandle
@@ -277,7 +276,7 @@ msgstr "Suurennuslasi käytössä"
 
 #. Translators: The message reported when the user turns off the Magnifier.
 msgid "Magnifier off"
-msgstr "Suurennuslasi pois"
+msgstr "Suurennuslasi ei käytössä"
 
 #. Translators: A zoom level reported when the user changes the zoom level.
 #, python-brace-format
@@ -290,7 +289,7 @@ msgstr "Värin inversio käytössä"
 
 #. Translators: The message reported when the user turns off color inversion.
 msgid "Color inversion off"
-msgstr "Värin inversio pois"
+msgstr "Värin inversio ei käytössä"
 
 #. Translators: A view type reported when the user changes the Magnifier view. See the view menu items in the Magnifier's toolbar.
 msgid "Docked"
@@ -377,7 +376,7 @@ msgstr "Ilmoita värin &inversio"
 
 #. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
 msgid "Report &view change"
-msgstr "Ilmoita &näkymän muuttumisesta"
+msgstr "Ilmoita &näkymän vaihtaminen"
 
 #. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
 msgid "Report &lens or docked window resizing"
@@ -392,9 +391,8 @@ msgstr ""
 "Windowsin suurennuslasille:"
 
 #. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
-#, fuzzy
 msgid "&Keep Windows Magnifier command window always on top"
-msgstr "Windowsin suurennuslasin komentokerroskomentojen aloituskohta."
+msgstr "&Pidä Windows suurennuslasin komentoikkuna aina päällimmäisenä"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager

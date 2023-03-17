@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: winMag 1.0\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2021-06-21 09:38+0000\n"
-"PO-Revision-Date: 2022-05-16 17:02+0200\n"
-"Last-Translator: Michel Such <michelsuch93@gmail.com>\n"
+"PO-Revision-Date: 2023-03-11 15:48+0100\n"
+"Last-Translator: Cyrille Bougot <cyrille.bougot2@laposte.net>\n"
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -39,17 +39,17 @@ msgstr ""
 #. Translators: A UI object that can be tracked (followed) by the Magnifier.
 #. If possible, translate with the term used in Magnifier's options.
 msgid "Mouse pointer"
-msgstr ""
+msgstr "Pointeur de la souris"
 
 #. Translators: A UI object that can be tracked (followed) by the Magnifier.
 #. If possible, translate with the term used in Magnifier's options.
 msgid "Keyboard focus"
-msgstr ""
+msgstr "Focus du clavier"
 
 #. Translators: A UI object that can be tracked (followed) by the Magnifier.
 #. If possible, translate with the term used in Magnifier's options.
 msgid "Text cursor"
-msgstr ""
+msgstr "Curseur de texte"
 
 #. Translators: The description of a command of this add-on.
 msgid "Toggles on or off caret tracking"
@@ -72,13 +72,12 @@ msgid "Toggles on or off smoothing"
 msgstr "Activer/désactiver le lissage"
 
 #. Translators: The description of a command of this add-on.
-#, fuzzy
 msgid ""
 "Switches between mouse pointeur tracking modes (within the edge of the "
 "screen or centered on the screen)"
 msgstr ""
-"Basculer entre les modes de suivi de la souris (dans les bords de l'écran ou "
-"centré sur l'écran)"
+"Basculer entre les modes de suivi du pointeur de la souris (dans les bords "
+"de l'écran ou centré sur l'écran)"
 
 #. Translators: The description of a command of this add-on.
 msgid ""
@@ -93,12 +92,16 @@ msgid ""
 "Saves the current configuration parameters of the magnifier to NVDA's "
 "configuration."
 msgstr ""
+"Enregistre les paramètres de configuration actuels de la loupe dans la "
+"configuration de NVDA."
 
 #. Translators: The description of a command of this add-on.
 msgid ""
 "Restores the current configuration parameters of the magnifier from NVDA's "
 "configuration."
 msgstr ""
+"Restaure les paramètres de configuration actuels de la loupe à partir de la "
+"configuration de NVDA."
 
 #. Translators: The description of a command of this add-on.
 msgid "Moves the magnified view"
@@ -109,7 +112,6 @@ msgid "Moves the mouse cursor in the center of the zoomed view"
 msgstr "Déplacer le curseur de la souris au centre de la vue agrandie"
 
 #. Translators: The description of a command of this add-on.
-#, fuzzy
 msgid ""
 "Switches on or off the mode keeping Windows Magnifier's control window "
 "always on top of the other ones."
@@ -184,7 +186,7 @@ msgstr "Suivi de la souris désactivé"
 #. Translators: The message reported when the user turns on tracking.
 #, python-brace-format
 msgid "Tracking on - {trackingTypes}"
-msgstr ""
+msgstr "Suivi activé - {trackingTypes}"
 
 #. Translators: The message reported when the user turns off tracking.
 msgid "Tracking off"
@@ -204,11 +206,10 @@ msgid "Feature unavailable in this version of Windows."
 msgstr "Fonctionnalité indisponible dans cette version de Windows."
 
 #. Translators: The message reported when the user tries to toggle mouse pointer tracking mode while full screen view is not active.
-#, fuzzy
 msgid "Mouse pointer tracking mode applies only to full screen view."
 msgstr ""
-"Le mode de suivi de la souris s'applique uniquement à l'affichage plein "
-"écran."
+"Le mode de suivi du pointeur de la souris s'applique uniquement à "
+"l'affichage plein écran."
 
 #. Translators: A message reporting mouse pointer tracking mode (cf. option in Magnifier settings).
 #. Translators: A message reporting text cursor tracking mode (cf. option in Magnifier settings).
@@ -221,21 +222,19 @@ msgid "Within the edge of the screen"
 msgstr "Dans les bords de l'écran"
 
 #. Translators: The message reported when the user tries to toggle text cursor tracking mode while full screen view is not active.
-#, fuzzy
 msgid "Text cursor tracking mode applies only to full screen view."
 msgstr ""
-"Le mode de suivi de la souris s'applique uniquement à l'affichage plein "
-"écran."
+"Le mode de suivi du curseur de text s'applique uniquement à l'affichage "
+"plein écran."
 
-#, fuzzy
 msgid "Magnifier config saved."
-msgstr "Loupe activée"
+msgstr "Configuration de la loupe enregistrée.Loupe activée"
 
 #. Translators: A message reported when the user calls the command
 #. to restores the Magnifier's configuration.
-#, fuzzy
 msgid "Magnifier config restored."
-msgstr "Commandes de la loupe pas au dessus."
+msgstr ""
+"Configuration de la loupe restaurée.Commandes de la loupe pas au dessus."
 
 #. Translators: A message reported when the user tries to execute script mouseToView
 msgid ""
@@ -246,13 +245,12 @@ msgstr ""
 "disponible sous Windows 8 et supérieur en mode plein écran."
 
 #. Translators: A message reported when the user tries to execute script mouseToView
-#, fuzzy
 msgid ""
 "Move mouse to view command not available in full screen mode while screen "
 "curtain is active."
 msgstr ""
-"La commande de déplacement de la souris vers la vue est uniquement "
-"disponible sous Windows 8 et supérieur en mode plein écran."
+"Commande de déplacement de la souris vers la vue non disponible en mode "
+"plein écran lorsque le rideau d'écran est actif."
 
 #. o = getDockedWindowObject()
 #. hwnd = o.windowHandle
@@ -402,9 +400,8 @@ msgstr ""
 "+flèches à la Loupe Windows :"
 
 #. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
-#, fuzzy
 msgid "&Keep Windows Magnifier command window always on top"
-msgstr "Point d'entrée des commandes séquentielles de la Loupe Windows."
+msgstr "&Garder la fenêtre de commande de la loupe Windows toujours au dessus"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
