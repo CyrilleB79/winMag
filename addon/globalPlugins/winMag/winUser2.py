@@ -16,7 +16,7 @@ HWND_BOTTOM = 1
 
 # Places the window above all non-topmost windows. The window maintains its topmost position even
 # when it is deactivated.
-HyWND_TOPMOST = -1
+HWND_TOPMOST = -1
 
 # Places the window above all non-topmost windows (that is, behind all topmost windows).
 # This flag has no effect if the window is already a non-topmost window.
