@@ -179,10 +179,10 @@ class WinMagSettingsPanel(gui.SettingsPanel):
 
 	def onSave(self):
 		config.conf["winMag"]["reportViewMove"] = self.reportViewMoveAndScreenEdgesLabels[
-			self.reportViewMoveList.GetSelection(),
+			self.reportViewMoveList.GetSelection()
 		][0]
 		config.conf["winMag"]["reportMoveToScreenEdges"] = self.reportViewMoveAndScreenEdgesLabels[
-			self.reportScreenEdgesList.GetSelection(),
+			self.reportScreenEdgesList.GetSelection()
 		][0]
 		config.conf["winMag"]["toneVolume"] = self.toneVolumeSlider.Value
 		config.conf['winMag']['reportTurnOnOff'] = self.reportTurnOnOffCheckBox.IsChecked()
@@ -191,7 +191,7 @@ class WinMagSettingsPanel(gui.SettingsPanel):
 		config.conf['winMag']['reportViewChange'] = self.reportViewChangeCheckBox.IsChecked()
 		config.conf['winMag']['reportLensResizing'] = self.reportLensResizingCheckBox.IsChecked()
 		config.conf["winMag"]["passCtrlAltArrow"] = self.passCtrlAltArrowLabels[
-			self.passCtrlAltArrowList.GetSelection(),
+			self.passCtrlAltArrowList.GetSelection()
 		][0]
 		if self.keepOnTopAvailable:
 			# Re-test if magnifier is running at validation time
