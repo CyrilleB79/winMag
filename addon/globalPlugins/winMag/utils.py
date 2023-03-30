@@ -9,12 +9,19 @@ from __future__ import unicode_literals
 
 import winUser
 from NVDAObjects.IAccessible import getNVDAObjectFromEvent
-import vision
-from visionEnhancementProviders.screenCurtain import ScreenCurtainProvider
-
 try:
+	# For NVDA 2019.3+
+	import vision
+	from visionEnhancementProviders.screenCurtain import ScreenCurtainProvider
+# In Python 2, ModuleNotFoundError does not exist and the more general ImportError is raised instead.
+except ImportError:
+	# For NVDA 2019.2.1 and below
+	vision = None
+try:
+	# Python 3
 	import winreg
 except ImportError:
+	# Python 2
 	import _winreg as winreg
 
 
@@ -92,6 +99,8 @@ def getLensWindowObject():
 
 
 def isScreenCurtainActive():
+	if not vision:
+		return False
 	screenCurtainId = ScreenCurtainProvider.getSettings().getId()
 	screenCurtainProviderInfo = vision.handler.getProviderInfo(screenCurtainId)
 	isScreenCurtainRunning = bool(vision.handler.getProviderInstance(screenCurtainProviderInfo))
