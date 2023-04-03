@@ -16,13 +16,18 @@ Este complemento mejora el uso de la lupa de Windows con NVDA.
   interfieren con las órdenes de la lupa.
 * Añade varios atajos de teclado para conmutar ciertas opciones nativas de
   la lupa.
+* Se permite guardar y restaurar los parámetros de configuración de la lupa.
 * Añade algunas funciones extra que la lupa de Windows no proporciona (ratón
   a la vista, ventana de lupa no siempre visible)
 
 ## Opciones
 
-El panel de opciones de la extensión de la lupa de Windows permite configurar cómo reacciona NVDA ante órdenes nativas de la lupa de Windows.
-Puedes querer tener más o menos órdenes indicadas en función de cuánto seas capaz de ver.
+El panel de opciones de la extensión de la lupa de Windows permite
+configurar cómo reacciona NVDA ante órdenes nativas de la lupa de
+Windows. Puedes querer tener más o menos órdenes indicadas en función de
+cuánto seas capaz de ver. El panel también contiene una opción para
+modificar el comportamiento de la ventana de control de la lupa de Windows.
+
 Se puede abrir este panel eligiendo Preferencias -> Opciones en el menú de NVDA y seleccionando la categoría Lupa de Windows en la ventana de opciones.
 El atajo de teclado NVDA+windows+O seguido de O también permite abrir este panel de opciones directamente.
 
@@ -43,7 +48,7 @@ El panel contiene las siguientes opciones:
   bordes de la pantalla al mover la vista con las órdenes
   control+alt+flechas. Las tres opciones son: desactivado, con voz y con
   pitidos. Esta opción no afecta al modo de vista acoplada.
-* El volumen de los pitidos que indican la posición de la vista: permite
+* Volumen de los pitidos que indican la posición de la vista: permite
   definir el volumen de los pitidos si has elegido indicar los movimientos
   de la vista o bordes de la pantalla con pitidos.
 * Anunciar activada o desactivada: si se marca, se anuncia el estado de la
@@ -89,6 +94,9 @@ El panel contiene las siguientes opciones:
       utilizas exclusivamente el complemento [Easy Table Navigator][5] para
       navegar por tablas.
 
+* Mantener ventana de control de la lupa siempre visible: si se desmarca, la
+  ventana de control de la lupa no permanecerá siempre por encima de otras
+  ventanas.
 
 ## Órdenes que añade este complemento
 
@@ -105,16 +113,24 @@ orden de capa de la lupa NVDA+windows+O:
 * NVDA+windows+o, c: activa o desactiva el seguimiento del cursor.
 * NVDA+windows+o, f: activa o desactiva el seguimiento del foco.
 * NVDA+windows+o, m: activa o desactiva el seguimiento del ratón.
-* NVDA+windows+o, t: activa o desactiva el seguimiento a nivel global.
+* NVDA+windows+o, t: activa o desactiva el seguimiento global. Cuando se
+  reactive el seguimiento, se establecerá según la última configuración de
+  seguimiento activa antes de apagarlo.
 * NVDA+windows+o, s: activa o desactiva el suavizado.
 * NVDA+windows+o, r: cambia entre los distintos modos de seguimiento del
-  ratón (dentro de los bordes de la pantalla o centrado en la pantalla);
-  esta función sólo está disponible en Windows 10, compilación 10743 o
-  posterior.
+  puntero del ratón (dentro de los bordes de la pantalla o centrado en la
+  pantalla); esta función sólo está disponible en Windows 10, compilación
+  17643 o posterior.
 * NVDA+windows+o seguido de x: cambia entre los distintos modos de
   seguimiento del cursor de texto (dentro de los bordes de la pantalla o
   centrado en la pantalla); esta función sólo está disponible en Windows 10,
   compilación 18894 o posterior.
+* NVDA+windows+o, shift+p: guarda las opciones de configuración actuales de
+  la lupa en la configuración de NVDA.
+* NVDA+windows+o, p: restaura las opciones de configuración actuales de la
+  lupa desde la configuración de NVDA. Si no se han guardado previamente
+  ajustes en la configuración de NVDA, se restauran en su lugar los valores
+  por defecto de la lupa.
 * NVDA+windows+o seguido de flechas: mueve la vista ampliada.
 * NVDA+windows+o seguido de v: mueve el cursor del ratón al centro de la
   vista ampliada (orden no disponible en la vista acoplada).
@@ -202,6 +218,25 @@ Ninguna de las órdenes nativas de la lupa se puede modificar.
 
 
 ## Registro de cambios
+
+### Versión 3.0
+
+* Ahora se anuncia el nuevo nivel de ampliación al pulsar los botones de
+  zoom en la ventana de la lupa (con el teclado).
+* El parámetro que controla si la ventana de control de la lupa permanece
+  siempre visible ahora se guarda en la configuración. Esto significa que
+  este parámetro se recuerda cuando se reinicia NVDA y puede habilitarse o
+  no dependiendo del perfil activo.
+* Se ha corregido un fallo que causaba una desactivación inesperada de la
+  cortina de pantalla al usar las órdenes mover a la vista o mover vista.
+* Ahora, se respetará la opción Siempre visible al cambiar el modo de
+  ampliación.
+* Se ha añadido la posibilidad de guardar y restaurar la configuración de la
+  lupa de Windows en la configuración de NVDA.
+* Compatibilidad con NVDA 2023.1.
+* Se aclara qué tipo de seguimiento se reactiva cuando se vuelve a activar
+  el seguimiento.
+* Traducciones actualizadas.
 
 ### Versión 2.0
 

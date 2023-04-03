@@ -14,15 +14,20 @@
 * 允许减少表格导航快捷键与放大镜快捷键的冲突。
 * Adds some keyboard shortcuts to toggle various native options of the
   Magnifier.
+* Allow to save and restore the configuration parameters of the Magnifier.
 * Adds some extra features that are not provided by Windows Magnifier (mouse
   to view, Magnifier window not on top)
 
 ## 设置
 
-Windows 放大镜增强的插件设置面板允许配置 NVDA 如何对原生 Windows 放大镜命令做出响应。
-您可能希望根据您能看到的内容读出更多或更少的命令。
-可以通过在 NVDA 菜单中选择选项 -> 设置，然后在设置窗口中选择 Windows 放大镜类别来打开此面板。
-键盘快捷键 NVDA+Windows+O,O 也允许直接打开此设置面板。
+The setting panel of Windows Magnifier add-on allows to configure how NVDA
+reacts to native Windows Magnifier commands.  You may want to have more or
+less commands reported according to what you are able to see.  The panel
+also contains an option to modify the behaviour of Windows Magnifier control
+window.
+
+This panel may be opened choosing Preferences -> Settings in the NVDA menu and then selecting the Windows Magnifier category in the Settings window.
+The keyboard shortcut NVDA+Windows+O then O also allows to open this settings panel directly.
 
 该面板包含以下选项：
 
@@ -38,9 +43,9 @@ Windows 放大镜增强的插件设置面板允许配置 NVDA 如何对原生 Wi
   the screen while moving the view with Control+Alt+Arrows commands.  The
   three options are: Off, With speech and With tones.  This option does not
   affect docked view mode.
-* Volume of the tones reporting the view position: allows to define the
-  volume of the tones if you have selected to report view moves or screen
-  edges with tones.
+* Volume of the tones reporting the position of the view: allows to define
+  the volume of the tones if you have selected to report view moves or
+  screen edges with tones.
 * 读出打开或关闭：如果选中，当您使用 Windows++ 或 Windows+ESC 命令打开或关闭放大镜时，将读出放大镜的状态。
 * 读出缩放：如果选中，当您使用 Windows++ 或 Windows+- 缩放命令时会读出放大镜的缩放级别。
 * 读出反色：如果选中，则在使用 Ctrl+Alt+I 切换命令时读出反色状态。
@@ -67,6 +72,9 @@ Windows 放大镜增强的插件设置面板允许配置 NVDA 如何对原生 Wi
       Ctrl+Alt+光标在表格中导航，则此选项可能很有用，例如您在 NVDA 中更改了表格导航快捷键，或者您专门使用 [简单表格导航][5]
       插件进行表格导航。
 
+* Keep Windows Magnifier command window always on top: If unchecked, the
+  Magnifier's control window will not be kept always on top of other
+  windows.
 
 ## 此插件添加的命令
 
@@ -83,18 +91,27 @@ command NVDA+Windows+O:
 * NVDA+Windows+O,C:打开或关闭跟随文本光标。
 * NVDA+Windows+O,F：打开或关闭跟随键盘焦点。
 * NVDA+Windows+O,M：打开或关闭跟随鼠标指针。
-* NVDA+Windows+O,T：打开或关闭全局跟随。
+* NVDA+Windows+O then T: Toggles on or off tracking globally.  When tracking
+  is toggled on again, it is set to the last active tracking configuration
+  before tracking was toggled off.
 * NVDA+Windows+O,S：打开或关闭图像和文本的平滑边缘。
-* NVDA+Windows+O,R：在保留鼠标指针模式之间切换，包括屏幕边缘内和在屏幕上居中（此功能仅适用于 Windows 10
-  Build17643及以上版本）。
+* NVDA+Windows+O then R: Switches between mouse pointer tracking modes
+  (within the edge of the screen or centered on the screen); this feature is
+  only available on Windows 10 build 17643 or higher.
 * NVDA+Windows+O,X：在保留文本光标模式之间切换，包括屏幕边缘内和在屏幕上居中（此功能仅适用于 Windows 10 build
   18894 及以上版本）。
+* NVDA+Windows+O then shift+P: Saves the current configuration parameters of
+  the magnifier to NVDA's configuration.
+* NVDA+Windows+O then P: Restores the current configuration parameters of
+  the magnifier from NVDA's configuration.  If no configuration parameters
+  has been previously saved to NVDA's configuration, the default
+  configuration parameters of Windows Magnifier are restored instead.
 * NVDA+Windows+O then Arrows: Move the magnified view.
 * NVDA+Windows+O then V: Moves the mouse cursor in the center of the
   magnified view (command not available in docked view mode).
-* NVDA+Windows+O then W: Switches on or off the mode keeping Windows
-  Magnifier's control window always on top of the other ones.  This feature
-  is only available for installed versions of NVDA.
+* NVDA+Windows+O then W: Switches on or off the mode allowing to keep
+  Windows Magnifier's control window always on top of the other ones.  This
+  feature is only available for installed versions of NVDA.
 * NVDA+Windows+O,O：打开Windows 放大镜插件设置。
 * NVDA+Windows+O,H：显示放大镜命令的帮助。
 
@@ -156,6 +173,25 @@ command NVDA+Windows+O:
 
 
 ## 更新日志
+
+### Version 3.0
+
+* Pressing the zoom buttons in the Magnifier window (with the keyboard) now
+  reports the new zoom level.
+* The parameter controlling if Magnifier control window remains always on
+  top is now stored in configuration; this means that this parameter is
+  remembered when restarting NVDA and can be enabled or not depending on the
+  active profile.
+* Fixed a bug causing unexpected screen curtain de-activation when using
+  move to view or move view commands.
+* Option alwaysOnTop setting will now be honoured also when changing
+  magnification mode.
+* Added ability to save and restore Windows Magnifier's config in NVDA's
+  config.
+* Compatibility with NVDA 2023.1.
+* Clarify which type of tracking is re-enabled when tracking is toggled on
+  again.
+* Updated localizations.
 
 ### Version 2.0
 

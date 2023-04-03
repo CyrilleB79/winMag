@@ -16,14 +16,20 @@ Cette extension améliore l'utilisation de la loupe Windows avec NVDA.
   entre en conflit avec les commandes de la loupe.
 * Ajout de raccourcis clavier pour basculer entre diverses options natives
   de la loupe.
+* Permet de sauvegarder et de restaurer les paramètres de configuration de
+  la Loupe.
 * Ajoute quelques fonctionnalités supplémentaires qui ne sont pas fournies
   par la loupe Windows (souris au centre de la vue, fenêtre de la loupe pas
   au dessus)
 
 ## Paramètres
 
-Le panneau des paramètres de l'extension Loupe Windows permet de configurer la façon dont NVDA réagit aux commandes natives de la Loupe Windows.
-Vous voudrez peut-être avoir plus ou moins de commandes annoncées en fonction de ce que vous pouvez voir.
+Le panneau des paramètres de l'extension Loupe Windows permet de configurer
+la façon dont NVDA réagit aux commandes natives de la Loupe Windows. Vous
+voudrez peut-être avoir plus ou moins de commandes annoncées en fonction de
+ce que vous pouvez voir.  Le panneau contient également une option pour
+modifier le comportement de la fenêtre de contrôle de la loupe Windows.
+
 On ouvre ce panneau en choisissant Préférences -> Paramètres dans le menu NVDA, puis en sélectionnant la catégorie Loupe Windows dans la fenêtre Paramètres.
 Le raccourci clavier NVDA+Windows+O puis O permet également d'ouvrir directement ce panneau de paramètres.
 
@@ -48,7 +54,7 @@ Le panneau contient les options suivantes :
   Avec des sons. Cette option n'affecte pas le mode d'affichage ancré.
 * Volume des sons indiquant la position de la vue : permet de définir le
   volume des sons si vous avez choisi de signaler les mouvements de la vue
-  ou les bords d'écran avec des sons.
+  ou les bords de l'écran avec des sons.
 * Annoncer l'activation ou la désactivation : si cette option est cochée,
   l'état de la Loupe est signalé lorsque vous utilisez les commandes
   Windows++ ou Windows+Échap pour l'activer ou la désactiver.
@@ -98,6 +104,9 @@ Le panneau contient les options suivantes :
       NVDA ou parce que vous utilisez exclusivement l'extension [Easy table
       navigator][5] pour la navigation dans les tableaux.
 
+* Conserver la fenêtre de commande de la loupe Windows toujours au dessus :
+  si cette case n'est pas cochée, la fenêtre de commande de la loupe ne sera
+  pas toujours gardée au-dessus des autres fenêtres.
 
 ## Commandes ajoutées par cette extension
 
@@ -114,21 +123,32 @@ commandes séquentielles de la Loupe NVDA+Windows+O :
 * NVDA+Windows+O puis C: active ou désactive le suivi du curseur.
 * NVDA+Windows+O puis F: active ou désactive le suivi du focus.
 * NVDA+Windows+O puis M: active ou désactive le suivi de la souris.
-* NVDA+Windows+O puis T: active ou désactive le suivi de manière générale.
+* NVDA+Windows+O puis T : Active ou désactive le suivi global. Lorsque le
+  suivi est réactivé, il est défini sur la dernière configuration de suivi
+  active avant la désactivation du suivi.
 * NVDA+Windows+O puis S: active ou désactive le lissage.
-* NVDA+Windows+O puis R: Bascule entre les modes de suivi de la souris
-  (entre les bords de l'écran ou centré sur l'écran); cette fonctionnalité
-  n'est disponible que sous Windows 10 build 17643 ou supérieur.
+* NVDA+Windows+O puis R: Bascule entre les modes de suivi du pointeur de la
+  souris (entre les bords de l'écran ou centré sur l'écran); cette
+  fonctionnalité n'est disponible que sous Windows 10 build 17643 ou
+  supérieur.
 * NVDA+Windows+O puis X: Bascule entre les modes de suivi du curseur de
   texte (entre les bords de l'écran ou centré sur l'écran); cette
   fonctionnalité n'est disponible que sous Windows 10 build 18894 ou
   supérieur.
+* NVDA+Windows+O puis maj+P : Enregistre les paramètres de configuration
+  actuels de la loupe dans la configuration de NVDA.
+* NVDA+Windows+O puis P : Restaure les paramètres de configuration actuels
+  de la loupe à partir de la configuration de NVDA. Si aucun paramètre de
+  configuration n'a été précédemment enregistré dans la configuration de
+  NVDA, les paramètres de configuration par défaut de la Loupe Windows sont
+  restaurés à la place.
 * NVDA+Windows+O puis Flèches : Déplacer la vue agrandie.
 * NVDA+Windows+O puis V : Déplace le curseur de la souris au centre de la
   vue agrandie (commande non disponible en mode d'affichage ancré).
-* NVDA+Windows+O puis W : active ou désactive le mode en gardant la fenêtre
-  de contrôle de la loupe Windows toujours au-dessus des autres. Cette
-  fonctionnalité n'est disponible que pour les versions installées de NVDA.
+* NVDA+Windows+O puis W : active ou désactive le mode permettant de garder
+  la fenêtre de commande de la loupe Windows toujours au-dessus des
+  autres. Cette fonctionnalité n'est disponible que pour les versions
+  installées de NVDA.
 * NVDA+Windows+O puis O : Ouvre les paramètres de l'extension Loupe Windows.
 * NVDA+Windows+O puis H: affiche l'aide sur les commandes séquentielles de
   la Loupe.
@@ -218,6 +238,25 @@ Aucune des commandes natives de la Loupe ne peut être modifiée.
 
 
 ## Journal des modifications
+
+### Version 3.0
+
+* L'appui sur les boutons de zoom dans la fenêtre de la Loupe (avec le
+  clavier) signale maintenant le nouveau niveau de zoom.
+* Le paramètre définissant si la fenêtre de contrôle de la loupe reste
+  toujours visible est maintenant stocké dans la configuration ; cela
+  signifie que ce paramètre est mémorisé lors du redémarrage de NVDA et peut
+  être activé ou non selon le profil actif.
+* Correction d'un bogue provoquant la désactivation inattendue du rideau
+  d'écran lors de l'utilisation des commandes de déplacement vers la vue ou
+  de déplacement de la vue.
+* Le réglage de l'option toujoursAuDessus sera maintenant honoré également
+  lors du changement d'affichage.
+* Ajout de la possibilité de sauvegarder et de restaurer la configuration de
+  la Loupe Windows dans la configuration de NVDA.
+* Compatibilité avec NVDA 2023.1.
+* Précision du type de suivi réactivé lorsque le suivi est réactivé.
+* Localisations mises à jour.
 
 ### Version 2.0
 
