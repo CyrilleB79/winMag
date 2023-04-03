@@ -155,6 +155,12 @@ None of the Magnifier native commands can be modified.
 
 ## Change log
 
+### Version 3.1
+
+* Fixed an issue preventing the Magnifier's command window from being restored on top.
+* Fixed an issue preventing the add-on to run on NVDA 2019.2.1.
+* Updated localizations.
+
 ### Version 3.0
 
 * Pressing the zoom buttons in the Magnifier window (with the keyboard) now reports the new zoom level.
