@@ -3,7 +3,6 @@
 * Autor: Cyrille Bougot
 * Compatibilidad con NVDA: de 2018.3 en adelante
 * Descargar [versión estable][1]
-* Descargar [versión de desarrollo][2]
 
 Este complemento mejora el uso de la lupa de Windows con NVDA.
 
@@ -219,6 +218,18 @@ Ninguna de las órdenes nativas de la lupa se puede modificar.
 
 ## Registro de cambios
 
+### Version 3.2
+
+* Removed the dev channel.
+* Traducciones actualizadas.
+
+### Version 3.1
+
+* Fixed an issue preventing the Magnifier's command window from being
+  restored on top.
+* Fixed an issue preventing the add-on to run on NVDA 2019.2.1.
+* Traducciones actualizadas.
+
 ### Versión 3.0
 
 * Ahora se anuncia el nuevo nivel de ampliación al pulsar los botones de
@@ -265,9 +276,7 @@ Ninguna de las órdenes nativas de la lupa se puede modificar.
 
 [[!tag dev stable]]
 
-[1]: https://addons.nvda-project.org/files/get.php?file=winmag
-
-[2]: https://addons.nvda-project.org/files/get.php?file=winmag-dev
+[1]: https://www.nvaccess.org/addonStore/legacy?file=winmag
 
 [3]: https://github.com/CyrilleB79/winMag
 

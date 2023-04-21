@@ -3,7 +3,6 @@
 * Autor: Cyrille Bougot
 * NVDA-Kompatibilität: 2018.3 und neuer
 * [Stabile Version herunterladen][1]
-* [Entwicklerversion herunterladen][2]
 
 Diese Erweiterung verbessert die Verwendung von Windows-Lupe mit NVDA.
 
@@ -236,6 +235,18 @@ Keiner der Tastenkombinationen für die Windows-Lupe können geändert werden.
 
 ## Änderungen
 
+### Version 3.2
+
+* Removed the dev channel.
+* Übersetzungen aktualisiert.
+
+### Version 3.1
+
+* Fixed an issue preventing the Magnifier's command window from being
+  restored on top.
+* Fixed an issue preventing the add-on to run on NVDA 2019.2.1.
+* Übersetzungen aktualisiert.
+
 ### Version 3.0
 
 * Pressing the zoom buttons in the Magnifier window (with the keyboard) now
@@ -282,9 +293,7 @@ Keiner der Tastenkombinationen für die Windows-Lupe können geändert werden.
 
 [[!tag dev stable]]
 
-[1]: https://addons.nvda-project.org/files/get.php?file=winmag
-
-[2]: https://addons.nvda-project.org/files/get.php?file=winmag-dev
+[1]: https://www.nvaccess.org/addonStore/legacy?file=winmag
 
 [3]: https://github.com/CyrilleB79/winMag
 

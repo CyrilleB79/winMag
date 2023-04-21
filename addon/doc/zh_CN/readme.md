@@ -3,7 +3,6 @@
 * 作者: Cyrille Bougot
 * NVDA 兼容版本: 2018.3或更高
 * 下载 [稳定版][1]
-* 下载 [开发版][2]
 
 此插件增强了 NVDA 使用 Windows 放大镜时的体验。
 
@@ -174,6 +173,18 @@ command NVDA+Windows+O:
 
 ## 更新日志
 
+### Version 3.2
+
+* Removed the dev channel.
+* Updated localizations.
+
+### Version 3.1
+
+* Fixed an issue preventing the Magnifier's command window from being
+  restored on top.
+* Fixed an issue preventing the add-on to run on NVDA 2019.2.1.
+* Updated localizations.
+
 ### Version 3.0
 
 * Pressing the zoom buttons in the Magnifier window (with the keyboard) now
@@ -218,9 +229,7 @@ command NVDA+Windows+O:
 
 [[!tag dev stable]]
 
-[1]: https://addons.nvda-project.org/files/get.php?file=winmag
-
-[2]: https://addons.nvda-project.org/files/get.php?file=winmag-dev
+[1]: https://www.nvaccess.org/addonStore/legacy?file=winmag
 
 [3]: https://github.com/CyrilleB79/winMag
 

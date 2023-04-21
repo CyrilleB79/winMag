@@ -3,7 +3,6 @@
 * Yazar: Cyrille Bougot
 * NVDA uyumluluğu: 2018.3 ve sonrası
 * [kararlı sürümü][1] indir
-* [Geliştirme sürümünü][2] indir
 
 Bu eklenti, Windows Büyüteç'in NVDA ile kullanımını geliştirir.
 
@@ -216,6 +215,18 @@ Büyüteç Varsayılankomutlarının hiçbiri değiştirilemez.
 
 ## Sürüm Geçmişi:
 
+### Version 3.2
+
+* Removed the dev channel.
+* Updated localizations.
+
+### Version 3.1
+
+* Fixed an issue preventing the Magnifier's command window from being
+  restored on top.
+* Fixed an issue preventing the add-on to run on NVDA 2019.2.1.
+* Updated localizations.
+
 ### Version 3.0
 
 * Pressing the zoom buttons in the Magnifier window (with the keyboard) now
@@ -260,9 +271,7 @@ Büyüteç Varsayılankomutlarının hiçbiri değiştirilemez.
 
 [[!tag dev stable]]
 
-[1]: https://addons.nvda-project.org/files/get.php?file=winmag
-
-[2]: https://addons.nvda-project.org/files/get.php?file=winmag-dev
+[1]: https://www.nvaccess.org/addonStore/legacy?file=winmag
 
 [3]: https://github.com/CyrilleB79/winMag
 

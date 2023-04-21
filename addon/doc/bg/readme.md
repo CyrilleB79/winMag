@@ -3,7 +3,6 @@
 * Автор: Cyrille Bougot
 * Съвместимост с NVDA: от 2018.3 и по-нови
 * Изтегляне на [стабилна версия][1]
-* Изтегляне на [тестова версия][2]
 
 Тази добавка подобрява използването на лупата на Windows с NVDA.
 
@@ -236,6 +235,18 @@ Windows.
 
 ## Списък с промените
 
+### Version 3.2
+
+* Removed the dev channel.
+* Обновени преводи.
+
+### Version 3.1
+
+* Fixed an issue preventing the Magnifier's command window from being
+  restored on top.
+* Fixed an issue preventing the add-on to run on NVDA 2019.2.1.
+* Обновени преводи.
+
 ### Версия 3.0
 
 * Натискането на бутоните за увеличение в прозореца на лупата (с
@@ -283,9 +294,7 @@ Windows.
 
 [[!tag dev stable]]
 
-[1]: https://addons.nvda-project.org/files/get.php?file=winmag
-
-[2]: https://addons.nvda-project.org/files/get.php?file=winmag-dev
+[1]: https://www.nvaccess.org/addonStore/legacy?file=winmag
 
 [3]: https://github.com/CyrilleB79/winMag
 

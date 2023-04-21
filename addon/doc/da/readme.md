@@ -3,7 +3,6 @@
 * Forfatter: Cyrille Bougot
 * NVDA-kompatibilitet: 2018.3 og derover
 * Download [stabil version][1]
-* Download [udviklingsversion][2]
 
 Denne tilføjelse forbedrer brugen af Windows Forstørrelsesglas med NVDA.
 
@@ -215,6 +214,18 @@ Ingen af de indbyggede kommandoer til Forstørrelsesglas kan ændres.
 
 ## Ændringshistorik
 
+### Version 3.2
+
+* Removed the dev channel.
+* Opdaterede oversættelser.
+
+### Version 3.1
+
+* Fixed an issue preventing the Magnifier's command window from being
+  restored on top.
+* Fixed an issue preventing the add-on to run on NVDA 2019.2.1.
+* Opdaterede oversættelser.
+
 ### Version 3.0
 
 * Pressing the zoom buttons in the Magnifier window (with the keyboard) now
@@ -262,9 +273,7 @@ Ingen af de indbyggede kommandoer til Forstørrelsesglas kan ændres.
 
 [[!tag dev stable]]
 
-[1]: https://addons.nvda-project.org/files/get.php?file=winmag
-
-[2]: https://addons.nvda-project.org/files/get.php?file=winmag-dev
+[1]: https://www.nvaccess.org/addonStore/legacy?file=winmag
 
 [3]: https://github.com/CyrilleB79/winMag
 

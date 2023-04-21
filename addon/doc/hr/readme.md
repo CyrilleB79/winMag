@@ -3,7 +3,6 @@
 * Autor: Cyrille Bougot
 * NVDA kompatibilnost: 2018.3 i novije
 * Preuzmi [stabilnu verziju][1]
-* Preuzmi [razvojnu verziju][2]
 
 Ovaj dodatak poboljšava upotrebu Windows povećala s NVDA čitačem.
 
@@ -213,6 +212,18 @@ Nije moguće promijeniti niti jednu izvornu naredbu povećala.
 
 ## Dnevnik promjena
 
+### Version 3.2
+
+* Removed the dev channel.
+* Aktualizirane lokalizacije.
+
+### Version 3.1
+
+* Fixed an issue preventing the Magnifier's command window from being
+  restored on top.
+* Fixed an issue preventing the add-on to run on NVDA 2019.2.1.
+* Aktualizirane lokalizacije.
+
 ### Verzija 3.0
 
 * Pressing the zoom buttons in the Magnifier window (with the keyboard) now
@@ -258,9 +269,7 @@ Nije moguće promijeniti niti jednu izvornu naredbu povećala.
 
 [[!tag dev stable]]
 
-[1]: https://addons.nvda-project.org/files/get.php?file=winmag
-
-[2]: https://addons.nvda-project.org/files/get.php?file=winmag-dev
+[1]: https://www.nvaccess.org/addonStore/legacy?file=winmag
 
 [3]: https://github.com/CyrilleB79/winMag
 
