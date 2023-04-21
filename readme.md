@@ -154,6 +154,11 @@ None of the Magnifier native commands can be modified.
 
 ## Change log
 
+### Version 3.2
+
+* Removed the dev channel.
+* Updated localizations.
+
 ### Version 3.1
 
 * Fixed an issue preventing the Magnifier's command window from being restored on top.
