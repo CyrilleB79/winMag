@@ -218,16 +218,17 @@ Ninguna de las órdenes nativas de la lupa se puede modificar.
 
 ## Registro de cambios
 
-### Version 3.2
+### Versión 3.2
 
-* Removed the dev channel.
+* Se ha eliminado el canal de desarrollo.
 * Traducciones actualizadas.
 
-### Version 3.1
+### Versión 3.1
 
-* Fixed an issue preventing the Magnifier's command window from being
-  restored on top.
-* Fixed an issue preventing the add-on to run on NVDA 2019.2.1.
+* Corregido un problema que impedía que la ventana de control de la lupa se
+  restaurara en la parte superior.
+* Corregido un problema que impedía ejecutar el complemento en NVDA
+  2019.2.1.
 * Traducciones actualizadas.
 
 ### Versión 3.0

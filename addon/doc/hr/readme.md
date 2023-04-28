@@ -212,12 +212,12 @@ Nije moguće promijeniti niti jednu izvornu naredbu povećala.
 
 ## Dnevnik promjena
 
-### Version 3.2
+### Verzija 3.2
 
-* Removed the dev channel.
+* Uklonjen je kanal razvoja.
 * Aktualizirane lokalizacije.
 
-### Version 3.1
+### Verzija 3.1
 
 * Fixed an issue preventing the Magnifier's command window from being
   restored on top.

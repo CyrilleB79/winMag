@@ -240,14 +240,15 @@ Aucune des commandes natives de la Loupe ne peut être modifiée.
 
 ### Version 3.2
 
-* Removed the dev channel.
+* Suppression du canal de développement.
 * Localisations mises à jour.
 
 ### Version 3.1
 
-* Fixed an issue preventing the Magnifier's command window from being
-  restored on top.
-* Fixed an issue preventing the add-on to run on NVDA 2019.2.1.
+* Correction d'un problème empêchant la fenêtre de commande de la loupe
+  d'être restaurée au dessus des autres.
+* Correction d'un problème empêchant l'extension de s'exécuter sur NVDA
+  2019.2.1.
 * Localisations mises à jour.
 
 ### Version 3.0

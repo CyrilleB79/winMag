@@ -235,16 +235,16 @@ Windows.
 
 ## Списък с промените
 
-### Version 3.2
+### Версия 3.2
 
-* Removed the dev channel.
+* Премахнат е тестовият канал.
 * Обновени преводи.
 
-### Version 3.1
+### Версия 3.1
 
-* Fixed an issue preventing the Magnifier's command window from being
-  restored on top.
-* Fixed an issue preventing the add-on to run on NVDA 2019.2.1.
+* Отстранена е грешка, пречеща на командния прозорец на лупата да бъде
+  възстановен най-отгоре.
+* Отстранен е проблем, пречещ на добавката да работи с NVDA 2019.2.1.
 * Обновени преводи.
 
 ### Версия 3.0

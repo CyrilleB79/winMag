@@ -219,16 +219,16 @@ Alkuperäisiä suurennuslasikomentoja ei voi muuttaa.
 
 ## Muutosloki
 
-### Version 3.2
+### Versio 3.2
 
-* Removed the dev channel.
+* Dev-kanava poistettu.
 * Lokalisointeja päivitetty.
 
-### Version 3.1
+### Versio 3.1
 
-* Fixed an issue preventing the Magnifier's command window from being
-  restored on top.
-* Fixed an issue preventing the add-on to run on NVDA 2019.2.1.
+* Korjattu ongelma, joka esti suurennuslasin komentoikkunan palauttamista
+  päällimmäiseksi.
+* Korjattu ongelma, joka esti lisäosan suorittamisen NVDA 2019.2.1:ssä.
 * Lokalisointeja päivitetty.
 
 ### Versio 3.0
