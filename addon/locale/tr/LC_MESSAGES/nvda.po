@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: winMag 1.1\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2021-09-03 22:20+0000\n"
-"PO-Revision-Date: 2023-02-05 00:24+0300\n"
+"PO-Revision-Date: 2023-05-01 21:37+0300\n"
 "Last-Translator: Umut KORKMAZ <umutkork@gmail.com>\n"
 "Language-Team: Umut KORKMAZ, Çağrı Doğan <Cagrid@hotmail.com>\n"
 "Language: tr\n"
@@ -39,17 +39,17 @@ msgstr ""
 #. Translators: A UI object that can be tracked (followed) by the Magnifier.
 #. If possible, translate with the term used in Magnifier's options.
 msgid "Mouse pointer"
-msgstr ""
+msgstr "Fare işaretçisi"
 
 #. Translators: A UI object that can be tracked (followed) by the Magnifier.
 #. If possible, translate with the term used in Magnifier's options.
 msgid "Keyboard focus"
-msgstr ""
+msgstr "Klavye odağı"
 
 #. Translators: A UI object that can be tracked (followed) by the Magnifier.
 #. If possible, translate with the term used in Magnifier's options.
 msgid "Text cursor"
-msgstr ""
+msgstr "Metin imleci"
 
 #. Translators: The description of a command of this add-on.
 msgid "Toggles on or off caret tracking"
@@ -72,13 +72,12 @@ msgid "Toggles on or off smoothing"
 msgstr "Görüntü Düzeltmeyi açıp kapatır"
 
 #. Translators: The description of a command of this add-on.
-#, fuzzy
 msgid ""
 "Switches between mouse pointeur tracking modes (within the edge of the "
 "screen or centered on the screen)"
 msgstr ""
-"Fare izleme modları arasında geçiş yapar (ekranın kenarında veya ekranın "
-"ortasında)"
+"Fare işaretçisi izleme modları arasında geçiş yapar (ekranın kenarında veya "
+"ekranın ortasında)"
 
 #. Translators: The description of a command of this add-on.
 msgid ""
@@ -93,12 +92,16 @@ msgid ""
 "Saves the current configuration parameters of the magnifier to NVDA's "
 "configuration."
 msgstr ""
+"Büyüteç'in geçerli yapılandırma parametrelerini NVDA'nın yapılandırma "
+"dosyasına kaydeder."
 
 #. Translators: The description of a command of this add-on.
 msgid ""
 "Restores the current configuration parameters of the magnifier from NVDA's "
 "configuration."
 msgstr ""
+"Büyüteç'in geçerli yapılandırma parametrelerini NVDA'nın yapılandırma "
+"dosyasından geri yükler."
 
 #. Translators: The description of a command of this add-on.
 msgid "Moves the magnified view"
@@ -109,7 +112,6 @@ msgid "Moves the mouse cursor in the center of the zoomed view"
 msgstr "Fare imlecini yakınlaştırılmış görünümün ortasına taşır"
 
 #. Translators: The description of a command of this add-on.
-#, fuzzy
 msgid ""
 "Switches on or off the mode keeping Windows Magnifier's control window "
 "always on top of the other ones."
@@ -184,7 +186,7 @@ msgstr "Fare izleme kapalı"
 #. Translators: The message reported when the user turns on tracking.
 #, python-brace-format
 msgid "Tracking on - {trackingTypes}"
-msgstr ""
+msgstr "İzleme açık - {trackingTypes}"
 
 #. Translators: The message reported when the user turns off tracking.
 msgid "Tracking off"
@@ -204,9 +206,9 @@ msgid "Feature unavailable in this version of Windows."
 msgstr "Özellik, Windows'un bu sürümünde kullanılamıyor."
 
 #. Translators: The message reported when the user tries to toggle mouse pointer tracking mode while full screen view is not active.
-#, fuzzy
 msgid "Mouse pointer tracking mode applies only to full screen view."
-msgstr "Fare izleme modu yalnızca tam ekran görünümü için geçerli."
+msgstr ""
+"Fare işaretçisi izleme modu yalnızca tam ekran görünümü için geçerlidir."
 
 #. Translators: A message reporting mouse pointer tracking mode (cf. option in Magnifier settings).
 #. Translators: A message reporting text cursor tracking mode (cf. option in Magnifier settings).
@@ -219,19 +221,16 @@ msgid "Within the edge of the screen"
 msgstr "Ekranın kenarında"
 
 #. Translators: The message reported when the user tries to toggle text cursor tracking mode while full screen view is not active.
-#, fuzzy
 msgid "Text cursor tracking mode applies only to full screen view."
-msgstr "Fare izleme modu yalnızca tam ekran görünümü için geçerli."
+msgstr "Metin imleci izleme modu yalnızca tam ekran görünümü için geçerlidir."
 
-#, fuzzy
 msgid "Magnifier config saved."
-msgstr "Büyüteç açık"
+msgstr "Büyüteç yapılandırması kaydedildi."
 
 #. Translators: A message reported when the user calls the command
 #. to restores the Magnifier's configuration.
-#, fuzzy
 msgid "Magnifier config restored."
-msgstr "Büyüteç kontrolleri üstte değil."
+msgstr "Büyüteç yapılandırması geri yüklendi."
 
 #. Translators: A message reported when the user tries to execute script mouseToView
 msgid ""
@@ -242,13 +241,12 @@ msgstr ""
 "komutu görüntülemek için fareyi hareket ettirin."
 
 #. Translators: A message reported when the user tries to execute script mouseToView
-#, fuzzy
 msgid ""
 "Move mouse to view command not available in full screen mode while screen "
 "curtain is active."
 msgstr ""
-"Yalnızca Windows 8 ve üzeri sürümlerde tam ekran modunda kullanılabilen "
-"komutu görüntülemek için fareyi hareket ettirin."
+"Ekran perdesi etkinken tam ekran modunda bulunmayan komutu görüntülemek için "
+"fareyi hareket ettirin."
 
 #. o = getDockedWindowObject()
 #. hwnd = o.windowHandle
@@ -396,9 +394,8 @@ msgstr ""
 "kısayollarını ilet:"
 
 #. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
-#, fuzzy
 msgid "&Keep Windows Magnifier command window always on top"
-msgstr "Windows Büyüteç katmanı komutları giriş noktası."
+msgstr "Windows Büyüteç &komut penceresini her zaman üstte tut"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
