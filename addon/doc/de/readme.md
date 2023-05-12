@@ -15,20 +15,26 @@ Diese Erweiterung verbessert die Verwendung von Windows-Lupe mit NVDA.
   Tabellen-Navigation mit den Befehlen der Lupe in Konflikt stehen.
 * Fügt einige Tastenkombinationen zum Umschalten verschiedener Optionen der
   Lupe hinzu.
-* Allow to save and restore the configuration parameters of the Magnifier.
+* Ermöglicht das Speichern und Wiederherstellen der Konfigurationsparameter
+  der Lupe.
 * Fügt einige zusätzliche Funktionen hinzu, die die Windows-Lupe nicht
   anbietet (Maus zum Betrachten, Lupenfenster nicht im Vordergrund)
 
 ## Die Einstellungen
 
-The setting panel of Windows Magnifier add-on allows to configure how NVDA
-reacts to native Windows Magnifier commands.  You may want to have more or
-less commands reported according to what you are able to see.  The panel
-also contains an option to modify the behaviour of Windows Magnifier control
-window.
+Im Einstellungsfeld der Erweiterung für die Windows-Lupe können Sie
+konfigurieren, wie NVDA auf native Befehle für die Windows_lupe reagiert.
+Möglicherweise möchten Sie mehr oder weniger Befehle angesagt bekommen, je
+nachdem, was Sie sehen können.
+Dieses Fenster kann geöffnet werden, indem Sie im NVDA-Menü Einstellungen ->
+Optionen auswählen und dann im Einstellungsfenster die Kategorie
+"Windows-Lupe" auswählen.
 
-This panel may be opened choosing Preferences -> Settings in the NVDA menu and then selecting the Windows Magnifier category in the Settings window.
-The keyboard shortcut NVDA+Windows+O then O also allows to open this settings panel directly.
+Die Tastenkombination NVDA+Windows+O dann O öffnet auch dieses
+Einstellungsfenster direkt.
+
+Dieses Panel können Sie im NVDA-Menü unter Einstellungen -> Optionen öffnen und dann in den Einstellungen in der Kategorie "Windows-Lupe" auswählen.
+Mit der Tastenkombination NVDA+Windows+O und dann O können Sie dieses Einstellungsfenster auch direkt öffnen.
 
 Das Panel enthält die folgenden Optionen:
 
@@ -50,9 +56,9 @@ Das Panel enthält die folgenden Optionen:
   Bildschirmränder erreichen.  Die drei Optionen sind: Deaktiviert, mit
   Sprachausgabe oder mit Signaltönen. Diese Option wirkt sich nicht auf den
   angedockten Ansichtsmodus aus.
-* Volume of the tones reporting the position of the view: allows to define
-  the volume of the tones if you have selected to report view moves or
-  screen edges with tones.
+* Lautstärke der Töne, die die Position der Ansicht melden: Ermöglicht es,
+  die Lautstärke der Töne festzulegen, wenn Sie ausgewählt haben, dass
+  Ansichtsbewegungen oder Bildschirmränder mit Tönen gemeldet werden.
 * Ansage ein- oder ausschalten: Wenn diese Option aktiviert ist, wird der
   Status der Lupe gemeldet, wenn Sie Windows+Plus or Minus oder
   Windows+Escape verwenden, um sie ein- oder auszuschalten.
@@ -102,9 +108,9 @@ Das Panel enthält die folgenden Optionen:
       [Einfache Tabellen-Navigation][5] für die Tabellen-Navigation
       verwenden.
 
-* Keep Windows Magnifier command window always on top: If unchecked, the
-  Magnifier's control window will not be kept always on top of other
-  windows.
+* Das Befehlsfenster der Lupe immer im Vordergrund halten: Wenn diese Option
+  nicht aktiviert ist, wird das Steuerungsfenster der Lupe nicht immer über
+  anderen Fenstern angezeigt.
 
 ## Befehle
 
@@ -122,29 +128,31 @@ NVDA+Windows+O zu erreichen:
   oder aus.
 * NVDA+Windows+O, dann F: Schaltet die Verfolgung des Cursors ein oder aus.
 * NVDA+Windows+O, dann M: Schaltet die Verfolgung der Maus ein oder aus.
-* NVDA+Windows+O then T: Toggles on or off tracking globally.  When tracking
-  is toggled on again, it is set to the last active tracking configuration
-  before tracking was toggled off.
+* NVDA+Windows+O dann T: Schaltet die Verfolgung global ein oder aus. Wenn
+  die Verfolgung wieder eingeschaltet wird, wird es auf die letzte aktive
+  Konfiguration zur Verfolgung gesetzt, bevor die Verfolgung ausgeschaltet
+  wurde.
 * NVDA+Windows+O, dann S: Schaltet die Kantenglättung ein oder aus.
-* NVDA+Windows+O then R: Switches between mouse pointer tracking modes
-  (within the edge of the screen or centered on the screen); this feature is
-  only available on Windows 10 build 17643 or higher.
+* NVDA+Windows+O dann R: Wechselt zwischen den Mauszeigerverfolgungsmodi
+  (innerhalb des Bildschirmrands oder in der Mitte des Bildschirms); diese
+  Funktion ist nur unter Windows 10 Build 17643 oder neuer verfügbar.
 * NVDA+Windows+O dann X: Wechselt zwischen den Textcursor-Tracking-Modi
   (innerhalb des Bildschirmrands oder zentriert auf dem Bildschirm); Diese
   Funktion ist nur unter Windows 10 Build 18894 oder neuer verfügbar.
-* NVDA+Windows+O then shift+P: Saves the current configuration parameters of
-  the magnifier to NVDA's configuration.
-* NVDA+Windows+O then P: Restores the current configuration parameters of
-  the magnifier from NVDA's configuration.  If no configuration parameters
-  has been previously saved to NVDA's configuration, the default
-  configuration parameters of Windows Magnifier are restored instead.
+* NVDA+Windows+O dann Umschalt+P: Speichert die aktuellen
+  Konfigurationsparameter der Lupe in der NVDA-Konfiguration.
+* NVDA+Windows+O dann P: Stellt die aktuellen Konfigurationsparameter der
+  Lupe aus der Konfiguration von NVDA wieder her.  Wenn zuvor keine
+  Konfigurationsparameter in der NVDA-Konfiguration gespeichert wurden,
+  werden stattdessen die Standard-Konfigurationsparameter der Windows-Lupe
+  wiederhergestellt.
 * NVDA+Windows+O und dann Pfeiltasten: Verschieben Sie die damit vergrößerte
   Ansicht.
 * NVDA+Windows+O dann V: Bewegt den Mauszeiger in die Mitte der vergrößerten
   Ansicht (Befehl nicht verfügbar im angedockten Ansichtsmodus).
-* NVDA+Windows+O then W: Switches on or off the mode allowing to keep
-  Windows Magnifier's control window always on top of the other ones.  This
-  feature is only available for installed versions of NVDA.
+* NVDA+Windows+O dann W: Schaltet den Modus ein oder aus, der es erlaubt,
+  das Kontrollfenster der Windows-Lupe immer über den anderen Fenstern zu
+  halten.  Diese Funktion ist nur für installierte NVDA-Versionen verfügbar.
 * NVDA+Windows+O, dann O: Öffnet die Einstellungen der Erweiterung für die
   Windows-Lupe.
 * NVDA+Windows+O, dann H: Zeigt die Hilfe zu Befehlen des Levels der Lupe
@@ -237,33 +245,35 @@ Keiner der Tastenkombinationen für die Windows-Lupe können geändert werden.
 
 ### Version 3.2
 
-* Removed the dev channel.
+* Der Dev-Kanal wurde entfernt.
 * Übersetzungen aktualisiert.
 
 ### Version 3.1
 
-* Fixed an issue preventing the Magnifier's command window from being
-  restored on top.
-* Fixed an issue preventing the add-on to run on NVDA 2019.2.1.
+* Es wurde ein Problem behoben, das verhinderte, dass das Befehlsfenster der
+  Lupe im oberen Bereich wiederhergestellt werden konnte.
+* Ein Problem wurde behoben, das die Ausführung der NVDA-Erweiterung unter
+  NVDA 2019.2.1 verhinderte.
 * Übersetzungen aktualisiert.
 
 ### Version 3.0
 
-* Pressing the zoom buttons in the Magnifier window (with the keyboard) now
-  reports the new zoom level.
-* The parameter controlling if Magnifier control window remains always on
-  top is now stored in configuration; this means that this parameter is
-  remembered when restarting NVDA and can be enabled or not depending on the
-  active profile.
-* Fixed a bug causing unexpected screen curtain de-activation when using
-  move to view or move view commands.
-* Option alwaysOnTop setting will now be honoured also when changing
-  magnification mode.
-* Added ability to save and restore Windows Magnifier's config in NVDA's
-  config.
-* Compatibility with NVDA 2023.1.
-* Clarify which type of tracking is re-enabled when tracking is toggled on
-  again.
+* Wenn Sie die Zoom-Tasten in der Windows-Lupe (mit der Tastatur) betätigen,
+  wird jetzt die neue Zoom-Stufe angezeigt.
+* Der Parameter, der steuert, ob das Lupensteuerungsfenster immer im
+  Vordergrund bleibt, wird nun in der Konfiguration gespeichert; das
+  bedeutet, dass dieser Parameter beim Neustart von NVDA gespeichert wird
+  und je nach aktivem Profil aktiviert oder deaktiviert werden kann.
+* Es wurde ein Fehler behoben, der zur unerwarteten Deaktivierung des
+  Bildschirmvorhangs führte, wenn die Befehle "In Ansicht verschieben" oder
+  "Ansicht verschieben" verwendet wurden.
+* Die Option "Immer im Vordergrund" wird nun auch beim Wechsel des
+  Vergrößerungsmodus berücksichtigt.
+* Es wurde die Möglichkeit hinzugefügt, die Konfiguration der Windows-Lupe
+  in der NVDA-Konfiguration zu speichern und wiederherzustellen.
+* Kompatibel mit NVDA 2023.1.
+* Verdeutlichen, welche Art der Verfolgung wieder aktiviert wird, wenn die
+  Verfolgung wieder eingeschaltet wird.
 * Übersetzungen aktualisiert.
 
 ### Version 2.0
