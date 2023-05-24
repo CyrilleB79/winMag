@@ -1,7 +1,7 @@
 # Windows Magnifier
 
 * Author: Cyrille Bougot
-* NVDA compatibility: 2018.3 and beyond
+* NVDA compatibility: 2019.2.1 and beyond
 * Download [stable version][1]
 
 This add-on improves the use of Windows Magnifier with NVDA.
@@ -154,6 +154,9 @@ None of the Magnifier native commands can be modified.
 
 ## Change log
 
+* Compatibility updated to NVDA 2019.2.1 and beyond.
+  The last compatible versions with NVDA 2018.3 are the [3.2][download3.2] (partially compatible) and [1.1][download1.1] (fully compatible)
+
 ### Version 3.2
 
 * Removed the dev channel.
@@ -204,3 +207,7 @@ None of the Magnifier native commands can be modified.
 [4]: https://support.microsoft.com/en-us/help/13810
 
 [5]: https://addons.nvda-project.org/addons/easyTableNavigator.en.html
+
+[download1.1]: https://github.com/CyrilleB79/winMag/releases/download/V1.1/winMag-1.1.nvda-addon
+
+[download3.2]: https://github.com/CyrilleB79/winMag/releases/download/V3.2/winMag-3.2.nvda-addon
