@@ -86,8 +86,8 @@ class WinMagSettingsPanel(gui.SettingsPanel):
 		self.toneVolumeSlider = sHelper.addLabeledControl(
 			toneVolumeLabelText,
 			nvdaControls.EnhancedInputSlider,
-			minValue=int(config.conf.getConfigValidation(("winMag", "toneVolume")).kwargs["min"]),
-			maxValue=int(config.conf.getConfigValidation(("winMag", "toneVolume")).kwargs["max"]),
+			minValue=int(self.getParameterBound("toneVolume", "min")),
+			maxValue=int(self.getParameterBound("toneVolume", "max")),
 		)
 		self.toneVolumeSlider.SetLineSize(1)
 		self.toneVolumeSlider.SetPageSize(10)
@@ -152,6 +152,21 @@ class WinMagSettingsPanel(gui.SettingsPanel):
 			self.keepWindowOnTopCheckBox.SetValue(True)
 			self.keepWindowOnTopCheckBox.Disable()
 
+	@staticmethod
+	def getParameterBound(name, boundType):
+		"""Gets the bound of a parameter in the "winMag" section of the config.
+		@param name: the name of the paremeter
+		@type name: str
+		@param boundType: "min" or "max"
+		@type boundType: str
+		"""
+
+		try:
+			return config.conf.getConfigValidation(("winMag", name)).kwargs[boundType]
+		except TypeError:
+			# For older version of configObj (e.g. used in NVDA 2019.2.1)
+			return config.conf.getConfigValidationParameter(["winMag", name], boundType)
+
 	def onReportViewMoveChange(self, evt):
 		self.updateToneVolumeSliderEnableState()
 
@@ -168,7 +183,7 @@ class WinMagSettingsPanel(gui.SettingsPanel):
 	def onPanelActivated(self):
 		self.toneVolumeSlider.Bind(wx.EVT_SLIDER, self._onToneVolumeChange)
 		self.updateToneVolumeSliderEnableState()
-		super().onPanelActivated()
+		super(WinMagSettingsPanel, self).onPanelActivated()
 
 	def _onToneVolumeChange(self, evt):
 		vol = evt.Int

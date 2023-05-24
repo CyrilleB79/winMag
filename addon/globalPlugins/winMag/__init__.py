@@ -40,7 +40,7 @@ from keyLabels import localizedKeyLabels
 import config
 import core
 import NVDAObjects.IAccessible
-import controlTypes
+from .compa import CTWRAPPER as controlTypes
 
 import wx
 
