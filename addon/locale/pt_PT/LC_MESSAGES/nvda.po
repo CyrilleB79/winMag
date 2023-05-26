@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: winMag 1.0\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2021-06-21 09:38+0000\n"
-"PO-Revision-Date: 2022-07-25 14:25+0100\n"
+"PO-Revision-Date: 2023-05-11 22:54+0100\n"
 "Last-Translator: Ângelo Abrantes <ampa4374@gmail.com>\n"
 "Language-Team: Equipa Portuguesa do NVDA: Ângelo Abrantes e Rui Fontes\n"
 "Language: pt_PT\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.3\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #. Alpha-numeric keyboard Magnifier keys
@@ -41,17 +41,17 @@ msgstr ""
 #. Translators: A UI object that can be tracked (followed) by the Magnifier.
 #. If possible, translate with the term used in Magnifier's options.
 msgid "Mouse pointer"
-msgstr ""
+msgstr "Ponteiro do rato"
 
 #. Translators: A UI object that can be tracked (followed) by the Magnifier.
 #. If possible, translate with the term used in Magnifier's options.
 msgid "Keyboard focus"
-msgstr ""
+msgstr "Foco no teclado"
 
 #. Translators: A UI object that can be tracked (followed) by the Magnifier.
 #. If possible, translate with the term used in Magnifier's options.
 msgid "Text cursor"
-msgstr ""
+msgstr "Cursor de texto"
 
 #. Translators: The description of a command of this add-on.
 msgid "Toggles on or off caret tracking"
@@ -74,13 +74,12 @@ msgid "Toggles on or off smoothing"
 msgstr "Liga ou desliga a suavização"
 
 #. Translators: The description of a command of this add-on.
-#, fuzzy
 msgid ""
 "Switches between mouse pointeur tracking modes (within the edge of the "
 "screen or centered on the screen)"
 msgstr ""
-"Comuta entre modos de seguimento do rato (dentro das extremidades do ecrã ou "
-"centrado no ecrã)"
+"Alterna entre os modos de seguimento do ponteiro do rato (dentro do limite "
+"do ecrã ou centrado no ecrã)"
 
 #. Translators: The description of a command of this add-on.
 msgid ""
@@ -95,12 +94,15 @@ msgid ""
 "Saves the current configuration parameters of the magnifier to NVDA's "
 "configuration."
 msgstr ""
+"Guarda os parâmetros de configuração atuais da lupa na configuração do NVDA."
 
 #. Translators: The description of a command of this add-on.
 msgid ""
 "Restores the current configuration parameters of the magnifier from NVDA's "
 "configuration."
 msgstr ""
+"Restaura os parâmetros de configuração atuais da lupa a partir da "
+"configuração do NVDA."
 
 #. Translators: The description of a command of this add-on.
 msgid "Moves the magnified view"
@@ -111,13 +113,12 @@ msgid "Moves the mouse cursor in the center of the zoomed view"
 msgstr "Move o ponteiro do rato no centro da vista ampliada"
 
 #. Translators: The description of a command of this add-on.
-#, fuzzy
 msgid ""
 "Switches on or off the mode keeping Windows Magnifier's control window "
 "always on top of the other ones."
 msgstr ""
-"Liga ou desliga o modo que permite manter a janela de controlo do Windows "
-"Magnifier sempre em cima das outras."
+"Activa ou desactiva o modo que mantém a janela de controlo da Lupa do "
+"Windows sempre em cima das outras."
 
 #. Translators: The description of a command of this add-on.
 msgid "Opens Windows Magnifier add-on settings"
@@ -186,7 +187,7 @@ msgstr "Seguimento do rato desligado"
 #. Translators: The message reported when the user turns on tracking.
 #, python-brace-format
 msgid "Tracking on - {trackingTypes}"
-msgstr ""
+msgstr "Rastreio em - {trackingTypes}"
 
 #. Translators: The message reported when the user turns off tracking.
 msgid "Tracking off"
@@ -206,7 +207,6 @@ msgid "Feature unavailable in this version of Windows."
 msgstr "Funcionalidade indisponível nesta versão do windows."
 
 #. Translators: The message reported when the user tries to toggle mouse pointer tracking mode while full screen view is not active.
-#, fuzzy
 msgid "Mouse pointer tracking mode applies only to full screen view."
 msgstr ""
 "O modo de seguimento do rato aplica-se apenas na vista de ecrã inteiro."
@@ -222,20 +222,18 @@ msgid "Within the edge of the screen"
 msgstr "Dentro das extremidades do ecrã"
 
 #. Translators: The message reported when the user tries to toggle text cursor tracking mode while full screen view is not active.
-#, fuzzy
 msgid "Text cursor tracking mode applies only to full screen view."
 msgstr ""
-"O modo de seguimento do rato aplica-se apenas na vista de ecrã inteiro."
+"O modo de seguimento do cursor de texto aplica-se apenas à visualização em "
+"ecrã total."
 
-#, fuzzy
 msgid "Magnifier config saved."
-msgstr "Lupa activada"
+msgstr "Configuração da lupa guardada."
 
 #. Translators: A message reported when the user calls the command
 #. to restores the Magnifier's configuration.
-#, fuzzy
 msgid "Magnifier config restored."
-msgstr "Os controlos da lupa não estão por cima."
+msgstr "Configuração da lupa restaurada."
 
 #. Translators: A message reported when the user tries to execute script mouseToView
 msgid ""
@@ -246,13 +244,12 @@ msgstr ""
 "superiores)."
 
 #. Translators: A message reported when the user tries to execute script mouseToView
-#, fuzzy
 msgid ""
 "Move mouse to view command not available in full screen mode while screen "
 "curtain is active."
 msgstr ""
-"Mover o rato para a vista (comando disponível apenas no Windows 8 e "
-"superiores)."
+"O comando Mover o rato para ver não está disponível no modo de ecrã inteiro "
+"enquanto a cortina de ecrã estiver activa."
 
 #. o = getDockedWindowObject()
 #. hwnd = o.windowHandle
@@ -399,9 +396,8 @@ msgstr ""
 "Em &documentos e listas, passar os comandos controlo+alt+setas para a lupa:"
 
 #. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
-#, fuzzy
 msgid "&Keep Windows Magnifier command window always on top"
-msgstr "Comando para iniciar os comandos em camada da lupa."
+msgstr "&Mantenha a janela de comando da Lupa do Windows sempre no topo"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
