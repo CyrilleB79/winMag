@@ -154,8 +154,11 @@ None of the Magnifier native commands can be modified.
 
 ## Change log
 
-* Compatibility updated to NVDA 2019.2.1 and beyond.
+### Version 3.3
+
+* Compatibility reduced to NVDA 2019.2.1 and beyond.
   The last compatible versions with NVDA 2018.3 are the [3.2][download3.2] (partially compatible) and [1.1][download1.1] (fully compatible)
+  * Fixed a bug in the settings panel with NVDA 2019.2.1.
 
 ### Version 3.2
 
