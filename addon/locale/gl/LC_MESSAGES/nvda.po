@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: winMag 1.0\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2021-06-21 09:38+0000\n"
-"PO-Revision-Date: 2022-08-03 18:49+0200\n"
-"Last-Translator: Iván Novegil Cancelas <ivan.novegil.cancelas@gmail.com>\n"
+"PO-Revision-Date: 2023-06-09 12:19+0200\n"
+"Last-Translator: Juan C. Buño <oprisniki@gmail.com>\n"
 "Language-Team: \n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.3.1\n"
 
 #. Alpha-numeric keyboard Magnifier keys
 #. Translators: The key used natively byt the Magnifier on the alpha-numeric (main) keyboard in conjunction with Win key to zoom in.
@@ -39,17 +39,17 @@ msgstr ""
 #. Translators: A UI object that can be tracked (followed) by the Magnifier.
 #. If possible, translate with the term used in Magnifier's options.
 msgid "Mouse pointer"
-msgstr ""
+msgstr "Punteiro do rato"
 
 #. Translators: A UI object that can be tracked (followed) by the Magnifier.
 #. If possible, translate with the term used in Magnifier's options.
 msgid "Keyboard focus"
-msgstr ""
+msgstr "Foco do teclado"
 
 #. Translators: A UI object that can be tracked (followed) by the Magnifier.
 #. If possible, translate with the term used in Magnifier's options.
 msgid "Text cursor"
-msgstr ""
+msgstr "Cursor de texto"
 
 #. Translators: The description of a command of this add-on.
 msgid "Toggles on or off caret tracking"
@@ -72,13 +72,12 @@ msgid "Toggles on or off smoothing"
 msgstr "Activa ou desactiva o suavizado"
 
 #. Translators: The description of a command of this add-on.
-#, fuzzy
 msgid ""
 "Switches between mouse pointeur tracking modes (within the edge of the "
 "screen or centered on the screen)"
 msgstr ""
-"Cambia entre os modos de seguimento do rato (dentro do borde da pantalla ou "
-"centrado na pantalla)"
+"Cambia entre os modos de seguemento do punteiro do rato (dentro das marxes "
+"da pantalla ou centrado na pantalla)"
 
 #. Translators: The description of a command of this add-on.
 msgid ""
@@ -93,12 +92,16 @@ msgid ""
 "Saves the current configuration parameters of the magnifier to NVDA's "
 "configuration."
 msgstr ""
+"Garda os parámetros de configuración actuáis do magnificador á configuración "
+"do NVDA."
 
 #. Translators: The description of a command of this add-on.
 msgid ""
 "Restores the current configuration parameters of the magnifier from NVDA's "
 "configuration."
 msgstr ""
+"Restaura os parámetros actuáis de configuración do magnificador dende a "
+"configuración do NVDA."
 
 #. Translators: The description of a command of this add-on.
 msgid "Moves the magnified view"
@@ -109,13 +112,12 @@ msgid "Moves the mouse cursor in the center of the zoomed view"
 msgstr "Move o cursor do rato ó centro da vista co zoom"
 
 #. Translators: The description of a command of this add-on.
-#, fuzzy
 msgid ""
 "Switches on or off the mode keeping Windows Magnifier's control window "
 "always on top of the other ones."
 msgstr ""
-"Activa ou desactiva o modo que permite manter a xanela de control da Lupa de "
-"Windows sempre enriba das demais."
+"Activa ou desactiva o modo que mantén a xanela de control da Lupa de Windows "
+"sempre encima das demáis."
 
 #. Translators: The description of a command of this add-on.
 msgid "Opens Windows Magnifier add-on settings"
@@ -184,7 +186,7 @@ msgstr "Seguimento do rato desactivado"
 #. Translators: The message reported when the user turns on tracking.
 #, python-brace-format
 msgid "Tracking on - {trackingTypes}"
-msgstr ""
+msgstr "Seguemento activado - {trackingTypes}"
 
 #. Translators: The message reported when the user turns off tracking.
 msgid "Tracking off"
@@ -204,9 +206,10 @@ msgid "Feature unavailable in this version of Windows."
 msgstr "Característica non dispoñible nesta versión de Windows."
 
 #. Translators: The message reported when the user tries to toggle mouse pointer tracking mode while full screen view is not active.
-#, fuzzy
 msgid "Mouse pointer tracking mode applies only to full screen view."
-msgstr "O modo de seguimento do rato aplícase só á vista de pantalla completa."
+msgstr ""
+"O modo de seguimento do punteiro do rato aplícase só á vista de pantalla "
+"completa."
 
 #. Translators: A message reporting mouse pointer tracking mode (cf. option in Magnifier settings).
 #. Translators: A message reporting text cursor tracking mode (cf. option in Magnifier settings).
@@ -219,19 +222,18 @@ msgid "Within the edge of the screen"
 msgstr "Dentro do borde da pantalla"
 
 #. Translators: The message reported when the user tries to toggle text cursor tracking mode while full screen view is not active.
-#, fuzzy
 msgid "Text cursor tracking mode applies only to full screen view."
-msgstr "O modo de seguimento do rato aplícase só á vista de pantalla completa."
+msgstr ""
+"O modo de seguimento do cursor de texto aplícase só á vista de pantalla "
+"completa."
 
-#, fuzzy
 msgid "Magnifier config saved."
-msgstr "Lupa activada"
+msgstr "Configuración do magnificador gardada."
 
 #. Translators: A message reported when the user calls the command
 #. to restores the Magnifier's configuration.
-#, fuzzy
 msgid "Magnifier config restored."
-msgstr "Os controis da lupa non están por riba."
+msgstr "Configuración do magnificador restaurada."
 
 #. Translators: A message reported when the user tries to execute script mouseToView
 msgid ""
@@ -242,13 +244,12 @@ msgstr ""
 "pantalla completa."
 
 #. Translators: A message reported when the user tries to execute script mouseToView
-#, fuzzy
 msgid ""
 "Move mouse to view command not available in full screen mode while screen "
 "curtain is active."
 msgstr ""
-"Orde mover rato á vista dispoñible en Windows 8 e superior no modo de "
-"pantalla completa."
+"A orde Mover rato para ver non está dispoñible no modo de pantalla completa "
+"mentres a cortina de pantalla estea activa."
 
 #. o = getDockedWindowObject()
 #. hwnd = o.windowHandle
@@ -396,9 +397,8 @@ msgstr ""
 "de Windows:"
 
 #. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
-#, fuzzy
 msgid "&Keep Windows Magnifier command window always on top"
-msgstr "Punto de entrada de ordes en capa do Windows Magnifier."
+msgstr "&Manter sempre a xanela de ordes do magnificador de Windows enriva"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
