@@ -154,6 +154,11 @@ None of the Magnifier native commands can be modified.
 
 ## Change log
 
+### Version 3.4
+
+* The "move mouse to view" command works again
+* Updated localizations.
+
 ### Version 3.3
 
 * Compatibility reduced to NVDA 2019.2.1 and beyond.
