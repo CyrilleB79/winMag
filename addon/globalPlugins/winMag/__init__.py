@@ -26,7 +26,7 @@ from . import winUser2
 import globalPluginHandler
 import appModuleHandler
 import ui
-import gui.settingsDialogs
+import gui
 import scriptHandler
 import api
 from tones import beep
@@ -1203,9 +1203,14 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	@script(
 		description=DESC_OPEN_SETTINGS,
 	)
+	@gui.blockAction.when(gui.blockAction.Context.MODAL_DIALOG_OPEN)
 	def script_openSettings(self, gesture):
+		try:
+			popupSettingsDialog = gui.mainFrame.popupSettingsDialog
+		except AttributeError:
+			popupSettingsDialog = gui.mainFrame._popupSettingsDialog
 		wx.CallAfter(
-			gui.mainFrame._popupSettingsDialog,
+			popupSettingsDialog,
 			gui.settingsDialogs.NVDASettingsDialog,
 			WinMagSettingsPanel,
 		)
