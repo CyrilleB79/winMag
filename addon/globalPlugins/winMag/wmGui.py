@@ -9,8 +9,7 @@ from __future__ import unicode_literals
 
 from .utils import isMagnifierRunning
 
-import gui
-from gui import guiHelper, nvdaControls
+from gui import guiHelper, nvdaControls, settingsDialogs
 import config
 from logHandler import log
 import globalPluginHandler
@@ -25,7 +24,7 @@ import addonHandler
 addonHandler.initTranslation()
 
 
-class WinMagSettingsPanel(gui.SettingsPanel):
+class WinMagSettingsPanel(settingsDialogs.SettingsPanel):
 	# Translators: This is the label for the Windows Magnifier settings panel.
 	title = _("Windows Magnifier")
 

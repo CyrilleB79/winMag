@@ -1203,7 +1203,6 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	@script(
 		description=DESC_OPEN_SETTINGS,
 	)
-	@gui.blockAction.when(gui.blockAction.Context.MODAL_DIALOG_OPEN)
 	def script_openSettings(self, gesture):
 		try:
 			popupSettingsDialog = gui.mainFrame.popupSettingsDialog
