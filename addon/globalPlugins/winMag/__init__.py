@@ -562,7 +562,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	def chooseNVDAObjectOverlayClasses(self, obj, clsList):
 		if (
-			obj.windowClassName == 'msctls_trackbar32'
+			getattr(obj, 'windowClassName', '') == 'msctls_trackbar32'
 			and obj.role == controlTypes.Role.SLIDER
 			and NVDAObjects.IAccessible.IAccessible in clsList
 		):
