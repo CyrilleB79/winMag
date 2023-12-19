@@ -1205,8 +1205,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	)
 	def script_openSettings(self, gesture):
 		try:
+			# For NVDA >= 2023.2
 			popupSettingsDialog = gui.mainFrame.popupSettingsDialog
 		except AttributeError:
+			# For NVDA <= 2023.1
 			popupSettingsDialog = gui.mainFrame._popupSettingsDialog
 		wx.CallAfter(
 			popupSettingsDialog,
