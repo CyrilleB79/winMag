@@ -15,6 +15,7 @@ This add-on improves the use of Windows Magnifier with NVDA.
 * Allow to save and restore the configuration parameters of the Magnifier.
 * Adds some extra features that are not provided by Windows Magnifier (mouse to view, Magnifier window not on top)
 
+<a id="settings"></a>
 ## Settings
 
 The setting panel of Windows Magnifier add-on allows to configure how NVDA reacts to native Windows Magnifier commands.

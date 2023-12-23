@@ -8,6 +8,7 @@
 from __future__ import unicode_literals
 
 from .utils import isMagnifierRunning
+from .contextHelp import ContextHelpMixin
 
 from gui import guiHelper, nvdaControls, settingsDialogs
 import config
@@ -24,9 +25,10 @@ import addonHandler
 addonHandler.initTranslation()
 
 
-class WinMagSettingsPanel(settingsDialogs.SettingsPanel):
+class WinMagSettingsPanel(ContextHelpMixin, settingsDialogs.SettingsPanel):
 	# Translators: This is the label for the Windows Magnifier settings panel.
 	title = _("Windows Magnifier")
+	helpId = "settings"
 
 	reportViewMoveAndScreenEdgesLabels = (
 		# Translators: An option in the combobox "Report view moves" in winMag setting panel.
