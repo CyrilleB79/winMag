@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 # globalPlugins/winMag/__init__.py
 # NVDA add-on: Windows Magnifier
-# Copyright (C) 2019-2023 Cyrille Bougot
+# Copyright (C) 2019-2024 Cyrille Bougot
 # This file is covered by the GNU General Public License.
 # See the file COPYING.txt for more details.
 
@@ -22,6 +22,7 @@ from .utils import (
 from .msg import nvdaTranslation
 from .magnification import Magnification
 from . import winUser2
+from .securityUtils import secureBrowseableMessage
 
 import globalPluginHandler
 import appModuleHandler
@@ -1239,4 +1240,4 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		cmdList = '\r'.join(cmdList)
 		# Translators: Part of the help message displayed for the layered command help.
 		msg = _("Magnifier layer commands:\n{cmdList}").format(cmdList=cmdList)
-		ui.browseableMessage(msg, title)
+		secureBrowseableMessage(msg, title)
