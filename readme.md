@@ -154,6 +154,13 @@ None of the Magnifier native commands can be modified.
 
 ## Change log
 
+### Version 3.5
+
+* Prepares compatibility with NVDA 2024.1.
+* Addresses potential security issues related to [GHSA-xg6w-23rw-39r8][ghsaLink] when using the add-on with older versions of NVDA.
+However, it is recommended to use NVDA 2023.3.3 or higher.
+* Note: From now on, translation updates will not appear anymore in the change log.
+
 ### Version 3.4
 
 * The "move mouse to view" command works again
@@ -219,3 +226,5 @@ None of the Magnifier native commands can be modified.
 [download1.1]: https://github.com/CyrilleB79/winMag/releases/download/V1.1/winMag-1.1.nvda-addon
 
 [download3.2]: https://github.com/CyrilleB79/winMag/releases/download/V3.2/winMag-3.2.nvda-addon
+
+[ghsaLink]: https://github.com/nvaccess/nvda/security/advisories/GHSA-xg6w-23rw-39r8#event-132994
