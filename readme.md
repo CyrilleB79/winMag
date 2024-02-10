@@ -1,7 +1,7 @@
 # Windows Magnifier
 
 * Author: Cyrille Bougot
-* NVDA compatibility: 2019.2.1 and beyond
+* NVDA compatibility: 2018.3 and beyond
 * Download [stable version][1]
 
 This add-on improves the use of Windows Magnifier with NVDA.
