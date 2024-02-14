@@ -24,11 +24,13 @@ import addonHandler
 
 addonHandler.initTranslation()
 
+ADDON_SUMMARY = addonHandler.getCodeAddon().manifest["summary"]
+
 
 class WinMagSettingsPanel(ContextHelpMixin, settingsDialogs.SettingsPanel):
 	# Translators: This is the label for the Windows Magnifier settings panel.
 	title = _("Windows Magnifier")
-	helpId = "settings"
+	helpId = (ADDON_SUMMARY, "settings")
 
 	reportViewMoveAndScreenEdgesLabels = (
 		# Translators: An option in the combobox "Report view moves" in winMag setting panel.

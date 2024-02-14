@@ -3,7 +3,6 @@
 # Copyright (C) 2017-2022 NV Access Limited, Thomas Stivers
 # This file is covered by the GNU General Public License.
 # See the file COPYING for more details.
-
 import os
 import tempfile
 import typing
@@ -12,8 +11,17 @@ import wx
 
 from gui import blockAction
 from logHandler import log
-from gui.contextHelp import writeRedirect
-import addonHandler
+import documentationUtils
+
+
+def writeRedirect(helpId: str, helpFilePath: str, contextHelpPath: str):
+	redirect = rf"""
+<html><head>
+<meta http-equiv="refresh" content="0;url=file:///{helpFilePath}#{helpId}" />
+</head></html>
+	"""
+	with open(contextHelpPath, 'w') as f:
+		f.write(redirect)
 
 
 def showHelp(helpId: str):
@@ -29,15 +37,20 @@ def showHelp(helpId: str):
 		noHelpMessage = _("No help available here.")
 		queueHandler.queueFunction(queueHandler.eventQueue, ui.message, noHelpMessage)
 		return
-	helpFile = addonHandler.getCodeAddon().getDocFilePath()
+	if isinstance(helpId, str):
+		helpFile = documentationUtils.getDocFilePath("userGuide.html")
+	else:
+		addonName, helpId = helpId
+		addon = [a for a in addonHandler.getRunningAddons() if a.name == addonName][0]
+		helpFile = addon.getDocFilePath()
 	if helpFile is None:
 		# Translators: Message shown when trying to display context sensitive help,
 		# indicating that	the documentation could not be found.
 		noHelpMessage = _("No documentation found.")
-		log.debugWarning("No documentation found.")
+		log.debugWarning("No documentation found: possible cause - running from source without building user docs")
 		queueHandler.queueFunction(queueHandler.eventQueue, ui.message, noHelpMessage)
 		return
-	log.debug(f"Opening help: helpId = {helpId}, docPath: {helpFile}")
+	log.debug(f"Opening help: helpId = {helpId}, userGuidePath: {helpFile}")
 
 	nvdaTempDir = os.path.join(tempfile.gettempdir(), "nvda")
 	if not os.path.exists(nvdaTempDir):
