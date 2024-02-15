@@ -1,7 +1,7 @@
 # Windows Magnifier
 
 * Author: Cyrille Bougot
-* NVDA compatibility: 2018.3 and beyond
+* NVDA compatibility: 2019.2.1 and beyond
 * Download [stable version][1]
 
 This add-on improves the use of Windows Magnifier with NVDA.
@@ -157,8 +157,7 @@ None of the Magnifier native commands can be modified.
 ### Version 3.5
 
 * Prepares compatibility with NVDA 2024.1.
-* Addresses potential security issues related to [GHSA-xg6w-23rw-39r8][ghsaLink] when using the add-on with older versions of NVDA.
-However, it is recommended to use NVDA 2023.3.3 or higher.
+* Addresses potential security issues related to [GHSA-xg6w-23rw-39r8][8] when using the add-on with older versions of NVDA. However, it is recommended to use NVDA 2023.3.3 or higher.
 * Note: From now on, translation updates will not appear anymore in the change log.
 
 ### Version 3.4
@@ -169,8 +168,8 @@ However, it is recommended to use NVDA 2023.3.3 or higher.
 ### Version 3.3
 
 * Compatibility reduced to NVDA 2019.2.1 and beyond.
-  The last compatible versions with NVDA 2018.3 are the [3.2][download3.2] (partially compatible) and [1.1][download1.1] (fully compatible)
-  * Fixed a bug in the settings panel with NVDA 2019.2.1.
+  The last compatible versions with NVDA 2018.3 are the [3.2][7] (partially compatible) and [1.1][6] (fully compatible)
+* Fixed a bug in the settings panel with NVDA 2019.2.1.
 
 ### Version 3.2
 
@@ -223,8 +222,8 @@ However, it is recommended to use NVDA 2023.3.3 or higher.
 
 [5]: https://addons.nvda-project.org/addons/easyTableNavigator.en.html
 
-[download1.1]: https://github.com/CyrilleB79/winMag/releases/download/V1.1/winMag-1.1.nvda-addon
+[6]: https://github.com/CyrilleB79/winMag/releases/download/V1.1/winMag-1.1.nvda-addon
 
-[download3.2]: https://github.com/CyrilleB79/winMag/releases/download/V3.2/winMag-3.2.nvda-addon
+[7]: https://github.com/CyrilleB79/winMag/releases/download/V3.2/winMag-3.2.nvda-addon
 
-[ghsaLink]: https://github.com/nvaccess/nvda/security/advisories/GHSA-xg6w-23rw-39r8#event-132994
+[8]: https://github.com/nvaccess/nvda/security/advisories/GHSA-xg6w-23rw-39r8#event-132994

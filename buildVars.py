@@ -39,7 +39,7 @@ addon_info = {
 	# Minimum NVDA version supported (e.g. "2018.3.0", minor version is optional)
 	# Note: min version supported by this add-on is 2018.3; however for integration in the add-on store, an
 	# API version is required.
-	"addon_minimumNVDAVersion": "0.0.0",
+	"addon_minimumNVDAVersion": "2019.2.1",
 	# Last NVDA version supported/tested (e.g. "2018.4.0", ideally more recent than minimum version)
 	"addon_lastTestedNVDAVersion": "2023.3.3",
 	# Add-on update channel (default is None, denoting stable releases,
