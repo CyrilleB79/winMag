@@ -1,7 +1,7 @@
 # Windowsin suurennuslasi #
 
 * Tekijä: Cyrille Bougot
-* yhteensopivuus: NVDA 2018.3 ja uudemmat
+* NVDA compatibility: 2019.2.1 and beyond
 * Lataa [vakaa versio][1]
 
 Tämä lisäosa parantaa Windowsin suurennuslasin käytettävyyttä NVDA:n kanssa.
@@ -219,6 +219,27 @@ Alkuperäisiä suurennuslasikomentoja ei voi muuttaa.
 
 ## Muutosloki
 
+### Version 3.5
+
+* Prepares compatibility with NVDA 2024.1.
+* Addresses potential security issues related to [GHSA-xg6w-23rw-39r8][8]
+  when using the add-on with older versions of NVDA. However, it is
+  recommended to use NVDA 2023.3.3 or higher.
+* Note: From now on, translation updates will not appear anymore in the
+  change log.
+
+### Version 3.4
+
+* The "move mouse to view" command works again
+* Lokalisointeja päivitetty.
+
+### Version 3.3
+
+* Compatibility reduced to NVDA 2019.2.1 and beyond.  The last compatible
+  versions with NVDA 2018.3 are the [3.2][7] (partially compatible) and
+  [1.1][6] (fully compatible)
+* Fixed a bug in the settings panel with NVDA 2019.2.1.
+
 ### Versio 3.2
 
 * Dev-kanava poistettu.
@@ -283,3 +304,12 @@ Alkuperäisiä suurennuslasikomentoja ei voi muuttaa.
 https://support.microsoft.com/fi-fi/windows/windowsin-helppok%C3%A4ytt%C3%B6toimintojen-pikan%C3%A4pp%C3%A4imet-021bcb62-45c8-e4ef-1e4f-41b8c1fc87fd
 
 [5]: https://addons.nvda-project.org/addons/easyTableNavigator.en.html
+
+[6]:
+https://github.com/CyrilleB79/winMag/releases/download/V1.1/winMag-1.1.nvda-addon
+
+[7]:
+https://github.com/CyrilleB79/winMag/releases/download/V3.2/winMag-3.2.nvda-addon
+
+[8]:
+https://github.com/nvaccess/nvda/security/advisories/GHSA-xg6w-23rw-39r8#event-132994

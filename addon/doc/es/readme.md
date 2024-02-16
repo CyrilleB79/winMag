@@ -1,7 +1,7 @@
 # Lupa de Windows #
 
 * Autor: Cyrille Bougot
-* Compatibilidad con NVDA: de 2018.3 en adelante
+* Compatibilidad con NVDA: de 2019.2.1 en adelante
 * Descargar [versión estable][1]
 
 Este complemento mejora el uso de la lupa de Windows con NVDA.
@@ -218,6 +218,27 @@ Ninguna de las órdenes nativas de la lupa se puede modificar.
 
 ## Registro de cambios
 
+### Versión 3.5
+
+* Prepara la compatibilidad con NVDA 2024.1.
+* Resuelve posibles problemas de seguridad relacionados con
+  [GHSA-xg6w-23rw-39r8][8] al usar el complemento con versiones antiguas de
+  NVDA. Sin embargo, se recomienda usar NVDA 2023.3.3 o posterior.
+* Nota: de ahora en adelante, las actualizaciones de traducciones ya no
+  aparecerán en el registro de cambios.
+
+### Versión 3.4
+
+* La orden "Mover ratón a la vista" vuelve a funcionar
+* Traducciones actualizadas.
+
+### Versión 3.3
+
+* Compatibilidad reducida a NVDA 2019.2.1 y posterior. Las últimas versiones
+  compatibles con NVDA 2018.3 son la [3.2][7] (parcialmente compatible) y la
+  [1.1][6] (totalmente compatible)
+* Corregido un problema con el panel de opciones en NVDA 2019.2.1.
+
 ### Versión 3.2
 
 * Se ha eliminado el canal de desarrollo.
@@ -284,3 +305,12 @@ Ninguna de las órdenes nativas de la lupa se puede modificar.
 [4]: https://support.microsoft.com/es-es/help/13810
 
 [5]: https://addons.nvda-project.org/addons/easyTableNavigator.es.html
+
+[6]:
+https://github.com/CyrilleB79/winMag/releases/download/V1.1/winMag-1.1.nvda-addon
+
+[7]:
+https://github.com/CyrilleB79/winMag/releases/download/V3.2/winMag-3.2.nvda-addon
+
+[8]:
+https://github.com/nvaccess/nvda/security/advisories/GHSA-xg6w-23rw-39r8#event-132994

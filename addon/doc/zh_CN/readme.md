@@ -1,7 +1,7 @@
 # Windows 放大镜增强插件 #
 
 * 作者: Cyrille Bougot
-* NVDA 兼容版本: 2018.3或更高
+* NVDA compatibility: 2019.2.1 and beyond
 * 下载 [稳定版][1]
 
 此插件增强了 NVDA 使用 Windows 放大镜时的体验。
@@ -173,6 +173,27 @@ command NVDA+Windows+O:
 
 ## 更新日志
 
+### Version 3.5
+
+* Prepares compatibility with NVDA 2024.1.
+* Addresses potential security issues related to [GHSA-xg6w-23rw-39r8][8]
+  when using the add-on with older versions of NVDA. However, it is
+  recommended to use NVDA 2023.3.3 or higher.
+* Note: From now on, translation updates will not appear anymore in the
+  change log.
+
+### Version 3.4
+
+* The "move mouse to view" command works again
+* Updated localizations.
+
+### Version 3.3
+
+* Compatibility reduced to NVDA 2019.2.1 and beyond.  The last compatible
+  versions with NVDA 2018.3 are the [3.2][7] (partially compatible) and
+  [1.1][6] (fully compatible)
+* Fixed a bug in the settings panel with NVDA 2019.2.1.
+
 ### Version 3.2
 
 * Removed the dev channel.
@@ -236,3 +257,12 @@ command NVDA+Windows+O:
 [4]: https://support.microsoft.com/zh-cn/help/13810
 
 [5]: https://addons.nvda-project.org/addons/easyTableNavigator.zh_CN.html
+
+[6]:
+https://github.com/CyrilleB79/winMag/releases/download/V1.1/winMag-1.1.nvda-addon
+
+[7]:
+https://github.com/CyrilleB79/winMag/releases/download/V3.2/winMag-3.2.nvda-addon
+
+[8]:
+https://github.com/nvaccess/nvda/security/advisories/GHSA-xg6w-23rw-39r8#event-132994

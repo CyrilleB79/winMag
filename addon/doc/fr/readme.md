@@ -1,7 +1,7 @@
 # Loupe Windows #
 
 * Auteur: Cyrille Bougot
-* Compatibilité NVDA: 2018.3 et ultérieure
+* Compatibilité NVDA : 2019.2.1 et supérieure
 * Télécharger [version stable][1]
 
 Cette extension améliore l'utilisation de la loupe Windows avec NVDA.
@@ -238,6 +238,28 @@ Aucune des commandes natives de la Loupe ne peut être modifiée.
 
 ## Journal des modifications
 
+### Version 3.5
+
+* Prépare la compatibilité avec NVDA 2024.1.
+* Résout des problèmes de sécurité potentiels liés à
+  [GHSA-xg6w-23rw-39r8][8] lors de l'utilisation de l'extension avec des
+  versions plus anciennes de NVDA. Cependant, il est recommandé d'utiliser
+  NVDA 2023.3.3 ou supérieur.
+* Remarque : À partir de maintenant, les mises à jour de traduction
+  n'apparaîtront plus dans le journal des modifications.
+
+### Version 3.4
+
+* La commande "déplacer la souris vers la vue" fonctionne à nouveau
+* Localisations mises à jour.
+
+### Version 3.3
+
+* Compatibilité réduite à NVDA 2019.2.1 et supérieure. Les dernières
+  versions compatibles avec NVDA 2018.3 sont les [3.2][7] (partiellement
+  compatible) et [1.1][6] (entièrement compatible)
+* Correction d'un bug dans le panneau des paramètres avec NVDA 2019.2.1.
+
 ### Version 3.2
 
 * Suppression du canal de développement.
@@ -306,3 +328,12 @@ Aucune des commandes natives de la Loupe ne peut être modifiée.
 [4]: Raccourcis clavier d'accessibilité dans Windows
 
 [5]: https://addons.nvda-project.org/addons/easyTableNavigator.fr.html
+
+[6]:
+https://github.com/CyrilleB79/winMag/releases/download/V1.1/winMag-1.1.nvda-addon
+
+[7]:
+https://github.com/CyrilleB79/winMag/releases/download/V3.2/winMag-3.2.nvda-addon
+
+[8]:
+https://github.com/nvaccess/nvda/security/advisories/GHSA-xg6w-23rw-39r8#event-132994
