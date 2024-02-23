@@ -1,7 +1,7 @@
 # Windows Büyüteç #
 
 * Yazar: Cyrille Bougot
-* NVDA compatibility: 2019.2.1 and beyond
+* NVDA uyumluluğu: 2019.2.1 ve sonrası
 * [kararlı sürümü][1] indir
 
 Bu eklenti, Windows Büyüteç'in NVDA ile kullanımını geliştirir.
@@ -220,9 +220,9 @@ Büyüteç Varsayılankomutlarının hiçbiri değiştirilemez.
 ### Sürüm 3.5
 
 * NVDA 2024.1 ile uyumluluğu hazırlar.
-* Addresses potential security issues related to [GHSA-xg6w-23rw-39r8][8]
-  when using the add-on with older versions of NVDA. However, it is
-  recommended to use NVDA 2023.3.3 or higher.
+* Eklentiyi NVDA'nın eski sürümleriyle kullanırken [GHSA-xg6w-23rw-39r8][8]
+  ile ilgili olası güvenlik sorunlarını giderir. Ancak NVDA 2023.3.3 veya
+  üzerini kullanmanız tavsiye edilir.
 * Not: Artık çeviri güncellemeleri değişiklik günlüğünde görünmeyecek.
 
 ### Sürüm 3.4
@@ -232,9 +232,9 @@ Büyüteç Varsayılankomutlarının hiçbiri değiştirilemez.
 
 ### Sürüm 3.3
 
-* Compatibility reduced to NVDA 2019.2.1 and beyond.  The last compatible
-  versions with NVDA 2018.3 are the [3.2][7] (partially compatible) and
-  [1.1][6] (fully compatible)
+* Uyumluluk NVDA 2019.2.1 ve sonraki sürümlere düşürüldü. NVDA 2018.3 ile
+  son uyumlu sürümler [3.2][7] (kısmen uyumlu) ve [1.1][6]'dır (tamamen
+  uyumlu)
 * NVDA 2019.2.1'in ayarlar panelindeki bir hata düzeltildi.
 
 ### Sürüm 3.2
