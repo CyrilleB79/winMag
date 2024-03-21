@@ -1,7 +1,7 @@
 # Windows Büyüteç #
 
 * Yazar: Cyrille Bougot
-* NVDA uyumluluğu: 2018.3 ve sonrası
+* NVDA uyumluluğu: 2019.2.1 ve sonrası
 * [kararlı sürümü][1] indir
 
 Bu eklenti, Windows Büyüteç'in NVDA ile kullanımını geliştirir.
@@ -217,6 +217,26 @@ Büyüteç Varsayılankomutlarının hiçbiri değiştirilemez.
 
 ## Sürüm Geçmişi
 
+### Sürüm 3.5
+
+* NVDA 2024.1 ile uyumluluğu hazırlar.
+* Eklentiyi NVDA'nın eski sürümleriyle kullanırken [GHSA-xg6w-23rw-39r8][8]
+  ile ilgili olası güvenlik sorunlarını giderir. Ancak NVDA 2023.3.3 veya
+  üzerini kullanmanız tavsiye edilir.
+* Not: Artık çeviri güncellemeleri değişiklik günlüğünde görünmeyecek.
+
+### Sürüm 3.4
+
+* "Görüntülemek için fareyi hareket ettirin" komutu yeniden çalışıyor
+* Yerelleştirmeler güncellendi.
+
+### Sürüm 3.3
+
+* Uyumluluk NVDA 2019.2.1 ve sonraki sürümlere düşürüldü. NVDA 2018.3 ile
+  son uyumlu sürümler [3.2][7] (kısmen uyumlu) ve [1.1][6]'dır (tamamen
+  uyumlu)
+* NVDA 2019.2.1'in ayarlar panelindeki bir hata düzeltildi.
+
 ### Sürüm 3.2
 
 * Geliştirici kanalı kaldırıldı.
@@ -280,3 +300,12 @@ Büyüteç Varsayılankomutlarının hiçbiri değiştirilemez.
 [4]: https://support.microsoft.com/en-us/help/13810
 
 [5]: https://addons.nvda-project.org/addons/easyTableNavigator.en.html
+
+[6]:
+https://github.com/CyrilleB79/winMag/releases/download/V1.1/winMag-1.1.nvda-addon
+
+[7]:
+https://github.com/CyrilleB79/winMag/releases/download/V3.2/winMag-3.2.nvda-addon
+
+[8]:
+https://github.com/nvaccess/nvda/security/advisories/GHSA-xg6w-23rw-39r8#event-132994
