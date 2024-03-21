@@ -154,6 +154,10 @@ None of the Magnifier native commands can be modified.
 
 ## Change log
 
+### Version 3.7
+
+* Compatibility with NVDA 2024.1.
+
 ### Version 3.6
 
 * Fixed erroneous compatibility range.
