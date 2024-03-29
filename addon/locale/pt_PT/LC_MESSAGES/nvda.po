@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: winMag 1.0\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2021-06-21 09:38+0000\n"
-"PO-Revision-Date: 2023-07-28 17:10+0100\n"
+"PO-Revision-Date: 2024-03-28 19:35+0000\n"
 "Last-Translator: Ângelo Abrantes <ampa4374@gmail.com>\n"
 "Language-Team: Equipa Portuguesa do NVDA: Ângelo Abrantes e Rui Fontes\n"
 "Language: pt_PT\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.4.2\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #. Alpha-numeric keyboard Magnifier keys
@@ -78,7 +78,6 @@ msgid "Toggles on or off smoothing"
 msgstr "Liga ou desliga a suavização"
 
 #. Translators: The description of a command of this add-on.
-#, fuzzy
 msgid ""
 "Switches between mouse pointer tracking modes (within the edge of the screen "
 "or centered on the screen)"
