@@ -1,7 +1,7 @@
 # Лупа на Windows (Windows Magnifier) #
 
 * Автор: Cyrille Bougot
-* NVDA compatibility: 2019.2.1 and beyond
+* Съвместимост с NVDA: от 2019.2.1 и по-нови
 * Изтегляне на [стабилна версия][1]
 
 Тази добавка подобрява използването на лупата на Windows с NVDA.
