@@ -56,7 +56,7 @@ Tämä asetus ei vaikuta kiinnitetyn näkymän tilaan.
   taso puhutaan käyttäessäsi zoomauskomentoja Win++ tai Win+-.
 * Puhu värin inversio: Jos tämä on valittuna, värin inversion tila puhutaan
   käyttäessäsi tilanvaihtokomentoa Ctrl+Alt+I.
-* Puhu näkymän vaihtaminen: Jos tämä on valittuna, näkymän tyyppi puhutaan
+* Puhu näkymän muutos: Jos tämä on valittuna, näkymän tyyppi puhutaan
   käyttäessäsi sitä vaihtavaa komentoa (Ctrl+Alt+M, Ctrl+Alt+F, Ctrl+Alt+D
   ja Ctrl+Alt+L).
 * Puhu linssi- tai kiinnitetyn ikkunan koon muuttaminen: Jos tämä on
@@ -231,7 +231,7 @@ Alkuperäisiä suurennuslasikomentoja ei voi muuttaa.
 
 ### Versio 3.4
 
-* "Siirrä hiiri näkymään" -komento toimii taas.
+* "Siirrä hiiri näkymään" -komento toimii taas
 * Lokalisointeja päivitetty.
 
 ### Versio 3.3
