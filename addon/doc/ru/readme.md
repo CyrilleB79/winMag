@@ -9,9 +9,10 @@
 
 ## Возможности
 
-* Allows to report the result of some native Magnifier keyboard commands.
-* Allows to reduce the cases where table navigation commands conflict with
-  Magnifier's commands.
+* Позволяет отображать результат выполнения некоторых встроенных в лупу
+  клавиатурных команд.
+* Позволяет уменьшить количество случаев, когда команды навигации по таблице
+  конфликтуют с командами лупы.
 * Adds some keyboard shortcuts to toggle various native options of the
   Magnifier.
 * Allow to save and restore the configuration parameters of the Magnifier.
@@ -91,14 +92,14 @@ The panel contains the following options:
   Magnifier's control window will not be kept always on top of other
   windows.
 
-## Commands added by this add-on
+## Команды, добавленные этим дополнением
 
-In addition to native Magnifier commands, this add-on provide additional
-commands:
+В дополнение к встроенным командам Лупы, это дополнение предоставляет
+дополнительные команды:
 
-* Commands that allow to control Magnifier's options without opening its
-  configuration page.
-* Extra commands specific to this add-on.
+* Команды, позволяющие управлять параметрами Лупы, не открывая страницу его
+  конфигурации.
+* Дополнительные команды, специфичные для этого дополнения.
 
 All these additional commands are accessible through the Magnifier layer
 command NVDA+Windows+O:
@@ -185,9 +186,9 @@ None of the Magnifier native commands can be modified.
   need to quit the Magnifier (Windows+Escape) and re-open it after
   (Windows++).  For example in MS word, to decrease title level:
   
-    * Press Windows+Escape to quit Magnifier.
+    * Нажмите Windows+Escape, чтобы выйти из Лупы.
     * Press Alt+Shift+RightArrow to decrease current title level.
-    * Press Windows++ to re-open the Magnifier.
+    * Нажмите Windows++, чтобы снова открыть лупу.
 
 * Для получения дополнительной информации о функциях и горячих клавишах Лупы
   Windows вы можете ознакомиться со следующими страницами:
@@ -234,24 +235,25 @@ None of the Magnifier native commands can be modified.
 
 ### Версия 3.1
 
-* Fixed an issue preventing the Magnifier's command window from being
-  restored on top.
+* Исправлена ошибка, из-за которой командное окно Лупы не восстанавливалось
+  сверху.
 * Исправлена ошибка, из-за которой дополнение не запускалось в NVDA
   2019.2.1.
 * Обновлены локализации.
 
 ### Версия 3.0
 
-* Pressing the zoom buttons in the Magnifier window (with the keyboard) now
-  reports the new zoom level.
-* The parameter controlling if Magnifier control window remains always on
-  top is now stored in configuration; this means that this parameter is
-  remembered when restarting NVDA and can be enabled or not depending on the
-  active profile.
-* Fixed a bug causing unexpected screen curtain de-activation when using
-  move to view or move view commands.
-* Option alwaysOnTop setting will now be honoured also when changing
-  magnification mode.
+* Нажатие кнопок масштабирования в окне лупы (с клавиатуры) теперь объявляет
+  новый уровень масштабирования.
+* Параметр, управляющий тем, всегда ли окно управления лупой остается
+  открытым, теперь сохранен в конфигурации; это означает, что этот параметр
+  запоминается при перезапуске NVDA и может быть включен или не включен в
+  зависимости от активного профиля.
+* Исправлена ошибка, приводившая к неожиданному отключению затемнения экрана
+  при использовании команд "Переместить для просмотра" или "переместить
+  вид".
+* Настройка параметра AlwaysOnTop теперь будет выполняться также при
+  изменении режима увеличения.
 * Добавлена возможность сохранять и восстанавливать конфигурацию Лупы
   Windows в конфигурации NVDA.
 * Совместимость с NVDA 2023.1.
