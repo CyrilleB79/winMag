@@ -1,7 +1,7 @@
 # Windows povećalo #
 
 * Autor: Cyrille Bougot
-* NVDA compatibility: 2019.2.1 and beyond
+* NVDA kompatibilnost: 2019.2.1 i novije verzije
 * Preuzmi [stabilnu verziju][1]
 
 Ovaj dodatak poboljšava upotrebu Windows povećala s NVDA čitačem.
@@ -212,21 +212,21 @@ Nije moguće promijeniti niti jednu izvornu naredbu povećala.
 
 ## Dnevnik promjena
 
-### Version 3.5
+### Verzija 3.5
 
-* Prepares compatibility with NVDA 2024.1.
+* Priprema kompatibilnosti s NVDA verzijom 2024.1.
 * Addresses potential security issues related to [GHSA-xg6w-23rw-39r8][8]
   when using the add-on with older versions of NVDA. However, it is
   recommended to use NVDA 2023.3.3 or higher.
 * Note: From now on, translation updates will not appear anymore in the
   change log.
 
-### Version 3.4
+### Verzija 3.4
 
 * The "move mouse to view" command works again
 * Aktualizirane lokalizacije.
 
-### Version 3.3
+### Verzija 3.3
 
 * Compatibility reduced to NVDA 2019.2.1 and beyond.  The last compatible
   versions with NVDA 2018.3 are the [3.2][7] (partially compatible) and

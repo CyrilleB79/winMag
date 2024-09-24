@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: winMag 1.0\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2021-07-02 22:20+0000\n"
-"PO-Revision-Date: 2024-02-17 08:37+0200\n"
-"Last-Translator: Kostadin Kolev <k_kolev1985@mail.bg>\n"
+"PO-Revision-Date: 2024-05-03 17:25+0300\n"
+"Last-Translator: Kostadin Kolev <k.kolev1985@gmail.com>\n"
 "Language-Team: \n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
@@ -348,7 +348,7 @@ msgstr ""
 #. Translators: Summary for this add-on
 #. to be shown on installation and add-on information found in Add-ons Manager.
 msgid "Windows Magnifier"
-msgstr "Лупа на Windows"
+msgstr "Лупа на Windows (Windows Magnifier)"
 
 #. Translators: An option in the combobox "Report view moves" in winMag setting panel.
 msgid "Off"
