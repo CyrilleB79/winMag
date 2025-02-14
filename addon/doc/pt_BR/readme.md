@@ -1,7 +1,7 @@
 # Lupa do Windows (Windows Magnifier) #
 
 * Autor: Cyrille Bougot
-* NVDA compatibility: 2019.2.1 and beyond
+* Compatibilidade com NVDA: 2019.2.1 e posterior
 * Baixe a [versão estável][1]
 
 Este complemento melhora o uso da Lupa do Windows com NVDA.
@@ -12,22 +12,22 @@ Este complemento melhora o uso da Lupa do Windows com NVDA.
 * Permite informar o resultado de alguns comandos de teclado nativo da Lupa.
 * Permite reduzir os casos em que os comandos de navegação em tabelas entram
   em conflito com os comandos da Lupa.
-* Adds some keyboard shortcuts to toggle various native options of the
-  Magnifier.
-* Allow to save and restore the configuration parameters of the Magnifier.
-* Adds some extra features that are not provided by Windows Magnifier (mouse
-  to view, Magnifier window not on top)
+* Adiciona alguns atalhos de teclado para alternar várias opções nativas da
+  Lupa.
+* Permite salvar e restaurar os parâmetros de configuração da Lupa.
+* Adiciona alguns recursos extras que não são fornecidos pela Lupa do
+  Windows (mouse para visualizar, janela da Lupa não na parte superior)
 
 ## Configurações
 
-The setting panel of Windows Magnifier add-on allows to configure how NVDA
-reacts to native Windows Magnifier commands.  You may want to have more or
-less commands reported according to what you are able to see.  The panel
-also contains an option to modify the behaviour of Windows Magnifier control
-window.
+O painel de configuração do complemento Windows Magnifier permite configurar
+como o NVDA reage aos comandos nativos do Windows Magnifier.  Você pode
+desejar que mais ou menos comandos sejam relatados de acordo com o que você
+consegue ver.  O painel também contém uma opção para modificar o
+comportamento da janela de controle da Windows Magnifier.
 
-This panel may be opened choosing Preferences -> Settings in the NVDA menu and then selecting the Windows Magnifier category in the Settings window.
-The keyboard shortcut NVDA+Windows+O then O also allows to open this settings panel directly.
+Esse painel pode ser aberto escolhendo Preferências -> Configurações no menu NVDA e, em seguida, selecionando a categoria Windows Magnifier na janela Configurações.
+O atalho de teclado NVDA+Windows+O e depois O também permite abrir esse painel de configurações diretamente.
 
 O painel contém as seguintes opções:
 
@@ -41,15 +41,15 @@ O painel contém as seguintes opções:
       visualização ampliada na dimensão em que a visualização está sendo
       movida.
   
-  This option does not affect docked view mode.
+  Essa opção não afeta o modo de exibição encaixado.
 
-* Report screen edges: controls what is reported when you reach the edges of
-  the screen while moving the view with Control+Alt+Arrows commands.  The
-  three options are: Off, With speech and With tones.  This option does not
-  affect docked view mode.
-* Volume of the tones reporting the position of the view: allows to define
-  the volume of the tones if you have selected to report view moves or
-  screen edges with tones.
+* Relatar bordas da tela: controla o que é relatado quando você alcança as
+  bordas da tela ao mover a exibição com os comandos Control+Alt+Setas.  As
+  três opções são: Desligado, Com fala e Com tons.  Essa opção não afeta o
+  modo de exibição encaixado.
+* Volume dos tons que informam a posição da visualização: permite definir o
+  volume dos tons se você tiver selecionado informar os movimentos da
+  visualização ou as bordas da tela com tons.
 * Relatar ativação ou desativação: Se marcada, o estado da lupa é informado
   quando você usa os comandos Windows++ ou Windows+Esc para ativá-la ou
   desativá-la.
@@ -70,68 +70,70 @@ O painel contém as seguintes opções:
 * Em documentos e visualizações de listas, passar atalhos control+alt+setas
   para a Lupa do Windows: Há três opções possíveis:
   
-    * Never: The command is not passed to Windows Magnifier and standard
-      NVDA table navigation can operate.  When used in documents out of a
-      table, the Control+Alt+Arrow command reports a "Not in a table" error
-      message.  This is the standard behaviour of NVDA without this add-on.
-      You can still use NVDA+Windows+O then arrows to move the magnified
-      view.
-    * Only when not in table: In table or in list views, Control+Alt+Arrow
-      commands perform standard table navigation.  When used in documents
-      out of a table, Control+Alt+Arrow commands perform standard Magnifier
-      view move commands.  If you still want to move Windows Magnifier view
-      while in table or in list view, you will need to press NVDA+F2 before
-      using Control+Alt+Arrow commands or alternately use NVDA+Windows+O
-      then arrows.  This option is the best compromise if you want to use
-      Control+Alt+Arrow for both Magnifier and table navigation.
+    * Nunca: O comando não é passado para o Windows Magnifier e a navegação
+      padrão na tabela do NVDA pode funcionar.  Quando usado em documentos
+      fora de uma tabela, o comando Control+Alt+Seta informa uma mensagem de
+      erro “Não está em uma tabela”.  Esse é o comportamento padrão do NVDA
+      sem esse complemento.  Você ainda pode usar NVDA+Windows+O e depois as
+      setas para mover a exibição ampliada.
+    * Somente quando não estiver em uma tabela: Em exibições de tabela ou de
+      lista, os comandos Control+Alt+Seta executam a navegação padrão na
+      tabela.  Quando usados em documentos fora de uma tabela, os comandos
+      Control+Alt+Seta executam comandos padrão de movimentação da
+      visualização da Lupa.  Se ainda quiser mover o modo de exibição da
+      Lupa do Windows enquanto estiver na tabela ou no modo de exibição de
+      lista, será necessário pressionar NVDA+F2 antes de usar os comandos
+      Control+Alt+Seta ou, alternativamente, usar NVDA+Windows+O e, em
+      seguida, as setas.  Essa opção é o melhor compromisso se você quiser
+      usar Control+Alt+Seta para a navegação na lupa e na tabela.
     * Sempre: Os comandos Control+Alt+Seta movem a visualização da Lupa em
       qualquer caso. Esta opção pode ser útil se você não usar
       Control+Alt+Seta para navegar em tabela, por exemplo, porque alterou
       os atalhos de navegação em tabelas no NVDA ou porque utiliza
-      exclusivamente o complemento [Navegação fácil em tabelas (Easy table
-      navigator)][5] para navegação nas tabelas.
+      exclusivamente o complemento [Navegação fácil em tabelas ][5] para
+      navegação nas tabelas.
 
-* Keep Windows Magnifier command window always on top: If unchecked, the
-  Magnifier's control window will not be kept always on top of other
-  windows.
+* Manter a janela de comando da Lupa do Windows sempre na parte superior: Se
+  desmarcada, a janela de controle da Lupa não será mantida sempre em cima
+  de outras janelas.
 
 ## Comandos adicionados por este complemento
 
-In addition to native Magnifier commands, this add-on provide additional
-commands:
+Além dos comandos nativos da Lupa, esse complemento fornece comandos
+adicionais:
 
-* Commands that allow to control Magnifier's options without opening its
-  configuration page.
-* Extra commands specific to this add-on.
+* Comandos que permitem controlar as opções da Lupa sem abrir sua página de
+  configuração.
+* Comandos extras específicos para esse complemento.
 
-All these additional commands are accessible through the Magnifier layer
-command NVDA+Windows+O:
+Todos esses comandos adicionais podem ser acessados por meio do comando de
+camada da lupa NVDA+Windows+O:
 
 * NVDA+Windows+O depois C: Ativa ou desativa o rastreamento do cursor.
 * NVDA+Windows+O depois F: Ativa ou desativa o rastreamento do foco.
 * NVDA+Windows+O depois M: Ativa ou desativa o rastreamento do mouse.
-* NVDA+Windows+O then T: Toggles on or off tracking globally.  When tracking
-  is toggled on again, it is set to the last active tracking configuration
-  before tracking was toggled off.
+* NVDA+Windows+O então T: ativa ou desativa o rastreamento globalmente.
+  Quando o rastreamento é ativado novamente, ele é definido para a última
+  configuração de rastreamento ativa antes de ser desativado.
 * NVDA+Windows+O depois S: Ativa ou desativa a suavização.
-* NVDA+Windows+O then R: Switches between mouse pointer tracking modes
-  (within the edge of the screen or centered on the screen); this feature is
-  only available on Windows 10 build 17643 or higher.
+* NVDA+Windows+O e depois R: Alterna entre os modos de rastreamento do
+  ponteiro do mouse (dentro da borda da tela ou centralizado na tela); esse
+  recurso só está disponível no Windows 10 build 17643 ou superior.
 * NVDA+Windows+O depois X: Alterna entre os modos de rastreamento do cursor
   de texto (no limite da tela ou centralizado na tela); esse recurso está
   disponível apenas no Windows 10 compilação 18894 ou superior.
-* NVDA+Windows+O then shift+P: Saves the current configuration parameters of
-  the magnifier to NVDA's configuration.
-* NVDA+Windows+O then P: Restores the current configuration parameters of
-  the magnifier from NVDA's configuration.  If no configuration parameters
-  has been previously saved to NVDA's configuration, the default
-  configuration parameters of Windows Magnifier are restored instead.
-* NVDA+Windows+O then Arrows: Move the magnified view.
-* NVDA+Windows+O then V: Moves the mouse cursor in the center of the
-  magnified view (command not available in docked view mode).
-* NVDA+Windows+O then W: Switches on or off the mode allowing to keep
-  Windows Magnifier's control window always on top of the other ones.  This
-  feature is only available for installed versions of NVDA.
+* NVDA+Windows+O e, em seguida, shift+P: salva os parâmetros de configuração
+  atuais da lupa na configuração do NVDA.
+* NVDA+Windows+O e depois P: Restaura os parâmetros de configuração atuais
+  da lupa a partir da configuração do NVDA.  Se nenhum parâmetro de
+  configuração tiver sido salvo anteriormente na configuração do NVDA, os
+  parâmetros de configuração padrão do Windows Magnifier serão restaurados.
+* NVDA+Windows+O e depois Setas: Mover a visualização ampliada.
+* NVDA+Windows+O e V: move o cursor do mouse para o centro da visualização
+  ampliada (comando não disponível no modo de visualização encaixada).
+* NVDA+Windows+O e depois W: Ativa ou desativa o modo que permite manter a
+  janela de controle do Windows Magnifier sempre em cima das outras.  Esse
+  recurso está disponível somente para as versões instaladas do NVDA.
 * NVDA+Windows+O depois O: Abre as configurações do complemento Lupa do
   Windows.
 * NVDA+Windows+O depois H: Exibe a ajuda sobre os comandos de camada Lupa.
@@ -158,10 +160,11 @@ este complemento, de acordo com sua configuração:
 * Selecionar visualização em tela cheia: Control+Alt+F
 * Selecionar visualização de lente: Control+Alt+L
 * Circuitar através dos três tipos de visualização: Control+Alt+M
-* Resize the lens with the keyboard: Shift+Alt+Left/Right/Up/DownArrow Note:
-  although this does not seem to be documented, this shortcut seems to have
-  been withdrawn in recent Windows versions such as Windows 10 2004.
-* Move the magnified view: Control+Alt+Arrows
+* Redimensione a lente com o teclado: Shift+Alt+Esquerda/Direita/Seta para
+  cima/para baixo Observação: embora isso não pareça estar documentado, esse
+  atalho parece ter sido retirado das versões recentes do Windows, como o
+  Windows 10 2004.
+* Mover a visualização ampliada: Control+Alt+Setas
 
 Aqui está também uma lista de outros comandos nativos da Lupa, apenas para
 informação:
@@ -206,86 +209,90 @@ Nenhum dos comandos nativos da Lupa podem ser modificados.
       tela](https://support.microsoft.com/pt-br/windows/usar-a-lupa-para-facilitar-a-visualiza%C3%A7%C3%A3o-dos-itens-na-tela-414948ba-8b1c-d3bd-8615-0e5e32204198)
     * [Atalhos de teclado de acessibilidade do Windows][4]
 
-* This add-on has not been tested in multi-screen environment and there are
-  chances that some feature are not working in this environment.  If you are
-  using multi-screen environment and want it to be supported, please contact
-  me to have it implemented.
-* More generally, do not hesitate to contact me on the [GitHub page][3] of
-  this add-on or directly by e-mail.
+* Esse complemento não foi testado em ambiente de várias telas e é possível
+  que alguns recursos não estejam funcionando nesse ambiente.  Se você
+  estiver usando um ambiente com várias telas e quiser que ele seja
+  suportado, entre em contato comigo para que ele seja implementado.
+* De modo geral, não hesite em entrar em contato comigo na [página do
+  GitHub][3] deste complemento ou diretamente por e-mail.
 
 
 ## Registro de alterações (Change log)
 
-### Version 3.5
+### Versão 3.5
 
-* Prepares compatibility with NVDA 2024.1.
-* Addresses potential security issues related to [GHSA-xg6w-23rw-39r8][8]
-  when using the add-on with older versions of NVDA. However, it is
-  recommended to use NVDA 2023.3.3 or higher.
-* Note: From now on, translation updates will not appear anymore in the
-  change log.
+* Prepara a compatibilidade com o NVDA 2024.1.
+* Resolve possíveis problemas de segurança relacionados ao
+  [GHSA-xg6w-23rw-39r8][8] ao usar o complemento com versões mais antigas do
+  NVDA. No entanto, é recomendável usar o NVDA 2023.3.3 ou superior.
+* Nota: De agora em diante, as atualizações de tradução não aparecerão mais
+  no registro de alterações.
 
-### Version 3.4
+### Versão 3.4
 
-* The "move mouse to view" command works again
-* Updated localizations.
+* O comando “mover o mouse para visualizar” funciona novamente
+* Localizações atualizadas.
 
-### Version 3.3
+### Versão 3.3
 
-* Compatibility reduced to NVDA 2019.2.1 and beyond.  The last compatible
-  versions with NVDA 2018.3 are the [3.2][7] (partially compatible) and
-  [1.1][6] (fully compatible)
-* Fixed a bug in the settings panel with NVDA 2019.2.1.
+* Compatibilidade reduzida para NVDA 2019.2.1 e posteriores.  As últimas
+  versões compatíveis com o NVDA 2018.3 são a [3.2][7] (parcialmente
+  compatível) e a [1.1][6] (totalmente compatível)
+* Corrigido um bug no painel de configurações com o NVDA 2019.2.1.
 
-### Version 3.2
+### Versão 3.2
 
-* Removed the dev channel.
-* Updated localizations.
+* Removido o canal de desenvolvimento.
+* Localizações atualizadas.
 
-### Version 3.1
+### Versão 3.1
 
-* Fixed an issue preventing the Magnifier's command window from being
-  restored on top.
-* Fixed an issue preventing the add-on to run on NVDA 2019.2.1.
-* Updated localizations.
+* Foi corrigido um problema que impedia que a janela de comando da Lupa
+  fosse restaurada na parte superior.
+* Foi corrigido um problema que impedia a execução do complemento no NVDA
+  2019.2.1.
+* Localizações atualizadas.
 
-### Version 3.0
+### Versão 3.0
 
-* Pressing the zoom buttons in the Magnifier window (with the keyboard) now
-  reports the new zoom level.
-* The parameter controlling if Magnifier control window remains always on
-  top is now stored in configuration; this means that this parameter is
-  remembered when restarting NVDA and can be enabled or not depending on the
-  active profile.
-* Fixed a bug causing unexpected screen curtain de-activation when using
-  move to view or move view commands.
-* Option alwaysOnTop setting will now be honoured also when changing
-  magnification mode.
-* Added ability to save and restore Windows Magnifier's config in NVDA's
-  config.
-* Compatibility with NVDA 2023.1.
-* Clarify which type of tracking is re-enabled when tracking is toggled on
-  again.
-* Updated localizations.
+* Pressionar os botões de zoom na janela da Lupa (com o teclado) agora
+  informa o novo nível de zoom.
+* O parâmetro que controla se a janela de controle da Lupa permanece sempre
+  na parte superior agora está armazenado na configuração; isso significa
+  que esse parâmetro é lembrado ao reiniciar o NVDA e pode ser ativado ou
+  não, dependendo do perfil ativo.
+* Foi corrigido um erro que causava a desativação inesperada da cortina de
+  tela ao usar os comandos mover para visualização ou mover visualização.
+* A configuração da opção alwaysOnTop agora será respeitada também ao
+  alterar o modo de ampliação.
+* Adição da capacidade de salvar e restaurar a configuração do Windows
+  Magnifier na configuração do NVDA.
+* Compatibilidade com o NVDA 2023.1.
+* Esclarecer qual tipo de rastreamento é reativado quando ele é ativado
+  novamente.
+* Localizações atualizadas.
 
-### Version 2.0
+### Versão 2.0
 
-* The view can be moved with arrows while in Windows Magnifier layer.
-* Capability to keep the Magnifier commands Window always on top or not.
-* Added "Report screen edges" feature.
-* Volume setting of tones when using move view commands.
-* Reporting view moves and mouse to view commands are now supported in Lens
-  mode.
-* Compatibility with NVDA 2022.1.
-* Fixed a bug that sometimes incorrectly reported that the Magnifier was not
-  working upon script call.
-* The release is now performed thanks to a GitHub action instead of
+* A visualização pode ser movida com as setas enquanto estiver na camada
+  Windows Magnifier.
+* Capacidade de manter a janela de comandos da lupa sempre na parte superior
+  ou não.
+* Adição do recurso “Reportar bordas da tela”.
+* Configuração do volume dos tons ao usar os comandos de exibição de
+  movimento.
+* Os movimentos de visualização de relatórios e os comandos de mouse para
+  visualização agora são suportados no modo Lente.
+* Compatibilidade com o NVDA 2022.1.
+* Foi corrigido um erro que às vezes informava incorretamente que a lupa não
+  estava funcionando na chamada do script.
+* O lançamento agora é realizado graças a uma ação do GitHub em vez do
   appVeyor.
-* Updated localizations.
+* Localizações atualizadas.
 
-### Version 1.1
+### Versão 1.1
 
-* Added localizations.
+* Adicionadas localizações.
 
 ### Versão 1.0
 
