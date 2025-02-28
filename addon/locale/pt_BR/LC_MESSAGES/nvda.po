@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: winMag\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2021-06-21 09:38+0000\n"
-"PO-Revision-Date: 2025-02-08 18:25-0300\n"
+"PO-Revision-Date: 2025-02-23 12:11-0300\n"
 "Last-Translator: Josevan Fernandes <josevanfernandes@yahoo.com.br>\n"
 "Language-Team: NVDA Brazilian Portuguese translation team (Equipe de "
 "tradução do NVDA para Português Brasileiro) <clever97@gmail.com>\n"
@@ -78,7 +78,6 @@ msgid "Toggles on or off smoothing"
 msgstr "Liga ou desliga a suavização"
 
 #. Translators: The description of a command of this add-on.
-#, fuzzy
 msgid ""
 "Switches between mouse pointer tracking modes (within the edge of the screen "
 "or centered on the screen)"
