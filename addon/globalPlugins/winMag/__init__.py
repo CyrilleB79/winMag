@@ -14,6 +14,8 @@ from .utils import (
 	setMagnifierKeyValue,
 	toggleMagnifierKeyValue,
 	isMagnifierRunning,
+	getColorFilteringKeyValue,
+	colorFilterNames,
 	getMagnifierUIWindow,
 	getDockedWindowObject,
 	getLensWindowObject,
@@ -74,6 +76,7 @@ confspec = {
 	"reportLensResizing": "boolean(default=False)",
 	"passCtrlAltArrow": 'option("never", "whenNotInTable", "always", default="never")',
 	"keepWindowAlwaysOnTop": "boolean(default=True)",
+	"reportToggleColorFilter": "boolean(default=True)",
 	"magnifierConfig": {
 		k: "integer(default={})".format(v) for (k, v) in magnifierDefaultValuesMapping.items()
 	},
@@ -1178,7 +1181,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			fetcher=lambda: getMagnifierKeyValue('Magnification')
 		)
 		# Translators: A zoom level reported when the user changes the zoom level.
-		ui.message(_('{zoomLevel}%'.format(zoomLevel=val)))
+		ui.message(_('{zoomLevel}%').format(zoomLevel=val))
 
 	def modifyColorInversion(self, gesture):
 		val = _WaitForValueChangeForAction(
@@ -1212,6 +1215,37 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			ui.message(_('Lens'))
 		else:
 			raise ValueError('Unexpected MagnificationMode value: {}'.format(val))
+
+	@script(
+		gesture="kb:control+windows+C",
+	)
+	def script_toggleColorFiltering(self, gesture):
+		if not (
+			config.conf["winMag"]["reportToggleColorFilter"]
+			and getColorFilteringKeyValue('HotkeyEnabled')
+		):
+			gesture.send()
+			return
+		val = _WaitForValueChangeForAction(
+			gesture,
+			fetcher=lambda: getColorFilteringKeyValue('Active')
+		)
+		if val:
+			filterType = getColorFilteringKeyValue('FilterType')
+			try:
+				filterName = colorFilterNames[filterType]
+			except KeyError:
+				log.warning("Unknown filter name for filterType={ft}".format(ft=filterType), exc_info=True)
+				# Translators: A message reported when the user enables or disables color filtering.
+				msg = _("Color filtering enabled")
+			else:
+				# Translators: A message reported when the user enables or disables color filtering.
+				msg = _("Color filtering: {cf}").format(cf=filterName)
+		else:
+			# Translators: A message reported when the user enables or disables color filtering.
+			msg = _("Color filtering disabled")
+		ui.message(msg)
+		
 
 	@script(
 		description=DESC_OPEN_SETTINGS,

@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 # globalPlugins/winMag/gui.py
 # NVDA add-on: Windows Magnifier
-# Copyright (C) 2019-2023 Cyrille Bougot
+# Copyright (C) 2019-2025 Cyrille Bougot
 # This file is covered by the GNU General Public License.
 # See the file COPYING.txt for more details.
 
@@ -151,6 +151,12 @@ class WinMagSettingsPanel(settingsDialogs.SettingsPanel):
 			self.keepWindowOnTopCheckBox.SetValue(True)
 			self.keepWindowOnTopCheckBox.Disable()
 
+		self.reportToggleColorFilterCheckBox = sHelper.addItem(
+			# Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
+			wx.CheckBox(self, label=_("Report toggle &color filter"))
+		)
+		self.reportToggleColorFilterCheckBox.SetValue(config.conf['winMag']["reportToggleColorFilter"])
+
 	@staticmethod
 	def getParameterBound(name, boundType):
 		"""Gets the bound of a parameter in the "winMag" section of the config.
@@ -217,3 +223,4 @@ class WinMagSettingsPanel(settingsDialogs.SettingsPanel):
 				)
 			else:
 				log.debugWarning('Keep on top checkbox info not saved: magnifier is not running anymore.')
+		config.conf['winMag']["reportToggleColorFilter"] = self.reportToggleColorFilterCheckBox.IsChecked()

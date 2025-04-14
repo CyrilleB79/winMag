@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 # globalPlugins/winMag/utils.py
 # NVDA add-on: Windows Magnifier
-# Copyright (C) 2019-2023 Cyrille Bougot
+# Copyright (C) 2019-2025 Cyrille Bougot
 # This file is covered by the GNU General Public License.
 # See the file COPYING.txt for more details.
 
@@ -26,6 +26,7 @@ except ImportError:
 
 
 MAG_REGISTRY_KEY = r'Software\Microsoft\ScreenMagnifier'
+COLOR_FILTERING_REGISTRY_KEY = r'SOFTWARE\Microsoft\ColorFiltering'
 
 # Magnifier config mapping
 magnifierDefaultValuesMapping = {
@@ -41,6 +42,27 @@ magnifierDefaultValuesMapping = {
 	'UseBitmapSmoothing': 1,
 }
 
+# Color filtering config mapping
+colorFilteringDefaultValuesMapping = {
+	'Active': 0,  # 0: Inactive, 1: Active
+	'FilterType': 0,  # 0-5
+	'HotkeyEnabled': 0,  # 0: Disabled, 1: Enabled
+}
+
+colorFilterNames = {
+	# Translators: A color filter as listed in windows settings, Ease of Access, Color filters
+	0: _("Grayscale"),
+	# Translators: A color filter as listed in windows settings, Ease of Access, Color filters
+	1: _("Inverted"),
+	# Translators: A color filter as listed in windows settings, Ease of Access, Color filters
+	2: _("Grayscale inverted"),
+	# Translators: A color filter as listed in windows settings, Ease of Access, Color filters
+	3: _("Red-green"),
+	# Translators: A color filter as listed in windows settings, Ease of Access, Color filters
+	4: _("Green-red"),
+	# Translators: A color filter as listed in windows settings, Ease of Access, Color filters
+	5: _("Blue-yellow"),
+}
 
 def getMagnifierKeyValue(name, useDefaultIfMissing=True):
 	k = winreg.OpenKey(
@@ -78,6 +100,20 @@ def isMagnifierRunning():
 	# even if Mag is not yet started by the user, the registry still holds RunningState value to 1.
 	# Instead we use the Magnifier UI window that is always present, even if hidden.
 	return getMagnifierUIWindow() != 0
+
+
+def getColorFilteringKeyValue(name, useDefaultIfMissing=True):
+	k = winreg.OpenKey(
+		winreg.HKEY_CURRENT_USER,
+		COLOR_FILTERING_REGISTRY_KEY,
+		0, winreg.KEY_READ | winreg.KEY_WOW64_64KEY
+	)
+	try:
+		return winreg.QueryValueEx(k, name)[0]
+	except WindowsError as e:
+		if useDefaultIfMissing:
+			return colorFilteringDefaultValuesMapping[name]
+		raise e
 
 
 def getDesktopChildObject(windowClassName):
