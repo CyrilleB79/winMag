@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 # globalPlugins/winMag/__init__.py
 # NVDA add-on: Windows Magnifier
-# Copyright (C) 2019-2024 Cyrille Bougot
+# Copyright (C) 2019-2025 Cyrille Bougot
 # This file is covered by the GNU General Public License.
 # See the file COPYING.txt for more details.
 
@@ -41,6 +41,8 @@ from keyLabels import localizedKeyLabels
 import config
 import core
 import NVDAObjects.IAccessible
+import buildVersion
+
 from .compa import CTWRAPPER as controlTypes
 
 import wx
@@ -631,6 +633,16 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def handleConfigReload(self, factoryDefaults=False):
 		self.updateKeepMagWindowOnTop(config.conf['winMag']['keepWindowAlwaysOnTop'])
 
+	def _sendWillDisablesNumlock(self, gesture):
+		# #10827: if a script is called with numpadPlus or numpadMinus and numlock on, gesture.send() disabled
+		# numlock. Fixed in NVDA 2025.1
+		if (
+			buildVersion.version_year < 2025
+			and 'numlock' in gesture.normalizedIdentifiers[0].split(':')[1]
+		):
+			return True
+		return False
+
 	@script(
 		gestures=[
 			"kb:windows+numpadPlus",
@@ -640,7 +652,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		],
 	)
 	def script_zoomIn(self, gesture):
-		numlockWasOn = 'numlock' in gesture.normalizedIdentifiers[0].split(':')[1]
+		shouldReenableNumlock = self._sendWillDisablesNumlock(gesture)
 		if config.conf['winMag']['reportZoom'] and isMagnifierRunning():
 			self.modifyZoomLevel(gesture)
 		elif not isMagnifierRunning():
@@ -651,8 +663,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			core.callLater(200, lambda: self.updateKeepMagWindowOnTop(config.conf['winMag']['keepWindowAlwaysOnTop']))
 		else:
 			gesture.send()
-		if numlockWasOn:
-			# A gesture.send() with numlock on will unwantedly toggle numlock (see NVDA issue #10827), so restore it.
+		if shouldReenableNumlock:
+			# gesture.send() with numlock on has unwantedly toggled numlock (see NVDA issue #10827), so restore it.
 			KeyboardInputGesture.fromName('numlock').send()
 
 	@script(
@@ -664,13 +676,13 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		],
 	)
 	def script_zoomOut(self, gesture):
-		numlockWasOn = 'numlock' in gesture.normalizedIdentifiers[0].split(':')[1]
+		shouldReenableNumlock = self._sendWillDisablesNumlock(gesture)
 		if config.conf['winMag']['reportZoom'] and isMagnifierRunning():
 			self.modifyZoomLevel(gesture)
 		else:
 			gesture.send()
-		if numlockWasOn:
-			# A gesture.send() with numlock on will unwantedly toggle numlock (see NVDA issue #10827), so restore it.
+		if shouldReenableNumlock:
+			# gesture.send() with numlock on has unwantedly toggled numlock (see NVDA issue #10827), so restore it.
 			KeyboardInputGesture.fromName('numlock').send()
 
 	@script(
