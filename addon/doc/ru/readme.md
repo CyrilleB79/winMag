@@ -113,33 +113,34 @@ Windows.
 Все эти дополнительные команды доступны через команду уровня лупы
 NVDA+Windows+O:
 
-* NVDA+Windows+O then C: Toggles on or off caret tracking.
-* NVDA+Windows+O then F: Toggles on or off focus tracking.
-* NVDA+Windows+O then M: Toggles on or off mouse tracking.
-* NVDA+Windows+O then T: Toggles on or off tracking globally.  When tracking
-  is toggled on again, it is set to the last active tracking configuration
-  before tracking was toggled off.
-* NVDA+Windows+O then S: Toggles on or off smoothing.
-* NVDA+Windows+O then R: Switches between mouse pointer tracking modes
-  (within the edge of the screen or centered on the screen); this feature is
-  only available on Windows 10 build 17643 or higher.
-* NVDA+Windows+O then X: Switches between text cursor tracking modes (within
-  the edge of the screen or centered on the screen); this feature is only
-  available on Windows 10 build 18894 or higher.
-* NVDA+Windows+O then shift+P: Saves the current configuration parameters of
-  the magnifier to NVDA's configuration.
-* NVDA+Windows+O then P: Restores the current configuration parameters of
-  the magnifier from NVDA's configuration.  If no configuration parameters
-  has been previously saved to NVDA's configuration, the default
-  configuration parameters of Windows Magnifier are restored instead.
-* NVDA+Windows+O then Arrows: Move the magnified view.
-* NVDA+Windows+O then V: Moves the mouse cursor in the center of the
-  magnified view (command not available in docked view mode).
-* NVDA+Windows+O then W: Switches on or off the mode allowing to keep
-  Windows Magnifier's control window always on top of the other ones.  This
-  feature is only available for installed versions of NVDA.
-* NVDA+Windows+O then O: Opens Windows Magnifier add-on settings.
-* NVDA+Windows+O then H: Displays help on Magnifier layer commands.
+* NVDA+Windows+O, затем C: переключает отслеживание курсора.
+* NVDA+Windows+O, затем F: переключает отслеживание фокуса.
+* NVDA+Windows+O, затем M: переключает отслеживание мыши.
+* NVDA+Windows+O, затем T: глобальное включение или выключение
+  отслеживания.  При повторном включении отслеживания устанавливается
+  последняя активная конфигурация отслеживания перед отключением
+  отслеживания.
+* NVDA+Windows+O, затем S: переключает сглаживание.
+* NVDA+Windows+O, затем R: переключение между режимами отслеживания
+  указателя мыши (по краю экрана или по центру экрана); эта функция доступна
+  только в Windows 10 сборки 17643 или выше.
+* NVDA+Windows+O, затем X: переключение между режимами отслеживания
+  текстового курсора (по краю экрана или по центру экрана); эта функция
+  доступна только в Windows 10 сборки 18894 или выше.
+* NVDA+Windows+O, затем Shift+P: сохраняет текущие параметры конфигурации
+  лупы в конфигурации NVDA.
+* NVDA+Windows+O, затем P: Восстанавливает текущие параметры конфигурации
+  лупы из конфигурации NVDA.  Если никакие параметры конфигурации ранее не
+  были сохранены в конфигурации NVDA, вместо этого восстанавливаются
+  параметры конфигурации по умолчанию для Windows Magnifier.
+* NVDA+Windows+O, затем Стрелки: перемещение увеличенного изображения.
+* NVDA+Windows+O, затем V: перемещает курсор мыши в центр увеличенного
+  изображения (команда недоступна в режиме закреплённого изображения).
+* NVDA+Windows+O, затем W: Переключает режим, позволяющий всегда держать
+  окно управления лупы Windows поверх других.  Эта функция доступна только
+  для установленных версий NVDA.
+* NVDA+Windows+O, затем O: открывает настройки дополнения Лупы Windows.
+* NVDA+Windows+O, затем H: отображает справку по командам уровня лупы.
 
 Для каждой команды нет прямого жеста по умолчанию, но вы можете указать его
 в обычном диалоге жестов ввода, если хотите.  Аналогичным образом вы также
@@ -153,29 +154,32 @@ NVDA+Windows+O:
 Это дополнение может сообщать о результатах выполнения следующих собственных
 команд лупы в соответствии с его конфигурацией:
 
-* Start Magnifier: Windows++ (on alpha-numeric keyboard or on numpad)
-* Quit Magnifier: Windows+Escape
-* Zoom in: Windows++ (on alpha-numeric keyboard or on numpad)
-* Zoom out: Windows+- (on alpha-numeric keyboard or on numpad)
-* Toggle color inversion: Control+Alt+I
-* Select the docked view: Control+Alt+D
-* Select the full screen view: Control+Alt+F
-* Select the lens view: Control+Alt+L
-* Cycle through the three view types: Control+Alt+M
-* Resize the lens with the keyboard: Shift+Alt+Left/Right/Up/DownArrow Note:
-  although this does not seem to be documented, this shortcut seems to have
-  been withdrawn in recent Windows versions such as Windows 10 2004.
-* Move the magnified view: Control+Alt+Arrows
+* Запустить лупу: Windows++ (на буквенно-цифровой клавиатуре или цифровой
+  клавиатуре)
+* Выйти из лупы: Windows+Escape
+* Увеличить масштаб: Windows++ (на буквенно-цифровой клавиатуре или цифровой
+  клавиатуре)
+* Уменьшить масштаб: Windows+- (на буквенно-цифровой клавиатуре или цифровой
+  клавиатуре)
+* Переключить инверсию цвета: Control+Alt+I
+* Выбрать закреплённый вид: Control+Alt+D
+* Выбрать полноэкранный режим: Control+Alt+F
+* Выбрать вид линзы: Control+Alt+L
+* Переключаться между тремя типами представления: Control+Alt+M
+* Изменить размер линзы с помощью клавиатуры: Shift+Alt+стрелки
+  Влево/Вправо/Вверх/Вниз. Примечание: хотя это, похоже, не
+  задокументировано, этот ярлык, похоже, был убран из последних версий
+  Windows, таких как Windows 10 2004.
+* Перемещение увеличенного изображения: Control+Alt+Стрелки
 
-Here is also a list of other Magnifier native commands, just for
-information:
+Вот также список других собственных команд лупы, просто для информации:
 
-* Control+Alt+mouseScrollWheel: Zooms in and out using the mouse scroll
-  wheel.
-* Control+Windows+M: Opens the Magnifier's settings window.
-* Control+Alt+R: Resizes the lens with the mouse.
-* Control+Alt+Space: Quickly shows the entire desktop when using full screen
-  view.
+* Control+Alt+колесо прокрутки мыши: увеличение и уменьшение масштаба с
+  помощью колеса прокрутки мыши.
+* Control+Windows+M: Открывает окно настроек лупы.
+* Control+Alt+R: Изменяет размер линзы с помощью мыши.
+* Control+Alt+Пробел: Быстро отображает весь рабочий стол при использовании
+  полноэкранного режима.
 
 Ни одна из собственных команд лупы не может быть изменена.
 
@@ -199,7 +203,8 @@ information:
   чтобы уменьшить масштаб заголовка:
   
     * Нажмите Windows+Escape, чтобы выйти из Лупы.
-    * Press Alt+Shift+RightArrow to decrease current title level.
+    * Нажмите Alt+Shift+Стрелка вправо, чтобы уменьшить текущий уровень
+      заголовка.
     * Нажмите Windows++, чтобы снова открыть лупу.
 
 * Для получения дополнительной информации о функциях и горячих клавишах Лупы
