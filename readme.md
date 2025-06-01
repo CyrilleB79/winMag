@@ -157,6 +157,11 @@ None of the Magnifier native commands can be modified.
 
 ## Change log
 
+### Version 4.0
+
+* The filter enabled by the toggle color filter command (`Windows+Control+C`) can now be reported; this toggle command should have been previously enabled in Windows Accessibility settings.
+* Compatibility with NVDA 2025.1.
+
 ### Version 3.7
 
 * Compatibility with NVDA 2024.1.
