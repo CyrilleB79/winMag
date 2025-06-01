@@ -9,7 +9,7 @@ This add-on improves the use of Windows Magnifier with NVDA.
 
 ## Features
 
-* Allows to report the result of some native Magnifier keyboard commands.
+* Allows to report the result of some native Magnifier and color filtering keyboard commands.
 * Allows to reduce the cases where table navigation commands conflict with Magnifier's commands.
 * Adds some keyboard shortcuts to toggle various native options of the Magnifier.
 * Allow to save and restore the configuration parameters of the Magnifier.
@@ -67,6 +67,8 @@ The panel contains the following options:
 
 * Keep Windows Magnifier command window always on top:
   If unchecked, the Magnifier's control window will not be kept always on top of other windows.
+* Report color filter
+  If checked, the used color filter is reported when you use the `Windows+Control+C` toggle command.
 
 ## Commands added by this add-on
 
@@ -102,7 +104,7 @@ Yet, you cannot modify the shortcut key of the Magnifier layer sub-commands.
 
 ## Magnifier's native commands
 
-The result of the following Magnifier native commands may be reported by this add-on, according to its configuration:
+The result of the following Magnifier native commands, or other Accessibility commands, may be reported by this add-on, according to its configuration:
 
 * Start Magnifier: Windows++ (on alpha-numeric keyboard or on numpad)
 * Quit Magnifier: Windows+Escape
@@ -116,6 +118,7 @@ The result of the following Magnifier native commands may be reported by this ad
 * Resize the lens with the keyboard: Shift+Alt+Left/Right/Up/DownArrow
   Note: although this does not seem to be documented, this shortcut seems to have been withdrawn in recent Windows versions such as Windows 10 2004.
 * Move the magnified view: Control+Alt+Arrows
+* Toggle color filters: `Windows+Control+C` (provided you have enabled this shortcut in [Windows Accessibility settings, Color Filters][9])
 
 Here is also a list of other Magnifier native commands, just for information:
 
@@ -235,3 +238,5 @@ None of the Magnifier native commands can be modified.
 [7]: https://github.com/CyrilleB79/winMag/releases/download/V3.2/winMag-3.2.nvda-addon
 
 [8]: https://github.com/nvaccess/nvda/security/advisories/GHSA-xg6w-23rw-39r8#event-132994
+
+[9]: https://support.microsoft.com/en-us/windows/make-windows-easier-to-see-c97c2b0d-cadb-93f0-5fd1-59ccfe19345d

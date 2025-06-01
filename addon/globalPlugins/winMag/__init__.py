@@ -76,7 +76,7 @@ confspec = {
 	"reportLensResizing": "boolean(default=False)",
 	"passCtrlAltArrow": 'option("never", "whenNotInTable", "always", default="never")',
 	"keepWindowAlwaysOnTop": "boolean(default=True)",
-	"reportToggleColorFilter": "boolean(default=True)",
+	"reportColorFilter": "boolean(default=True)",
 	"magnifierConfig": {
 		k: "integer(default={})".format(v) for (k, v) in magnifierDefaultValuesMapping.items()
 	},
@@ -1221,7 +1221,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	)
 	def script_toggleColorFiltering(self, gesture):
 		if not (
-			config.conf["winMag"]["reportToggleColorFilter"]
+			config.conf["winMag"]["reportColorFilter"]
 			and getColorFilteringKeyValue('HotkeyEnabled')
 		):
 			gesture.send()

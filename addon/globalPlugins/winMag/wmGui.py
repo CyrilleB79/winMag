@@ -151,11 +151,11 @@ class WinMagSettingsPanel(settingsDialogs.SettingsPanel):
 			self.keepWindowOnTopCheckBox.SetValue(True)
 			self.keepWindowOnTopCheckBox.Disable()
 
-		self.reportToggleColorFilterCheckBox = sHelper.addItem(
+		self.reportColorFilterCheckBox = sHelper.addItem(
 			# Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
-			wx.CheckBox(self, label=_("Report toggle &color filter"))
+			wx.CheckBox(self, label=_("Report &color filter"))
 		)
-		self.reportToggleColorFilterCheckBox.SetValue(config.conf['winMag']["reportToggleColorFilter"])
+		self.reportColorFilterCheckBox.SetValue(config.conf['winMag']["reportColorFilter"])
 
 	@staticmethod
 	def getParameterBound(name, boundType):
@@ -223,4 +223,4 @@ class WinMagSettingsPanel(settingsDialogs.SettingsPanel):
 				)
 			else:
 				log.debugWarning('Keep on top checkbox info not saved: magnifier is not running anymore.')
-		config.conf['winMag']["reportToggleColorFilter"] = self.reportToggleColorFilterCheckBox.IsChecked()
+		config.conf['winMag']["reportColorFilter"] = self.reportColorFilterCheckBox.IsChecked()
