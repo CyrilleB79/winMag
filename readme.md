@@ -157,6 +157,11 @@ None of the Magnifier native commands can be modified.
 
 ## Change log
 
+### Version 4.-95
+
+* Test item 1 for test version.
+* Test item 2 for test version.
+
 ### Version 4.0
 
 * The filter enabled by the toggle color filter command (`Windows+Control+C`) can now be reported; this toggle command should have been previously enabled in Windows Accessibility settings.
