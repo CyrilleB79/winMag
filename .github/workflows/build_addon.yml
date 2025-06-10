@@ -40,7 +40,7 @@ jobs:
     - name: Extract change log
       run: |
         import re
-        pattern = r'[Vv](\d+.\d+.*?)(?:-dev-.*)?$'
+        pattern = r'[Vv](-?\d+.-?\d+.*?)(?:-dev-.*)?$'
         refTag = '${{ github.ref_name }}'
         print(f'===> Ref tag:{refTag}')
         version = re.search(pattern, refTag).group(1)
