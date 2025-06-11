@@ -74,15 +74,15 @@ jobs:
         changeLog += '\n'
         print(f'===> ChangeLog:\n<<<{changeLog}>>>\n')
         open('changelog.md', 'w', encoding='utf-8').write(changeLog)
-      shell: python 
-    
+      shell: python
+
     - name: Calculate sha256
       run: |
         echo -e "\nSHA256: " >> changelog.md
         sha256sum packaged_addon/*.nvda-addon >> changelog.md
 
     - name: Release
-      uses: softprops/action-gh-release@v2.2.2
+      uses: softprops/action-gh-release@v2
       with:
         files: |
           packaged_addon/*.nvda-addon
