@@ -38,7 +38,7 @@ magnifierDefaultValuesMapping = {
 	'Invert': 0,
 	'Magnification': 200,
 	'MagnificationMode': 2,  # 2 = Full screen
-	# 'RunningState': 0,
+	'RunningState': 0,
 	'UseBitmapSmoothing': 1,
 }
 
@@ -65,17 +65,22 @@ colorFilterNames = {
 }
 
 def getMagnifierKeyValue(name, useDefaultIfMissing=True):
-	k = winreg.OpenKey(
-		winreg.HKEY_CURRENT_USER,
-		MAG_REGISTRY_KEY,
-		0, winreg.KEY_READ | winreg.KEY_WOW64_64KEY
-	)
 	try:
-		return winreg.QueryValueEx(k, name)[0]
-	except WindowsError as e:
-		if useDefaultIfMissing:
-			return magnifierDefaultValuesMapping[name]
-		raise e
+		k = winreg.OpenKey(
+			winreg.HKEY_CURRENT_USER,
+			MAG_REGISTRY_KEY,
+			0, winreg.KEY_READ | winreg.KEY_WOW64_64KEY
+		)
+	except FileNotFoundError as e:
+		if not useDefaultIfMissing:
+			raise e
+	else:
+		try:
+			return winreg.QueryValueEx(k, name)[0]
+		except WindowsError as e:
+			if not useDefaultIfMissing:
+				raise e
+	return magnifierDefaultValuesMapping[name]
 
 
 def setMagnifierKeyValue(name, val):
@@ -103,17 +108,22 @@ def isMagnifierRunning():
 
 
 def getColorFilteringKeyValue(name, useDefaultIfMissing=True):
-	k = winreg.OpenKey(
-		winreg.HKEY_CURRENT_USER,
-		COLOR_FILTERING_REGISTRY_KEY,
-		0, winreg.KEY_READ | winreg.KEY_WOW64_64KEY
-	)
 	try:
-		return winreg.QueryValueEx(k, name)[0]
-	except WindowsError as e:
-		if useDefaultIfMissing:
-			return colorFilteringDefaultValuesMapping[name]
-		raise e
+		k = winreg.OpenKey(
+			winreg.HKEY_CURRENT_USER,
+			COLOR_FILTERING_REGISTRY_KEY,
+			0, winreg.KEY_READ | winreg.KEY_WOW64_64KEY
+		)
+	except FileNotFoundError as e:
+		if not useDefaultIfMissing:
+			raise e
+	else:
+		try:
+			return winreg.QueryValueEx(k, name)[0]
+		except WindowsError as e:
+			if not useDefaultIfMissing:
+				raise e
+	return colorFilteringDefaultValuesMapping[name]
 
 
 def getDesktopChildObject(windowClassName):
