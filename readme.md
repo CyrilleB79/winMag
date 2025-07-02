@@ -2,7 +2,6 @@
 
 * Author: Cyrille Bougot
 * NVDA compatibility: 2019.2.1 and beyond
-* Download [stable version][1]
 
 This add-on improves the use of Windows Magnifier with NVDA.
 
@@ -157,6 +156,10 @@ None of the Magnifier native commands can be modified.
 
 ## Change log
 
+### Version 4.2
+
+* Magnifier or Color filtering commands will no longer fail if used for the first time with this add-on running.
+
 ### Version 4.0
 
 * The filter enabled by the toggle color filter command (`Windows+Control+C`) can now be reported; this toggle command should have been previously enabled in Windows Accessibility settings.
@@ -229,8 +232,6 @@ None of the Magnifier native commands can be modified.
 ### Version 1.0
 
 * Initial release.
-
-[1]: https://www.nvaccess.org/addonStore/legacy?file=winmag
 
 [3]: https://github.com/CyrilleB79/winMag
 
