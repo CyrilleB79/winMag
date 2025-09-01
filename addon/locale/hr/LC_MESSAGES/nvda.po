@@ -1,0 +1,448 @@
+# Croataian translation for winMag.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the winMag package.
+# Translators:
+# Milo Ivir <mail@milotype.de>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: winMag 1.0\n"
+"Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
+"POT-Creation-Date: 2021-07-02 22:20+0000\n"
+"PO-Revision-Date: 2024-05-12 18:08+0200\n"
+"Last-Translator: Milo Ivir <mail@milotype.de>\n"
+"Language-Team: \n"
+"Language: hr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0\n"
+
+#. Alpha-numeric keyboard Magnifier keys
+#. Translators: The key used natively byt the Magnifier on the alpha-numeric (main) keyboard in conjunction
+#. with Win key to zoom in.
+msgid "="
+msgstr "="
+
+#. Translators: The key used natively byt the Magnifier on the alpha-numeric (main) keyboard in conjunction
+#. with Win key to zoom out.
+msgid "-"
+msgstr "-"
+
+#. Translators: The message reported when the user tries to use a Magnifier dedicated command
+#. while the Magnifier is not running.
+msgid "The Magnifier is not active"
+msgstr "Povećalo nije aktivno"
+
+#. Translators: The message reported when the user tries to toggle a tracking mode while docked
+#. or full screen view is not active.
+msgid "Tracking configuration only applicable with docked or full screen view."
+msgstr ""
+"Konfiguracija praćenja primjenjiva je samo s fiksiranim ili cjeloekranskim "
+"prikazom."
+
+#. Translators: A UI object that can be tracked (followed) by the Magnifier.
+#. If possible, translate with the term used in Magnifier's options.
+msgid "Mouse pointer"
+msgstr "Pokazivač miša"
+
+#. Translators: A UI object that can be tracked (followed) by the Magnifier.
+#. If possible, translate with the term used in Magnifier's options.
+msgid "Keyboard focus"
+msgstr "Fokus tipkovnice"
+
+#. Translators: A UI object that can be tracked (followed) by the Magnifier.
+#. If possible, translate with the term used in Magnifier's options.
+msgid "Text cursor"
+msgstr "Tekstualni kursor"
+
+#. Translators: The description of a command of this add-on.
+msgid "Toggles on or off caret tracking"
+msgstr "Uključuje ili isključuje praćenje kursora"
+
+#. Translators: The description of a command of this add-on.
+msgid "Toggles on or off focus tracking"
+msgstr "Uključuje ili isključuje praćenje fokusa"
+
+#. Translators: The description of a command of this add-on.
+msgid "Toggles on or off mouse tracking"
+msgstr "Uključuje ili isključuje praćenje miša"
+
+#. Translators: The description of a command of this add-on.
+msgid "Toggles on or off tracking globally"
+msgstr "Uključuje ili isključuje praćenje globalno"
+
+#. Translators: The description of a command of this add-on.
+msgid "Toggles on or off smoothing"
+msgstr "Uključuje ili isključuje zaglađivanje rubova"
+
+#. Translators: The description of a command of this add-on.
+msgid ""
+"Switches between mouse pointer tracking modes (within the edge of the screen "
+"or centered on the screen)"
+msgstr ""
+"Prebacuje između modusa praćenja pokazivača miša (unutar ruba ekrana ili "
+"centrirano na ekranu)"
+
+#. Translators: The description of a command of this add-on.
+msgid ""
+"Switches between text tracking modes (within the edge of the screen or "
+"centered on the screen)"
+msgstr ""
+"Prebacuje između modusa praćenja teksta (unutar ruba ekrana ili centrirano "
+"na ekranu)"
+
+#. Translators: The description of a command of this add-on.
+msgid ""
+"Saves the current configuration parameters of the magnifier to NVDA's "
+"configuration."
+msgstr "Sprema aktualne parametre konfiguracije povećala u NVDA konfiguraciju."
+
+#. Translators: The description of a command of this add-on.
+msgid ""
+"Restores the current configuration parameters of the magnifier from NVDA's "
+"configuration."
+msgstr ""
+"Sprema aktualne parametre konfiguracije povećala od NVDA konfiguracije."
+
+#. Translators: The description of a command of this add-on.
+msgid "Moves the magnified view"
+msgstr "Pomiče povećani prikaz"
+
+#. Translators: The description of a command of this add-on.
+msgid "Moves the mouse cursor in the center of the zoomed view"
+msgstr "Pomiče kursor miša u središte zumiranog prikaza"
+
+#. Translators: The description of a command of this add-on.
+msgid ""
+"Switches on or off the mode keeping Windows Magnifier's control window "
+"always on top of the other ones."
+msgstr ""
+"Uključuje ili isključuje modus zadržavanja kontrolnog prozora Windows "
+"povećala uvijek ispred ostalih prozora."
+
+#. Translators: The description of a command of this add-on.
+msgid "Opens Windows Magnifier add-on settings"
+msgstr "Otvara postavke dodatka Windows povećala"
+
+#. Translators: The description of a command of this add-on.
+msgid "Displays help on Magnifier layer commands"
+msgstr "Prikazuje pomoć za naredbe povećala"
+
+#. Translators: A message reported when the user tries to execute a script in multi-screen setup.
+msgid ""
+"Multi-screen setup not yet supported. Please contact the add-on author to "
+"have it implemented."
+msgstr ""
+"Višeekranska postava još nije podržana. Za implementiranje, kontaktiraj "
+"autora dodatka."
+
+#. Translators: Part of the description for the layered command script.
+msgid "Windows Magnifier layer commands entry point."
+msgstr "Mjesto unosa naredbi Windows povećala."
+
+#. Translators: A message reported when the user reaches the edge of the screen while moving the view.
+msgid "Edge of the screen."
+msgstr "Rub ekrana."
+
+#. Translators: A dimension reported when the user resizes the docked view.
+msgid "Widht"
+msgstr "Širina"
+
+#. Translators: A dimension reported when the user resizes the docked view.
+msgid "Height"
+msgstr "Visina"
+
+#. Translators: A message reported when the user resizes the lens with the keyboard.
+msgid "Resizing lens."
+msgstr "Mijenjanje veličine leće."
+
+#. Translators: A message reported when the user uses resizing shortcuts (control+shift+arrow)
+#. in full screen view.
+msgid "Resizing not available in full screen."
+msgstr "Mijenjanje veličine nije dostupno u cjeloekranskom prikazu."
+
+#. Translators: The message reported when the user turns on caret tracking.
+msgid "Caret tracking on"
+msgstr "Praćenje kursora ukjlučeno"
+
+#. Translators: The message reported when the user turns off caret tracking.
+msgid "Caret tracking off"
+msgstr "Praćenje kursora iskjlučeno"
+
+#. Translators: The message reported when the user turns on focus tracking.
+msgid "Focus tracking on"
+msgstr "Praćenje fokusa ukjlučeno"
+
+#. Translators: The message reported when the user turns off focus tracking.
+msgid "Focus tracking off"
+msgstr "Praćenje fokusa iskjlučeno"
+
+#. Translators: The message reported when the user turns on mouse tracking.
+msgid "Mouse tracking on"
+msgstr "Praćenje miša uključeno"
+
+#. Translators: The message reported when the user turns off focus tracking.
+msgid "Mouse tracking off"
+msgstr "Praćenje miša isključeno"
+
+#. Translators: The message reported when the user turns on tracking.
+#, python-brace-format
+msgid "Tracking on - {trackingTypes}"
+msgstr "Praćenje uključeno – {trackingTypes}"
+
+#. Translators: The message reported when the user turns off tracking.
+msgid "Tracking off"
+msgstr "Praćenje isključeno"
+
+#. Translators: The message reported when the user turns on smoothing.
+msgid "Smoothing on"
+msgstr "Zaglađivanje rubova uključeno"
+
+#. Translators: The message reported when the user turns off smoothing.
+msgid "Smoothing off"
+msgstr "Zaglađivanje rubova isključeno"
+
+#. Translators: The message reported when the user tries to toggle mouse pointer tracking mode
+#. whereas their Windows version does not support it.
+#. Translators: The message reported when the user tries to toggle text cursor tracking mode
+#. whereas their Windows version does not support it.
+msgid "Feature unavailable in this version of Windows."
+msgstr "Funkcija nedostupna u ovoj verziji Windowsa."
+
+#. Translators: The message reported when the user tries to toggle mouse pointer tracking mode
+#. while full screen view is not active.
+msgid "Mouse pointer tracking mode applies only to full screen view."
+msgstr ""
+"Modus praćenja pokazivača miša se primjenjuje samo u cjeloekranskom prikazu."
+
+#. Translators: A message reporting mouse pointer tracking mode (cf. option in Magnifier settings).
+#. Translators: A message reporting text cursor tracking mode (cf. option in Magnifier settings).
+msgid "Centered on the screen"
+msgstr "Centrirano na ekranu"
+
+#. Translators: A message reporting mouse pointer tracking mode (cf. option in Magnifier settings).
+#. Translators: A message reporting text cursor tracking mode (cf. option in Magnifier settings).
+msgid "Within the edge of the screen"
+msgstr "Unutar ruba ekrana"
+
+#. Translators: The message reported when the user tries to toggle text cursor tracking mode
+#. while full screen view is not active.
+msgid "Text cursor tracking mode applies only to full screen view."
+msgstr ""
+"Modus praćenja tekstualnog kursora se primjenjuje samo u cjeloekranskom "
+"prikazu."
+
+#. Translators: A message reported when the user calls the command
+#. to save the Magnifier's configuration.
+msgid "Magnifier config saved."
+msgstr "Konfiguracija povećala spremljena."
+
+#. Translators: A message reported when the user calls the command
+#. to restores the Magnifier's configuration.
+msgid "Magnifier config restored."
+msgstr "Konfiguracija povećala obnovljena."
+
+#. Translators: A message reported when the user tries to execute script mouseToView
+msgid ""
+"Move mouse to view command available only on Windows 8 and above in full "
+"screen mode."
+msgstr ""
+"Naredba „Pomakni miša za prikaz” dostupna je samo u sustavu Windows 8 i "
+"novijim verzijama u cjeloekranskom prikazu."
+
+#. Translators: A message reported when the user tries to execute script mouseToView
+msgid ""
+"Move mouse to view command not available in full screen mode while screen "
+"curtain is active."
+msgstr ""
+"Naredba „Pomakni miša za prikaz” nije dostupna u cjeloekranskom prikazu kad "
+"je tema ekrana aktivna."
+
+#. o = getDockedWindowObject()
+#. hwnd = o.windowHandle
+#. # Error on next line
+#. rect = Magnification.MagGetWindowSource(hwnd)
+#. Translators: A message reported when the user tries to execute script mouseToView
+msgid "Move mouse to view not implemented for docked view"
+msgstr ""
+"Funkcija „Pomakni miša za prikaz” nije implementirano za fiksirani prikaz"
+
+#. Translators: A message reported when trying toggling "always on top" mode for Windows Magnifier's window
+#. while running a portable NVDA.
+msgid "Command only supported in installed versions of NVDA."
+msgstr "Naredba je podržana samo u instaliranim NVDA verzijama."
+
+#. Translators: A message reported when toggling "always on top" mode
+#. for Windows Magnifier's control window
+msgid "Magnifier controls always on top."
+msgstr "Kontrole povećala uvijek ispred ostalih prozora."
+
+#. Translators: A message reported when toggling "always on top" mode for Windows Magnifier's window
+msgid "Magnifier controls not on top."
+msgstr "Kontrole povećala ispod ostalih prozora."
+
+#. Translators: A message reported in secure screen when the user attempts to modify magnifiers settings.
+msgid "Command unavailable on this screen."
+msgstr "Naredba nedostupna na ovom ekranu."
+
+#. Translators: The message reported when the user turns on the Magnifier.
+msgid "Magnifier on"
+msgstr "Povećalo uključeno"
+
+#. Translators: The message reported when the user turns off the Magnifier.
+msgid "Magnifier off"
+msgstr "Povećalo isključeno"
+
+#. Translators: A zoom level reported when the user changes the zoom level.
+#, python-brace-format
+msgid "{zoomLevel}%"
+msgstr "{zoomLevel} %"
+
+#. Translators: The message reported when the user turns on color inversion.
+msgid "Color inversion on"
+msgstr "Inverzija boje uključena"
+
+#. Translators: The message reported when the user turns off color inversion.
+msgid "Color inversion off"
+msgstr "Inverzija boje isključena"
+
+#. Translators: A view type reported when the user changes the Magnifier view.
+#. See the view menu items in the Magnifier's toolbar.
+msgid "Docked"
+msgstr "Fiksirano"
+
+#. Translators: A view type reported when the user changes the Magnifier view.
+#. See the view menu items in the Magnifier's toolbar.
+msgid "Full screen"
+msgstr "Cijeli ekran"
+
+#. Translators: A view type reported when the user changes the Magnifier view.
+#. See the view menu items in the Magnifier's toolbar.
+msgid "Lens"
+msgstr "Leća"
+
+#. Translators: Title of the layered command help window.
+msgid "Windows Magnifier layered commands"
+msgstr "Naredbe Windows povećala"
+
+#. Translators: Separator between key names in the layered command help window.
+msgid ", "
+msgstr ", "
+
+#. Translators: Part of the help message displayed for the layered command help.
+#, python-brace-format
+msgid ""
+"Magnifier layer commands:\n"
+"{cmdList}"
+msgstr ""
+"Naredbe povećala:\n"
+"{cmdList}"
+
+#. Translators: This is the label for the Windows Magnifier settings panel.
+#. Add-on summary, usually the user visible name of the addon.
+#. Translators: Summary for this add-on
+#. to be shown on installation and add-on information found in Add-ons Manager.
+msgid "Windows Magnifier"
+msgstr "Windows povećalo"
+
+#. Translators: An option in the combobox "Report view moves" in winMag setting panel.
+msgid "Off"
+msgstr "Isključeno"
+
+#. Translators: An option in the combobox "Report view moves" in winMag setting panel.
+msgid "With speech"
+msgstr "S govorom"
+
+#. Translators: An option in the combobox "Report view moves" in winMag setting panel.
+msgid "With tones"
+msgstr "Sa zvučnim signalima"
+
+#. Translators: An option in the combobox that configures passing control+alt+arrow in winMag setting panel.
+msgid "Never"
+msgstr "Nikada"
+
+#. Translators: An option in the combobox that configures passing control+alt+arrow in winMag setting panel.
+msgid "Only when not in table"
+msgstr "Samo izvan tablice"
+
+#. Translators: An option in the combobox that configures passing control+alt+arrow in winMag setting panel.
+msgid "Always"
+msgstr "Uvijek"
+
+#. Translators: This is the label for a combobox in the Windows Magnifier settings panel.
+msgid "Report view &moves:"
+msgstr "Javi po&micanja prikaza:"
+
+#. Translators: This is the label for a combobox in the Windows Magnifier settings panel.
+msgid "Report screen &edges:"
+msgstr "Javi rubove &ekrana:"
+
+#. Translators: This is the label for a slider in the Windows Magnifier settings panel.
+msgid "Volume of the tones indicating the &position of the view:"
+msgstr "Glasnoća tonova izvještavaju o &položaju prikaza:"
+
+#. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
+msgid "Report &turn on or off"
+msgstr "U&ključi ili isključi javljanje"
+
+#. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
+msgid "Report &zoom"
+msgstr "Javi &uvećanje"
+
+#. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
+msgid "Report color &inversion"
+msgstr "Javi &inverziju boje"
+
+#. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
+msgid "Report &view change"
+msgstr "Ja&vi promjenu prikaza"
+
+#. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
+msgid "Report &lens or docked window resizing"
+msgstr "Javi mijenjanje veličine &leće ili fiksiranog prozora"
+
+#. Translators: This is the label for a combobox in the Windows Magnifier settings panel.
+msgid ""
+"In &documents and list views, pass control+alt+arrows shortcuts to Windows "
+"Magnifier:"
+msgstr ""
+"U prikazima &dokumenata i popisa, proslijedi prečace kontrol+alt+strelice "
+"Windows povećalu:"
+
+#. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
+msgid "&Keep Windows Magnifier command window always on top"
+msgstr "&Zadrži prozor Windows povećala uvijek ispred ostalih prozora"
+
+#. Add-on description
+#. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
+msgid "This add-on improves the use of Windows Magnifier with NVDA."
+msgstr "Ovaj dodatak poboljšava korištenje Windows povećala s NVDA čitačem."
+
+#~ msgid "Tracking on"
+#~ msgstr "Praćenje uključeno"
+
+#~ msgid "Only gestures containing arrow key may be mapped to this script."
+#~ msgstr ""
+#~ "Ovom skriptu se mogu mapirati samo geste koji sadrže tipku strelice."
+
+#~ msgid ""
+#~ "This addon improves the use of Windows Magnifier with NVDA with the "
+#~ "following features:\n"
+#~ "\t- Allows to report the result of some native Magnifier keyboard "
+#~ "commands.\n"
+#~ "\t- Allows to reduces the cases where table navigation command conflict "
+#~ "with Magnifier's commands.\n"
+#~ "\t- Adds some keyboard shortcuts to toggle various Magnifier options."
+#~ msgstr ""
+#~ "Ovaj dodatak poboljšava upotrebu Windows povećala s NVDA čitačem na "
+#~ "sljedeće načine:\n"
+#~ "\t- Omogućuje izvještavanje o rezultatima nekih tipkovnih naredbi "
+#~ "povećala.\n"
+#~ "\t- Omogućuje smanjenje slučajeva u kojima su naredbe za kretanje po "
+#~ "tablici u sukobu s naredbama povećala.\n"
+#~ "\t- Dodaje neke tipkovne prečace za uključivanje i isključivanje raznih "
+#~ "opcija povećala."
+
+#~ msgid "Move mouse to view not applicable with lense view."
+#~ msgstr "„Pomakni miša za prikaz” nije primjenjivo s prikazom leće."

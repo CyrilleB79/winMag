@@ -1,0 +1,433 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the winMag package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: winMag 1.0\n"
+"Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
+"POT-Creation-Date: 2021-07-02 22:20+0000\n"
+"PO-Revision-Date: 2022-05-15 10:15+0200\n"
+"Last-Translator: Nicolai Svendsen <chojiro1990@gmail.com>\n"
+"Language-Team: \n"
+"Language: da\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0.1\n"
+
+#. Alpha-numeric keyboard Magnifier keys
+#. Translators: The key used natively byt the Magnifier on the alpha-numeric (main) keyboard in conjunction with Win key to zoom in.
+msgid "="
+msgstr "+"
+
+#. Translators: The key used natively byt the Magnifier on the alpha-numeric (main) keyboard in conjunction with Win key to zoom out.
+msgid "-"
+msgstr "-"
+
+#. Translators: The message reported when the user tries to use a Magnifier dedicated command while the Magnifier is not running.
+msgid "The Magnifier is not active"
+msgstr "Forstørrelsesglas er ikke aktivt"
+
+#. Translators: The message reported when the user tries to toggle a tracking mode while docked or full screen view is not active.
+msgid "Tracking configuration only applicable with docked or full screen view."
+msgstr "Sporing kun muligt i forankret eller fuldskærmsvisning."
+
+#. Translators: A UI object that can be tracked (followed) by the Magnifier.
+#. If possible, translate with the term used in Magnifier's options.
+msgid "Mouse pointer"
+msgstr ""
+
+#. Translators: A UI object that can be tracked (followed) by the Magnifier.
+#. If possible, translate with the term used in Magnifier's options.
+msgid "Keyboard focus"
+msgstr ""
+
+#. Translators: A UI object that can be tracked (followed) by the Magnifier.
+#. If possible, translate with the term used in Magnifier's options.
+msgid "Text cursor"
+msgstr ""
+
+#. Translators: The description of a command of this add-on.
+msgid "Toggles on or off caret tracking"
+msgstr "Slår sporing af markøren til eller fra"
+
+#. Translators: The description of a command of this add-on.
+msgid "Toggles on or off focus tracking"
+msgstr "Slår sporing af fokus til og fra"
+
+#. Translators: The description of a command of this add-on.
+msgid "Toggles on or off mouse tracking"
+msgstr "Slår sporing af musen til og fra"
+
+#. Translators: The description of a command of this add-on.
+msgid "Toggles on or off tracking globally"
+msgstr "Slår sporing til og fra globalt"
+
+#. Translators: The description of a command of this add-on.
+msgid "Toggles on or off smoothing"
+msgstr "Slår tekstudglatning til og fra"
+
+#. Translators: The description of a command of this add-on.
+#, fuzzy
+msgid ""
+"Switches between mouse pointeur tracking modes (within the edge of the "
+"screen or centered on the screen)"
+msgstr ""
+"Skifter mellem musesporingstilstande (inden for kanten af skærmen eller "
+"centreret på skærmen)"
+
+#. Translators: The description of a command of this add-on.
+msgid ""
+"Switches between text tracking modes (within the edge of the screen or "
+"centered on the screen)"
+msgstr ""
+"Skifter mellem tekstsporingstilstande (inden for kanten af skærmen eller "
+"centreret på skærmen)"
+
+#. Translators: The description of a command of this add-on.
+msgid ""
+"Saves the current configuration parameters of the magnifier to NVDA's "
+"configuration."
+msgstr ""
+
+#. Translators: The description of a command of this add-on.
+msgid ""
+"Restores the current configuration parameters of the magnifier from NVDA's "
+"configuration."
+msgstr ""
+
+#. Translators: The description of a command of this add-on.
+msgid "Moves the magnified view"
+msgstr "Flytter den forstørrede visning"
+
+#. Translators: The description of a command of this add-on.
+msgid "Moves the mouse cursor in the center of the zoomed view"
+msgstr "Flytter musemarkøren ind i midten af den zoomede visning"
+
+#. Translators: The description of a command of this add-on.
+#, fuzzy
+msgid ""
+"Switches on or off the mode keeping Windows Magnifier's control window "
+"always on top of the other ones."
+msgstr ""
+"Dette kontrollere om vinduet til styring af Windows Forstørrelse skal "
+"forblive ovenpå de andre vinduer."
+
+#. Translators: The description of a command of this add-on.
+msgid "Opens Windows Magnifier add-on settings"
+msgstr "Åbner indstillingerne for tilføjelsen Windows Forstørrelsesglas"
+
+#. Translators: The description of a command of this add-on.
+msgid "Displays help on Magnifier layer commands"
+msgstr "Viser hjælp for forstørrelseslagskommandoerne"
+
+#. Translators: A message reported when the user tries to execute a script in multi-screen setup.
+msgid ""
+"Multi-screen setup not yet supported. Please contact the add-on author to "
+"have it implemented."
+msgstr ""
+"Miljøer med flere skærme understøttes ikke. Kontakt tilføjelsesforfatteren "
+"for at få det implementeret."
+
+#. Translators: Part of the description for the layered command script.
+msgid "Windows Magnifier layer commands entry point."
+msgstr "Tastekombination for tilføjelsen Windows Forstørrelsesglas kommandolag"
+
+#. Translators: A message reported when the user reaches the edge of the screen while moving the view.
+msgid "Edge of the screen."
+msgstr "Kanten af skærmen"
+
+#. Translators: A dimension reported when the user resizes the docked view.
+msgid "Widht"
+msgstr "Bredde"
+
+#. Translators: A dimension reported when the user resizes the docked view.
+msgid "Height"
+msgstr "Højde"
+
+#. Translators: A message reported when the user resizes the lens with the keyboard.
+msgid "Resizing lens."
+msgstr "Ændrer størrelse for linse"
+
+#. Translators: A message reported when the user uses resizing shortcuts (control+shift+arrow) in full screen view.
+msgid "Resizing not available in full screen."
+msgstr "Ændring af størrelse er ikke mulig i fuldskærmsvisning."
+
+#. Translators: The message reported when the user turns on caret tracking.
+msgid "Caret tracking on"
+msgstr "Sporing af markør aktiveret"
+
+#. Translators: The message reported when the user turns off caret tracking.
+msgid "Caret tracking off"
+msgstr "Sporing af markør deaktiveret"
+
+#. Translators: The message reported when the user turns on focus tracking.
+msgid "Focus tracking on"
+msgstr "Sporing af fokus aktiveret"
+
+#. Translators: The message reported when the user turns off focus tracking.
+msgid "Focus tracking off"
+msgstr "Fokus af sporing deaktiveret"
+
+#. Translators: The message reported when the user turns on mouse tracking.
+msgid "Mouse tracking on"
+msgstr "Sporing af musen aktiveret"
+
+#. Translators: The message reported when the user turns off focus tracking.
+msgid "Mouse tracking off"
+msgstr "Sporing af musen deaktiveret"
+
+#. Translators: The message reported when the user turns on tracking.
+#, python-brace-format
+msgid "Tracking on - {trackingTypes}"
+msgstr ""
+
+#. Translators: The message reported when the user turns off tracking.
+msgid "Tracking off"
+msgstr "Sporing deaktiveret"
+
+#. Translators: The message reported when the user turns on smoothing.
+msgid "Smoothing on"
+msgstr "Tekstudglatning aktiveret"
+
+#. Translators: The message reported when the user turns off smoothing.
+msgid "Smoothing off"
+msgstr "Tekstudglatning deaktiveret"
+
+#. Translators: The message reported when the user tries to toggle mouse pointer tracking mode whereas his Windows version does not support it.
+#. Translators: The message reported when the user tries to toggle text cursor tracking mode whereas his Windows version does not support it.
+msgid "Feature unavailable in this version of Windows."
+msgstr "Funktionen er ikke tilgængelig i denne version af Windows."
+
+#. Translators: The message reported when the user tries to toggle mouse pointer tracking mode while full screen view is not active.
+#, fuzzy
+msgid "Mouse pointer tracking mode applies only to full screen view."
+msgstr "Musesporingstilstand fungerer kun i fuldskærmsvisning."
+
+#. Translators: A message reporting mouse pointer tracking mode (cf. option in Magnifier settings).
+#. Translators: A message reporting text cursor tracking mode (cf. option in Magnifier settings).
+msgid "Centered on the screen"
+msgstr "Centreret på skærmen"
+
+#. Translators: A message reporting mouse pointer tracking mode (cf. option in Magnifier settings).
+#. Translators: A message reporting text cursor tracking mode (cf. option in Magnifier settings).
+msgid "Within the edge of the screen"
+msgstr "Inden for kanten af skærmen"
+
+#. Translators: The message reported when the user tries to toggle text cursor tracking mode while full screen view is not active.
+#, fuzzy
+msgid "Text cursor tracking mode applies only to full screen view."
+msgstr "Musesporingstilstand fungerer kun i fuldskærmsvisning."
+
+#, fuzzy
+msgid "Magnifier config saved."
+msgstr "Forstørrelsesglas til"
+
+#. Translators: A message reported when the user calls the command
+#. to restores the Magnifier's configuration.
+#, fuzzy
+msgid "Magnifier config restored."
+msgstr "Forstørrelsesvindue ikke øverst"
+
+#. Translators: A message reported when the user tries to execute script mouseToView
+msgid ""
+"Move mouse to view command available only on Windows 8 and above in full "
+"screen mode."
+msgstr ""
+"Kommandoen \"Flyt mus til visning\" er kun tilgængelig i Windows 8 og nyere."
+
+#. Translators: A message reported when the user tries to execute script mouseToView
+#, fuzzy
+msgid ""
+"Move mouse to view command not available in full screen mode while screen "
+"curtain is active."
+msgstr ""
+"Kommandoen \"Flyt mus til visning\" er kun tilgængelig i Windows 8 og nyere."
+
+#. o = getDockedWindowObject()
+#. hwnd = o.windowHandle
+#. # Error on next line
+#. rect = Magnification.MagGetWindowSource(hwnd)
+#. Translators: A message reported when the user tries to execute script mouseToView
+msgid "Move mouse to view not implemented for docked view"
+msgstr "\"Flyt mus i visning\" ikke tilgængelig i forankret visning."
+
+#. Translators: A message reported when trying toggling "always on top" mode for Windows Magnifier's window
+#. while running a portable NVDA.
+msgid "Command only supported in installed versions of NVDA."
+msgstr "Kommando understøttes kun i installerede versioner af NVDA."
+
+#. Translators: A message reported when toggling "always on top" mode for Windows Magnifier's control window
+msgid "Magnifier controls always on top."
+msgstr "Forstørrelsesvindue altid øverst"
+
+#. Translators: A message reported when toggling "always on top" mode for Windows Magnifier's window
+msgid "Magnifier controls not on top."
+msgstr "Forstørrelsesvindue ikke øverst"
+
+#. Translators: A message reported in secure screen when the user attempts to modify magnifiers settings.
+msgid "Command unavailable on this screen."
+msgstr "Kommandoen er ikke tilgængelig på denne skærm."
+
+#. Translators: The message reported when the user turns on the Magnifier.
+msgid "Magnifier on"
+msgstr "Forstørrelsesglas til"
+
+#. Translators: The message reported when the user turns off the Magnifier.
+msgid "Magnifier off"
+msgstr "Forstørrelsesglas fra"
+
+#. Translators: A zoom level reported when the user changes the zoom level.
+#, python-brace-format
+msgid "{zoomLevel}%"
+msgstr "{zoomLevel}%"
+
+#. Translators: The message reported when the user turns on color inversion.
+msgid "Color inversion on"
+msgstr "Farveinvertering til"
+
+#. Translators: The message reported when the user turns off color inversion.
+msgid "Color inversion off"
+msgstr "Farveinvertering fra"
+
+#. Translators: A view type reported when the user changes the Magnifier view. See the view menu items in the Magnifier's toolbar.
+msgid "Docked"
+msgstr "Forankret visning"
+
+#. Translators: A view type reported when the user changes the Magnifier view. See the view menu items in the Magnifier's toolbar.
+msgid "Full screen"
+msgstr "Fuldskærmsvisning"
+
+#. Translators: A view type reported when the user changes the Magnifier view. See the view menu items in the Magnifier's toolbar.
+msgid "Lens"
+msgstr "Linsevisning"
+
+#. Translators: Title of the layered command help window.
+msgid "Windows Magnifier layered commands"
+msgstr "Lagdelte kommandoer for Windows Forstørrelsesglas"
+
+#. Translators: Separator between key names in the layered command help window.
+msgid ", "
+msgstr ", "
+
+#. Translators: Part of the help message displayed for the layered command help.
+#, python-brace-format
+msgid ""
+"Magnifier layer commands:\n"
+"{cmdList}"
+msgstr ""
+"Lagdelte kommandoer for forstørrelsesglas:\n"
+"{cmdList}"
+
+#. Translators: This is the label for the Windows Magnifier settings panel.
+#. Add-on summary, usually the user visible name of the addon.
+#. Translators: Summary for this add-on to be shown on installation and add-on information.
+msgid "Windows Magnifier"
+msgstr "Windows Forstørrelsesglas"
+
+#. Translators: An option in the combobox "Report view moves" in winMag setting panel.
+msgid "Off"
+msgstr "Fra"
+
+#. Translators: An option in the combobox "Report view moves" in winMag setting panel.
+msgid "With speech"
+msgstr "Med tale"
+
+#. Translators: An option in the combobox "Report view moves" in winMag setting panel.
+msgid "With tones"
+msgstr "Med toner"
+
+#. Translators: An option in the combobox that configures passing control+alt+arrow in winMag setting panel.
+msgid "Never"
+msgstr "Aldrig"
+
+#. Translators: An option in the combobox that configures passing control+alt+arrow in winMag setting panel.
+msgid "Only when not in table"
+msgstr "Brug kun, hvis udenfor en tabel"
+
+#. Translators: An option in the combobox that configures passing control+alt+arrow in winMag setting panel.
+msgid "Always"
+msgstr "Altid"
+
+#. Translators: This is the label for a combobox in the Windows Magnifier settings panel.
+msgid "Report view &moves:"
+msgstr "Oplys &panorering:"
+
+#. Translators: This is the label for a combobox in the Windows Magnifier settings panel.
+msgid "Report screen &edges:"
+msgstr "Oplys skærmens &kanter:"
+
+#. Translators: This is the label for a slider in the Windows Magnifier settings panel.
+msgid "Volume of the tones indicating the &position of the view:"
+msgstr "Lydstyrken af tonerne, der angiver visningens &position:"
+
+#. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
+msgid "Report &turn on or off"
+msgstr "Oplys, når forstørrelsesglas &slås til"
+
+#. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
+msgid "Report &zoom"
+msgstr "Oplys &zoomniveau"
+
+#. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
+msgid "Report color &inversion"
+msgstr "Oplys &farveinvertering"
+
+#. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
+msgid "Report &view change"
+msgstr "Oplys ændring af &visningstype"
+
+#. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
+msgid "Report &lens or docked window resizing"
+msgstr "Oplys ny størrelse for vinduer i &linse- eller forankret visning"
+
+#. Translators: This is the label for a combobox in the Windows Magnifier settings panel.
+msgid ""
+"In &documents and list views, pass control+alt+arrows shortcuts to Windows "
+"Magnifier:"
+msgstr ""
+"Send tastekombinationerne alt+Ctrl+piletaster til Windows Forstørrelsesglas, "
+"når NVDA befinder sig i &dokumenter og listevisninger"
+
+#. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
+#, fuzzy
+msgid "&Keep Windows Magnifier command window always on top"
+msgstr "Tastekombination for tilføjelsen Windows Forstørrelsesglas kommandolag"
+
+#. Add-on description
+#. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
+msgid "This add-on improves the use of Windows Magnifier with NVDA."
+msgstr ""
+"Denne tilføjelse forbedrer brugen af Windows Forstørrelsesglas sammen med "
+"NVDA."
+
+#~ msgid "Tracking on"
+#~ msgstr "Sporing aktiveret"
+
+#~ msgid "Only gestures containing arrow key may be mapped to this script."
+#~ msgstr ""
+#~ "Kun kommandoer, der benytter piletasterne, må tildeles dette script."
+
+#~ msgid ""
+#~ "This addon improves the use of Windows Magnifier with NVDA with the "
+#~ "following features:\n"
+#~ "\t- Allows to report the result of some native Magnifier keyboard "
+#~ "commands.\n"
+#~ "\t- Allows to reduces the cases where table navigation command conflict "
+#~ "with Magnifier's commands.\n"
+#~ "\t- Adds some keyboard shortcuts to toggle various Magnifier options."
+#~ msgstr ""
+#~ "Denne tilføjelse forbedrer brugen af Windows Forstørrelsesglas med NVDA "
+#~ "med følgende funktioner:\n"
+#~ "\t- Giver mulighed for at rapportere resultatet af nogle oprindelige "
+#~ "forstørrelses tastaturkommandoer.\n"
+#~ "\t- Gør det muligt at reducere de tilfælde, hvor "
+#~ "tabelnavigationskommandoer er i konflikt med forstørrelses kommandoer.\n"
+#~ "\t- Tilføjer nogle tastaturgenveje for at skifte forskellige "
+#~ "forstørrelsesindstillinger."
+
+#~ msgid "Move mouse to view not applicable with lense view."
+#~ msgstr ""
+#~ "Kommandoen \"Flyt mus i visning\" er ikke tilgængelig i linsevisning"
