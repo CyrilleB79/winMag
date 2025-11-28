@@ -676,6 +676,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			"kb:windows+numLock+numpadMinus",
 			"kb:windows+" + KEY_ALPHA_MINUS,
 			"kb:windows+-",
+			# Switch between 1x and zoomed view, added in Windows 11 Build 22635.4515 (Beta)
+			# https://winaero.com/windows-11-build-22635-4515-beta-adds-a-resume-onedrive-files-feature/
+			"kb:control+alt+numpadMinus",
+			"kb:control+alt+numLock+numpadMinus",
 		],
 	)
 	def script_zoomOut(self, gesture):
