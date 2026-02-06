@@ -217,9 +217,10 @@ class WinMagSettingsPanel(settingsDialogs.SettingsPanel):
 			# Re-test if magnifier is running at validation time
 			if isMagnifierRunning():
 				winMagPlugin = [p for p in globalPluginHandler.runningPlugins if getattr(p, 'isWinMagPlugin', False)][0]
+				shouldKeepMagWindowOnTop = self.keepWindowOnTopCheckBox.IsChecked()
 				core.callLater(
 					0,
-					lambda: winMagPlugin.updateKeepMagWindowOnTop(self.keepWindowOnTopCheckBox.IsChecked()),
+					lambda: winMagPlugin.updateKeepMagWindowOnTop(shouldKeepMagWindowOnTop),
 				)
 			else:
 				log.debugWarning('Keep on top checkbox info not saved: magnifier is not running anymore.')
