@@ -40,7 +40,7 @@ The panel contains the following options:
 * Report turn on or off:
   If checked, the Magnifier's state is reported when you use Windows++ or Windows+Escape commands to turn it on or off.
 * Report zoom:
-  If checked, the Magnifier's zoom level is reported when you use Windows++ or Windows+- zoom commands.
+  If checked, the Magnifier's zoom level is reported when you use `Windows++`, `Windows+-` or `control+alt+-` zoom commands.
 * Report color inversion:
   If checked, the color inversion state is reported when you use the control+Alt+I toggle command.
 * Report view change:
@@ -109,6 +109,7 @@ The result of the following Magnifier native commands, or other Accessibility co
 * Quit Magnifier: Windows+Escape
 * Zoom in: Windows++ (on alpha-numeric keyboard or on numpad)
 * Zoom out: Windows+- (on alpha-numeric keyboard or on numpad)
+* Toggle between the set magnification level and 1x magnification: control+alt+- (on alpha-numeric keyboard or on numpad)
 * Toggle color inversion: Control+Alt+I
 * Select the docked view: Control+Alt+D
 * Select the full screen view: Control+Alt+F

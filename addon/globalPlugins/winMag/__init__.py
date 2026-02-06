@@ -688,6 +688,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			# https://winaero.com/windows-11-build-22635-4515-beta-adds-a-resume-onedrive-files-feature/
 			"kb:control+alt+numpadMinus",
 			"kb:control+alt+numLock+numpadMinus",
+			"kb:control+alt+-",
 		],
 	)
 	def script_zoomOut(self, gesture):
