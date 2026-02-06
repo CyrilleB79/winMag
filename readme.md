@@ -62,7 +62,7 @@ The panel contains the following options:
       If you still want to move Windows Magnifier view while in table or in list view, you will need to press NVDA+F2 before using Control+Alt+Arrow commands or alternately use NVDA+Windows+O then arrows.
       This option is the best compromise if you want to use Control+Alt+Arrow for both Magnifier and table navigation.
     * Always: Control+Alt+Arrow commands moves the Magnifier's view in any case.
-      This option may be useful if you do not use Control+Alt+Arrow to navigate in table, e.g. because you have changed table navigation shortcuts in NVDA or because you exclusively use [Easy table navigator][5] add-on for table navigation.
+      This option may be useful if you do not use Control+Alt+Arrow to navigate in table, e.g. because you have changed table navigation shortcuts in NVDA or because you exclusively use Easy table navigator add-on for table navigation.
 
 * Keep Windows Magnifier command window always on top:
   If unchecked, the Magnifier's control window will not be kept always on top of other windows.
@@ -109,7 +109,7 @@ The result of the following Magnifier native commands, or other Accessibility co
 * Quit Magnifier: Windows+Escape
 * Zoom in: Windows++ (on alpha-numeric keyboard or on numpad)
 * Zoom out: Windows+- (on alpha-numeric keyboard or on numpad)
-* Toggle between the set magnification level and 1x magnification: control+alt+- (on alpha-numeric keyboard or on numpad)
+* Toggle between the set magnification level and 1x magnification: `control+alt+-` (on alpha-numeric keyboard or on numpad)
 * Toggle color inversion: Control+Alt+I
 * Select the docked view: Control+Alt+D
 * Select the full screen view: Control+Alt+F
@@ -156,6 +156,11 @@ None of the Magnifier native commands can be modified.
 
 
 ## Change log
+
+### Version 4.3
+
+* Support the new magnifier command to toggle between the set magnification level and 1x magnification.
+* Prepare compatibility with NVDA 2026.1.
 
 ### Version 4.2
 
@@ -237,8 +242,6 @@ None of the Magnifier native commands can be modified.
 [3]: https://github.com/CyrilleB79/winMag
 
 [4]: https://support.microsoft.com/en-us/help/13810
-
-[5]: https://addons.nvda-project.org/addons/easyTableNavigator.en.html
 
 [6]: https://github.com/CyrilleB79/winMag/releases/download/V1.1/winMag-1.1.nvda-addon
 
