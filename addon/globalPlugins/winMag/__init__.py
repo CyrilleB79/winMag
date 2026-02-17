@@ -1077,7 +1077,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				ui.message(
 					_(
 						# Translators: A message reported when the user tries to execute script mouseToView
-						"Move mouse to view command available only on Windows 8 and above in full screen mode."
+						"Move mouse to view command available only on Windows 8 and above in full screen mode.",
 					),
 				)
 				return
