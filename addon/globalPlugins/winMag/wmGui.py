@@ -95,37 +95,37 @@ class WinMagSettingsPanel(settingsDialogs.SettingsPanel):
 
 		self.reportTurnOnOffCheckBox = sHelper.addItem(
 			# Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
-			wx.CheckBox(self, label=_("Report &turn on or off"))
+			wx.CheckBox(self, label=_("Report &turn on or off")),
 		)
 		self.reportTurnOnOffCheckBox.SetValue(config.conf['winMag']['reportTurnOnOff'])
 
 		self.reportZoomCheckBox = sHelper.addItem(
 			# Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
-			wx.CheckBox(self, label=_("Report &zoom"))
+			wx.CheckBox(self, label=_("Report &zoom")),
 		)
 		self.reportZoomCheckBox.SetValue(config.conf['winMag']['reportZoom'])
 
 		self.reportColorInversionCheckBox = sHelper.addItem(
 			# Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
-			wx.CheckBox(self, label=_("Report color &inversion"))
+			wx.CheckBox(self, label=_("Report color &inversion")),
 		)
 		self.reportColorInversionCheckBox.SetValue(config.conf['winMag']['reportColorInversion'])
 
 		self.reportViewChangeCheckBox = sHelper.addItem(
 			# Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
-			wx.CheckBox(self, label=_("Report &view change"))
+			wx.CheckBox(self, label=_("Report &view change")),
 		)
 		self.reportViewChangeCheckBox.SetValue(config.conf['winMag']['reportViewChange'])
 
 		self.reportLensResizingCheckBox = sHelper.addItem(
 			# Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
-			wx.CheckBox(self, label=_("Report &lens or docked window resizing"))
+			wx.CheckBox(self, label=_("Report &lens or docked window resizing")),
 		)
 		self.reportLensResizingCheckBox.SetValue(config.conf['winMag']['reportLensResizing'])
 
 		passCtrlAltArrowLabelText = _(
 			# Translators: This is the label for a combobox in the Windows Magnifier settings panel.
-			"In &documents and list views, pass control+alt+arrows shortcuts to Windows Magnifier:"
+			"In &documents and list views, pass control+alt+arrows shortcuts to Windows Magnifier:",
 		)
 		passCtrlAltArrowChoices = [name for setting, name in self.passCtrlAltArrowLabels]
 		self.passCtrlAltArrowList = sHelper.addLabeledControl(
@@ -142,7 +142,7 @@ class WinMagSettingsPanel(settingsDialogs.SettingsPanel):
 
 		self.keepWindowOnTopCheckBox = sHelper.addItem(
 			# Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
-			wx.CheckBox(self, label=_("&Keep Windows Magnifier command window always on top"))
+			wx.CheckBox(self, label=_("&Keep Windows Magnifier command window always on top")),
 		)
 		self.keepOnTopAvailable = config.isInstalledCopy() and isMagnifierRunning()
 		if self.keepOnTopAvailable:
@@ -153,7 +153,7 @@ class WinMagSettingsPanel(settingsDialogs.SettingsPanel):
 
 		self.reportColorFilterCheckBox = sHelper.addItem(
 			# Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
-			wx.CheckBox(self, label=_("Report &color filter"))
+			wx.CheckBox(self, label=_("Report &color filter")),
 		)
 		self.reportColorFilterCheckBox.SetValue(config.conf['winMag']["reportColorFilter"])
 

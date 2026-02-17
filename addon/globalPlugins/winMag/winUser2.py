@@ -52,7 +52,7 @@ def setWindowPos(hWnd, hWndInsertAfter, X, Y, cx, cy, uFlags):
 		Y,
 		cx,
 		cy,
-		uFlags
+		uFlags,
 	)
 	if not res:
 		raise WinError()

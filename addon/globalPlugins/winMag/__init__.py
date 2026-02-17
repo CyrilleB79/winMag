@@ -342,19 +342,19 @@ DESC_TOGGLE_TRACKING = _("Toggles on or off tracking globally")
 DESC_TOGGLE_SMOOTHING = _("Toggles on or off smoothing")
 DESC_TOGGLE_MOUSE_CURSOR_TRACKING_MODE = _(
 	# Translators: The description of a command of this add-on.
-	"Switches between mouse pointer tracking modes (within the edge of the screen or centered on the screen)"
+	"Switches between mouse pointer tracking modes (within the edge of the screen or centered on the screen)",
 )
 DESC_TOGGLE_TEXT_CURSOR_TRACKING_MODE = _(
 	# Translators: The description of a command of this add-on.
-	"Switches between text tracking modes (within the edge of the screen or centered on the screen)"
+	"Switches between text tracking modes (within the edge of the screen or centered on the screen)",
 )
 DESC_SAVE_MAGNIFIER_CONFIG = _(
 	# Translators: The description of a command of this add-on.
-	"Saves the current configuration parameters of the magnifier to NVDA's configuration."
+	"Saves the current configuration parameters of the magnifier to NVDA's configuration.",
 )
 DESC_RESTORE_MAGNIFIER_CONFIG = _(
 	# Translators: The description of a command of this add-on.
-	"Restores the current configuration parameters of the magnifier from NVDA's configuration."
+	"Restores the current configuration parameters of the magnifier from NVDA's configuration.",
 )
 # Translators: The description of a command of this add-on.
 DESC_MOVE_VIEW = _("Moves the magnified view")
@@ -362,7 +362,7 @@ DESC_MOVE_VIEW = _("Moves the magnified view")
 DESC_MOVE_MOUSE_TO_VIEW = _("Moves the mouse cursor in the center of the zoomed view")
 DESC_KEEP_MAG_WINDOW_ON_TOP = _(
 	# Translators: The description of a command of this add-on.
-	"Switches on or off the mode keeping Windows Magnifier's control window always on top of the other ones."
+	"Switches on or off the mode keeping Windows Magnifier's control window always on top of the other ones.",
 )
 # Translators: The description of a command of this add-on.
 DESC_OPEN_SETTINGS = _("Opens Windows Magnifier add-on settings")
@@ -383,7 +383,7 @@ class Screen(object):
 		if wx.Display.GetCount() != 1:
 			ui.message(
 				# Translators: A message reported when the user tries to execute a script in multi-screen setup.
-				_('Multi-screen setup not yet supported. Please contact the add-on author to have it implemented.')
+				_('Multi-screen setup not yet supported. Please contact the add-on author to have it implemented.'),
 			)
 			raise NotImplementedError('Multi-screen environment not yet implemented. Please contact add-on author.')
 		displays = [wx.Display(i).GetGeometry() for i in range(wx.Display.GetCount())]
@@ -921,10 +921,14 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		cfg = TrackingConfig()
 		val = cfg.toggle('All')
 		if val:
-			# Translators: The message reported when the user turns on tracking.
-			ui.message(_('Tracking on - {trackingTypes}').format(trackingTypes=', '.join(
-				cfg.TRACKING_KEY_NAME_MAPPING[c] for c, v in cfg.lastTrackingConfig.items() if v
-			)))
+			ui.message(
+				# Translators: The message reported when the user turns on tracking.
+				_('Tracking on - {trackingTypes}').format(
+					trackingTypes=', '.join(
+						cfg.TRACKING_KEY_NAME_MAPPING[c] for c, v in cfg.lastTrackingConfig.items() if v
+					),
+				),
+			)
 		else:
 			# Translators: The message reported when the user turns off tracking.
 			ui.message(_('Tracking off'))
@@ -1071,7 +1075,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			elif isScreenCurtainActive():
 				ui.message(
 					# Translators: A message reported when the user tries to execute script mouseToView
-					_('Move mouse to view command not available in full screen mode while screen curtain is active.')
+					_('Move mouse to view command not available in full screen mode while screen curtain is active.'),
 				)
 				return
 		if mode == MAG_VIEW_DOCKED:
@@ -1105,7 +1109,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				"isOnTop ({isOnTop}) != config.conf['winMag']['keepWindowAlwaysOnTop'] ({cfg})".format(
 					isOnTop=isOnTop,
 					cfg=config.conf['winMag']['keepWindowAlwaysOnTop'],
-				)
+				),
 			)
 		onTop = not isOnTop
 		if self.updateKeepMagWindowOnTop(onTop):
@@ -1191,7 +1195,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			return
 		val = _WaitForValueChangeForAction(
 			gesture,
-			fetcher=lambda: getMagnifierKeyValue('Magnification')
+			fetcher=lambda: getMagnifierKeyValue('Magnification'),
 		)
 		# Translators: A zoom level reported when the user changes the zoom level.
 		ui.message(_('{zoomLevel}%').format(zoomLevel=val))
@@ -1241,7 +1245,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			return
 		val = _WaitForValueChangeForAction(
 			gesture,
-			fetcher=lambda: getColorFilteringKeyValue('Active')
+			fetcher=lambda: getColorFilteringKeyValue('Active'),
 		)
 		if val:
 			filterType = getColorFilteringKeyValue('FilterType')
@@ -1258,7 +1262,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			# Translators: A message reported when the user enables or disables color filtering.
 			msg = _("Color filtering disabled")
 		ui.message(msg)
-		
+
 
 	@script(
 		description=DESC_OPEN_SETTINGS,
@@ -1291,7 +1295,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 					'+'.join(
 						localizedKeyLabels.get(k.lower(), k) for k in gesture.split('+')
 					) for gesture in gestures
-				)
+				),
 			)
 			cmdParts.append(': ')
 			cmdParts.append(desc)

@@ -69,7 +69,7 @@ def getMagnifierKeyValue(name, useDefaultIfMissing=True):
 		k = winreg.OpenKey(
 			winreg.HKEY_CURRENT_USER,
 			MAG_REGISTRY_KEY,
-			0, winreg.KEY_READ | winreg.KEY_WOW64_64KEY
+			0, winreg.KEY_READ | winreg.KEY_WOW64_64KEY,
 		)
 	except FileNotFoundError as e:
 		if not useDefaultIfMissing:
@@ -87,7 +87,7 @@ def setMagnifierKeyValue(name, val):
 	k = winreg.OpenKey(
 		winreg.HKEY_CURRENT_USER,
 		r'Software\Microsoft\ScreenMagnifier',
-		0, winreg.KEY_READ | winreg.KEY_WRITE | winreg.KEY_WOW64_64KEY
+		0, winreg.KEY_READ | winreg.KEY_WRITE | winreg.KEY_WOW64_64KEY,
 	)
 	winreg.SetValueEx(k, name, 0, winreg.REG_DWORD, val)
 
@@ -112,7 +112,7 @@ def getColorFilteringKeyValue(name, useDefaultIfMissing=True):
 		k = winreg.OpenKey(
 			winreg.HKEY_CURRENT_USER,
 			COLOR_FILTERING_REGISTRY_KEY,
-			0, winreg.KEY_READ | winreg.KEY_WOW64_64KEY
+			0, winreg.KEY_READ | winreg.KEY_WOW64_64KEY,
 		)
 	except FileNotFoundError as e:
 		if not useDefaultIfMissing:

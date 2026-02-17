@@ -77,33 +77,33 @@ class Magnification:
 	try:
 		MagSetFullscreenColorEffect = _MagSetFullscreenColorEffectFuncType(
 			("MagSetFullscreenColorEffect", _magnification),
-			_MagSetFullscreenColorEffectArgTypes
+			_MagSetFullscreenColorEffectArgTypes,
 		)
 		MagSetFullscreenColorEffect.errcheck = _errCheck
 		MagGetFullscreenColorEffect = _MagGetFullscreenColorEffectFuncType(
 			("MagGetFullscreenColorEffect", _magnification),
-			_MagGetFullscreenColorEffectArgTypes
+			_MagGetFullscreenColorEffectArgTypes,
 		)
 		MagGetFullscreenColorEffect.errcheck = _errCheck
 		MagSetFullscreenTransform = _MagSetFullscreenTransformFuncType(
 			("MagSetFullscreenTransform", _magnification),
-			_MagSetFullscreenTransformArgTypes
+			_MagSetFullscreenTransformArgTypes,
 		)
 		MagSetFullscreenTransform.errcheck = _errCheck
 		MagGetFullscreenTransform = _MagGetFullscreenTransformFuncType(
 			("MagGetFullscreenTransform", _magnification),
-			_MagGetFullscreenTransformArgTypes
+			_MagGetFullscreenTransformArgTypes,
 		)
 		MagGetFullscreenTransform.errcheck = _errCheck
 		MagShowSystemCursor = _MagShowSystemCursorFuncType(
 			("MagShowSystemCursor", _magnification),
-			_MagShowSystemCursorArgTypes
+			_MagShowSystemCursorArgTypes,
 		)
 		MagShowSystemCursor.errcheck = _errCheck
 
 		MagGetWindowSource = _MagGetWindowSourceFuncType(
 			("MagGetWindowSource", _magnification),
-			_MagGetWindowSourceArgTypes
+			_MagGetWindowSourceArgTypes,
 		)
 		MagGetWindowSource.errcheck = _errCheck
 	except AttributeError:

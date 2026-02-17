@@ -30,7 +30,7 @@ class ControlTypesCompatWrapper(object):
 
 	_ALIAS_FACTORIES = (
 		lambda attrPrefix, attrName: ".".join((attrPrefix.capitalize(), attrName.upper())),
-		lambda attrPrefix, attrName: "_".join((attrPrefix.upper(), attrName.upper()))
+		lambda attrPrefix, attrName: "_".join((attrPrefix.upper(), attrName.upper())),
 	)
 
 	def __init__(self):
@@ -38,12 +38,12 @@ class ControlTypesCompatWrapper(object):
 		self.Role = EnhancedGetter(
 			controlTypes,
 			"role",
-			self._ALIAS_FACTORIES
+			self._ALIAS_FACTORIES,
 		)
 		self.State = EnhancedGetter(
 			controlTypes,
 			"state",
-			self._ALIAS_FACTORIES
+			self._ALIAS_FACTORIES,
 		)
 
 
