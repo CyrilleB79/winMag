@@ -389,11 +389,11 @@ class Screen(object):
 			ui.message(
 				_(
 					# Translators: A message reported when the user tries to execute a script in multi-screen setup.
-					"Multi-screen setup not yet supported. Please contact the add-on author to have it implemented."
+					"Multi-screen setup not yet supported. Please contact the add-on author to have it implemented.",
 				),
 			)
 			raise NotImplementedError(
-				"Multi-screen environment not yet implemented. Please contact add-on author."
+				"Multi-screen environment not yet implemented. Please contact add-on author.",
 			)
 		displays = [wx.Display(i).GetGeometry() for i in range(wx.Display.GetCount())]
 		width, height, minPos = mouseHandler.getTotalWidthAndHeightAndMinimumPosition(displays)
@@ -668,7 +668,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			else:
 				gesture.send()
 			core.callLater(
-				200, lambda: self.updateKeepMagWindowOnTop(config.conf["winMag"]["keepWindowAlwaysOnTop"])
+				200,
+				lambda: self.updateKeepMagWindowOnTop(config.conf["winMag"]["keepWindowAlwaysOnTop"]),
 			)
 		else:
 			gesture.send()
@@ -802,7 +803,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			beep(edgePitch, 30, vol, vol)
 		else:
 			raise RuntimeError(
-				"Unexpected config {config}".format(config=config.conf["winMag"]["reportViewMove"])
+				"Unexpected config {config}".format(config=config.conf["winMag"]["reportViewMove"]),
 			)
 
 	def report_viewPosition(self, direction, view):
@@ -1060,7 +1061,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				(
 					"Only gestures containing arrow key may be mapped"
 					" to script_moveViewLayeredCommand (gesture: {})."
-				).format(gesture)
+				).format(gesture),
 			)
 
 	script_moveViewLayeredCommand.allowMultipleLayeredCommands = True
@@ -1074,15 +1075,17 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		if mode == MAG_VIEW_FULLSCREEN:
 			if Magnification.MagGetFullscreenTransform is None:
 				ui.message(
-					# Translators: A message reported when the user tries to execute script mouseToView
-					_("Move mouse to view command available only on Windows 8 and above in full screen mode.")
+					_(
+						# Translators: A message reported when the user tries to execute script mouseToView
+						"Move mouse to view command available only on Windows 8 and above in full screen mode."
+					),
 				)
 				return
 			elif isScreenCurtainActive():
 				ui.message(
 					_(
 						# Translators: A message reported when the user tries to execute script mouseToView
-						"Move mouse to view command not available in full screen mode while screen curtain is active."
+						"Move mouse to view command not available in full screen mode while screen curtain is active.",
 					),
 				)
 				return
