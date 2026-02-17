@@ -8,6 +8,7 @@
 from __future__ import unicode_literals
 
 import winUser
+
 try:
 	# NVDA version >= 2026.1
 	from winBindings.user32 import FindWindow
@@ -15,8 +16,10 @@ try:
 except ImportError:
 	# NVDA version < 2026.1
 	from winUser import user32
+
 	FindWindow = user32.FindWindowW
 from NVDAObjects.IAccessible import getNVDAObjectFromEvent
+
 try:
 	# Python 3
 	import winreg
@@ -25,28 +28,28 @@ except ImportError:
 	import _winreg as winreg
 
 
-MAG_REGISTRY_KEY = r'Software\Microsoft\ScreenMagnifier'
-COLOR_FILTERING_REGISTRY_KEY = r'SOFTWARE\Microsoft\ColorFiltering'
+MAG_REGISTRY_KEY = r"Software\Microsoft\ScreenMagnifier"
+COLOR_FILTERING_REGISTRY_KEY = r"SOFTWARE\Microsoft\ColorFiltering"
 
 # Magnifier config mapping
 magnifierDefaultValuesMapping = {
-	'CenterTextInsertionPoint': 1,  # 0 = In screen edges, 1 = Centered
-	'FollowCaret': 1,
-	'FollowFocus': 1,
-	'FollowMouse': 1,
-	'FullScreenTrackingMode': 0,  # 0 = In screen edges, 1 = Centered
-	'Invert': 0,
-	'Magnification': 200,
-	'MagnificationMode': 2,  # 2 = Full screen
-	'RunningState': 0,
-	'UseBitmapSmoothing': 1,
+	"CenterTextInsertionPoint": 1,  # 0 = In screen edges, 1 = Centered
+	"FollowCaret": 1,
+	"FollowFocus": 1,
+	"FollowMouse": 1,
+	"FullScreenTrackingMode": 0,  # 0 = In screen edges, 1 = Centered
+	"Invert": 0,
+	"Magnification": 200,
+	"MagnificationMode": 2,  # 2 = Full screen
+	"RunningState": 0,
+	"UseBitmapSmoothing": 1,
 }
 
 # Color filtering config mapping
 colorFilteringDefaultValuesMapping = {
-	'Active': 0,  # 0: Inactive, 1: Active
-	'FilterType': 0,  # 0-5
-	'HotkeyEnabled': 0,  # 0: Disabled, 1: Enabled
+	"Active": 0,  # 0: Inactive, 1: Active
+	"FilterType": 0,  # 0-5
+	"HotkeyEnabled": 0,  # 0: Disabled, 1: Enabled
 }
 
 colorFilterNames = {
@@ -64,12 +67,14 @@ colorFilterNames = {
 	5: _("Blue-yellow"),
 }
 
+
 def getMagnifierKeyValue(name, useDefaultIfMissing=True):
 	try:
 		k = winreg.OpenKey(
 			winreg.HKEY_CURRENT_USER,
 			MAG_REGISTRY_KEY,
-			0, winreg.KEY_READ | winreg.KEY_WOW64_64KEY,
+			0,
+			winreg.KEY_READ | winreg.KEY_WOW64_64KEY,
 		)
 	except FileNotFoundError as e:
 		if not useDefaultIfMissing:
@@ -86,8 +91,9 @@ def getMagnifierKeyValue(name, useDefaultIfMissing=True):
 def setMagnifierKeyValue(name, val):
 	k = winreg.OpenKey(
 		winreg.HKEY_CURRENT_USER,
-		r'Software\Microsoft\ScreenMagnifier',
-		0, winreg.KEY_READ | winreg.KEY_WRITE | winreg.KEY_WOW64_64KEY,
+		r"Software\Microsoft\ScreenMagnifier",
+		0,
+		winreg.KEY_READ | winreg.KEY_WRITE | winreg.KEY_WOW64_64KEY,
 	)
 	winreg.SetValueEx(k, name, 0, winreg.REG_DWORD, val)
 
@@ -112,7 +118,8 @@ def getColorFilteringKeyValue(name, useDefaultIfMissing=True):
 		k = winreg.OpenKey(
 			winreg.HKEY_CURRENT_USER,
 			COLOR_FILTERING_REGISTRY_KEY,
-			0, winreg.KEY_READ | winreg.KEY_WOW64_64KEY,
+			0,
+			winreg.KEY_READ | winreg.KEY_WOW64_64KEY,
 		)
 	except FileNotFoundError as e:
 		if not useDefaultIfMissing:
@@ -148,6 +155,7 @@ def isScreenCurtainActive():
 	try:
 		# NVDA version >= 2026.1
 		from screenCurtain import screenCurtain
+
 		return screenCurtain is not None and screenCurtain.enabled
 	# In Python 2, ModuleNotFoundError does not exist and the more general ImportError is raised instead.
 	except ImportError:

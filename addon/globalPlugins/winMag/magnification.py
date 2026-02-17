@@ -6,12 +6,14 @@
 from ctypes import Structure, windll, c_float, POINTER, WINFUNCTYPE, WinError
 from ctypes.wintypes import BOOL
 from ctypes.wintypes import HWND, INT, FLOAT
+
 try:
 	# Python 3
 	from ctypes.wintypes import PINT, PRECT, PFLOAT
 except ImportError:
 	# Python 2 fallback
 	from ctypes.wintypes import RECT
+
 	PINT = POINTER(INT)
 	PRECT = POINTER(RECT)
 	PFLOAT = POINTER(FLOAT)

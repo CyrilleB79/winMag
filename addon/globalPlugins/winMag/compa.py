@@ -10,7 +10,6 @@ import operator
 
 
 class EnhancedGetter(object):
-
 	def __init__(self, modWithAttrs, attrCommonPrefix, alternativeNameFactories):
 		super(EnhancedGetter, self).__init__()
 		self.mod = modWithAttrs
@@ -27,7 +26,6 @@ class EnhancedGetter(object):
 
 
 class ControlTypesCompatWrapper(object):
-
 	_ALIAS_FACTORIES = (
 		lambda attrPrefix, attrName: ".".join((attrPrefix.capitalize(), attrName.upper())),
 		lambda attrPrefix, attrName: "_".join((attrPrefix.upper(), attrName.upper())),

@@ -4,8 +4,8 @@
 # This file is covered by the GNU General Public License.
 # See the file COPYING.txt for more details.
 
-"""This module completes NVDA's winUser module with missing values or functions.
-"""
+"""This module completes NVDA's winUser module with missing values or functions."""
+
 try:
 	# NVDA version >= 2026.1
 	from winBindings import user32
