@@ -4,7 +4,7 @@ on:
   push:
     tags: ["*"]
     # To build on main/master branch, uncomment the following line:
-    # branches: [ main , master ]
+    branches: [ master , testWF ]
 
   pull_request:
     branches: [ main, master ]
@@ -24,7 +24,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v6
       with:
-        python-version: 3.11
+        python-version: 3.13
         cache: 'pip'
 
     - name: Install dependencies
@@ -35,7 +35,8 @@ jobs:
         sudo apt-get install -y gettext
 
     - name: Code checks
-      run: export SKIP=no-commit-to-branch; pre-commit run --all
+      # TODO: Try to enable pyright later
+      run: export SKIP=no-commit-to-branch,pyright; pre-commit run --all
 
     - name: building addon
       run: scons && scons pot

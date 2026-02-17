@@ -18,7 +18,6 @@ ADDON_SUMMARY = addonHandler.getCodeAddon().manifest["summary"]
 
 
 class AppModule(AppModule):
-
 	scriptCategory = ADDON_SUMMARY
 
 	def __init__(self, *args, **kwargs):
@@ -26,15 +25,14 @@ class AppModule(AppModule):
 
 	def chooseNVDAObjectOverlayClasses(self, obj, clsList):
 		super(AppModule, self).chooseNVDAObjectOverlayClasses(obj, clsList)
-		if isinstance(obj, UIA) and obj.UIAAutomationId in ('ZoomInButton', 'ZoomOutButton'):
+		if isinstance(obj, UIA) and obj.UIAAutomationId in ("ZoomInButton", "ZoomOutButton"):
 			clsList.insert(0, ZoomButton)
 
 
 class ZoomButton(UIA):
-
 	@script(
-		gestures=['kb:space', 'kb:enter', 'kb:numpadEnter'],
+		gestures=["kb:space", "kb:enter", "kb:numpadEnter"],
 	)
 	def script_press(self, gesture):
-		wmPlugin = next(p for p in globalPluginHandler.runningPlugins if 'winMag' in str(p))
+		wmPlugin = next(p for p in globalPluginHandler.runningPlugins if "winMag" in str(p))
 		wmPlugin.modifyZoomLevel(gesture)

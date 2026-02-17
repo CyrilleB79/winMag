@@ -81,7 +81,7 @@ class WinMagSettingsPanel(settingsDialogs.SettingsPanel):
 		self.reportScreenEdgesList.Bind(wx.EVT_CHOICE, self.onReportScreenEdgesChange)
 
 		# Translators: This is the label for a slider in the Windows Magnifier settings panel.
-		toneVolumeLabelText = _('Volume of the tones indicating the &position of the view:')
+		toneVolumeLabelText = _("Volume of the tones indicating the &position of the view:")
 		self.toneVolumeSlider = sHelper.addLabeledControl(
 			toneVolumeLabelText,
 			nvdaControls.EnhancedInputSlider,
@@ -95,37 +95,37 @@ class WinMagSettingsPanel(settingsDialogs.SettingsPanel):
 
 		self.reportTurnOnOffCheckBox = sHelper.addItem(
 			# Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
-			wx.CheckBox(self, label=_("Report &turn on or off"))
+			wx.CheckBox(self, label=_("Report &turn on or off")),
 		)
-		self.reportTurnOnOffCheckBox.SetValue(config.conf['winMag']['reportTurnOnOff'])
+		self.reportTurnOnOffCheckBox.SetValue(config.conf["winMag"]["reportTurnOnOff"])
 
 		self.reportZoomCheckBox = sHelper.addItem(
 			# Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
-			wx.CheckBox(self, label=_("Report &zoom"))
+			wx.CheckBox(self, label=_("Report &zoom")),
 		)
-		self.reportZoomCheckBox.SetValue(config.conf['winMag']['reportZoom'])
+		self.reportZoomCheckBox.SetValue(config.conf["winMag"]["reportZoom"])
 
 		self.reportColorInversionCheckBox = sHelper.addItem(
 			# Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
-			wx.CheckBox(self, label=_("Report color &inversion"))
+			wx.CheckBox(self, label=_("Report color &inversion")),
 		)
-		self.reportColorInversionCheckBox.SetValue(config.conf['winMag']['reportColorInversion'])
+		self.reportColorInversionCheckBox.SetValue(config.conf["winMag"]["reportColorInversion"])
 
 		self.reportViewChangeCheckBox = sHelper.addItem(
 			# Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
-			wx.CheckBox(self, label=_("Report &view change"))
+			wx.CheckBox(self, label=_("Report &view change")),
 		)
-		self.reportViewChangeCheckBox.SetValue(config.conf['winMag']['reportViewChange'])
+		self.reportViewChangeCheckBox.SetValue(config.conf["winMag"]["reportViewChange"])
 
 		self.reportLensResizingCheckBox = sHelper.addItem(
 			# Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
-			wx.CheckBox(self, label=_("Report &lens or docked window resizing"))
+			wx.CheckBox(self, label=_("Report &lens or docked window resizing")),
 		)
-		self.reportLensResizingCheckBox.SetValue(config.conf['winMag']['reportLensResizing'])
+		self.reportLensResizingCheckBox.SetValue(config.conf["winMag"]["reportLensResizing"])
 
 		passCtrlAltArrowLabelText = _(
 			# Translators: This is the label for a combobox in the Windows Magnifier settings panel.
-			"In &documents and list views, pass control+alt+arrows shortcuts to Windows Magnifier:"
+			"In &documents and list views, pass control+alt+arrows shortcuts to Windows Magnifier:",
 		)
 		passCtrlAltArrowChoices = [name for setting, name in self.passCtrlAltArrowLabels]
 		self.passCtrlAltArrowList = sHelper.addLabeledControl(
@@ -142,20 +142,20 @@ class WinMagSettingsPanel(settingsDialogs.SettingsPanel):
 
 		self.keepWindowOnTopCheckBox = sHelper.addItem(
 			# Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
-			wx.CheckBox(self, label=_("&Keep Windows Magnifier command window always on top"))
+			wx.CheckBox(self, label=_("&Keep Windows Magnifier command window always on top")),
 		)
 		self.keepOnTopAvailable = config.isInstalledCopy() and isMagnifierRunning()
 		if self.keepOnTopAvailable:
-			self.keepWindowOnTopCheckBox.SetValue(config.conf['winMag']['keepWindowAlwaysOnTop'])
+			self.keepWindowOnTopCheckBox.SetValue(config.conf["winMag"]["keepWindowAlwaysOnTop"])
 		else:
 			self.keepWindowOnTopCheckBox.SetValue(True)
 			self.keepWindowOnTopCheckBox.Disable()
 
 		self.reportColorFilterCheckBox = sHelper.addItem(
 			# Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
-			wx.CheckBox(self, label=_("Report &color filter"))
+			wx.CheckBox(self, label=_("Report &color filter")),
 		)
-		self.reportColorFilterCheckBox.SetValue(config.conf['winMag']["reportColorFilter"])
+		self.reportColorFilterCheckBox.SetValue(config.conf["winMag"]["reportColorFilter"])
 
 	@staticmethod
 	def getParameterBound(name, boundType):
@@ -181,7 +181,8 @@ class WinMagSettingsPanel(settingsDialogs.SettingsPanel):
 	def updateToneVolumeSliderEnableState(self):
 		isTonesUsed = (
 			self.reportViewMoveAndScreenEdgesLabels[self.reportViewMoveList.GetSelection()][0] == "tones"
-			or self.reportViewMoveAndScreenEdgesLabels[self.reportScreenEdgesList.GetSelection()][0] == "tones"
+			or self.reportViewMoveAndScreenEdgesLabels[self.reportScreenEdgesList.GetSelection()][0]
+			== "tones"
 		)
 		self.toneVolumeSlider.Enable(isTonesUsed)
 
@@ -192,8 +193,8 @@ class WinMagSettingsPanel(settingsDialogs.SettingsPanel):
 
 	def _onToneVolumeChange(self, evt):
 		vol = evt.Int
-		minPitch = config.conf['mouse']['audioCoordinates_minPitch']
-		maxPitch = config.conf['mouse']['audioCoordinates_maxPitch']
+		minPitch = config.conf["mouse"]["audioCoordinates_minPitch"]
+		maxPitch = config.conf["mouse"]["audioCoordinates_maxPitch"]
 		midPitch = minPitch * (2 ** (math.log(maxPitch / minPitch, 2) / 2))
 		beep(midPitch, 30, vol, vol)
 
@@ -205,23 +206,25 @@ class WinMagSettingsPanel(settingsDialogs.SettingsPanel):
 			self.reportScreenEdgesList.GetSelection()
 		][0]
 		config.conf["winMag"]["toneVolume"] = self.toneVolumeSlider.Value
-		config.conf['winMag']['reportTurnOnOff'] = self.reportTurnOnOffCheckBox.IsChecked()
-		config.conf['winMag']['reportZoom'] = self.reportZoomCheckBox.IsChecked()
-		config.conf['winMag']['reportColorInversion'] = self.reportColorInversionCheckBox.IsChecked()
-		config.conf['winMag']['reportViewChange'] = self.reportViewChangeCheckBox.IsChecked()
-		config.conf['winMag']['reportLensResizing'] = self.reportLensResizingCheckBox.IsChecked()
+		config.conf["winMag"]["reportTurnOnOff"] = self.reportTurnOnOffCheckBox.IsChecked()
+		config.conf["winMag"]["reportZoom"] = self.reportZoomCheckBox.IsChecked()
+		config.conf["winMag"]["reportColorInversion"] = self.reportColorInversionCheckBox.IsChecked()
+		config.conf["winMag"]["reportViewChange"] = self.reportViewChangeCheckBox.IsChecked()
+		config.conf["winMag"]["reportLensResizing"] = self.reportLensResizingCheckBox.IsChecked()
 		config.conf["winMag"]["passCtrlAltArrow"] = self.passCtrlAltArrowLabels[
 			self.passCtrlAltArrowList.GetSelection()
 		][0]
 		if self.keepOnTopAvailable:
 			# Re-test if magnifier is running at validation time
 			if isMagnifierRunning():
-				winMagPlugin = [p for p in globalPluginHandler.runningPlugins if getattr(p, 'isWinMagPlugin', False)][0]
+				winMagPlugin = [
+					p for p in globalPluginHandler.runningPlugins if getattr(p, "isWinMagPlugin", False)
+				][0]
 				shouldKeepMagWindowOnTop = self.keepWindowOnTopCheckBox.IsChecked()
 				core.callLater(
 					0,
 					lambda: winMagPlugin.updateKeepMagWindowOnTop(shouldKeepMagWindowOnTop),
 				)
 			else:
-				log.debugWarning('Keep on top checkbox info not saved: magnifier is not running anymore.')
-		config.conf['winMag']["reportColorFilter"] = self.reportColorFilterCheckBox.IsChecked()
+				log.debugWarning("Keep on top checkbox info not saved: magnifier is not running anymore.")
+		config.conf["winMag"]["reportColorFilter"] = self.reportColorFilterCheckBox.IsChecked()
