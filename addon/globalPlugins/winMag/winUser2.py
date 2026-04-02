@@ -1,26 +1,32 @@
 # -*- coding: UTF-8 -*-
 # NVDA add-on: Windows Magnifier
-# Copyright (C) 2021 Cyrille Bougot
+# Copyright (C) 2021-2026 Cyrille Bougot
 # This file is covered by the GNU General Public License.
 # See the file COPYING.txt for more details.
 
 """This module completes NVDA's winUser module with missing values or functions.
 """
-
-import winUser
+try:
+	# NVDA version >= 2026.1
+	from winBindings import user32
+# In Python 2, ModuleNotFoundError does not exist and the more general ImportError is raised instead.
+except ImportError:
+	# NVDA version < 2026.1
+	from winUser import user32
 from ctypes import WinError
+from ctypes.wintypes import HWND
 
 # Places the window at the bottom of the Z order. If the hWnd parameter identifies a topmost window,
 # the window loses its topmost status and is placed at the bottom of all other windows.
-HWND_BOTTOM = 1
+HWND_BOTTOM = HWND(1)
 
 # Places the window above all non-topmost windows. The window maintains its topmost position even
 # when it is deactivated.
-HWND_TOPMOST = -1
+HWND_TOPMOST = HWND(-1)
 
 # Places the window above all non-topmost windows (that is, behind all topmost windows).
 # This flag has no effect if the window is already a non-topmost window.
-HWND_NOTOPMOST = -2
+HWND_NOTOPMOST = HWND(-2)
 
 # Retains the current size (ignores the cx and cy parameters).
 SWP_NOSIZE = 0x0001
@@ -39,7 +45,7 @@ SWP_ASYNCWINDOWPOS = 0x4000
 
 
 def setWindowPos(hWnd, hWndInsertAfter, X, Y, cx, cy, uFlags):
-	res = winUser.user32.SetWindowPos(
+	res = user32.SetWindowPos(
 		hWnd,
 		hWndInsertAfter,
 		X,

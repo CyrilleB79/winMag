@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 # globalPlugins/winMag/__init__.py
 # NVDA add-on: Windows Magnifier
-# Copyright (C) 2019-2025 Cyrille Bougot
+# Copyright (C) 2019-2026 Cyrille Bougot
 # This file is covered by the GNU General Public License.
 # See the file COPYING.txt for more details.
 
@@ -38,6 +38,14 @@ from logHandler import log
 import mouseHandler
 import globalVars
 import winUser
+try:
+	# NVDA version >= 2026.1
+	from winBindings.user32 import GetWindowLong
+# In Python 2, ModuleNotFoundError does not exist and the more general ImportError is raised instead.
+except ImportError:
+	# NVDA version < 2026.1
+	from winUser import user32
+	GetWindowLong = user32.GetWindowLongW
 from keyboardHandler import KeyboardInputGesture
 from keyLabels import localizedKeyLabels
 import config
@@ -1089,7 +1097,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			ui.message(_('Command only supported in installed versions of NVDA.'))
 			return
 		magHwnd = getMagnifierUIWindow()
-		isOnTop = bool(winUser.user32.GetWindowLongW(magHwnd, winUser.GWL_EXSTYLE) & winUser.WS_EX_TOPMOST)
+		isOnTop = bool(GetWindowLong(magHwnd, winUser.GWL_EXSTYLE) & winUser.WS_EX_TOPMOST)
 		if isOnTop != config.conf['winMag']['keepWindowAlwaysOnTop']:
 			log.error(
 				"Config synchronization error: "
@@ -1118,7 +1126,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			log.debug('Magnifier is not running; Update keep on top not processed.')
 			return
 		magHwnd = getMagnifierUIWindow()
-		isOnTop = bool(winUser.user32.GetWindowLongW(magHwnd, winUser.GWL_EXSTYLE) & winUser.WS_EX_TOPMOST)
+		isOnTop = bool(GetWindowLong(magHwnd, winUser.GWL_EXSTYLE) & winUser.WS_EX_TOPMOST)
 		if keepOnTop == isOnTop:
 			# Nothing to do, the window state is already correct.
 			return

@@ -1,22 +1,22 @@
 # -*- coding: UTF-8 -*-
 # globalPlugins/winMag/utils.py
 # NVDA add-on: Windows Magnifier
-# Copyright (C) 2019-2025 Cyrille Bougot
+# Copyright (C) 2019-2026 Cyrille Bougot
 # This file is covered by the GNU General Public License.
 # See the file COPYING.txt for more details.
 
 from __future__ import unicode_literals
 
 import winUser
-from NVDAObjects.IAccessible import getNVDAObjectFromEvent
 try:
-	# For NVDA 2019.3+
-	import vision
-	from visionEnhancementProviders.screenCurtain import ScreenCurtainProvider
+	# NVDA version >= 2026.1
+	from winBindings.user32 import FindWindow
 # In Python 2, ModuleNotFoundError does not exist and the more general ImportError is raised instead.
 except ImportError:
-	# For NVDA 2019.2.1 and below
-	vision = None
+	# NVDA version < 2026.1
+	from winUser import user32
+	FindWindow = user32.FindWindowW
+from NVDAObjects.IAccessible import getNVDAObjectFromEvent
 try:
 	# Python 3
 	import winreg
@@ -104,7 +104,7 @@ def isMagnifierRunning():
 	# User logs off while Mag is active, then user logs on again. In this case,
 	# even if Mag is not yet started by the user, the registry still holds RunningState value to 1.
 	# Instead we use the Magnifier UI window that is always present, even if hidden.
-	return getMagnifierUIWindow() != 0
+	return bool(getMagnifierUIWindow())
 
 
 def getColorFilteringKeyValue(name, useDefaultIfMissing=True):
@@ -127,13 +127,13 @@ def getColorFilteringKeyValue(name, useDefaultIfMissing=True):
 
 
 def getDesktopChildObject(windowClassName):
-	hWnd = winUser.user32.FindWindowW(windowClassName, 0)
+	hWnd = FindWindow(windowClassName, None)
 	obj = getNVDAObjectFromEvent(hWnd, winUser.OBJID_CLIENT, 0)
 	return obj if obj else None
 
 
 def getMagnifierUIWindow():
-	return winUser.user32.FindWindowW('MagUIClass', 0)
+	return FindWindow("MagUIClass", None)
 
 
 def getDockedWindowObject():
@@ -145,7 +145,21 @@ def getLensWindowObject():
 
 
 def isScreenCurtainActive():
-	if not vision:
+	try:
+		# NVDA version >= 2026.1
+		from screenCurtain import screenCurtain
+		return screenCurtain is not None and screenCurtain.enabled
+	# In Python 2, ModuleNotFoundError does not exist and the more general ImportError is raised instead.
+	except ImportError:
+		pass
+	try:
+		# For NVDA 2019.3+
+		import vision
+		from visionEnhancementProviders.screenCurtain import ScreenCurtainProvider
+	# In Python 2, ModuleNotFoundError does not exist and the more general ImportError is raised instead.
+	except ImportError:
+		# For NVDA 2019.2.1 and below
+		# No screen curtain feature
 		return False
 	screenCurtainId = ScreenCurtainProvider.getSettings().getId()
 	screenCurtainProviderInfo = vision.handler.getProviderInfo(screenCurtainId)
