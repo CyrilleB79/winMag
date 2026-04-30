@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 # globalPlugins/winMag/gui.py
 # NVDA add-on: Windows Magnifier
-# Copyright (C) 2019-2025 Cyrille Bougot
+# Copyright (C) 2019-2026 Cyrille Bougot
 # This file is covered by the GNU General Public License.
 # See the file COPYING.txt for more details.
 
@@ -45,18 +45,18 @@ class WinMagSettingsPanel(settingsDialogs.SettingsPanel):
 		("always", _("Always")),
 	)
 
-	def makeSettings(self, settingsSizer):
-		sHelper = guiHelper.BoxSizerHelper(self, sizer=settingsSizer)
+	def makeSettings(self, sizer):
+		sHelper = guiHelper.BoxSizerHelper(self, sizer=sizer)
 
 		# Translators: This is the label for a combobox in the Windows Magnifier settings panel.
 		reportViewMoveLabelText = _("Report view &moves:")
-		reportViewMoveChoices = [name for setting, name in self.reportViewMoveAndScreenEdgesLabels]
+		reportViewMoveChoices = [name for _setting, name in self.reportViewMoveAndScreenEdgesLabels]
 		self.reportViewMoveList = sHelper.addLabeledControl(
 			reportViewMoveLabelText,
 			wx.Choice,
 			choices=reportViewMoveChoices,
 		)
-		for index, (setting, name) in enumerate(self.reportViewMoveAndScreenEdgesLabels):
+		for index, (setting, _name) in enumerate(self.reportViewMoveAndScreenEdgesLabels):
 			if setting == config.conf["winMag"]["reportViewMove"]:
 				self.reportViewMoveList.SetSelection(index)
 				break
@@ -66,13 +66,13 @@ class WinMagSettingsPanel(settingsDialogs.SettingsPanel):
 
 		# Translators: This is the label for a combobox in the Windows Magnifier settings panel.
 		reportScreenEdgesLabelText = _("Report screen &edges:")
-		reportScreenEdgesChoices = [name for setting, name in self.reportViewMoveAndScreenEdgesLabels]
+		reportScreenEdgesChoices = [name for _setting, name in self.reportViewMoveAndScreenEdgesLabels]
 		self.reportScreenEdgesList = sHelper.addLabeledControl(
 			reportScreenEdgesLabelText,
 			wx.Choice,
 			choices=reportScreenEdgesChoices,
 		)
-		for index, (setting, name) in enumerate(self.reportViewMoveAndScreenEdgesLabels):
+		for index, (setting, _name) in enumerate(self.reportViewMoveAndScreenEdgesLabels):
 			if setting == config.conf["winMag"]["reportMoveToScreenEdges"]:
 				self.reportScreenEdgesList.SetSelection(index)
 				break
@@ -127,13 +127,13 @@ class WinMagSettingsPanel(settingsDialogs.SettingsPanel):
 			# Translators: This is the label for a combobox in the Windows Magnifier settings panel.
 			"In &documents and list views, pass control+alt+arrows shortcuts to Windows Magnifier:",
 		)
-		passCtrlAltArrowChoices = [name for setting, name in self.passCtrlAltArrowLabels]
+		passCtrlAltArrowChoices = [name for _setting, name in self.passCtrlAltArrowLabels]
 		self.passCtrlAltArrowList = sHelper.addLabeledControl(
 			passCtrlAltArrowLabelText,
 			wx.Choice,
 			choices=passCtrlAltArrowChoices,
 		)
-		for index, (setting, name) in enumerate(self.passCtrlAltArrowLabels):
+		for index, (setting, _name) in enumerate(self.passCtrlAltArrowLabels):
 			if setting == config.conf["winMag"]["passCtrlAltArrow"]:
 				self.passCtrlAltArrowList.SetSelection(index)
 				break

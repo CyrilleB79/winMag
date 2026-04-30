@@ -107,8 +107,10 @@ KEY_ALPHA_MINUS = _("-")
 # Check of these translated keys:
 # Do not do it in GlobalPlugin.__init__ since these strings are used at class definition.
 if KEY_ALPHA_PLUS == "+":
-	KEY_ALPHA_PLUS == "plus"
-if (len(KEY_ALPHA_PLUS) != 1 and KEY_ALPHA_PLUS != "plus") or len(KEY_ALPHA_MINUS) != 1:
+	standardizedKayAlphaPlus = "plus"
+else:
+	standardizedKayAlphaPlus = KEY_ALPHA_PLUS
+if (len(standardizedKayAlphaPlus) != 1 and KEY_ALPHA_PLUS != "plus") or len(KEY_ALPHA_MINUS) != 1:
 	log.error("Error in Windows Magnifier shortcut key translation (Windows Magnifier add-on)")
 
 
@@ -180,7 +182,7 @@ def _WaitForValueChangeForAction(gesture, fetcher, timeout=0.2, sleepTime=0.03):
 		time.sleep(sleepTime)
 		curTime = time.time()
 	log.warning("No value change detected")
-	return curVal
+	return curVal  # pyright: ignore[reportPossiblyUnboundVariable]
 
 
 class NotInTableException(Exception):
@@ -201,7 +203,7 @@ def createScriptForControlAltArrow(originalScript):
 		global canRaiseNotInTableException
 		if config.conf["winMag"]["passCtrlAltArrow"] == "always":
 			executeMoveScript = True
-		if config.conf["winMag"]["passCtrlAltArrow"] == "whenNotInTable":
+		elif config.conf["winMag"]["passCtrlAltArrow"] == "whenNotInTable":
 			try:
 				canRaiseNotInTableException = True
 				originalScript(g)
@@ -210,6 +212,12 @@ def createScriptForControlAltArrow(originalScript):
 				executeMoveScript = True
 			finally:
 				canRaiseNotInTableException = False
+		else:
+			raise RuntimeError(
+				'Unexpected config value: config.conf["winMag"]["passCtrlAltArrow"] = {}'.format(
+					config.conf["winMag"]["passCtrlAltArrow"],
+				),
+			)
 		if executeMoveScript:
 			winMagPlugin = [p for p in globalPluginHandler.runningPlugins if isinstance(p, GlobalPlugin)][0]
 			winMagPlugin.script_moveView(g)
@@ -378,6 +386,7 @@ DESC_DISPLAY_HELP = _("Displays help on Magnifier layer commands")
 
 class Screen(object):
 	def __init__(self, width, height, minPos):
+		super(Screen, self).__init__()
 		self.width = width
 		self.height = height
 		self.minPos = minPos
@@ -402,6 +411,7 @@ class Screen(object):
 
 class View(object):
 	def __init__(self, screen, mode):
+		super(View, self).__init__()
 		self.screen = screen
 		self.mode = mode
 
@@ -425,6 +435,8 @@ class View(object):
 	def getCurrentView(mode):
 		screen = Screen.getCurrentScreen()
 		if mode == MAG_VIEW_FULLSCREEN:
+			if Magnification.MagGetFullscreenTransform is None:
+				raise NotImplementedError
 			try:
 				Magnification.MagInitialize()
 				zoomLevel, left, top = Magnification.MagGetFullscreenTransform()
@@ -618,7 +630,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			self.script_error(gesture)
 			return
 		layerGestures = {}
-		for gestures, command, desc in self.__magLayerCommandList:
+		for gestures, command, _desc in self.__magLayerCommandList:
 			for g in gestures:
 				layerGestures["kb:" + g] = command
 		self.bindGestures(layerGestures)
@@ -654,7 +666,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		gestures=[
 			"kb:windows+numpadPlus",
 			"kb:windows+numLock+numpadPlus",
-			"kb:windows+" + KEY_ALPHA_PLUS,
+			"kb:windows+" + standardizedKayAlphaPlus,
 			"kb:windows+plus",
 		],
 	)
@@ -765,7 +777,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			raise RuntimeError("Unexpected key name {key}".format(key=gesture.mainKeyName))
 		orientation = gesture.mainKeyName[: -len("Arrow")]
 
-		view = View.getCurrentView(mode)
+		try:
+			view = View.getCurrentView(mode)
+		except NotImplementedError:
+			return
 		isAtEdge = view.isAtEdge(orientation)
 		if isAtEdge:
 			if reportEdges:
@@ -785,7 +800,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			self.lastMoveDirection = direction
 
 			def reportViewPositionHelper():
-				view = View.getCurrentView(mode)
+				try:
+					view = View.getCurrentView(mode)
+				except NotImplementedError:
+					return
 				self.report_viewPosition(direction, view)
 
 			self.reportViewTimer = wx.CallLater(300, reportViewPositionHelper)
@@ -812,6 +830,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			val = x
 		elif direction == "vertical":
 			val = y
+		else:
+			raise RuntimeError("Unexpected value: direction = {}".format(direction))
 		if config.conf["winMag"]["reportViewMove"] == "speech":
 			if view.mode == MAG_VIEW_FULLSCREEN and view.zoomLevel < 4:
 				precision = 0
@@ -850,6 +870,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 					dim = _("Height")
 					val = oMag.location.height
 					self.lastResize = "height"
+				else:
+					raise RuntimeError("Unexpected value: curResize = {}".format(curResize))
 				ui.message(msg.format(dimension=dim, val=val))
 			elif mode == MAG_VIEW_LENS:
 				# Translators: A message reported when the user resizes the lens with the keyboard.
@@ -1014,7 +1036,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			return
 		try:
 			config.conf.disableProfileTriggers()
-			for key, defaultValue in magnifierDefaultValuesMapping.items():
+			for key in magnifierDefaultValuesMapping.keys():
 				config.conf["winMag"]["magnifierConfig"][key] = getMagnifierKeyValue(key)
 			# Translators: A message reported when the user calls the command
 			# to save the Magnifier's configuration.
@@ -1064,7 +1086,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				).format(gesture),
 			)
 
-	script_moveViewLayeredCommand.allowMultipleLayeredCommands = True
+	script_moveViewLayeredCommand.allowMultipleLayeredCommands = True  # pyright: ignore[reportFunctionMemberAccess]
 
 	@script(
 		description=DESC_MOVE_MOUSE_TO_VIEW,
@@ -1097,7 +1119,12 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			# Translators: A message reported when the user tries to execute script mouseToView
 			ui.message(_("Move mouse to view not implemented for docked view"))
 			return
-		view = View.getCurrentView(mode)
+		try:
+			view = View.getCurrentView(mode)
+		except NotImplementedError:
+			# Translators: A message reported when the user tries to execute script mouseToView
+			ui.message(_("Move mouse to view not supported on Windows 7"))
+			return
 		x, y = view.centerPositionInScreen()
 		winUser.setCursorPos(x, y)
 		mouseHandler.executeMouseMoveEvent(x, y)
@@ -1283,7 +1310,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			popupSettingsDialog = gui.mainFrame.popupSettingsDialog
 		except AttributeError:
 			# For NVDA <= 2023.1
-			popupSettingsDialog = gui.mainFrame._popupSettingsDialog
+			popupSettingsDialog = gui.mainFrame._popupSettingsDialog  # ignore[reportPrivateUsage]
 		wx.CallAfter(
 			popupSettingsDialog,
 			gui.settingsDialogs.NVDASettingsDialog,
@@ -1297,7 +1324,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		# Translators: Title of the layered command help window.
 		title = _("Windows Magnifier layered commands")
 		cmdList = []
-		for gestures, command, desc in self.__magLayerCommandList:
+		for gestures, _command, desc in self.__magLayerCommandList:
 			cmdParts = []
 			cmdParts.append(
 				# Translators: Separator between key names in the layered command help window.

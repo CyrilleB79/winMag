@@ -14,9 +14,9 @@ except ImportError:
 	# Python 2 fallback
 	from ctypes.wintypes import RECT
 
-	PINT = POINTER(INT)
-	PRECT = POINTER(RECT)
-	PFLOAT = POINTER(FLOAT)
+	PINT = POINTER(INT)  # pyright: ignore[reportConstantRedefinition]
+	PRECT = POINTER(RECT)  # pyright: ignore[reportConstantRedefinition]
+	PFLOAT = POINTER(FLOAT)  # pyright: ignore[reportConstantRedefinition]
 
 
 class MAGCOLOREFFECT(Structure):

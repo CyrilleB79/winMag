@@ -1,11 +1,11 @@
 # -*- coding: UTF-8 -*-
 # appModules/magnify.py
 # NVDA add-on: Windows Magnifier
-# Copyright (C) 2023 Cyrille Bougot
+# Copyright (C) 2023-2026 Cyrille Bougot
 # This file is covered by the GNU General Public License.
 # See the file COPYING.txt for more details.
 
-from appModuleHandler import AppModule
+from appModuleHandler import AppModule as BaseAppModule
 from scriptHandler import script
 import globalPluginHandler
 from NVDAObjects.UIA import UIA
@@ -17,7 +17,7 @@ addonHandler.initTranslation()
 ADDON_SUMMARY = addonHandler.getCodeAddon().manifest["summary"]
 
 
-class AppModule(AppModule):
+class AppModule(BaseAppModule):
 	scriptCategory = ADDON_SUMMARY
 
 	def __init__(self, *args, **kwargs):
