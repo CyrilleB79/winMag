@@ -157,6 +157,12 @@ None of the Magnifier native commands can be modified.
 
 ## Change log
 
+### Version 4.4
+
+* The add-on is now compatible with NVDA 2026.1.
+* The add-on is no longer compatible with NVDA 2019.2.1: it is now only compatible with NVDA 2019.3 and beyond.
+  The last compatible versions with NVDA 2019.2.1 is the [4.3][10].
+
 ### Version 4.3
 
 * Support the new magnifier command to toggle between the set magnification level and 1x magnification.
@@ -250,3 +256,5 @@ None of the Magnifier native commands can be modified.
 [8]: https://github.com/nvaccess/nvda/security/advisories/GHSA-xg6w-23rw-39r8#event-132994
 
 [9]: https://support.microsoft.com/en-us/windows/make-windows-easier-to-see-c97c2b0d-cadb-93f0-5fd1-59ccfe19345d
+
+[10]: https://github.com/CyrilleB79/winMag/releases/download/V4.3/winMag-4.3.nvda-addon

@@ -25,11 +25,14 @@ addon_info = AddonInfo(
 	# Translators: Long description to be shown for this add-on on add-on information from add-on store
 	addon_description=_("""This add-on improves the use of Windows Magnifier with NVDA."""),
 	# version
-	addon_version="4.3",
+	addon_version="4.4",
 	# Brief changelog for this version
 	# Translators: what's new content for the add-on version to be shown in the add-on store
-	addon_changelog=_("""* Support the new magnifier command to toggle between the set magnification level and 1x magnification.
-* Prepare compatibility with NVDA 2026.1.
+	addon_changelog=_("""* The add-on is now compatible with NVDA 2026.1.
+* The add-on is no longer compatible with NVDA 2019.2.1: it is now only compatible with NVDA 2019.3 and beyond.
+  The last compatible versions with NVDA 2019.2.1 is the [4.3][10].
+
+[10]: https://github.com/CyrilleB79/winMag/releases/download/V4.3/winMag-4.3.nvda-addon
 """),
 	# Author(s)
 	addon_author="Cyrille Bougot <cyrille.bougot2@laposte.net>",
