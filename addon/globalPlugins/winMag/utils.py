@@ -5,27 +5,19 @@
 # This file is covered by the GNU General Public License.
 # See the file COPYING.txt for more details.
 
-from __future__ import unicode_literals
-
 import winUser
 
 try:
 	# NVDA version >= 2026.1
 	from winBindings.user32 import FindWindow
-# In Python 2, ModuleNotFoundError does not exist and the more general ImportError is raised instead.
-except ImportError:
+except ModuleNotFoundError:
 	# NVDA version < 2026.1
 	from winUser import user32
 
 	FindWindow = user32.FindWindowW
 from NVDAObjects.IAccessible import getNVDAObjectFromEvent
 
-try:
-	# Python 3
-	import winreg
-except ImportError:
-	# Python 2
-	import _winreg as winreg
+import winreg
 
 
 MAG_REGISTRY_KEY = r"Software\Microsoft\ScreenMagnifier"
@@ -157,18 +149,11 @@ def isScreenCurtainActive():
 		from screenCurtain import screenCurtain
 
 		return screenCurtain is not None and screenCurtain.enabled
-	# In Python 2, ModuleNotFoundError does not exist and the more general ImportError is raised instead.
-	except ImportError:
+	except ModuleNotFoundError:
 		pass
-	try:
-		# For NVDA 2019.3+
-		import vision
-		from visionEnhancementProviders.screenCurtain import ScreenCurtainProvider
-	# In Python 2, ModuleNotFoundError does not exist and the more general ImportError is raised instead.
-	except ImportError:
-		# For NVDA 2019.2.1 and below
-		# No screen curtain feature
-		return False
+	import vision
+	from visionEnhancementProviders.screenCurtain import ScreenCurtainProvider
+
 	screenCurtainId = ScreenCurtainProvider.getSettings().getId()
 	screenCurtainProviderInfo = vision.handler.getProviderInfo(screenCurtainId)
 	isScreenCurtainRunning = bool(vision.handler.getProviderInstance(screenCurtainProviderInfo))

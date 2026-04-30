@@ -5,8 +5,6 @@
 # This file is covered by the GNU General Public License.
 # See the file COPYING.txt for more details.
 
-from __future__ import unicode_literals
-
 from .wmGui import WinMagSettingsPanel
 from .utils import (
 	magnifierDefaultValuesMapping,
@@ -42,8 +40,7 @@ import winUser
 try:
 	# NVDA version >= 2026.1
 	from winBindings.user32 import GetWindowLong
-# In Python 2, ModuleNotFoundError does not exist and the more general ImportError is raised instead.
-except ImportError:
+except ModuleNotFoundError:
 	# NVDA version < 2026.1
 	from winUser import user32
 
@@ -386,7 +383,7 @@ DESC_DISPLAY_HELP = _("Displays help on Magnifier layer commands")
 
 class Screen(object):
 	def __init__(self, width, height, minPos):
-		super(Screen, self).__init__()
+		super().__init__()
 		self.width = width
 		self.height = height
 		self.minPos = minPos
@@ -411,7 +408,7 @@ class Screen(object):
 
 class View(object):
 	def __init__(self, screen, mode):
-		super(View, self).__init__()
+		super().__init__()
 		self.screen = screen
 		self.mode = mode
 
@@ -435,8 +432,6 @@ class View(object):
 	def getCurrentView(mode):
 		screen = Screen.getCurrentScreen()
 		if mode == MAG_VIEW_FULLSCREEN:
-			if Magnification.MagGetFullscreenTransform is None:
-				raise NotImplementedError
 			try:
 				Magnification.MagInitialize()
 				zoomLevel, left, top = Magnification.MagGetFullscreenTransform()
@@ -455,7 +450,7 @@ class View(object):
 
 class FullscreenView(View):
 	def __init__(self, screen, zoomLevel, left, top):
-		super(FullscreenView, self).__init__(screen, MAG_VIEW_FULLSCREEN)
+		super().__init__(screen, MAG_VIEW_FULLSCREEN)
 		self.zoomLevel = zoomLevel
 		self.left = left
 		self.top = top
@@ -497,7 +492,7 @@ class FullscreenView(View):
 
 class LensView(View):
 	def __init__(self, screen, window):
-		super(LensView, self).__init__(screen, MAG_VIEW_LENS)
+		super().__init__(screen, MAG_VIEW_LENS)
 		self.window = window
 
 	def positionInScreen(self):
@@ -564,7 +559,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	isWinMagPlugin = True
 
 	def __init__(self):
-		super(GlobalPlugin, self).__init__()
+		super().__init__()
 
 		# Variable initializations
 		self.toggling = False
@@ -647,7 +642,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		gui.settingsDialogs.NVDASettingsDialog.categoryClasses.remove(WinMagSettingsPanel)
 		config.post_configProfileSwitch.unregister(self.handleConfigProfileSwitch)
 		config.post_configReset.unregister(self.handleConfigReload)
-		super(GlobalPlugin, self).terminate()
+		super().terminate()
 
 	def handleConfigProfileSwitch(self):
 		self.updateKeepMagWindowOnTop(config.conf["winMag"]["keepWindowAlwaysOnTop"])
@@ -777,10 +772,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			raise RuntimeError("Unexpected key name {key}".format(key=gesture.mainKeyName))
 		orientation = gesture.mainKeyName[: -len("Arrow")]
 
-		try:
-			view = View.getCurrentView(mode)
-		except NotImplementedError:
-			return
+		view = View.getCurrentView(mode)
 		isAtEdge = view.isAtEdge(orientation)
 		if isAtEdge:
 			if reportEdges:
@@ -800,10 +792,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			self.lastMoveDirection = direction
 
 			def reportViewPositionHelper():
-				try:
-					view = View.getCurrentView(mode)
-				except NotImplementedError:
-					return
+				view = View.getCurrentView(mode)
 				self.report_viewPosition(direction, view)
 
 			self.reportViewTimer = wx.CallLater(300, reportViewPositionHelper)
@@ -1095,15 +1084,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def script_moveMouseToView(self, gesture):
 		mode = getMagViewMode()
 		if mode == MAG_VIEW_FULLSCREEN:
-			if Magnification.MagGetFullscreenTransform is None:
-				ui.message(
-					_(
-						# Translators: A message reported when the user tries to execute script mouseToView
-						"Move mouse to view command available only on Windows 8 and above in full screen mode.",
-					),
-				)
-				return
-			elif isScreenCurtainActive():
+			if isScreenCurtainActive():
 				ui.message(
 					_(
 						# Translators: A message reported when the user tries to execute script mouseToView
@@ -1119,12 +1100,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			# Translators: A message reported when the user tries to execute script mouseToView
 			ui.message(_("Move mouse to view not implemented for docked view"))
 			return
-		try:
-			view = View.getCurrentView(mode)
-		except NotImplementedError:
-			# Translators: A message reported when the user tries to execute script mouseToView
-			ui.message(_("Move mouse to view not supported on Windows 7"))
-			return
+		view = View.getCurrentView(mode)
 		x, y = view.centerPositionInScreen()
 		winUser.setCursorPos(x, y)
 		mouseHandler.executeMouseMoveEvent(x, y)
@@ -1192,9 +1168,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				| winUser2.SWP_ASYNCWINDOWPOS,
 			)
 			return True
-		except WindowsError as e:
-			# Python 3 raises PermissionError which is a subclass of OSError alias WindowsError.
-			# Python 2 raises WindowsError
+		except PermissionError as e:
 			if e.winerror == 5:  # [WinError 5] Access is denied
 				if config.isInstalledCopy():
 					log.error("Unable to set window on topmost / not on top.")

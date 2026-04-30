@@ -1,22 +1,13 @@
 # A part of NonVisual Desktop Access (NVDA)
 # This file is covered by the GNU General Public License.
 # See the file COPYING for more details.
-# Copyright (C) 2020 Cyrille Bougot, NV Access Limited
+# Copyright (C) 2020-2026 Cyrille Bougot, NV Access Limited
 
 from ctypes import Structure, windll, c_float, POINTER, WINFUNCTYPE, WinError
 from ctypes.wintypes import BOOL
 from ctypes.wintypes import HWND, INT, FLOAT
 
-try:
-	# Python 3
-	from ctypes.wintypes import PINT, PRECT, PFLOAT
-except ImportError:
-	# Python 2 fallback
-	from ctypes.wintypes import RECT
-
-	PINT = POINTER(INT)  # pyright: ignore[reportConstantRedefinition]
-	PRECT = POINTER(RECT)  # pyright: ignore[reportConstantRedefinition]
-	PFLOAT = POINTER(FLOAT)  # pyright: ignore[reportConstantRedefinition]
+from ctypes.wintypes import PINT, PRECT, PFLOAT
 
 
 class MAGCOLOREFFECT(Structure):
@@ -74,43 +65,33 @@ class Magnification:
 	MagUninitialize = _MagUninitializeFuncType(("MagUninitialize", _magnification))
 	MagUninitialize.errcheck = _errCheck
 
-	# These magnification functions are not available on versions of Windows prior to Windows 8,
-	# and therefore looking them up from the magnification library will raise an AttributeError.
-	try:
-		MagSetFullscreenColorEffect = _MagSetFullscreenColorEffectFuncType(
-			("MagSetFullscreenColorEffect", _magnification),
-			_MagSetFullscreenColorEffectArgTypes,
-		)
-		MagSetFullscreenColorEffect.errcheck = _errCheck
-		MagGetFullscreenColorEffect = _MagGetFullscreenColorEffectFuncType(
-			("MagGetFullscreenColorEffect", _magnification),
-			_MagGetFullscreenColorEffectArgTypes,
-		)
-		MagGetFullscreenColorEffect.errcheck = _errCheck
-		MagSetFullscreenTransform = _MagSetFullscreenTransformFuncType(
-			("MagSetFullscreenTransform", _magnification),
-			_MagSetFullscreenTransformArgTypes,
-		)
-		MagSetFullscreenTransform.errcheck = _errCheck
-		MagGetFullscreenTransform = _MagGetFullscreenTransformFuncType(
-			("MagGetFullscreenTransform", _magnification),
-			_MagGetFullscreenTransformArgTypes,
-		)
-		MagGetFullscreenTransform.errcheck = _errCheck
-		MagShowSystemCursor = _MagShowSystemCursorFuncType(
-			("MagShowSystemCursor", _magnification),
-			_MagShowSystemCursorArgTypes,
-		)
-		MagShowSystemCursor.errcheck = _errCheck
-
-		MagGetWindowSource = _MagGetWindowSourceFuncType(
-			("MagGetWindowSource", _magnification),
-			_MagGetWindowSourceArgTypes,
-		)
-		MagGetWindowSource.errcheck = _errCheck
-	except AttributeError:
-		MagSetFullscreenColorEffect = None
-		MagGetFullscreenColorEffect = None
-		MagSetFullscreenTransform = None
-		MagGetFullscreenTransform = None
-		MagShowSystemCursor = None
+	MagSetFullscreenColorEffect = _MagSetFullscreenColorEffectFuncType(
+		("MagSetFullscreenColorEffect", _magnification),
+		_MagSetFullscreenColorEffectArgTypes,
+	)
+	MagSetFullscreenColorEffect.errcheck = _errCheck
+	MagGetFullscreenColorEffect = _MagGetFullscreenColorEffectFuncType(
+		("MagGetFullscreenColorEffect", _magnification),
+		_MagGetFullscreenColorEffectArgTypes,
+	)
+	MagGetFullscreenColorEffect.errcheck = _errCheck
+	MagSetFullscreenTransform = _MagSetFullscreenTransformFuncType(
+		("MagSetFullscreenTransform", _magnification),
+		_MagSetFullscreenTransformArgTypes,
+	)
+	MagSetFullscreenTransform.errcheck = _errCheck
+	MagGetFullscreenTransform = _MagGetFullscreenTransformFuncType(
+		("MagGetFullscreenTransform", _magnification),
+		_MagGetFullscreenTransformArgTypes,
+	)
+	MagGetFullscreenTransform.errcheck = _errCheck
+	MagShowSystemCursor = _MagShowSystemCursorFuncType(
+		("MagShowSystemCursor", _magnification),
+		_MagShowSystemCursorArgTypes,
+	)
+	MagShowSystemCursor.errcheck = _errCheck
+	MagGetWindowSource = _MagGetWindowSourceFuncType(
+		("MagGetWindowSource", _magnification),
+		_MagGetWindowSourceArgTypes,
+	)
+	MagGetWindowSource.errcheck = _errCheck

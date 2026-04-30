@@ -21,10 +21,10 @@ class AppModule(BaseAppModule):
 	scriptCategory = ADDON_SUMMARY
 
 	def __init__(self, *args, **kwargs):
-		super(AppModule, self).__init__(*args, **kwargs)
+		super().__init__(*args, **kwargs)
 
 	def chooseNVDAObjectOverlayClasses(self, obj, clsList):
-		super(AppModule, self).chooseNVDAObjectOverlayClasses(obj, clsList)
+		super().chooseNVDAObjectOverlayClasses(obj, clsList)
 		if isinstance(obj, UIA) and obj.UIAAutomationId in ("ZoomInButton", "ZoomOutButton"):
 			clsList.insert(0, ZoomButton)
 

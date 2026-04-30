@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 # NVDA add-on: Windows Magnifier
-# Copyright (C) 2023 Cyrille Bougot
+# Copyright (C) 2023-2026 Cyrille Bougot
 # This file is covered by the GNU General Public License.
 
 # Reworked compatibility wrapper for controlTypes. Original author: Łukasz Golonka
@@ -11,7 +11,7 @@ import operator
 
 class EnhancedGetter(object):
 	def __init__(self, modWithAttrs, attrCommonPrefix, alternativeNameFactories):
-		super(EnhancedGetter, self).__init__()
+		super().__init__()
 		self.mod = modWithAttrs
 		self.attrCommonPrefix = attrCommonPrefix
 		self.alternativeNameFactories = alternativeNameFactories
@@ -32,7 +32,7 @@ class ControlTypesCompatWrapper(object):
 	)
 
 	def __init__(self):
-		super(ControlTypesCompatWrapper, self).__init__()
+		super().__init__()
 		self.Role = EnhancedGetter(
 			controlTypes,
 			"role",

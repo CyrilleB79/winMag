@@ -5,8 +5,6 @@
 # This file is covered by the GNU General Public License.
 # See the file COPYING.txt for more details.
 
-from __future__ import unicode_literals
-
 from .utils import isMagnifierRunning
 
 from gui import guiHelper, nvdaControls, settingsDialogs
@@ -189,7 +187,7 @@ class WinMagSettingsPanel(settingsDialogs.SettingsPanel):
 	def onPanelActivated(self):
 		self.toneVolumeSlider.Bind(wx.EVT_SLIDER, self._onToneVolumeChange)
 		self.updateToneVolumeSliderEnableState()
-		super(WinMagSettingsPanel, self).onPanelActivated()
+		super().onPanelActivated()
 
 	def _onToneVolumeChange(self, evt):
 		vol = evt.Int

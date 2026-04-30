@@ -9,8 +9,7 @@
 try:
 	# NVDA version >= 2026.1
 	from winBindings import user32
-# In Python 2, ModuleNotFoundError does not exist and the more general ImportError is raised instead.
-except ImportError:
+except ModuleNotFoundError:
 	# NVDA version < 2026.1
 	from winUser import user32
 from ctypes import WinError
