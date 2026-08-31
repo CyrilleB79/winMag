@@ -1,0 +1,1885 @@
+<?xml version="1.0"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="en">
+<file id="readme.md" original="https://raw.githubusercontent.com/CyrilleB79/winMag/3bbe3c6b5cbc3c49f22885863c50bcba0b59b9b0/readme.md">
+<skeleton>
+# $(ID:0a7e41d0-cab7-495a-bd45-69a13f6ee7a9)
+
+* $(ID:63ef4a5e-f059-4971-8d31-93b9dbe94a0d)
+* $(ID:537e1c02-631a-4fbd-b480-77279206d403)
+
+$(ID:0cff61b4-78b5-4031-afd6-ffa313644a8e)
+
+
+## $(ID:2faf7f5c-a01c-4c92-adbb-0f7194a38866)
+
+* $(ID:ce03aa03-11b6-4325-b8d4-51072e3b4c0a)
+* $(ID:fe6eb4ae-ff68-482e-8da4-ab97afc2ff83)
+* $(ID:ec8987c1-1948-4e24-8bfa-aaac0ae5b8c6)
+* $(ID:f84fb843-aacd-4372-8fe6-c6c99a3c9d77)
+* $(ID:2a3349d9-21c6-4058-bb7a-c41341c84a40)
+
+## $(ID:554902d6-fd9b-4c5a-bb7c-33acf2375403)
+
+$(ID:881aded3-581c-45dd-a852-fcecc9c3df21)
+$(ID:f09273ee-24d5-48a2-aa76-e7914be80627)
+$(ID:9208dede-7f5f-4a59-8ee6-b80f133f84df)
+
+$(ID:bf1f5526-0216-43f9-8d92-fa5d2886f48c)
+$(ID:ea8ccb4f-2348-4787-9a7d-4ec14e34a83e)
+
+$(ID:f8a8aae6-419b-4069-9b85-001fa961aca1)
+
+* $(ID:8a9b328c-f0fa-4a02-ac01-b706548ef291)
+  
+    * $(ID:9a6ecd8d-b7f4-4ff3-940d-e9f12d6e518c)
+    * $(ID:3d61768b-fa11-4677-80c4-e6026993ee01)
+    * $(ID:b2629ca6-e77e-4fa8-b6f1-09796649bb41)
+  
+$(ID:454322a9-cd9c-4bf0-ba44-812084b59340)
+
+* $(ID:9543e9f1-9eb0-49ce-92bf-c604c5d1357e)
+$(ID:60f193b5-d8a7-4760-845c-ea5229be867e)
+$(ID:a934401b-02d9-41e8-8686-ac4a44b27ef2)
+* $(ID:0f205e90-6312-446c-a7c5-fcb3dc0e084c)
+* $(ID:1fafda8b-4773-4342-98d2-bffd4a2aef05)
+$(ID:47f61d84-9411-4c37-89c3-2f5ea6dc2ba4)
+* $(ID:e1aa31ce-dbde-49b1-acf4-41fd8dccda4b)
+$(ID:52911f02-b112-4c36-b82b-3a1ceba4af6f)
+* $(ID:5011c28b-1f9d-4a84-b32c-4d5bbc46e059)
+$(ID:262978cf-b1e7-4510-bfd7-33b2a6236f72)
+* $(ID:96ffe503-876f-47f9-9eff-2e1c3bc9cefd)
+$(ID:3ab65cfd-dd26-40ea-8cfd-08af385ce9a1)
+* $(ID:31427e9d-0fbf-4908-bdfd-b55eae307cf8)
+$(ID:31b88389-219b-43d7-9176-f66aca0a0b62)
+$(ID:29ed1fed-1517-459d-b77d-8db0268148a5)
+$(ID:ec6270a0-9755-400b-a0a5-6540403aa43e)
+$(ID:e1f1c49d-a2cb-4c80-8945-e368938a310c)
+* $(ID:c82b2b82-9dbd-491b-9e35-a0dd6ab8234e)
+$(ID:a323294d-6630-4d15-8277-566df3cf4888)
+  
+    * $(ID:f3ed3990-896a-4fb3-834a-bf9c26c72f62)
+$(ID:0c850c73-95bf-428f-9009-25e6b270c7e5)
+$(ID:e8fdf89b-cad1-47a8-bfb2-a7fc458382ea)
+$(ID:c3947208-f097-4a15-818d-ecec0578e279)
+    * $(ID:8b58d304-aa4b-4663-b9df-8687b7a78660)
+$(ID:a72d5443-9874-4603-9685-0aa9d87232db)
+$(ID:0f28d153-5481-4297-9129-4e1ba3fd86c4)
+$(ID:dc478fff-d008-46fd-9022-fa49a87d5d46)
+    * $(ID:f4047d43-0430-4651-9de4-ab3db62bbbc9)
+$(ID:e2696005-33e9-45e0-985d-0e0ba1313dd1)
+
+* $(ID:fb30fcc1-b481-4c9d-9357-e871212f3078)
+$(ID:dcc449b7-eda2-417c-96ce-df02e58852a8)
+* $(ID:07d1d196-e7f6-4807-9efb-8a5bd90874d1)
+$(ID:3098d08b-619c-4988-826e-c8f72e6ce72c)
+
+## $(ID:34cdac2a-9b15-42c7-b3b6-961e7f02d679)
+
+$(ID:6b84a277-0484-446c-9ea4-96bf25574759)
+
+* $(ID:68df2dad-22de-4689-8a5a-256e3944166d)
+* $(ID:ef7e1eac-76ee-44fe-a29b-b142db984768)
+
+$(ID:c7142fb8-edcc-42a9-bc9c-22d2c08f11d0)
+
+* $(ID:5b3ac861-61ed-42ca-a0cb-cba49ff67584)
+* $(ID:c1c5393e-4847-4d16-890f-f8bf99165a76)
+* $(ID:cba38848-217a-4dca-989f-a24c0d8f2782)
+* $(ID:7b77939f-eeb7-47dc-9380-d079a97f2c0f)
+$(ID:4a82bc11-5119-4425-bc83-54ae93d986b0)
+* $(ID:2b8ea2a0-3899-40d0-9636-44a9d4008a19)
+* $(ID:8ce872a2-9d88-4f91-a4ed-b47e9bd6d99c)
+* $(ID:6ba65193-6d8b-4782-807b-6d943dbdd4a7)
+* $(ID:5a0a2e52-adfd-45c1-a766-a388cbdc2f72)
+* $(ID:2f60703f-c432-4c27-b12a-499204a60219)
+$(ID:4ceb48aa-c13e-4fd2-90d5-3135fcf93dcd)
+* $(ID:819ffaf0-d51c-4f85-9f82-57dc51c8133e)
+* $(ID:dc55718d-97aa-4716-9383-3122e2cc1468)
+* $(ID:be66c819-cef7-4fae-8896-dd19ad1a8595)
+$(ID:dea49417-8b76-4e2e-a500-ed17cd81f52e)
+* $(ID:84f32c5e-b5b3-4aaa-ae6d-b4ccb6a00258)
+* $(ID:3e0afd5b-fe18-482f-9247-ba9b6cefcb39)
+
+$(ID:c7f0598d-2997-4a39-b3f2-edd8c48fa638)
+$(ID:1ec5abe6-0f03-4b5b-84d7-5bf45c35b883)
+$(ID:1f33aa69-c6df-41d0-a955-0fd6f2593827)
+
+
+## $(ID:ad040e44-a7ba-4da6-a7bc-8ea164fe22a8)
+
+$(ID:0f231a5e-dd0f-4707-a53b-93fca5d874e1)
+
+* $(ID:ccab8979-d55b-409f-a15b-accba058d97b)
+* $(ID:408ab163-0e17-4c73-8d12-5690349edb16)
+* $(ID:b9f548b2-48c9-46a3-abed-a2115f10226f)
+* $(ID:ffc7ae17-6520-471a-a983-ca3f5c1ddf5b)
+* $(ID:3f6d0f11-899d-4201-86fc-da70785161b6)
+* $(ID:d1da96f5-9194-482b-8304-a8e52166a0b3)
+* $(ID:f691a4f0-ed7c-4e51-b281-917a44fc1479)
+* $(ID:5ca81fa0-3f66-45b6-8e92-3e5b87145424)
+* $(ID:fb1e0059-3452-44ca-b174-db52af865ed3)
+* $(ID:b3b76d08-4bb5-4356-aed6-78f59a984c88)
+* $(ID:e7f17166-fbe6-4abb-90f1-6a83493db6ca)
+$(ID:6ea691df-7277-4537-8701-3c180ea481e1)
+* $(ID:2afa53dc-0bd6-4bae-806c-7bb3d298f3c6)
+* $(ID:1986c17f-a712-437f-a042-8644d05d03d5)
+
+$(ID:c900b755-ad08-44a3-8b4f-54922bef7c18)
+
+* $(ID:a038e36b-c62f-42c2-bf78-f0c3d13f5134)
+* $(ID:160d6b61-a541-4a4b-bbd0-45d53a8cb8cf)
+* $(ID:8eed0290-775b-4ed6-bbc9-26eab2860b56)
+* $(ID:8914e569-f2b9-4755-935a-a5059be0eed2)
+
+$(ID:6e7efbfb-ab15-4a4d-97e7-0c407ea919b8)
+
+
+## $(ID:37441670-cd9f-439d-ba25-f7a3e6144404)
+
+* $(ID:cc8e178f-72a4-43fb-b6b6-750abed4d290)
+$(ID:711a866d-1fcc-4347-beff-ad2992b79e6c)
+$(ID:aa53efde-397f-45d4-83ea-585341973756)
+$(ID:ec9f830f-fc89-4309-a997-0a3a7d91ad81)
+* $(ID:3c3c1676-05a8-433f-85df-6ec0eb24ab58)
+$(ID:6e6ec98f-fd91-41d1-8f8b-ea7b683bccad)
+$(ID:ca05fe81-483a-4c20-9766-cd3c894522ca)
+$(ID:231235dc-6f00-4c48-9d5c-436fce89be38)
+  
+    * $(ID:61dc43de-84ab-457f-96d7-1d23a0e0e904)
+    * $(ID:20c4d6e2-4181-442a-9729-68d28f54d587)
+    * $(ID:0150ed52-819f-49cd-8ee2-b231e12f8af3)
+
+* $(ID:08368aef-4894-4776-a562-533d3f188bde)
+
+    * $(ID:9e4db3e7-4276-4366-a63d-1a5f9fc12581)
+    * $(ID:c39f49ec-bb9b-45b7-a2c0-37d258adec62)
+
+* $(ID:e667ef7f-5fb5-4f77-a82a-94b02e09e252)
+$(ID:5b27be2b-a366-4f62-835d-f83d8d1bc52b)
+* $(ID:9376bd6e-7768-4f34-ae69-405a548de15e)
+
+
+## $(ID:4e9940cc-8022-43d5-a010-32ab66e8e03e)
+
+### $(ID:0d8e1c0a-0206-487d-9a3a-7672fd8ef662)
+
+* $(ID:d24880e6-2a00-4c65-8b1c-c13e1ebb27e3)
+* $(ID:438e9dbd-502a-44fd-8eae-671ea983a9f7)
+$(ID:9551e1ed-c140-4246-9422-5ce4d07076e5)
+
+### $(ID:0d21df72-b308-4460-89e0-24caabe0babd)
+
+* $(ID:76eb7c37-4e96-44a1-b03b-2aac09377131)
+* $(ID:efb3471b-d0f0-48f1-ae2c-7a722d10b57b)
+
+### $(ID:f6871a68-29a8-464c-a6c3-7efa7bae2048)
+
+* $(ID:4a792439-ecce-471f-86be-0c2e587ebed6)
+
+### $(ID:5525402e-00fe-40c0-b419-2218fcd8bf83)
+
+* $(ID:0140832e-3e6b-4a41-99c0-8f7fad256286)
+* $(ID:de3de37b-3a91-4a09-9492-7d3bddb47edb)
+
+### $(ID:60df139f-3992-4a62-9459-4745dd75b6d6)
+
+* $(ID:f6f6c032-d3d7-4824-85f1-b9db11f4aa8e)
+
+### $(ID:6df1891b-ac0c-423a-8812-bff6fb4520cc)
+
+* $(ID:c54faf64-7a2b-4855-bbec-3ece58df1840)
+
+### $(ID:486a5b56-6c2f-4421-98e5-2372fcf9e8d3)
+
+* $(ID:5e78ef0c-4ce1-4471-b2a4-787afbf3688e)
+* $(ID:21430e0a-dd65-4fc4-aa1e-622b3a90ae46)
+* $(ID:2caaf52a-aa1a-4a65-953e-98d81364f9de)
+
+### $(ID:17d77a56-6df5-45be-b5d7-2cc52d58e5ee)
+
+* $(ID:cf479460-b448-4893-8a65-01360fd644d7)
+* $(ID:239de328-729f-47c6-92bd-e2e32a9addf4)
+
+### $(ID:de4aa629-cfeb-448b-9fbb-8aa22cd0517e)
+
+* $(ID:9baf8cd7-6be0-418d-9432-15c1c16ef120)
+$(ID:fc391f6c-6161-4df2-a201-da7ca3cb2984)
+* $(ID:4fa5fb8f-558a-4d71-872d-8ba2e3533488)
+
+### $(ID:e2c23f25-6716-44e2-80f7-5dede86fa5cd)
+
+* $(ID:b301077d-826a-4904-a883-ee67ddd21a16)
+* $(ID:b70e271e-0ad8-48c3-b36a-e9bffd3674c7)
+
+### $(ID:b18cb024-4e85-4fa3-9a99-5237bc8f2d82)
+
+* $(ID:4e01b2d1-5a40-4d19-9690-f23ae16a605c)
+* $(ID:0c2c2803-6813-4c04-a0aa-1ec672a02c4c)
+* $(ID:9ca087ec-77ba-4f44-ab0e-0f4e78975b85)
+
+### $(ID:d0dba3ea-bd9a-4385-a4d0-dfcd71f09315)
+
+* $(ID:9f9b7354-367d-41d1-a9a4-3cd8c996a927)
+* $(ID:f7f70a29-3b91-49ec-b373-5e3e0efabc99)
+$(ID:19d99a6f-768e-4947-ae69-40b376bfed59)
+* $(ID:db187338-c7ad-4f31-ba6e-1e3f5c09d2dd)
+* $(ID:c467d095-4e1d-41af-b5f8-8bad44817277)
+* $(ID:a93539e9-9627-4a25-a620-b7f38994840a)
+* $(ID:4f4915e4-9d1b-4f6e-a77b-358688e49b34)
+* $(ID:63808407-32e9-4505-bb15-a8e153c52e5c)
+* $(ID:32d5c956-27fb-4a96-8d29-2bb6c65cac51)
+
+### $(ID:b1587812-e62b-411d-8340-ec12b2a85797)
+
+* $(ID:9436bc2c-bd77-43e8-9158-11a9bd31fa7f)
+* $(ID:66f070f7-6cc7-4a5a-99d9-ab0ebcbe27f8)
+* $(ID:0a94a287-940a-49d4-af03-726912c0e8bf)
+* $(ID:c0498488-82e6-438f-8578-85b265fe336d)
+* $(ID:3ac83db4-1bda-449e-b75f-fcc156c5f6dc)
+* $(ID:9427b790-44ab-486d-a495-5348799b4957)
+* $(ID:324e47e4-74b5-4ac2-9754-4abec538405b)
+* $(ID:b509c47c-6044-4196-953f-3c86264b7453)
+* $(ID:ca0ae877-0464-4846-888d-8e7c619cc8c8)
+
+### $(ID:6ca1100d-af54-427c-bf76-5e340c61d355)
+
+* $(ID:bdab8bea-5fb2-4cd1-8c75-fb56dbba4892)
+
+### $(ID:1cdfe073-a141-4ae0-84e0-288bf1180fa0)
+
+* $(ID:2a75a6b9-7b99-45bd-9aa4-ce6699f8d2c7)
+
+$(ID:e3a717fd-d2be-4f2b-86e0-4a750b8376a3)
+
+$(ID:e77b9e58-e762-40f4-a763-b1fb32d22f85)
+
+$(ID:e558e373-4538-4dec-8801-073b0398995d)
+
+$(ID:dd7879cc-2a20-45de-bf5a-84e0f4e5c4fb)
+
+$(ID:d59d3225-30ed-4882-acef-78dd9838ea38)
+
+$(ID:e736f95c-089d-43bb-aa20-260e93fd4215)
+
+$(ID:a7424199-955e-4ba5-8f53-a345c60cdbff)
+
+</skeleton>
+<unit id="0a7e41d0-cab7-495a-bd45-69a13f6ee7a9">
+<notes>
+<note appliesTo="source">line: 2</note>
+<note appliesTo="source">prefix: # </note>
+</notes>
+<segment>
+<source>Windows Magnifier</source>
+</segment>
+</unit>
+<unit id="63ef4a5e-f059-4971-8d31-93b9dbe94a0d">
+<notes>
+<note appliesTo="source">line: 4</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Author: Cyrille Bougot</source>
+</segment>
+</unit>
+<unit id="537e1c02-631a-4fbd-b480-77279206d403">
+<notes>
+<note appliesTo="source">line: 5</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>NVDA compatibility: 2019.3 and beyond</source>
+</segment>
+</unit>
+<unit id="0cff61b4-78b5-4031-afd6-ffa313644a8e">
+<notes>
+<note appliesTo="source">line: 7</note>
+</notes>
+<segment>
+<source>This add-on improves the use of Windows Magnifier with NVDA.</source>
+</segment>
+</unit>
+<unit id="2faf7f5c-a01c-4c92-adbb-0f7194a38866">
+<notes>
+<note appliesTo="source">line: 10</note>
+<note appliesTo="source">prefix: ## </note>
+</notes>
+<segment>
+<source>Features</source>
+</segment>
+</unit>
+<unit id="ce03aa03-11b6-4325-b8d4-51072e3b4c0a">
+<notes>
+<note appliesTo="source">line: 12</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Allows to report the result of some native Magnifier and color filtering keyboard commands.</source>
+</segment>
+</unit>
+<unit id="fe6eb4ae-ff68-482e-8da4-ab97afc2ff83">
+<notes>
+<note appliesTo="source">line: 13</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Allows to reduce the cases where table navigation commands conflict with Magnifier's commands.</source>
+</segment>
+</unit>
+<unit id="ec8987c1-1948-4e24-8bfa-aaac0ae5b8c6">
+<notes>
+<note appliesTo="source">line: 14</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Adds some keyboard shortcuts to toggle various native options of the Magnifier.</source>
+</segment>
+</unit>
+<unit id="f84fb843-aacd-4372-8fe6-c6c99a3c9d77">
+<notes>
+<note appliesTo="source">line: 15</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Allow to save and restore the configuration parameters of the Magnifier.</source>
+</segment>
+</unit>
+<unit id="2a3349d9-21c6-4058-bb7a-c41341c84a40">
+<notes>
+<note appliesTo="source">line: 16</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Adds some extra features that are not provided by Windows Magnifier (mouse to view, Magnifier window not on top)</source>
+</segment>
+</unit>
+<unit id="554902d6-fd9b-4c5a-bb7c-33acf2375403">
+<notes>
+<note appliesTo="source">line: 18</note>
+<note appliesTo="source">prefix: ## </note>
+</notes>
+<segment>
+<source>Settings</source>
+</segment>
+</unit>
+<unit id="881aded3-581c-45dd-a852-fcecc9c3df21">
+<notes>
+<note appliesTo="source">line: 20</note>
+</notes>
+<segment>
+<source>The setting panel of Windows Magnifier add-on allows to configure how NVDA reacts to native Windows Magnifier commands.</source>
+</segment>
+</unit>
+<unit id="f09273ee-24d5-48a2-aa76-e7914be80627">
+<notes>
+<note appliesTo="source">line: 21</note>
+</notes>
+<segment>
+<source>You may want to have more or less commands reported according to what you are able to see.</source>
+</segment>
+</unit>
+<unit id="9208dede-7f5f-4a59-8ee6-b80f133f84df">
+<notes>
+<note appliesTo="source">line: 22</note>
+</notes>
+<segment>
+<source>The panel also contains an option to modify the behaviour of Windows Magnifier control window.</source>
+</segment>
+</unit>
+<unit id="bf1f5526-0216-43f9-8d92-fa5d2886f48c">
+<notes>
+<note appliesTo="source">line: 24</note>
+</notes>
+<segment>
+<source>This panel may be opened choosing Preferences -&gt; Settings in the NVDA menu and then selecting the Windows Magnifier category in the Settings window.</source>
+</segment>
+</unit>
+<unit id="ea8ccb4f-2348-4787-9a7d-4ec14e34a83e">
+<notes>
+<note appliesTo="source">line: 25</note>
+</notes>
+<segment>
+<source>The keyboard shortcut NVDA+Windows+O then O also allows to open this settings panel directly.</source>
+</segment>
+</unit>
+<unit id="f8a8aae6-419b-4069-9b85-001fa961aca1">
+<notes>
+<note appliesTo="source">line: 27</note>
+</notes>
+<segment>
+<source>The panel contains the following options:</source>
+</segment>
+</unit>
+<unit id="8a9b328c-f0fa-4a02-ac01-b706548ef291">
+<notes>
+<note appliesTo="source">line: 29</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Report view moves: controls what is reported when you move the view with Control+Alt+Arrows commands. The three options are:</source>
+</segment>
+</unit>
+<unit id="9a6ecd8d-b7f4-4ff3-940d-e9f12d6e518c">
+<notes>
+<note appliesTo="source">line: 31</note>
+<note appliesTo="source">prefix:     * </note>
+</notes>
+<segment>
+<source>Off: Nothing is reported.</source>
+</segment>
+</unit>
+<unit id="3d61768b-fa11-4677-80c4-e6026993ee01">
+<notes>
+<note appliesTo="source">line: 32</note>
+<note appliesTo="source">prefix:     * </note>
+</notes>
+<segment>
+<source>With speech: a speech message indicates the position of the zoomed view on the dimension the view is being moved.</source>
+</segment>
+</unit>
+<unit id="b2629ca6-e77e-4fa8-b6f1-09796649bb41">
+<notes>
+<note appliesTo="source">line: 33</note>
+<note appliesTo="source">prefix:     * </note>
+</notes>
+<segment>
+<source>With tones: a tone is played and its pitch indicates the position of the zoomed view on the dimension the view is being moved.</source>
+</segment>
+</unit>
+<unit id="454322a9-cd9c-4bf0-ba44-812084b59340">
+<notes>
+<note appliesTo="source">line: 35</note>
+</notes>
+<segment>
+<source>  This option does not affect docked view mode.</source>
+</segment>
+</unit>
+<unit id="9543e9f1-9eb0-49ce-92bf-c604c5d1357e">
+<notes>
+<note appliesTo="source">line: 37</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Report screen edges: controls what is reported when you reach the edges of the screen while moving the view with Control+Alt+Arrows commands.</source>
+</segment>
+</unit>
+<unit id="60f193b5-d8a7-4760-845c-ea5229be867e">
+<notes>
+<note appliesTo="source">line: 38</note>
+</notes>
+<segment>
+<source>  The three options are: Off, With speech and With tones.</source>
+</segment>
+</unit>
+<unit id="a934401b-02d9-41e8-8686-ac4a44b27ef2">
+<notes>
+<note appliesTo="source">line: 39</note>
+</notes>
+<segment>
+<source>  This option does not affect docked view mode.</source>
+</segment>
+</unit>
+<unit id="0f205e90-6312-446c-a7c5-fcb3dc0e084c">
+<notes>
+<note appliesTo="source">line: 40</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Volume of the tones reporting the position of the view: allows to define the volume of the tones if you have selected to report view moves or screen edges with tones.</source>
+</segment>
+</unit>
+<unit id="1fafda8b-4773-4342-98d2-bffd4a2aef05">
+<notes>
+<note appliesTo="source">line: 41</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Report turn on or off:</source>
+</segment>
+</unit>
+<unit id="47f61d84-9411-4c37-89c3-2f5ea6dc2ba4">
+<notes>
+<note appliesTo="source">line: 42</note>
+</notes>
+<segment>
+<source>  If checked, the Magnifier's state is reported when you use Windows++ or Windows+Escape commands to turn it on or off.</source>
+</segment>
+</unit>
+<unit id="e1aa31ce-dbde-49b1-acf4-41fd8dccda4b">
+<notes>
+<note appliesTo="source">line: 43</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Report zoom:</source>
+</segment>
+</unit>
+<unit id="52911f02-b112-4c36-b82b-3a1ceba4af6f">
+<notes>
+<note appliesTo="source">line: 44</note>
+</notes>
+<segment>
+<source>  If checked, the Magnifier's zoom level is reported when you use `Windows++`, `Windows+-` or `control+alt+-` zoom commands.</source>
+</segment>
+</unit>
+<unit id="5011c28b-1f9d-4a84-b32c-4d5bbc46e059">
+<notes>
+<note appliesTo="source">line: 45</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Report color inversion:</source>
+</segment>
+</unit>
+<unit id="262978cf-b1e7-4510-bfd7-33b2a6236f72">
+<notes>
+<note appliesTo="source">line: 46</note>
+</notes>
+<segment>
+<source>  If checked, the color inversion state is reported when you use the control+Alt+I toggle command.</source>
+</segment>
+</unit>
+<unit id="96ffe503-876f-47f9-9eff-2e1c3bc9cefd">
+<notes>
+<note appliesTo="source">line: 47</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Report view change:</source>
+</segment>
+</unit>
+<unit id="3ab65cfd-dd26-40ea-8cfd-08af385ce9a1">
+<notes>
+<note appliesTo="source">line: 48</note>
+</notes>
+<segment>
+<source>  If checked, the view type is reported when you use a command that changes the view type (Control+Alt+M, Control+Alt+F, Control+Alt+D, Control+Alt+L)</source>
+</segment>
+</unit>
+<unit id="31427e9d-0fbf-4908-bdfd-b55eae307cf8">
+<notes>
+<note appliesTo="source">line: 49</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Report lens or docked window resizing:</source>
+</segment>
+</unit>
+<unit id="31b88389-219b-43d7-9176-f66aca0a0b62">
+<notes>
+<note appliesTo="source">line: 50</note>
+</notes>
+<segment>
+<source>  If checked, a message is reported when you use the resizing commands (Alt+Shift+Arrows).</source>
+</segment>
+</unit>
+<unit id="29ed1fed-1517-459d-b77d-8db0268148a5">
+<notes>
+<note appliesTo="source">line: 51</note>
+</notes>
+<segment>
+<source>  In docked window mode, the height or the width is reported.</source>
+</segment>
+</unit>
+<unit id="ec6270a0-9755-400b-a0a5-6540403aa43e">
+<notes>
+<note appliesTo="source">line: 52</note>
+</notes>
+<segment>
+<source>  In lens mode, the new dimension cannot be reported for now.</source>
+</segment>
+</unit>
+<unit id="e1f1c49d-a2cb-4c80-8945-e368938a310c">
+<notes>
+<note appliesTo="source">line: 53</note>
+</notes>
+<segment>
+<source>  These resizing command do not seem to be available on all versions of Windows; if your Windows version does not support them, you should keep this option unchecked.</source>
+</segment>
+</unit>
+<unit id="c82b2b82-9dbd-491b-9e35-a0dd6ab8234e">
+<notes>
+<note appliesTo="source">line: 54</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>In documents and list views, pass control+alt+arrows shortcuts to Windows Magnifier:</source>
+</segment>
+</unit>
+<unit id="a323294d-6630-4d15-8277-566df3cf4888">
+<notes>
+<note appliesTo="source">line: 55</note>
+</notes>
+<segment>
+<source>  There are three possible choices:</source>
+</segment>
+</unit>
+<unit id="f3ed3990-896a-4fb3-834a-bf9c26c72f62">
+<notes>
+<note appliesTo="source">line: 57</note>
+<note appliesTo="source">prefix:     * </note>
+</notes>
+<segment>
+<source>Never: The command is not passed to Windows Magnifier and standard NVDA table navigation can operate.</source>
+</segment>
+</unit>
+<unit id="0c850c73-95bf-428f-9009-25e6b270c7e5">
+<notes>
+<note appliesTo="source">line: 58</note>
+</notes>
+<segment>
+<source>      When used in documents out of a table, the Control+Alt+Arrow command reports a "Not in a table" error message.</source>
+</segment>
+</unit>
+<unit id="e8fdf89b-cad1-47a8-bfb2-a7fc458382ea">
+<notes>
+<note appliesTo="source">line: 59</note>
+</notes>
+<segment>
+<source>      This is the standard behaviour of NVDA without this add-on.</source>
+</segment>
+</unit>
+<unit id="c3947208-f097-4a15-818d-ecec0578e279">
+<notes>
+<note appliesTo="source">line: 60</note>
+</notes>
+<segment>
+<source>      You can still use NVDA+Windows+O then arrows to move the magnified view.</source>
+</segment>
+</unit>
+<unit id="8b58d304-aa4b-4663-b9df-8687b7a78660">
+<notes>
+<note appliesTo="source">line: 61</note>
+<note appliesTo="source">prefix:     * </note>
+</notes>
+<segment>
+<source>Only when not in table: In table or in list views, Control+Alt+Arrow commands perform standard table navigation.</source>
+</segment>
+</unit>
+<unit id="a72d5443-9874-4603-9685-0aa9d87232db">
+<notes>
+<note appliesTo="source">line: 62</note>
+</notes>
+<segment>
+<source>      When used in documents out of a table, Control+Alt+Arrow commands perform standard Magnifier view move commands.</source>
+</segment>
+</unit>
+<unit id="0f28d153-5481-4297-9129-4e1ba3fd86c4">
+<notes>
+<note appliesTo="source">line: 63</note>
+</notes>
+<segment>
+<source>      If you still want to move Windows Magnifier view while in table or in list view, you will need to press NVDA+F2 before using Control+Alt+Arrow commands or alternately use NVDA+Windows+O then arrows.</source>
+</segment>
+</unit>
+<unit id="dc478fff-d008-46fd-9022-fa49a87d5d46">
+<notes>
+<note appliesTo="source">line: 64</note>
+</notes>
+<segment>
+<source>      This option is the best compromise if you want to use Control+Alt+Arrow for both Magnifier and table navigation.</source>
+</segment>
+</unit>
+<unit id="f4047d43-0430-4651-9de4-ab3db62bbbc9">
+<notes>
+<note appliesTo="source">line: 65</note>
+<note appliesTo="source">prefix:     * </note>
+</notes>
+<segment>
+<source>Always: Control+Alt+Arrow commands moves the Magnifier's view in any case.</source>
+</segment>
+</unit>
+<unit id="e2696005-33e9-45e0-985d-0e0ba1313dd1">
+<notes>
+<note appliesTo="source">line: 66</note>
+</notes>
+<segment>
+<source>      This option may be useful if you do not use Control+Alt+Arrow to navigate in table, e.g. because you have changed table navigation shortcuts in NVDA or because you exclusively use Easy table navigator add-on for table navigation.</source>
+</segment>
+</unit>
+<unit id="fb30fcc1-b481-4c9d-9357-e871212f3078">
+<notes>
+<note appliesTo="source">line: 68</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Keep Windows Magnifier command window always on top:</source>
+</segment>
+</unit>
+<unit id="dcc449b7-eda2-417c-96ce-df02e58852a8">
+<notes>
+<note appliesTo="source">line: 69</note>
+</notes>
+<segment>
+<source>  If unchecked, the Magnifier's control window will not be kept always on top of other windows.</source>
+</segment>
+</unit>
+<unit id="07d1d196-e7f6-4807-9efb-8a5bd90874d1">
+<notes>
+<note appliesTo="source">line: 70</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Report color filter</source>
+</segment>
+</unit>
+<unit id="3098d08b-619c-4988-826e-c8f72e6ce72c">
+<notes>
+<note appliesTo="source">line: 71</note>
+</notes>
+<segment>
+<source>  If checked, the used color filter is reported when you use the `Windows+Control+C` toggle command.</source>
+</segment>
+</unit>
+<unit id="34cdac2a-9b15-42c7-b3b6-961e7f02d679">
+<notes>
+<note appliesTo="source">line: 73</note>
+<note appliesTo="source">prefix: ## </note>
+</notes>
+<segment>
+<source>Commands added by this add-on</source>
+</segment>
+</unit>
+<unit id="6b84a277-0484-446c-9ea4-96bf25574759">
+<notes>
+<note appliesTo="source">line: 75</note>
+</notes>
+<segment>
+<source>In addition to native Magnifier commands, this add-on provide additional commands:</source>
+</segment>
+</unit>
+<unit id="68df2dad-22de-4689-8a5a-256e3944166d">
+<notes>
+<note appliesTo="source">line: 77</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Commands that allow to control Magnifier's options without opening its configuration page.</source>
+</segment>
+</unit>
+<unit id="ef7e1eac-76ee-44fe-a29b-b142db984768">
+<notes>
+<note appliesTo="source">line: 78</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Extra commands specific to this add-on.</source>
+</segment>
+</unit>
+<unit id="c7142fb8-edcc-42a9-bc9c-22d2c08f11d0">
+<notes>
+<note appliesTo="source">line: 80</note>
+</notes>
+<segment>
+<source>All these additional commands are accessible through the Magnifier layer command NVDA+Windows+O:</source>
+</segment>
+</unit>
+<unit id="5b3ac861-61ed-42ca-a0cb-cba49ff67584">
+<notes>
+<note appliesTo="source">line: 82</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>NVDA+Windows+O then C: Toggles on or off caret tracking.</source>
+</segment>
+</unit>
+<unit id="c1c5393e-4847-4d16-890f-f8bf99165a76">
+<notes>
+<note appliesTo="source">line: 83</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>NVDA+Windows+O then F: Toggles on or off focus tracking.</source>
+</segment>
+</unit>
+<unit id="cba38848-217a-4dca-989f-a24c0d8f2782">
+<notes>
+<note appliesTo="source">line: 84</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>NVDA+Windows+O then M: Toggles on or off mouse tracking.</source>
+</segment>
+</unit>
+<unit id="7b77939f-eeb7-47dc-9380-d079a97f2c0f">
+<notes>
+<note appliesTo="source">line: 85</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>NVDA+Windows+O then T: Toggles on or off tracking globally.</source>
+</segment>
+</unit>
+<unit id="4a82bc11-5119-4425-bc83-54ae93d986b0">
+<notes>
+<note appliesTo="source">line: 86</note>
+</notes>
+<segment>
+<source>  When tracking is toggled on again, it is set to the last active tracking configuration before tracking was toggled off.</source>
+</segment>
+</unit>
+<unit id="2b8ea2a0-3899-40d0-9636-44a9d4008a19">
+<notes>
+<note appliesTo="source">line: 87</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>NVDA+Windows+O then S: Toggles on or off smoothing.</source>
+</segment>
+</unit>
+<unit id="8ce872a2-9d88-4f91-a4ed-b47e9bd6d99c">
+<notes>
+<note appliesTo="source">line: 88</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>NVDA+Windows+O then R: Switches between mouse pointer tracking modes (within the edge of the screen or centered on the screen); this feature is only available on Windows 10 build 17643 or higher.</source>
+</segment>
+</unit>
+<unit id="6ba65193-6d8b-4782-807b-6d943dbdd4a7">
+<notes>
+<note appliesTo="source">line: 89</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>NVDA+Windows+O then X: Switches between text cursor tracking modes (within the edge of the screen or centered on the screen); this feature is only available on Windows 10 build 18894 or higher.</source>
+</segment>
+</unit>
+<unit id="5a0a2e52-adfd-45c1-a766-a388cbdc2f72">
+<notes>
+<note appliesTo="source">line: 90</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>NVDA+Windows+O then shift+P: Saves the current configuration parameters of the magnifier to NVDA's configuration.</source>
+</segment>
+</unit>
+<unit id="2f60703f-c432-4c27-b12a-499204a60219">
+<notes>
+<note appliesTo="source">line: 91</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>NVDA+Windows+O then P: Restores the current configuration parameters of the magnifier from NVDA's configuration.</source>
+</segment>
+</unit>
+<unit id="4ceb48aa-c13e-4fd2-90d5-3135fcf93dcd">
+<notes>
+<note appliesTo="source">line: 92</note>
+</notes>
+<segment>
+<source>  If no configuration parameters has been previously saved to NVDA's configuration, the default configuration parameters of Windows Magnifier are restored instead.</source>
+</segment>
+</unit>
+<unit id="819ffaf0-d51c-4f85-9f82-57dc51c8133e">
+<notes>
+<note appliesTo="source">line: 93</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>NVDA+Windows+O then Arrows: Move the magnified view.</source>
+</segment>
+</unit>
+<unit id="dc55718d-97aa-4716-9383-3122e2cc1468">
+<notes>
+<note appliesTo="source">line: 94</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>NVDA+Windows+O then V: Moves the mouse cursor in the center of the magnified view (command not available in docked view mode).</source>
+</segment>
+</unit>
+<unit id="be66c819-cef7-4fae-8896-dd19ad1a8595">
+<notes>
+<note appliesTo="source">line: 95</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>NVDA+Windows+O then W: Switches on or off the mode allowing to keep Windows Magnifier's control window always on top of the other ones.</source>
+</segment>
+</unit>
+<unit id="dea49417-8b76-4e2e-a500-ed17cd81f52e">
+<notes>
+<note appliesTo="source">line: 96</note>
+</notes>
+<segment>
+<source>  This feature is only available for installed versions of NVDA.</source>
+</segment>
+</unit>
+<unit id="84f32c5e-b5b3-4aaa-ae6d-b4ccb6a00258">
+<notes>
+<note appliesTo="source">line: 97</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>NVDA+Windows+O then O: Opens Windows Magnifier add-on settings.</source>
+</segment>
+</unit>
+<unit id="3e0afd5b-fe18-482f-9247-ba9b6cefcb39">
+<notes>
+<note appliesTo="source">line: 98</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>NVDA+Windows+O then H: Displays help on Magnifier layer commands.</source>
+</segment>
+</unit>
+<unit id="c7f0598d-2997-4a39-b3f2-edd8c48fa638">
+<notes>
+<note appliesTo="source">line: 100</note>
+</notes>
+<segment>
+<source>There is no default direct gesture for each command, but you can attribute one normally in the input gesture dialog if you wish.</source>
+</segment>
+</unit>
+<unit id="1ec5abe6-0f03-4b5b-84d7-5bf45c35b883">
+<notes>
+<note appliesTo="source">line: 101</note>
+</notes>
+<segment>
+<source>The same way, You can also modify or delete the Magnifier layer access gesture (NVDA+Windows+O).</source>
+</segment>
+</unit>
+<unit id="1f33aa69-c6df-41d0-a955-0fd6f2593827">
+<notes>
+<note appliesTo="source">line: 102</note>
+</notes>
+<segment>
+<source>Yet, you cannot modify the shortcut key of the Magnifier layer sub-commands.</source>
+</segment>
+</unit>
+<unit id="ad040e44-a7ba-4da6-a7bc-8ea164fe22a8">
+<notes>
+<note appliesTo="source">line: 105</note>
+<note appliesTo="source">prefix: ## </note>
+</notes>
+<segment>
+<source>Magnifier's native commands</source>
+</segment>
+</unit>
+<unit id="0f231a5e-dd0f-4707-a53b-93fca5d874e1">
+<notes>
+<note appliesTo="source">line: 107</note>
+</notes>
+<segment>
+<source>The result of the following Magnifier native commands, or other Accessibility commands, may be reported by this add-on, according to its configuration:</source>
+</segment>
+</unit>
+<unit id="ccab8979-d55b-409f-a15b-accba058d97b">
+<notes>
+<note appliesTo="source">line: 109</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Start Magnifier: Windows++ (on alpha-numeric keyboard or on numpad)</source>
+</segment>
+</unit>
+<unit id="408ab163-0e17-4c73-8d12-5690349edb16">
+<notes>
+<note appliesTo="source">line: 110</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Quit Magnifier: Windows+Escape</source>
+</segment>
+</unit>
+<unit id="b9f548b2-48c9-46a3-abed-a2115f10226f">
+<notes>
+<note appliesTo="source">line: 111</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Zoom in: Windows++ (on alpha-numeric keyboard or on numpad)</source>
+</segment>
+</unit>
+<unit id="ffc7ae17-6520-471a-a983-ca3f5c1ddf5b">
+<notes>
+<note appliesTo="source">line: 112</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Zoom out: Windows+- (on alpha-numeric keyboard or on numpad)</source>
+</segment>
+</unit>
+<unit id="3f6d0f11-899d-4201-86fc-da70785161b6">
+<notes>
+<note appliesTo="source">line: 113</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Toggle between the set magnification level and 1x magnification: `control+alt+-` (on alpha-numeric keyboard or on numpad)</source>
+</segment>
+</unit>
+<unit id="d1da96f5-9194-482b-8304-a8e52166a0b3">
+<notes>
+<note appliesTo="source">line: 114</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Toggle color inversion: Control+Alt+I</source>
+</segment>
+</unit>
+<unit id="f691a4f0-ed7c-4e51-b281-917a44fc1479">
+<notes>
+<note appliesTo="source">line: 115</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Select the docked view: Control+Alt+D</source>
+</segment>
+</unit>
+<unit id="5ca81fa0-3f66-45b6-8e92-3e5b87145424">
+<notes>
+<note appliesTo="source">line: 116</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Select the full screen view: Control+Alt+F</source>
+</segment>
+</unit>
+<unit id="fb1e0059-3452-44ca-b174-db52af865ed3">
+<notes>
+<note appliesTo="source">line: 117</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Select the lens view: Control+Alt+L</source>
+</segment>
+</unit>
+<unit id="b3b76d08-4bb5-4356-aed6-78f59a984c88">
+<notes>
+<note appliesTo="source">line: 118</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Cycle through the three view types: Control+Alt+M</source>
+</segment>
+</unit>
+<unit id="e7f17166-fbe6-4abb-90f1-6a83493db6ca">
+<notes>
+<note appliesTo="source">line: 119</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Resize the lens with the keyboard: Shift+Alt+Left/Right/Up/DownArrow</source>
+</segment>
+</unit>
+<unit id="6ea691df-7277-4537-8701-3c180ea481e1">
+<notes>
+<note appliesTo="source">line: 120</note>
+</notes>
+<segment>
+<source>  Note: although this does not seem to be documented, this shortcut seems to have been withdrawn in recent Windows versions such as Windows 10 2004.</source>
+</segment>
+</unit>
+<unit id="2afa53dc-0bd6-4bae-806c-7bb3d298f3c6">
+<notes>
+<note appliesTo="source">line: 121</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Move the magnified view: Control+Alt+Arrows</source>
+</segment>
+</unit>
+<unit id="1986c17f-a712-437f-a042-8644d05d03d5">
+<notes>
+<note appliesTo="source">line: 122</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Toggle color filters: `Windows+Control+C` (provided you have enabled this shortcut in [Windows Accessibility settings, Color Filters][9])</source>
+</segment>
+</unit>
+<unit id="c900b755-ad08-44a3-8b4f-54922bef7c18">
+<notes>
+<note appliesTo="source">line: 124</note>
+</notes>
+<segment>
+<source>Here is also a list of other Magnifier native commands, just for information:</source>
+</segment>
+</unit>
+<unit id="a038e36b-c62f-42c2-bf78-f0c3d13f5134">
+<notes>
+<note appliesTo="source">line: 126</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Control+Alt+mouseScrollWheel: Zooms in and out using the mouse scroll wheel.</source>
+</segment>
+</unit>
+<unit id="160d6b61-a541-4a4b-bbd0-45d53a8cb8cf">
+<notes>
+<note appliesTo="source">line: 127</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Control+Windows+M: Opens the Magnifier's settings window.</source>
+</segment>
+</unit>
+<unit id="8eed0290-775b-4ed6-bbc9-26eab2860b56">
+<notes>
+<note appliesTo="source">line: 128</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Control+Alt+R: Resizes the lens with the mouse.</source>
+</segment>
+</unit>
+<unit id="8914e569-f2b9-4755-935a-a5059be0eed2">
+<notes>
+<note appliesTo="source">line: 129</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Control+Alt+Space: Quickly shows the entire desktop when using full screen view.</source>
+</segment>
+</unit>
+<unit id="6e7efbfb-ab15-4a4d-97e7-0c407ea919b8">
+<notes>
+<note appliesTo="source">line: 131</note>
+</notes>
+<segment>
+<source>None of the Magnifier native commands can be modified.</source>
+</segment>
+</unit>
+<unit id="37441670-cd9f-439d-ba25-f7a3e6144404">
+<notes>
+<note appliesTo="source">line: 134</note>
+<note appliesTo="source">prefix: ## </note>
+</notes>
+<segment>
+<source>Notes</source>
+</segment>
+</unit>
+<unit id="cc8e178f-72a4-43fb-b6b6-750abed4d290">
+<notes>
+<note appliesTo="source">line: 136</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>For computers equipped with an Intel graphic card, control+alt+arrow (left/right/up/down) are also shortcuts to modify the orientation of the screen.</source>
+</segment>
+</unit>
+<unit id="711a866d-1fcc-4347-beff-ad2992b79e6c">
+<notes>
+<note appliesTo="source">line: 137</note>
+</notes>
+<segment>
+<source>  These shortcut are enabled by default and conflict with Windows Magnifiers shortcuts to move the view.</source>
+</segment>
+</unit>
+<unit id="aa53efde-397f-45d4-83ea-585341973756">
+<notes>
+<note appliesTo="source">line: 138</note>
+</notes>
+<segment>
+<source>  You will need to disable them to be able to use them for the Magnifier.</source>
+</segment>
+</unit>
+<unit id="ec9f830f-fc89-4309-a997-0a3a7d91ad81">
+<notes>
+<note appliesTo="source">line: 139</note>
+</notes>
+<segment>
+<source>  They can be disabled in the Intel control panel or in the Intel menu present in the system tray.</source>
+</segment>
+</unit>
+<unit id="3c3c1676-05a8-433f-85df-6ec0eb24ab58">
+<notes>
+<note appliesTo="source">line: 140</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Depending on your Windows version, Alt+Shift+Arrow are Windows Magnifier shortcuts to resize the magnified view (lens or docked).</source>
+</segment>
+</unit>
+<unit id="6e6ec98f-fd91-41d1-8f8b-ea7b683bccad">
+<notes>
+<note appliesTo="source">line: 141</note>
+</notes>
+<segment>
+<source>  When Magnifier is active (even in full screen mode), these shortcuts are captured by Magnifier and cannot be passed to the application, even if you press NVDA+F2 before.</source>
+</segment>
+</unit>
+<unit id="ca05fe81-483a-4c20-9766-cd3c894522ca">
+<notes>
+<note appliesTo="source">line: 142</note>
+</notes>
+<segment>
+<source>  To use these shortcuts in the current application, you need to quit the Magnifier (Windows+Escape) and re-open it after (Windows++).</source>
+</segment>
+</unit>
+<unit id="231235dc-6f00-4c48-9d5c-436fce89be38">
+<notes>
+<note appliesTo="source">line: 143</note>
+</notes>
+<segment>
+<source>  For example in MS word, to decrease title level:</source>
+</segment>
+</unit>
+<unit id="61dc43de-84ab-457f-96d7-1d23a0e0e904">
+<notes>
+<note appliesTo="source">line: 145</note>
+<note appliesTo="source">prefix:     * </note>
+</notes>
+<segment>
+<source>Press Windows+Escape to quit Magnifier.</source>
+</segment>
+</unit>
+<unit id="20c4d6e2-4181-442a-9729-68d28f54d587">
+<notes>
+<note appliesTo="source">line: 146</note>
+<note appliesTo="source">prefix:     * </note>
+</notes>
+<segment>
+<source>Press Alt+Shift+RightArrow to decrease current title level.</source>
+</segment>
+</unit>
+<unit id="0150ed52-819f-49cd-8ee2-b231e12f8af3">
+<notes>
+<note appliesTo="source">line: 147</note>
+<note appliesTo="source">prefix:     * </note>
+</notes>
+<segment>
+<source>Press Windows++ to re-open the Magnifier.</source>
+</segment>
+</unit>
+<unit id="08368aef-4894-4776-a562-533d3f188bde">
+<notes>
+<note appliesTo="source">line: 149</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>For more information about Windows Magnifier's features and shortcuts, you may want to consult the following pages:</source>
+</segment>
+</unit>
+<unit id="9e4db3e7-4276-4366-a63d-1a5f9fc12581">
+<notes>
+<note appliesTo="source">line: 151</note>
+<note appliesTo="source">prefix:     * </note>
+</notes>
+<segment>
+<source>[Use Magnifier to make things on the screen easier to see](https://support.microsoft.com/en-us/help/11542/windows-use-magnifier-to-make-things-easier-to-see)</source>
+</segment>
+</unit>
+<unit id="c39f49ec-bb9b-45b7-a2c0-37d258adec62">
+<notes>
+<note appliesTo="source">line: 152</note>
+<note appliesTo="source">prefix:     * </note>
+</notes>
+<segment>
+<source>[Windows keyboard shortcuts for accessibility][4]</source>
+</segment>
+</unit>
+<unit id="e667ef7f-5fb5-4f77-a82a-94b02e09e252">
+<notes>
+<note appliesTo="source">line: 154</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>This add-on has not been tested in multi-screen environment and there are chances that some feature are not working in this environment.</source>
+</segment>
+</unit>
+<unit id="5b27be2b-a366-4f62-835d-f83d8d1bc52b">
+<notes>
+<note appliesTo="source">line: 155</note>
+</notes>
+<segment>
+<source>  If you are using multi-screen environment and want it to be supported, please contact me to have it implemented.</source>
+</segment>
+</unit>
+<unit id="9376bd6e-7768-4f34-ae69-405a548de15e">
+<notes>
+<note appliesTo="source">line: 156</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>More generally, do not hesitate to contact me on the [GitHub page][3] of this add-on or directly by e-mail.</source>
+</segment>
+</unit>
+<unit id="4e9940cc-8022-43d5-a010-32ab66e8e03e">
+<notes>
+<note appliesTo="source">line: 159</note>
+<note appliesTo="source">prefix: ## </note>
+</notes>
+<segment>
+<source>Change log</source>
+</segment>
+</unit>
+<unit id="0d8e1c0a-0206-487d-9a3a-7672fd8ef662">
+<notes>
+<note appliesTo="source">line: 161</note>
+<note appliesTo="source">prefix: ### </note>
+</notes>
+<segment>
+<source>Version 4.4</source>
+</segment>
+</unit>
+<unit id="d24880e6-2a00-4c65-8b1c-c13e1ebb27e3">
+<notes>
+<note appliesTo="source">line: 163</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>The add-on is now compatible with NVDA 2026.1.</source>
+</segment>
+</unit>
+<unit id="438e9dbd-502a-44fd-8eae-671ea983a9f7">
+<notes>
+<note appliesTo="source">line: 164</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>The add-on is no longer compatible with NVDA 2019.2.1: it is now only compatible with NVDA 2019.3 and beyond.</source>
+</segment>
+</unit>
+<unit id="9551e1ed-c140-4246-9422-5ce4d07076e5">
+<notes>
+<note appliesTo="source">line: 165</note>
+</notes>
+<segment>
+<source>  The last compatible versions with NVDA 2019.2.1 is the [4.3][10].</source>
+</segment>
+</unit>
+<unit id="0d21df72-b308-4460-89e0-24caabe0babd">
+<notes>
+<note appliesTo="source">line: 167</note>
+<note appliesTo="source">prefix: ### </note>
+</notes>
+<segment>
+<source>Version 4.3</source>
+</segment>
+</unit>
+<unit id="76eb7c37-4e96-44a1-b03b-2aac09377131">
+<notes>
+<note appliesTo="source">line: 169</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Support the new magnifier command to toggle between the set magnification level and 1x magnification.</source>
+</segment>
+</unit>
+<unit id="efb3471b-d0f0-48f1-ae2c-7a722d10b57b">
+<notes>
+<note appliesTo="source">line: 170</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Prepare compatibility with NVDA 2026.1.</source>
+</segment>
+</unit>
+<unit id="f6871a68-29a8-464c-a6c3-7efa7bae2048">
+<notes>
+<note appliesTo="source">line: 172</note>
+<note appliesTo="source">prefix: ### </note>
+</notes>
+<segment>
+<source>Version 4.2</source>
+</segment>
+</unit>
+<unit id="4a792439-ecce-471f-86be-0c2e587ebed6">
+<notes>
+<note appliesTo="source">line: 174</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Magnifier or Color filtering commands will no longer fail if used for the first time with this add-on running.</source>
+</segment>
+</unit>
+<unit id="5525402e-00fe-40c0-b419-2218fcd8bf83">
+<notes>
+<note appliesTo="source">line: 176</note>
+<note appliesTo="source">prefix: ### </note>
+</notes>
+<segment>
+<source>Version 4.0</source>
+</segment>
+</unit>
+<unit id="0140832e-3e6b-4a41-99c0-8f7fad256286">
+<notes>
+<note appliesTo="source">line: 178</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>The filter enabled by the toggle color filter command (`Windows+Control+C`) can now be reported; this toggle command should have been previously enabled in Windows Accessibility settings.</source>
+</segment>
+</unit>
+<unit id="de3de37b-3a91-4a09-9492-7d3bddb47edb">
+<notes>
+<note appliesTo="source">line: 179</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Compatibility with NVDA 2025.1.</source>
+</segment>
+</unit>
+<unit id="60df139f-3992-4a62-9459-4745dd75b6d6">
+<notes>
+<note appliesTo="source">line: 181</note>
+<note appliesTo="source">prefix: ### </note>
+</notes>
+<segment>
+<source>Version 3.7</source>
+</segment>
+</unit>
+<unit id="f6f6c032-d3d7-4824-85f1-b9db11f4aa8e">
+<notes>
+<note appliesTo="source">line: 183</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Compatibility with NVDA 2024.1.</source>
+</segment>
+</unit>
+<unit id="6df1891b-ac0c-423a-8812-bff6fb4520cc">
+<notes>
+<note appliesTo="source">line: 185</note>
+<note appliesTo="source">prefix: ### </note>
+</notes>
+<segment>
+<source>Version 3.6</source>
+</segment>
+</unit>
+<unit id="c54faf64-7a2b-4855-bbec-3ece58df1840">
+<notes>
+<note appliesTo="source">line: 187</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Fixed erroneous compatibility range.</source>
+</segment>
+</unit>
+<unit id="486a5b56-6c2f-4421-98e5-2372fcf9e8d3">
+<notes>
+<note appliesTo="source">line: 189</note>
+<note appliesTo="source">prefix: ### </note>
+</notes>
+<segment>
+<source>Version 3.5</source>
+</segment>
+</unit>
+<unit id="5e78ef0c-4ce1-4471-b2a4-787afbf3688e">
+<notes>
+<note appliesTo="source">line: 191</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Prepares compatibility with NVDA 2024.1.</source>
+</segment>
+</unit>
+<unit id="21430e0a-dd65-4fc4-aa1e-622b3a90ae46">
+<notes>
+<note appliesTo="source">line: 192</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Addresses potential security issues related to [GHSA-xg6w-23rw-39r8][8] when using the add-on with older versions of NVDA. However, it is recommended to use NVDA 2023.3.3 or higher.</source>
+</segment>
+</unit>
+<unit id="2caaf52a-aa1a-4a65-953e-98d81364f9de">
+<notes>
+<note appliesTo="source">line: 193</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Note: From now on, translation updates will not appear anymore in the change log.</source>
+</segment>
+</unit>
+<unit id="17d77a56-6df5-45be-b5d7-2cc52d58e5ee">
+<notes>
+<note appliesTo="source">line: 195</note>
+<note appliesTo="source">prefix: ### </note>
+</notes>
+<segment>
+<source>Version 3.4</source>
+</segment>
+</unit>
+<unit id="cf479460-b448-4893-8a65-01360fd644d7">
+<notes>
+<note appliesTo="source">line: 197</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>The "move mouse to view" command works again</source>
+</segment>
+</unit>
+<unit id="239de328-729f-47c6-92bd-e2e32a9addf4">
+<notes>
+<note appliesTo="source">line: 198</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Updated localizations.</source>
+</segment>
+</unit>
+<unit id="de4aa629-cfeb-448b-9fbb-8aa22cd0517e">
+<notes>
+<note appliesTo="source">line: 200</note>
+<note appliesTo="source">prefix: ### </note>
+</notes>
+<segment>
+<source>Version 3.3</source>
+</segment>
+</unit>
+<unit id="9baf8cd7-6be0-418d-9432-15c1c16ef120">
+<notes>
+<note appliesTo="source">line: 202</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Compatibility reduced to NVDA 2019.2.1 and beyond.</source>
+</segment>
+</unit>
+<unit id="fc391f6c-6161-4df2-a201-da7ca3cb2984">
+<notes>
+<note appliesTo="source">line: 203</note>
+</notes>
+<segment>
+<source>  The last compatible versions with NVDA 2018.3 are the [3.2][7] (partially compatible) and [1.1][6] (fully compatible)</source>
+</segment>
+</unit>
+<unit id="4fa5fb8f-558a-4d71-872d-8ba2e3533488">
+<notes>
+<note appliesTo="source">line: 204</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Fixed a bug in the settings panel with NVDA 2019.2.1.</source>
+</segment>
+</unit>
+<unit id="e2c23f25-6716-44e2-80f7-5dede86fa5cd">
+<notes>
+<note appliesTo="source">line: 206</note>
+<note appliesTo="source">prefix: ### </note>
+</notes>
+<segment>
+<source>Version 3.2</source>
+</segment>
+</unit>
+<unit id="b301077d-826a-4904-a883-ee67ddd21a16">
+<notes>
+<note appliesTo="source">line: 208</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Removed the dev channel.</source>
+</segment>
+</unit>
+<unit id="b70e271e-0ad8-48c3-b36a-e9bffd3674c7">
+<notes>
+<note appliesTo="source">line: 209</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Updated localizations.</source>
+</segment>
+</unit>
+<unit id="b18cb024-4e85-4fa3-9a99-5237bc8f2d82">
+<notes>
+<note appliesTo="source">line: 211</note>
+<note appliesTo="source">prefix: ### </note>
+</notes>
+<segment>
+<source>Version 3.1</source>
+</segment>
+</unit>
+<unit id="4e01b2d1-5a40-4d19-9690-f23ae16a605c">
+<notes>
+<note appliesTo="source">line: 213</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Fixed an issue preventing the Magnifier's command window from being restored on top.</source>
+</segment>
+</unit>
+<unit id="0c2c2803-6813-4c04-a0aa-1ec672a02c4c">
+<notes>
+<note appliesTo="source">line: 214</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Fixed an issue preventing the add-on to run on NVDA 2019.2.1.</source>
+</segment>
+</unit>
+<unit id="9ca087ec-77ba-4f44-ab0e-0f4e78975b85">
+<notes>
+<note appliesTo="source">line: 215</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Updated localizations.</source>
+</segment>
+</unit>
+<unit id="d0dba3ea-bd9a-4385-a4d0-dfcd71f09315">
+<notes>
+<note appliesTo="source">line: 217</note>
+<note appliesTo="source">prefix: ### </note>
+</notes>
+<segment>
+<source>Version 3.0</source>
+</segment>
+</unit>
+<unit id="9f9b7354-367d-41d1-a9a4-3cd8c996a927">
+<notes>
+<note appliesTo="source">line: 219</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Pressing the zoom buttons in the Magnifier window (with the keyboard) now reports the new zoom level.</source>
+</segment>
+</unit>
+<unit id="f7f70a29-3b91-49ec-b373-5e3e0efabc99">
+<notes>
+<note appliesTo="source">line: 220</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>The parameter controlling if Magnifier control window remains always on top is now stored in configuration;</source>
+</segment>
+</unit>
+<unit id="19d99a6f-768e-4947-ae69-40b376bfed59">
+<notes>
+<note appliesTo="source">line: 221</note>
+</notes>
+<segment>
+<source>  this means that this parameter is remembered when restarting NVDA and can be enabled or not depending on the active profile.</source>
+</segment>
+</unit>
+<unit id="db187338-c7ad-4f31-ba6e-1e3f5c09d2dd">
+<notes>
+<note appliesTo="source">line: 222</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Fixed a bug causing unexpected screen curtain de-activation when using move to view or move view commands.</source>
+</segment>
+</unit>
+<unit id="c467d095-4e1d-41af-b5f8-8bad44817277">
+<notes>
+<note appliesTo="source">line: 223</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Option alwaysOnTop setting will now be honoured also when changing magnification mode.</source>
+</segment>
+</unit>
+<unit id="a93539e9-9627-4a25-a620-b7f38994840a">
+<notes>
+<note appliesTo="source">line: 224</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Added ability to save and restore Windows Magnifier's config in NVDA's config.</source>
+</segment>
+</unit>
+<unit id="4f4915e4-9d1b-4f6e-a77b-358688e49b34">
+<notes>
+<note appliesTo="source">line: 225</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Compatibility with NVDA 2023.1.</source>
+</segment>
+</unit>
+<unit id="63808407-32e9-4505-bb15-a8e153c52e5c">
+<notes>
+<note appliesTo="source">line: 226</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Clarify which type of tracking is re-enabled when tracking is toggled on again.</source>
+</segment>
+</unit>
+<unit id="32d5c956-27fb-4a96-8d29-2bb6c65cac51">
+<notes>
+<note appliesTo="source">line: 227</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Updated localizations.</source>
+</segment>
+</unit>
+<unit id="b1587812-e62b-411d-8340-ec12b2a85797">
+<notes>
+<note appliesTo="source">line: 229</note>
+<note appliesTo="source">prefix: ### </note>
+</notes>
+<segment>
+<source>Version 2.0</source>
+</segment>
+</unit>
+<unit id="9436bc2c-bd77-43e8-9158-11a9bd31fa7f">
+<notes>
+<note appliesTo="source">line: 231</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>The view can be moved with arrows while in Windows Magnifier layer.</source>
+</segment>
+</unit>
+<unit id="66f070f7-6cc7-4a5a-99d9-ab0ebcbe27f8">
+<notes>
+<note appliesTo="source">line: 232</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Capability to keep the Magnifier commands Window always on top or not.</source>
+</segment>
+</unit>
+<unit id="0a94a287-940a-49d4-af03-726912c0e8bf">
+<notes>
+<note appliesTo="source">line: 233</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Added "Report screen edges" feature.</source>
+</segment>
+</unit>
+<unit id="c0498488-82e6-438f-8578-85b265fe336d">
+<notes>
+<note appliesTo="source">line: 234</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Volume setting of tones when using move view commands.</source>
+</segment>
+</unit>
+<unit id="3ac83db4-1bda-449e-b75f-fcc156c5f6dc">
+<notes>
+<note appliesTo="source">line: 235</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Reporting view moves and mouse to view commands are now supported in Lens mode.</source>
+</segment>
+</unit>
+<unit id="9427b790-44ab-486d-a495-5348799b4957">
+<notes>
+<note appliesTo="source">line: 236</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Compatibility with NVDA 2022.1.</source>
+</segment>
+</unit>
+<unit id="324e47e4-74b5-4ac2-9754-4abec538405b">
+<notes>
+<note appliesTo="source">line: 237</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Fixed a bug that sometimes incorrectly reported that the Magnifier was not working upon script call.</source>
+</segment>
+</unit>
+<unit id="b509c47c-6044-4196-953f-3c86264b7453">
+<notes>
+<note appliesTo="source">line: 238</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>The release is now performed thanks to a GitHub action instead of appVeyor.</source>
+</segment>
+</unit>
+<unit id="ca0ae877-0464-4846-888d-8e7c619cc8c8">
+<notes>
+<note appliesTo="source">line: 239</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Updated localizations.</source>
+</segment>
+</unit>
+<unit id="6ca1100d-af54-427c-bf76-5e340c61d355">
+<notes>
+<note appliesTo="source">line: 241</note>
+<note appliesTo="source">prefix: ### </note>
+</notes>
+<segment>
+<source>Version 1.1</source>
+</segment>
+</unit>
+<unit id="bdab8bea-5fb2-4cd1-8c75-fb56dbba4892">
+<notes>
+<note appliesTo="source">line: 243</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Added localizations.</source>
+</segment>
+</unit>
+<unit id="1cdfe073-a141-4ae0-84e0-288bf1180fa0">
+<notes>
+<note appliesTo="source">line: 245</note>
+<note appliesTo="source">prefix: ### </note>
+</notes>
+<segment>
+<source>Version 1.0</source>
+</segment>
+</unit>
+<unit id="2a75a6b9-7b99-45bd-9aa4-ce6699f8d2c7">
+<notes>
+<note appliesTo="source">line: 247</note>
+<note appliesTo="source">prefix: * </note>
+</notes>
+<segment>
+<source>Initial release.</source>
+</segment>
+</unit>
+<unit id="e3a717fd-d2be-4f2b-86e0-4a750b8376a3">
+<notes>
+<note appliesTo="source">line: 249</note>
+</notes>
+<segment>
+<source>[3]: https://github.com/CyrilleB79/winMag</source>
+</segment>
+</unit>
+<unit id="e77b9e58-e762-40f4-a763-b1fb32d22f85">
+<notes>
+<note appliesTo="source">line: 251</note>
+</notes>
+<segment>
+<source>[4]: https://support.microsoft.com/en-us/help/13810</source>
+</segment>
+</unit>
+<unit id="e558e373-4538-4dec-8801-073b0398995d">
+<notes>
+<note appliesTo="source">line: 253</note>
+</notes>
+<segment>
+<source>[6]: https://github.com/CyrilleB79/winMag/releases/download/V1.1/winMag-1.1.nvda-addon</source>
+</segment>
+</unit>
+<unit id="dd7879cc-2a20-45de-bf5a-84e0f4e5c4fb">
+<notes>
+<note appliesTo="source">line: 255</note>
+</notes>
+<segment>
+<source>[7]: https://github.com/CyrilleB79/winMag/releases/download/V3.2/winMag-3.2.nvda-addon</source>
+</segment>
+</unit>
+<unit id="d59d3225-30ed-4882-acef-78dd9838ea38">
+<notes>
+<note appliesTo="source">line: 257</note>
+</notes>
+<segment>
+<source>[8]: https://github.com/nvaccess/nvda/security/advisories/GHSA-xg6w-23rw-39r8#event-132994</source>
+</segment>
+</unit>
+<unit id="e736f95c-089d-43bb-aa20-260e93fd4215">
+<notes>
+<note appliesTo="source">line: 259</note>
+</notes>
+<segment>
+<source>[9]: https://support.microsoft.com/en-us/windows/make-windows-easier-to-see-c97c2b0d-cadb-93f0-5fd1-59ccfe19345d</source>
+</segment>
+</unit>
+<unit id="a7424199-955e-4ba5-8f53-a345c60cdbff">
+<notes>
+<note appliesTo="source">line: 261</note>
+</notes>
+<segment>
+<source>[10]: https://github.com/CyrilleB79/winMag/releases/download/V4.3/winMag-4.3.nvda-addon</source>
+</segment>
+</unit>
+</file>
+</xliff>
