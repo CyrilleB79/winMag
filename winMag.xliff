@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="en">
-<file id="readme.md" original="https://raw.githubusercontent.com/CyrilleB79/winMag/3bbe3c6b5cbc3c49f22885863c50bcba0b59b9b0/readme.md">
+<file id="readme.md" original="https://raw.githubusercontent.com/CyrilleB79/winMag/3a4bd272aecc2b8faebe1da40db90cc1868a9138/readme.md">
 <skeleton>
 # $(ID:0a7e41d0-cab7-495a-bd45-69a13f6ee7a9)
 
@@ -55,7 +55,7 @@ $(ID:29ed1fed-1517-459d-b77d-8db0268148a5)
 $(ID:ec6270a0-9755-400b-a0a5-6540403aa43e)
 $(ID:e1f1c49d-a2cb-4c80-8945-e368938a310c)
 * $(ID:c82b2b82-9dbd-491b-9e35-a0dd6ab8234e)
-$(ID:a323294d-6630-4d15-8277-566df3cf4888)
+$(ID:81747d89-57c4-4e42-b0cf-d866fbf465b2)
   
     * $(ID:f3ed3990-896a-4fb3-834a-bf9c26c72f62)
 $(ID:0c850c73-95bf-428f-9009-25e6b270c7e5)
@@ -262,7 +262,6 @@ $(ID:d59d3225-30ed-4882-acef-78dd9838ea38)
 $(ID:e736f95c-089d-43bb-aa20-260e93fd4215)
 
 $(ID:a7424199-955e-4ba5-8f53-a345c60cdbff)
-
 </skeleton>
 <unit id="0a7e41d0-cab7-495a-bd45-69a13f6ee7a9">
 <notes>
@@ -606,7 +605,7 @@ $(ID:a7424199-955e-4ba5-8f53-a345c60cdbff)
 <source>In documents and list views, pass control+alt+arrows shortcuts to Windows Magnifier:</source>
 </segment>
 </unit>
-<unit id="a323294d-6630-4d15-8277-566df3cf4888">
+<unit id="81747d89-57c4-4e42-b0cf-d866fbf465b2">
 <notes>
 <note appliesTo="source">line: 55</note>
 </notes>
