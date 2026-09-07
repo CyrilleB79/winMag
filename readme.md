@@ -51,7 +51,7 @@ The panel contains the following options:
   In lens mode, the new dimension cannot be reported for now.
   These resizing command do not seem to be available on all versions of Windows; if your Windows version does not support them, you should keep this option unchecked.
 * In documents and list views, pass control+alt+arrows shortcuts to Windows Magnifier:
-  There are three possible choices:  
+  There are three possible choices:
   
     * Never: The command is not passed to Windows Magnifier and standard NVDA table navigation can operate.
       When used in documents out of a table, the Control+Alt+Arrow command reports a "Not in a table" error message.
