@@ -1,205 +1,342 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the winMag package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: winMag 1.0\n"
-"Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
-"POT-Creation-Date: 2021-07-02 22:20+0000\n"
-"PO-Revision-Date: 2024-06-20 00:06+0300\n"
-"Last-Translator: Ruslan Kolodyazhni <rupelodn@gmail.com>\n"
-"Language-Team: Translators <nvda-translations@groups.io>\n"
-"Language: ru\n"
+"Project-Id-Version: nvdaaddons\n"
+"Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
+"POT-Creation-Date: 2026-08-31 03:21+0000\n"
+"PO-Revision-Date: 2026-09-01 11:48\n"
+"Last-Translator: \n"
+"Language-Team: Russian\n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.4.2\n"
+"Plural-Forms: nplurals=4; plural=((n%10==1 && n%100!=11) ? 0 : ((n%10 >= 2 && n%10 <=4 && (n%100 < 12 || n%100 > 14)) ? 1 : ((n%10 == 0 || (n%10 >= 5 && n%10 <=9)) || (n%100 >= 11 && n%100 <= 14)) ? 2 : 3));\n"
+"X-Crowdin-Project: nvdaaddons\n"
+"X-Crowdin-Project-ID: 780748\n"
+"X-Crowdin-Language: ru\n"
+"X-Crowdin-File: winMag.pot\n"
+"X-Crowdin-File-ID: 292\n"
+
+#. Translators: A color filter as listed in windows settings, Ease of Access, Color filters
+#: addon\globalPlugins\winMag\utils.py:49
+msgid "Grayscale"
+msgstr ""
+
+#. Translators: A color filter as listed in windows settings, Ease of Access, Color filters
+#: addon\globalPlugins\winMag\utils.py:51
+msgid "Inverted"
+msgstr ""
+
+#. Translators: A color filter as listed in windows settings, Ease of Access, Color filters
+#: addon\globalPlugins\winMag\utils.py:53
+msgid "Grayscale inverted"
+msgstr ""
+
+#. Translators: A color filter as listed in windows settings, Ease of Access, Color filters
+#: addon\globalPlugins\winMag\utils.py:55
+msgid "Red-green"
+msgstr ""
+
+#. Translators: A color filter as listed in windows settings, Ease of Access, Color filters
+#: addon\globalPlugins\winMag\utils.py:57
+msgid "Green-red"
+msgstr ""
+
+#. Translators: A color filter as listed in windows settings, Ease of Access, Color filters
+#: addon\globalPlugins\winMag\utils.py:59
+msgid "Blue-yellow"
+msgstr ""
+
+#. Translators: This is the label for the Windows Magnifier settings panel.
+#. Add-on summary/title, usually the user visible name of the add-on
+#. Translators: Summary/title for this add-on
+#. to be shown on installation and add-on information found in add-on store
+#: addon\globalPlugins\winMag\wmGui.py:27 buildVars.py:22
+msgid "Windows Magnifier"
+msgstr "Лупа Windows"
+
+#. Translators: An option in the combobox "Report view moves" in winMag setting panel.
+#: addon\globalPlugins\winMag\wmGui.py:31
+msgid "Off"
+msgstr "Выключено"
+
+#. Translators: An option in the combobox "Report view moves" in winMag setting panel.
+#: addon\globalPlugins\winMag\wmGui.py:33
+msgid "With speech"
+msgstr "Речь"
+
+#. Translators: An option in the combobox "Report view moves" in winMag setting panel.
+#: addon\globalPlugins\winMag\wmGui.py:35
+msgid "With tones"
+msgstr "Сигналы"
+
+#. Translators: An option in the combobox that configures passing control+alt+arrow in winMag setting panel.
+#: addon\globalPlugins\winMag\wmGui.py:39
+msgid "Never"
+msgstr "Никогда"
+
+#. Translators: An option in the combobox that configures passing control+alt+arrow in winMag setting panel.
+#: addon\globalPlugins\winMag\wmGui.py:41
+msgid "Only when not in table"
+msgstr "Только когда не в таблице"
+
+#. Translators: An option in the combobox that configures passing control+alt+arrow in winMag setting panel.
+#: addon\globalPlugins\winMag\wmGui.py:43
+msgid "Always"
+msgstr "Всегда"
+
+#. Translators: This is the label for a combobox in the Windows Magnifier settings panel.
+#: addon\globalPlugins\winMag\wmGui.py:50
+msgid "Report view &moves:"
+msgstr "Сообщать о &перемещениях представления:"
+
+#. Translators: This is the label for a combobox in the Windows Magnifier settings panel.
+#: addon\globalPlugins\winMag\wmGui.py:66
+msgid "Report screen &edges:"
+msgstr "&Сообщать о краях экрана:"
+
+#. Translators: This is the label for a slider in the Windows Magnifier settings panel.
+#: addon\globalPlugins\winMag\wmGui.py:82
+msgid "Volume of the tones indicating the &position of the view:"
+msgstr "&Громкость звуковых сигналов, указывающих положение точки обзора:"
+
+#. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
+#: addon\globalPlugins\winMag\wmGui.py:96
+msgid "Report &turn on or off"
+msgstr "&Сообщать о включении или выключении"
+
+#. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
+#: addon\globalPlugins\winMag\wmGui.py:102
+msgid "Report &zoom"
+msgstr "&Сообщать об увеличении"
+
+#. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
+#: addon\globalPlugins\winMag\wmGui.py:108
+msgid "Report color &inversion"
+msgstr "&Сообщать об инверсии цвета"
+
+#. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
+#: addon\globalPlugins\winMag\wmGui.py:114
+msgid "Report &view change"
+msgstr "&Сообщать об изменении представления"
+
+#. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
+#: addon\globalPlugins\winMag\wmGui.py:120
+msgid "Report &lens or docked window resizing"
+msgstr "&Сообщать изменение размера объектива или закреплённого окна"
+
+#. Translators: This is the label for a combobox in the Windows Magnifier settings panel.
+#: addon\globalPlugins\winMag\wmGui.py:126
+msgid "In &documents and list views, pass control+alt+arrows shortcuts to Windows Magnifier:"
+msgstr "Передавать сочетания клавиш control+alt+стрелки в Windows Magnifier в &документах и списках:"
+
+#. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
+#: addon\globalPlugins\winMag\wmGui.py:143
+msgid "&Keep Windows Magnifier command window always on top"
+msgstr "&Держать командное окно Windows Magnifier всегда сверху"
+
+#. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
+#: addon\globalPlugins\winMag\wmGui.py:154
+msgid "Report &color filter"
+msgstr ""
 
 #. Alpha-numeric keyboard Magnifier keys
 #. Translators: The key used natively byt the Magnifier on the alpha-numeric (main) keyboard in conjunction
 #. with Win key to zoom in.
+#: addon\globalPlugins\winMag\__init__.py:99
 msgid "="
 msgstr "равно"
 
 #. Translators: The key used natively byt the Magnifier on the alpha-numeric (main) keyboard in conjunction
 #. with Win key to zoom out.
+#: addon\globalPlugins\winMag\__init__.py:102
 msgid "-"
 msgstr "минус"
 
 #. Translators: The message reported when the user tries to use a Magnifier dedicated command
 #. while the Magnifier is not running.
+#: addon\globalPlugins\winMag\__init__.py:128
 msgid "The Magnifier is not active"
 msgstr "Лупа не активна"
 
 #. Translators: The message reported when the user tries to toggle a tracking mode while docked
 #. or full screen view is not active.
+#: addon\globalPlugins\winMag\__init__.py:146
 msgid "Tracking configuration only applicable with docked or full screen view."
-msgstr ""
-"Конфигурация отслеживания применима только в закреплённом режиме или в "
-"полноэкранном режиме."
+msgstr "Конфигурация отслеживания применима только в закреплённом режиме или в полноэкранном режиме."
 
 #. Translators: A UI object that can be tracked (followed) by the Magnifier.
 #. If possible, translate with the term used in Magnifier's options.
+#: addon\globalPlugins\winMag\__init__.py:310
 msgid "Mouse pointer"
 msgstr "Указатель мыши"
 
 #. Translators: A UI object that can be tracked (followed) by the Magnifier.
 #. If possible, translate with the term used in Magnifier's options.
+#: addon\globalPlugins\winMag\__init__.py:313
 msgid "Keyboard focus"
 msgstr "Фокус клавиатуры"
 
 #. Translators: A UI object that can be tracked (followed) by the Magnifier.
 #. If possible, translate with the term used in Magnifier's options.
+#: addon\globalPlugins\winMag\__init__.py:316
 msgid "Text cursor"
 msgstr "Текстовый курсор"
 
 #. Translators: The description of a command of this add-on.
+#: addon\globalPlugins\winMag\__init__.py:345
 msgid "Toggles on or off caret tracking"
 msgstr "Переключает отслеживание каретки"
 
 #. Translators: The description of a command of this add-on.
+#: addon\globalPlugins\winMag\__init__.py:347
 msgid "Toggles on or off focus tracking"
 msgstr "Переключаетет отслеживание фокуса"
 
 #. Translators: The description of a command of this add-on.
+#: addon\globalPlugins\winMag\__init__.py:349
 msgid "Toggles on or off mouse tracking"
 msgstr "Переключаетет отслеживание мыши"
 
 #. Translators: The description of a command of this add-on.
+#: addon\globalPlugins\winMag\__init__.py:351
 msgid "Toggles on or off tracking globally"
 msgstr "Переключает отслеживание"
 
 #. Translators: The description of a command of this add-on.
+#: addon\globalPlugins\winMag\__init__.py:353
 msgid "Toggles on or off smoothing"
 msgstr "Переключает сглаживание"
 
 #. Translators: The description of a command of this add-on.
-msgid ""
-"Switches between mouse pointer tracking modes (within the edge of the screen "
-"or centered on the screen)"
-msgstr ""
-"Переключает между режимами отслеживания указателя мыши (в пределах края "
-"экрана или по центру экрана)"
+#: addon\globalPlugins\winMag\__init__.py:356
+msgid "Switches between mouse pointer tracking modes (within the edge of the screen or centered on the screen)"
+msgstr "Переключает между режимами отслеживания указателя мыши (в пределах края экрана или по центру экрана)"
 
 #. Translators: The description of a command of this add-on.
-msgid ""
-"Switches between text tracking modes (within the edge of the screen or "
-"centered on the screen)"
-msgstr ""
-"Переключение между режимами отслеживания текста (по краям экрана или по "
-"центру экрана)"
+#: addon\globalPlugins\winMag\__init__.py:360
+msgid "Switches between text tracking modes (within the edge of the screen or centered on the screen)"
+msgstr "Переключение между режимами отслеживания текста (по краям экрана или по центру экрана)"
 
 #. Translators: The description of a command of this add-on.
-msgid ""
-"Saves the current configuration parameters of the magnifier to NVDA's "
-"configuration."
+#: addon\globalPlugins\winMag\__init__.py:364
+msgid "Saves the current configuration parameters of the magnifier to NVDA's configuration."
 msgstr "Сохраняет текущие параметры конфигурации лупы в конфигурации NVDA."
 
 #. Translators: The description of a command of this add-on.
-msgid ""
-"Restores the current configuration parameters of the magnifier from NVDA's "
-"configuration."
-msgstr ""
-"Восстанавливает текущие параметры конфигурации лупы из конфигурации NVDA."
+#: addon\globalPlugins\winMag\__init__.py:368
+msgid "Restores the current configuration parameters of the magnifier from NVDA's configuration."
+msgstr "Восстанавливает текущие параметры конфигурации лупы из конфигурации NVDA."
 
 #. Translators: The description of a command of this add-on.
+#: addon\globalPlugins\winMag\__init__.py:371
 msgid "Moves the magnified view"
 msgstr "Перемещает увеличенное представление"
 
 #. Translators: The description of a command of this add-on.
+#: addon\globalPlugins\winMag\__init__.py:373
 msgid "Moves the mouse cursor in the center of the zoomed view"
 msgstr "Перемещает курсор мыши в центр увеличенного изображения"
 
 #. Translators: The description of a command of this add-on.
-msgid ""
-"Switches on or off the mode keeping Windows Magnifier's control window "
-"always on top of the other ones."
-msgstr ""
-"Переключает режим, при котором окно управления экранной лупой Windows всегда "
-"находится поверх других окон."
+#: addon\globalPlugins\winMag\__init__.py:376
+msgid "Switches on or off the mode keeping Windows Magnifier's control window always on top of the other ones."
+msgstr "Переключает режим, при котором окно управления экранной лупой Windows всегда находится поверх других окон."
 
 #. Translators: The description of a command of this add-on.
+#: addon\globalPlugins\winMag\__init__.py:379
 msgid "Opens Windows Magnifier add-on settings"
 msgstr "Открывает настройки дополнения"
 
 #. Translators: The description of a command of this add-on.
+#: addon\globalPlugins\winMag\__init__.py:381
 msgid "Displays help on Magnifier layer commands"
 msgstr "Показываетет справку по командам лупы"
 
 #. Translators: A message reported when the user tries to execute a script in multi-screen setup.
-msgid ""
-"Multi-screen setup not yet supported. Please contact the add-on author to "
-"have it implemented."
-msgstr ""
-"Многоэкранная настройка пока не поддерживается. Пожалуйста, свяжитесь с "
-"автором дополнения, чтобы это было реализовано."
+#: addon\globalPlugins\winMag\__init__.py:398
+msgid "Multi-screen setup not yet supported. Please contact the add-on author to have it implemented."
+msgstr "Многоэкранная настройка пока не поддерживается. Пожалуйста, свяжитесь с автором дополнения, чтобы это было реализовано."
 
 #. Translators: Part of the description for the layered command script.
+#: addon\globalPlugins\winMag\__init__.py:617
 msgid "Windows Magnifier layer commands entry point."
 msgstr "Точка входа команд лупы Windows."
 
 #. Translators: A message reported when the user reaches the edge of the screen while moving the view.
+#: addon\globalPlugins\winMag\__init__.py:803
 msgid "Edge of the screen."
 msgstr "Край экрана."
 
 #. Translators: A dimension reported when the user resizes the docked view.
+#: addon\globalPlugins\winMag\__init__.py:854
 msgid "Widht"
 msgstr "Ширина"
 
 #. Translators: A dimension reported when the user resizes the docked view.
+#: addon\globalPlugins\winMag\__init__.py:859
 msgid "Height"
 msgstr "Высота"
 
 #. Translators: A message reported when the user resizes the lens with the keyboard.
+#: addon\globalPlugins\winMag\__init__.py:867
 msgid "Resizing lens."
 msgstr "Изменение размера объектива."
 
 #. Translators: A message reported when the user uses resizing shortcuts (control+shift+arrow)
 #. in full screen view.
+#: addon\globalPlugins\winMag\__init__.py:871
 msgid "Resizing not available in full screen."
 msgstr "Изменение размера в полноэкранном режиме недоступно."
 
 #. Translators: The message reported when the user turns on caret tracking.
+#: addon\globalPlugins\winMag\__init__.py:887
 msgid "Caret tracking on"
 msgstr "Отслеживание каретки включено"
 
 #. Translators: The message reported when the user turns off caret tracking.
+#: addon\globalPlugins\winMag\__init__.py:890
 msgid "Caret tracking off"
 msgstr "Отслеживание каретки выключено"
 
 #. Translators: The message reported when the user turns on focus tracking.
+#: addon\globalPlugins\winMag\__init__.py:904
 msgid "Focus tracking on"
 msgstr "Отслеживание фокуса включено"
 
 #. Translators: The message reported when the user turns off focus tracking.
+#: addon\globalPlugins\winMag\__init__.py:907
 msgid "Focus tracking off"
 msgstr "Отслеживание фокуса выключено"
 
 #. Translators: The message reported when the user turns on mouse tracking.
+#: addon\globalPlugins\winMag\__init__.py:921
 msgid "Mouse tracking on"
 msgstr "Отслеживание мыши включено"
 
 #. Translators: The message reported when the user turns off focus tracking.
+#: addon\globalPlugins\winMag\__init__.py:924
 msgid "Mouse tracking off"
 msgstr "Отслеживание мыши выключено"
 
 #. Translators: The message reported when the user turns on tracking.
+#: addon\globalPlugins\winMag\__init__.py:939
 #, python-brace-format
 msgid "Tracking on - {trackingTypes}"
 msgstr "Отслеживание включено - {trackingTypes}"
 
 #. Translators: The message reported when the user turns off tracking.
+#: addon\globalPlugins\winMag\__init__.py:947
 msgid "Tracking off"
 msgstr "Отслеживание выключено"
 
 #. Translators: The message reported when the user turns on smoothing.
+#: addon\globalPlugins\winMag\__init__.py:959
 msgid "Smoothing on"
 msgstr "Сглаживание включено"
 
 #. Translators: The message reported when the user turns off smoothing.
+#: addon\globalPlugins\winMag\__init__.py:962
 msgid "Smoothing off"
 msgstr "Сглаживание выключено"
 
@@ -207,216 +344,175 @@ msgstr "Сглаживание выключено"
 #. whereas their Windows version does not support it.
 #. Translators: The message reported when the user tries to toggle text cursor tracking mode
 #. whereas their Windows version does not support it.
+#: addon\globalPlugins\winMag\__init__.py:975
+#: addon\globalPlugins\winMag\__init__.py:1003
 msgid "Feature unavailable in this version of Windows."
 msgstr "Функция недоступна в этой версии Windows."
 
 #. Translators: The message reported when the user tries to toggle mouse pointer tracking mode
 #. while full screen view is not active.
+#: addon\globalPlugins\winMag\__init__.py:982
 msgid "Mouse pointer tracking mode applies only to full screen view."
-msgstr ""
-"Режим отслеживания указателя мыши применяется только к полноэкранному режиму "
-"просмотра."
+msgstr "Режим отслеживания указателя мыши применяется только к полноэкранному режиму просмотра."
 
 #. Translators: A message reporting mouse pointer tracking mode (cf. option in Magnifier settings).
 #. Translators: A message reporting text cursor tracking mode (cf. option in Magnifier settings).
+#: addon\globalPlugins\winMag\__init__.py:987
+#: addon\globalPlugins\winMag\__init__.py:1015
 msgid "Centered on the screen"
 msgstr "По центру экрана"
 
 #. Translators: A message reporting mouse pointer tracking mode (cf. option in Magnifier settings).
 #. Translators: A message reporting text cursor tracking mode (cf. option in Magnifier settings).
+#: addon\globalPlugins\winMag\__init__.py:990
+#: addon\globalPlugins\winMag\__init__.py:1018
 msgid "Within the edge of the screen"
 msgstr "В пределах границы экрана"
 
 #. Translators: The message reported when the user tries to toggle text cursor tracking mode
 #. while full screen view is not active.
+#: addon\globalPlugins\winMag\__init__.py:1010
 msgid "Text cursor tracking mode applies only to full screen view."
-msgstr ""
-"Режим отслеживания текстового курсора применяется только к полноэкранному "
-"режиму просмотра."
+msgstr "Режим отслеживания текстового курсора применяется только к полноэкранному режиму просмотра."
 
 #. Translators: A message reported when the user calls the command
 #. to save the Magnifier's configuration.
+#: addon\globalPlugins\winMag\__init__.py:1032
 msgid "Magnifier config saved."
 msgstr "Конфигурация лупы сохранена."
 
 #. Translators: A message reported when the user calls the command
 #. to restores the Magnifier's configuration.
+#: addon\globalPlugins\winMag\__init__.py:1052
 msgid "Magnifier config restored."
 msgstr "Конфигурация лупы восстановлена."
 
 #. Translators: A message reported when the user tries to execute script mouseToView
-msgid ""
-"Move mouse to view command available only on Windows 8 and above in full "
-"screen mode."
-msgstr ""
-"Команда \"Переместить мышь для просмотра\" доступна только в полноэкранном "
-"режиме в Windows 8 и выше ."
-
-#. Translators: A message reported when the user tries to execute script mouseToView
-msgid ""
-"Move mouse to view command not available in full screen mode while screen "
-"curtain is active."
-msgstr ""
-"Команда \"Переместить мышь для просмотра\" недоступна в полноэкранном режиме "
-"при активном затемнении экрана."
+#: addon\globalPlugins\winMag\__init__.py:1091
+msgid "Move mouse to view command not available in full screen mode while screen curtain is active."
+msgstr "Команда \"Переместить мышь для просмотра\" недоступна в полноэкранном режиме при активном затемнении экрана."
 
 #. o = getDockedWindowObject()
 #. hwnd = o.windowHandle
 #. # Error on next line
 #. rect = Magnification.MagGetWindowSource(hwnd)
 #. Translators: A message reported when the user tries to execute script mouseToView
+#: addon\globalPlugins\winMag\__init__.py:1101
 msgid "Move mouse to view not implemented for docked view"
-msgstr ""
-"Команда переместить мышь на представление не реализована для закреплённого "
-"представления"
+msgstr "Команда переместить мышь на представление не реализована для закреплённого представления"
 
 #. Translators: A message reported when trying toggling "always on top" mode for Windows Magnifier's window
 #. while running a portable NVDA.
+#: addon\globalPlugins\winMag\__init__.py:1116
 msgid "Command only supported in installed versions of NVDA."
 msgstr "Команда поддерживается только в установленных версиях NVDA."
 
 #. Translators: A message reported when toggling "always on top" mode
 #. for Windows Magnifier's control window
+#: addon\globalPlugins\winMag\__init__.py:1134
 msgid "Magnifier controls always on top."
 msgstr "Элементы управления лупой всегда находятся сверху."
 
 #. Translators: A message reported when toggling "always on top" mode for Windows Magnifier's window
+#: addon\globalPlugins\winMag\__init__.py:1137
 msgid "Magnifier controls not on top."
 msgstr "Элементы управления лупой не расположены сверху."
 
 #. Translators: A message reported in secure screen when the user attempts to modify magnifiers settings.
+#: addon\globalPlugins\winMag\__init__.py:1181
 msgid "Command unavailable on this screen."
 msgstr "Команда недоступна на этом экране."
 
 #. Translators: The message reported when the user turns on the Magnifier.
+#: addon\globalPlugins\winMag\__init__.py:1200
 msgid "Magnifier on"
 msgstr "Лупа включена"
 
 #. Translators: The message reported when the user turns off the Magnifier.
+#: addon\globalPlugins\winMag\__init__.py:1203
 msgid "Magnifier off"
 msgstr "Лупа отключена"
 
 #. Translators: A zoom level reported when the user changes the zoom level.
+#: addon\globalPlugins\winMag\__init__.py:1216
 #, python-brace-format
 msgid "{zoomLevel}%"
 msgstr "{zoomLevel}%"
 
 #. Translators: The message reported when the user turns on color inversion.
+#: addon\globalPlugins\winMag\__init__.py:1226
 msgid "Color inversion on"
 msgstr "Инверсия цвета включена"
 
 #. Translators: The message reported when the user turns off color inversion.
+#: addon\globalPlugins\winMag\__init__.py:1229
 msgid "Color inversion off"
 msgstr "Инверсия цвета выключена"
 
 #. Translators: A view type reported when the user changes the Magnifier view.
 #. See the view menu items in the Magnifier's toolbar.
+#: addon\globalPlugins\winMag\__init__.py:1239
 msgid "Docked"
 msgstr "Закреплено"
 
 #. Translators: A view type reported when the user changes the Magnifier view.
 #. See the view menu items in the Magnifier's toolbar.
+#: addon\globalPlugins\winMag\__init__.py:1243
 msgid "Full screen"
 msgstr "Полноэкранный режим"
 
 #. Translators: A view type reported when the user changes the Magnifier view.
 #. See the view menu items in the Magnifier's toolbar.
+#: addon\globalPlugins\winMag\__init__.py:1247
 msgid "Lens"
 msgstr "Объектив"
 
+#. Translators: A message reported when the user enables or disables color filtering.
+#: addon\globalPlugins\winMag\__init__.py:1269
+msgid "Color filtering enabled"
+msgstr ""
+
+#. Translators: A message reported when the user enables or disables color filtering.
+#: addon\globalPlugins\winMag\__init__.py:1272
+#, python-brace-format
+msgid "Color filtering: {cf}"
+msgstr ""
+
+#. Translators: A message reported when the user enables or disables color filtering.
+#: addon\globalPlugins\winMag\__init__.py:1275
+msgid "Color filtering disabled"
+msgstr ""
+
 #. Translators: Title of the layered command help window.
+#: addon\globalPlugins\winMag\__init__.py:1299
 msgid "Windows Magnifier layered commands"
 msgstr "Многоуровневые команды Лупы Windows"
 
 #. Translators: Separator between key names in the layered command help window.
+#: addon\globalPlugins\winMag\__init__.py:1305
 msgid ", "
 msgstr ", "
 
 #. Translators: Part of the help message displayed for the layered command help.
+#: addon\globalPlugins\winMag\__init__.py:1315
 #, python-brace-format
-msgid ""
-"Magnifier layer commands:\n"
+msgid "Magnifier layer commands:\n"
 "{cmdList}"
-msgstr ""
-"Клавиатурные команды лупы:\n"
+msgstr "Клавиатурные команды лупы:\n"
 "{cmdList}"
-
-#. Translators: This is the label for the Windows Magnifier settings panel.
-#. Add-on summary, usually the user visible name of the addon.
-#. Translators: Summary for this add-on
-#. to be shown on installation and add-on information found in Add-ons Manager.
-msgid "Windows Magnifier"
-msgstr "Лупа Windows"
-
-#. Translators: An option in the combobox "Report view moves" in winMag setting panel.
-msgid "Off"
-msgstr "Выключено"
-
-#. Translators: An option in the combobox "Report view moves" in winMag setting panel.
-msgid "With speech"
-msgstr "Речь"
-
-#. Translators: An option in the combobox "Report view moves" in winMag setting panel.
-msgid "With tones"
-msgstr "Сигналы"
-
-#. Translators: An option in the combobox that configures passing control+alt+arrow in winMag setting panel.
-msgid "Never"
-msgstr "Никогда"
-
-#. Translators: An option in the combobox that configures passing control+alt+arrow in winMag setting panel.
-msgid "Only when not in table"
-msgstr "Только когда не в таблице"
-
-#. Translators: An option in the combobox that configures passing control+alt+arrow in winMag setting panel.
-msgid "Always"
-msgstr "Всегда"
-
-#. Translators: This is the label for a combobox in the Windows Magnifier settings panel.
-msgid "Report view &moves:"
-msgstr "Сообщать о &перемещениях представления:"
-
-#. Translators: This is the label for a combobox in the Windows Magnifier settings panel.
-msgid "Report screen &edges:"
-msgstr "&Сообщать о краях экрана:"
-
-#. Translators: This is the label for a slider in the Windows Magnifier settings panel.
-msgid "Volume of the tones indicating the &position of the view:"
-msgstr "&Громкость звуковых сигналов, указывающих положение точки обзора:"
-
-#. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
-msgid "Report &turn on or off"
-msgstr "&Сообщать о включении или выключении"
-
-#. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
-msgid "Report &zoom"
-msgstr "&Сообщать об увеличении"
-
-#. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
-msgid "Report color &inversion"
-msgstr "&Сообщать об инверсии цвета"
-
-#. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
-msgid "Report &view change"
-msgstr "&Сообщать об изменении представления"
-
-#. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
-msgid "Report &lens or docked window resizing"
-msgstr "&Сообщать изменение размера объектива или закреплённого окна"
-
-#. Translators: This is the label for a combobox in the Windows Magnifier settings panel.
-msgid ""
-"In &documents and list views, pass control+alt+arrows shortcuts to Windows "
-"Magnifier:"
-msgstr ""
-"Передавать сочетания клавиш control+alt+стрелки в Windows Magnifier в "
-"&документах и списках:"
-
-#. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
-msgid "&Keep Windows Magnifier command window always on top"
-msgstr "&Держать командное окно Windows Magnifier всегда сверху"
 
 #. Add-on description
-#. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
+#. Translators: Long description to be shown for this add-on on add-on information from add-on store
+#: buildVars.py:25
 msgid "This add-on improves the use of Windows Magnifier with NVDA."
 msgstr "Это дополнение улучшает использование экранной лупы Windows с NVDA."
+
+#. Brief changelog for this version
+#. Translators: what's new content for the add-on version to be shown in the add-on store
+#: buildVars.py:30
+msgid "* The add-on is now compatible with NVDA 2026.1.\n"
+"* The add-on is no longer compatible with NVDA 2019.2.1: it is now only compatible with NVDA 2019.3 and beyond.\n"
+"  The last compatible versions with NVDA 2019.2.1 is the [4.3][10].\n\n"
+"[10]: https://github.com/CyrilleB79/winMag/releases/download/V4.3/winMag-4.3.nvda-addon\n"
+msgstr ""
+
