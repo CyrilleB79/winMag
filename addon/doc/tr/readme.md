@@ -51,7 +51,7 @@ Panel aşağıdaki seçenekleri içerir:
   Lens modunda, yeni boyut şimdilik bildirilemez.
   Bu yeniden boyutlandırma komutları tüm Windows sürümlerinde mevcut görünmüyor; Windows sürümünüz bunları desteklemiyorsa, bu seçeneği işaretlememelisiniz.
 * Belgelerde ve liste görünümlerinde, Ctrl+Alt+Ok tuşları kısayollarını Windows Büyüteç'e ilet:
-  There are three possible choices:
+  Üç seçenek bulunur:
   
     * Asla: Komut, Windows Büyüteç'e iletilmez ve standart NVDA tablo Dolaşımı çalışabilir.
       Tablo dışındaki belgelerde kullanıldığında, Control+Alt+Ok tuşları “Tablo içinde değil” hata mesajını bildirir.

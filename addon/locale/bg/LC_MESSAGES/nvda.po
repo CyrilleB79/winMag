@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: nvdaaddons\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
 "POT-Creation-Date: 2026-08-31 03:21+0000\n"
-"PO-Revision-Date: 2026-09-04 11:59\n"
+"PO-Revision-Date: 2026-09-15 00:25\n"
 "Last-Translator: \n"
 "Language-Team: Bulgarian\n"
 "Language: bg_BG\n"
@@ -20,32 +20,32 @@ msgstr ""
 #. Translators: A color filter as listed in windows settings, Ease of Access, Color filters
 #: addon\globalPlugins\winMag\utils.py:49
 msgid "Grayscale"
-msgstr ""
+msgstr "Нива на сивото"
 
 #. Translators: A color filter as listed in windows settings, Ease of Access, Color filters
 #: addon\globalPlugins\winMag\utils.py:51
 msgid "Inverted"
-msgstr ""
+msgstr "Инвертирано"
 
 #. Translators: A color filter as listed in windows settings, Ease of Access, Color filters
 #: addon\globalPlugins\winMag\utils.py:53
 msgid "Grayscale inverted"
-msgstr ""
+msgstr "Инвертирани нива на сивото"
 
 #. Translators: A color filter as listed in windows settings, Ease of Access, Color filters
 #: addon\globalPlugins\winMag\utils.py:55
 msgid "Red-green"
-msgstr ""
+msgstr "Червено-зелено"
 
 #. Translators: A color filter as listed in windows settings, Ease of Access, Color filters
 #: addon\globalPlugins\winMag\utils.py:57
 msgid "Green-red"
-msgstr ""
+msgstr "Зелено-червено"
 
 #. Translators: A color filter as listed in windows settings, Ease of Access, Color filters
 #: addon\globalPlugins\winMag\utils.py:59
 msgid "Blue-yellow"
-msgstr ""
+msgstr "Синьо-жълто"
 
 #. Translators: This is the label for the Windows Magnifier settings panel.
 #. Add-on summary/title, usually the user visible name of the add-on
@@ -138,7 +138,7 @@ msgstr "&Дръж командния прозорец на лупата на Win
 #. Translators: This is the label for a checkbox in the Windows Magnifier settings panel.
 #: addon\globalPlugins\winMag\wmGui.py:154
 msgid "Report &color filter"
-msgstr ""
+msgstr "Докладвай &цветовия филтър"
 
 #. Alpha-numeric keyboard Magnifier keys
 #. Translators: The key used natively byt the Magnifier on the alpha-numeric (main) keyboard in conjunction
@@ -470,18 +470,18 @@ msgstr "Леща"
 #. Translators: A message reported when the user enables or disables color filtering.
 #: addon\globalPlugins\winMag\__init__.py:1269
 msgid "Color filtering enabled"
-msgstr ""
+msgstr "Филтрирането на цветове е включено"
 
 #. Translators: A message reported when the user enables or disables color filtering.
 #: addon\globalPlugins\winMag\__init__.py:1272
 #, python-brace-format
 msgid "Color filtering: {cf}"
-msgstr ""
+msgstr "Филтриране на цветове: {cf}"
 
 #. Translators: A message reported when the user enables or disables color filtering.
 #: addon\globalPlugins\winMag\__init__.py:1275
 msgid "Color filtering disabled"
-msgstr ""
+msgstr "Филтрирането на цветове е изключено"
 
 #. Translators: Title of the layered command help window.
 #: addon\globalPlugins\winMag\__init__.py:1299
@@ -514,5 +514,8 @@ msgid "* The add-on is now compatible with NVDA 2026.1.\n"
 "* The add-on is no longer compatible with NVDA 2019.2.1: it is now only compatible with NVDA 2019.3 and beyond.\n"
 "  The last compatible versions with NVDA 2019.2.1 is the [4.3][10].\n\n"
 "[10]: https://github.com/CyrilleB79/winMag/releases/download/V4.3/winMag-4.3.nvda-addon\n"
-msgstr ""
+msgstr "* Добавката е съвместима с NVDA 2026.1.\n"
+"* Добавката вече не е съвместима с NVDA 2019.2.1: съвместима е само с NVDA 2019.3 и по-нови версии.\n"
+"  Последната версия съвместима с NVDA 2019.2.1 е версия [4.3][10].\n\n"
+"[10]: https://github.com/CyrilleB79/winMag/releases/download/V4.3/winMag-4.3.nvda-addon\n"
 
