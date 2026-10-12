@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="en">
-<file id="readme.md" original="https://raw.githubusercontent.com/CyrilleB79/winMag/d6b688275961e10b274c137bcd757fe9a4485282/readme.md">
+<file id="readme.md" original="https://raw.githubusercontent.com/CyrilleB79/winMag/d9abef410d3359e2bbc1b6f0085e02828365c34f/readme.md">
 <skeleton>
 # $(ID:0a7e41d0-cab7-495a-bd45-69a13f6ee7a9)
 
@@ -262,6 +262,7 @@ $(ID:d59d3225-30ed-4882-acef-78dd9838ea38)
 $(ID:e736f95c-089d-43bb-aa20-260e93fd4215)
 
 $(ID:a7424199-955e-4ba5-8f53-a345c60cdbff)
+
 </skeleton>
 <unit id="0a7e41d0-cab7-495a-bd45-69a13f6ee7a9">
 <notes>
