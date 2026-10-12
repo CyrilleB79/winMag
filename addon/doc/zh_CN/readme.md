@@ -51,7 +51,7 @@ Windows 放大镜插件的设置面板允许配置 NVDA 如何响应原生的 Wi
   在镜头模式下，目前无法读出新大小。
   这些调整大小的快捷键似乎并非在所有 Windows 版本上都可用；如果您的 Windows 版本不支持，您不应选中此选项。
 * 在文档和列表视图中，将 Ctrl+alt+光标键传递给 Windows 放大镜：
-  There are three possible choices:
+  有三种选择：
   
     * 从不：快捷键不会传递给 Windows 放大镜，标准 NVDA 表格导航可以操作。
       在表格外的文档中使用时，Ctrl+Alt+光标键会给出“不在表格的单元格中”的错误消息。
